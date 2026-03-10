@@ -63,7 +63,7 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [location.pathname, expandedItems]);
+  }, [location.pathname]); // Only trigger on route change, not on manual expand/collapse
 
   // Toggle expand/collapse for items with children
   const toggleExpand = (path) => {
