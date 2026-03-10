@@ -86,7 +86,7 @@ const TableOfContents = ({ headings }) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const offsetTop = element.offsetTop - 80;
+      const offsetTop = element.offsetTop - 100;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -103,7 +103,9 @@ const TableOfContents = ({ headings }) => {
 
   return (
     <nav className="toc" aria-label="Table of contents">
-      <h4 className="toc-title">On This Page</h4>
+      <div className="toc-header">
+        <h4 className="toc-title">On This Page</h4>
+      </div>
       <ul className="toc-list">
         {headings.map(({ id, text, level }) => (
           <li

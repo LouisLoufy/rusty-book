@@ -3,11 +3,21 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
 import matter from 'gray-matter';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-tsx';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-bash';
+import 'prismjs/themes/prism-tomorrow.css';
 import TableOfContents from './TableOfContents';
+import CodePlayground from './CodePlayground';
 import './DocContent.css';
-import 'highlight.js/styles/github-dark.css';
+import '../../styles/3d-effects.css';
+import '../../styles/animations.css';
 
 // Utility function to convert heading text to URL-friendly ID
 const slugify = (text) => {
@@ -92,8 +102,54 @@ const DocContent = () => {
       const text = children?.toString() || '';
       const id = slugify(text);
       const Tag = `h${level}`;
-      return <Tag id={id} className={`doc-h${level}`} {...props}>{children}</Tag>;
+      return (
+        <Tag id={id} className={`doc-h${level} float-up`} {...props}>
+          {children}
+        </Tag>
+      );
     };
+  };
+
+  // Custom code component that checks for playground attribute
+  const CodeComponent = ({ node, inline, className, children, ...props }) => {
+    // Handle inline code
+    if (inline) {
+      return <code className="doc-code-inline" {...props}>{children}</code>;
+    }
+
+    // Handle block code
+    const match = /language-(\w+)/.exec(className || '');
+    const language = match ? match[1] : '';
+    const code = String(children).replace(/\n$/, '');
+
+    // Check if this is a playground code block
+    const isPlayground = className?.includes('playground');
+
+    if (isPlayground) {
+      return <CodePlayground initialCode={code} language={language} />;
+    }
+
+    // Apply syntax highlighting with Prism
+    const highlightedCode = language && Prism.languages[language]
+      ? Prism.highlight(code, Prism.languages[language], language)
+      : code;
+
+    return (
+      <code
+        className={`doc-code-block hover-lift ${className || ''}`}
+        dangerouslySetInnerHTML={{ __html: highlightedCode }}
+        {...props}
+      />
+    );
+  };
+
+  // Custom pre component
+  const PreComponent = ({ children, ...props }) => {
+    return (
+      <pre className="doc-pre" {...props}>
+        {children}
+      </pre>
+    );
   };
 
   return (
@@ -105,44 +161,40 @@ const DocContent = () => {
         <meta property="og:description" content={frontmatter.description} />
       </Helmet>
 
-      <div className="doc-wrapper">
-        <article className="doc-content">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight]}
-            components={{
-              h1: createHeading(1),
-              h2: createHeading(2),
-              h3: createHeading(3),
-              h4: createHeading(4),
-              p: ({ node, ...props }) => <p className="doc-p" {...props} />,
-              // eslint-disable-next-line jsx-a11y/anchor-has-content
-              a: ({ node, ...props }) => <a className="doc-link" {...props} />,
-              code: ({ node, inline, ...props }) =>
-                inline ? (
-                  <code className="doc-code-inline" {...props} />
-                ) : (
-                  <code className="doc-code-block" {...props} />
+      <>
+        <div className="doc-wrapper">
+          <article className="doc-content">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: createHeading(1),
+                h2: createHeading(2),
+                h3: createHeading(3),
+                h4: createHeading(4),
+                p: ({ node, ...props }) => <p className="doc-p float-up" {...props} />,
+                // eslint-disable-next-line jsx-a11y/anchor-has-content
+                a: ({ node, ...props }) => <a className="doc-link" {...props} />,
+                code: CodeComponent,
+                pre: PreComponent,
+                table: ({ node, ...props }) => (
+                  <div className="doc-table-wrapper">
+                    <table className="doc-table" {...props} />
+                  </div>
                 ),
-              pre: ({ node, ...props }) => <pre className="doc-pre" {...props} />,
-              table: ({ node, ...props }) => (
-                <div className="doc-table-wrapper">
-                  <table className="doc-table" {...props} />
-                </div>
-              ),
-              blockquote: ({ node, ...props }) => (
-                <blockquote className="doc-blockquote" {...props} />
-              ),
-              ul: ({ node, ...props }) => <ul className="doc-ul" {...props} />,
-              ol: ({ node, ...props }) => <ol className="doc-ol" {...props} />,
-            }}
-          >
-            {content}
-          </ReactMarkdown>
-        </article>
+                blockquote: ({ node, ...props }) => (
+                  <blockquote className="doc-blockquote float-up" {...props} />
+                ),
+                ul: ({ node, ...props }) => <ul className="doc-ul" {...props} />,
+                ol: ({ node, ...props }) => <ol className="doc-ol" {...props} />,
+              }}
+            >
+              {content}
+            </ReactMarkdown>
+          </article>
+        </div>
 
         <TableOfContents headings={headings} />
-      </div>
+      </>
     </>
   );
 };
