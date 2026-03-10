@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
+import './styles/Background.css';
 import { ThemeProvider } from './contexts/ThemeContext';
-import Hero from './components/Hero';
-import FeaturedIn from './components/FeaturedIn';
-import Features from './components/Features';
-import Demo from './components/Demo';
-import Footer from './components/Footer';
+
+// Lazy load components
+const Home = lazy(() => import('./pages/Home'));
+const Docs = lazy(() => import('./pages/Docs'));
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <Hero />
-        <FeaturedIn />
-        <Features />
-        <Demo />
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider>
+        <BrowserRouter>
+          <div className="App dynamic-background">
+            <Suspense fallback={<div className="loading">Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/docs/*" element={<Docs />} />
+              </Routes>
+            </Suspense>
+          </div>
+        </BrowserRouter>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

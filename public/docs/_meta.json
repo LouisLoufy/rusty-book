@@ -1,0 +1,73 @@
+{
+  "title": "LoongBot Documentation",
+  "sections": [
+    {
+      "title": "Getting Started",
+      "path": "/docs/getting-started",
+      "items": [
+        {
+          "title": "Introduction",
+          "path": "/docs/getting-started/introduction",
+          "file": "/docs/getting-started/introduction.md"
+        },
+        {
+          "title": "Quick Start",
+          "path": "/docs/getting-started/quick-start",
+          "file": "/docs/getting-started/quick-start.md"
+        },
+        {
+          "title": "Installation",
+          "path": "/docs/getting-started/installation",
+          "file": "/docs/getting-started/installation.md"
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "path": "/docs/guides",
+      "items": [
+        {
+          "title": "Building Your First Bot",
+          "path": "/docs/guides/first-bot",
+          "file": "/docs/guides/first-bot.md"
+        },
+        {
+          "title": "Plugin Development",
+          "path": "/docs/guides/plugin-development",
+          "file": "/docs/guides/plugin-development.md"
+        },
+        {
+          "title": "Configuration",
+          "path": "/docs/guides/configuration",
+          "file": "/docs/guides/configuration.md"
+        },
+        {
+          "title": "Deployment",
+          "path": "/docs/guides/deployment",
+          "file": "/docs/guides/deployment.md"
+        }
+      ]
+    },
+    {
+      "title": "API Reference",
+      "path": "/docs/api",
+      "items": [
+        {
+          "title": "Core API",
+          "path": "/docs/api/core",
+          "file": "/docs/api/core.md"
+        },
+        {
+          "title": "Plugin API",
+          "path": "/docs/api/plugin",
+          "file": "/docs/api/plugin.md"
+        },
+        {
+          "title": "Events",
+          "path": "/docs/api/events",
+          "file": "/docs/api/events.md"
+        }
+      ]
+    }
+  ]
+}
