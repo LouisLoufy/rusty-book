@@ -1,18 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './DocsLayout.css';
 import '../../styles/Background.css';
 import '../../styles/3d-effects.css';
 import '../../styles/animations.css';
-import ThemeToggle from '../ThemeToggle';
-import ThemeSelector from '../ThemeSelector';
+import AppHeader from '../AppHeader/AppHeader';
 import Sidebar from './Sidebar';
 import AIAssistant from './AIAssistant';
 import AnnotationSystem from './AnnotationSystem';
-import AuthStatus from './AuthStatus';
 import { AnnotationProvider } from '../../contexts/AnnotationContext';
-import { HiMenu, HiX } from 'react-icons/hi';
-import logo from '../../assets/logo.jpg';
 
 // Inner component that uses the context
 const DocsLayoutInner = ({ meta, children }) => {
@@ -75,40 +71,13 @@ const DocsLayoutInner = ({ meta, children }) => {
   return (
     <div className="docs-layout dynamic-background">
       {/* Header with glassmorphism */}
-      <header className="docs-header glass-morphism">
-        <div className="docs-header-content">
-          <Link to="/" className="docs-logo">
-            <img src={logo} alt="BeatAI" className="logo-image" />
-            <span className="logo-text">BeatAI</span>
-          </Link>
-
-          {/* Category Navigation */}
-          <nav className="category-nav">
-            {categories.map(category => (
-              <button
-                key={category.id}
-                className={`category-tab ${activeCategory?.id === category.id ? 'active' : ''}`}
-                onClick={() => handleCategoryClick(category)}
-              >
-                {category.title}
-              </button>
-            ))}
-          </nav>
-
-          <div className="docs-header-actions">
-            <AuthStatus />
-            <ThemeToggle />
-            <ThemeSelector />
-            <button
-              className="mobile-menu-toggle"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              aria-label="Toggle sidebar"
-            >
-              {sidebarOpen ? <HiX /> : <HiMenu />}
-            </button>
-          </div>
-        </div>
-      </header>
+      <AppHeader
+        categories={categories}
+        activeCategory={activeCategory}
+        onCategoryClick={handleCategoryClick}
+        sidebarOpen={sidebarOpen}
+        onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
+      />
 
       <div className="docs-container">
         {/* Sidebar - shows only current category's sections */}

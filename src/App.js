@@ -4,25 +4,30 @@ import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
 import './styles/Background.css';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { AnnotationProvider } from './contexts/AnnotationContext';
 
 // Lazy load components
 const Home = lazy(() => import('./pages/Home'));
 const Docs = lazy(() => import('./pages/Docs'));
+const MyNotes = lazy(() => import('./components/docs/MyNotes'));
 
 function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
-        <BrowserRouter>
-          <div className="App dynamic-background">
-            <Suspense fallback={<div className="loading">Loading...</div>}>
-              <Routes>
-                <Route path="/genesis-lab" element={<Home />} />
-                <Route path="/*" element={<Docs />} />
-              </Routes>
-            </Suspense>
-          </div>
-        </BrowserRouter>
+        <AnnotationProvider>
+          <BrowserRouter>
+            <div className="App dynamic-background">
+              <Suspense fallback={<div className="loading">Loading...</div>}>
+                <Routes>
+                  <Route path="/genesis-lab" element={<Home />} />
+                  <Route path="/my-notes" element={<MyNotes />} />
+                  <Route path="/*" element={<Docs />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </BrowserRouter>
+        </AnnotationProvider>
       </ThemeProvider>
     </HelmetProvider>
   );

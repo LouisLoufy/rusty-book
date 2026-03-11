@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { HiLogout } from 'react-icons/hi';
+import React, { useState, useRef, useEffect } from 'react';
+import { HiLogout, HiUser, HiAnnotation } from 'react-icons/hi';
 import { useAnnotationContext } from '../../contexts/AnnotationContext';
+import { useNavigate } from 'react-router-dom';
 import AuthModal from './AuthModal';
 import './AuthStatus.css';
 
@@ -9,10 +10,40 @@ const AuthStatus = () => {
     isAuthenticated,
     username,
     avatarUrl,
+    allAnnotations,
     logout
   } = useAnnotationContext();
 
+  const navigate = useNavigate();
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showUserPanel, setShowUserPanel] = useState(false);
+  const panelRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  // Calculate total notes count
+  const totalNotesCount = Object.values(allAnnotations).flat().length;
+
+  // Close panel when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        panelRef.current &&
+        !panelRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setShowUserPanel(false);
+      }
+    };
+
+    if (showUserPanel) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showUserPanel]);
 
   // Not authenticated - show login button
   if (!isAuthenticated) {
@@ -37,28 +68,78 @@ const AuthStatus = () => {
     );
   }
 
-  // Authenticated - show user info
+  // Authenticated - show user button
   return (
     <>
       <div className="auth-status">
-        <div className="auth-status-user">
-          {avatarUrl && (
+        <button
+          ref={buttonRef}
+          className="auth-status-avatar-btn"
+          onClick={() => setShowUserPanel(!showUserPanel)}
+          title="User menu"
+        >
+          {avatarUrl ? (
             <img
               src={avatarUrl}
               alt={username}
               className="auth-status-avatar"
             />
+          ) : (
+            <div className="auth-status-avatar-placeholder">
+              <HiUser />
+            </div>
           )}
-          <span className="auth-status-username">@{username}</span>
-        </div>
-
-        <button
-          className="auth-status-btn auth-status-btn-logout"
-          onClick={logout}
-          title="Logout"
-        >
-          <HiLogout />
         </button>
+
+        {showUserPanel && (
+          <div ref={panelRef} className="auth-status-user-panel">
+            <div className="auth-status-user-panel-header">
+              <div className="auth-status-user-panel-avatar">
+                {avatarUrl ? (
+                  <img src={avatarUrl} alt={username} />
+                ) : (
+                  <div className="auth-status-avatar-placeholder">
+                    <HiUser />
+                  </div>
+                )}
+              </div>
+              <div className="auth-status-user-panel-info">
+                <div className="auth-status-user-panel-name">{username}</div>
+                <div className="auth-status-user-panel-username">@{username}</div>
+              </div>
+            </div>
+
+            <div className="auth-status-user-panel-divider"></div>
+
+            {/* My Notes Button */}
+            <button
+              className="auth-status-user-panel-btn"
+              onClick={() => {
+                navigate('/my-notes');
+                setShowUserPanel(false);
+              }}
+            >
+              <HiAnnotation />
+              <span>My Notes</span>
+              {totalNotesCount > 0 && (
+                <span className="auth-status-user-panel-badge">{totalNotesCount}</span>
+              )}
+            </button>
+
+            <div className="auth-status-user-panel-divider"></div>
+
+            <button
+              className="auth-status-user-panel-btn"
+              onClick={() => {
+                logout();
+                setShowUserPanel(false);
+              }}
+            >
+              <HiLogout />
+              <span>Logout</span>
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

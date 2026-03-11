@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import DocsLayout from '../components/docs/DocsLayout';
 import DocContent from '../components/docs/DocContent';
@@ -7,7 +7,6 @@ import './Docs.css';
 
 const Docs = () => {
   const [docsMeta, setDocsMeta] = useState(null);
-  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     // Load docs metadata
@@ -31,7 +30,7 @@ const Docs = () => {
         <meta name="description" content="Complete documentation for BeatAI - the open-source AI bot framework" />
       </Helmet>
 
-      <DocsLayout meta={docsMeta} sharedGistId={searchParams.get('annotations')}>
+      <DocsLayout meta={docsMeta}>
         <Routes>
           <Route index element={<Navigate to={defaultPath} replace />} />
           <Route path="*" element={<DocContent />} />

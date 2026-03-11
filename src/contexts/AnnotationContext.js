@@ -52,7 +52,7 @@ export function AnnotationProvider({ children }) {
   // Track last load time to avoid frequent reloading
   const lastLoadTimeRef = useRef(null);
 
-  // Load auth state from localStorage on mount
+  // Restore auth state from localStorage on mount
   useEffect(() => {
     const storedToken = localStorage.getItem(getTokenStorageKey());
     const storedGistId = localStorage.getItem(getGistIdStorageKey());
