@@ -5,6 +5,7 @@ const TableOfContents = ({ headings }) => {
   const [activeId, setActiveId] = useState('');
   const observer = useRef(null);
   const tocListRef = useRef(null);
+  const userClickedRef = useRef(false);
 
   useEffect(() => {
     // Return early if no headings
@@ -13,6 +14,11 @@ const TableOfContents = ({ headings }) => {
     // Create IntersectionObserver to track which heading is currently visible
     observer.current = new IntersectionObserver(
       (entries) => {
+        // Skip if user just clicked a TOC link
+        if (userClickedRef.current) {
+          return;
+        }
+
         // Collect all currently visible headings
         const visibleHeadings = [];
         entries.forEach((entry) => {
@@ -46,6 +52,11 @@ const TableOfContents = ({ headings }) => {
 
     // Add scroll listener to handle bottom edge case
     const handleScroll = () => {
+      // Skip if user just clicked a TOC link
+      if (userClickedRef.current) {
+        return;
+      }
+
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
@@ -100,13 +111,23 @@ const TableOfContents = ({ headings }) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
+      // Set flag to prevent IntersectionObserver from interfering during scroll
+      userClickedRef.current = true;
+
+      // Update active ID immediately
+      setActiveId(id);
+
       const offsetTop = element.offsetTop - 100;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
       });
-      // Update active ID immediately
-      setActiveId(id);
+
+      // Re-enable IntersectionObserver after scroll animation completes
+      // Smooth scroll typically takes 300-500ms, we use 1000ms to be safe
+      setTimeout(() => {
+        userClickedRef.current = false;
+      }, 1000);
     }
   };
 
