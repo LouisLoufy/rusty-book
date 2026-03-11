@@ -142,9 +142,9 @@ const TableOfContents = ({ headings }) => {
         <h4 className="toc-title">On This Page</h4>
       </div>
       <ul className="toc-list" ref={tocListRef}>
-        {headings.map(({ id, text, level }) => (
+        {headings.map(({ id, uniqueKey, text, level }) => (
           <li
-            key={id}
+            key={uniqueKey}
             className={`toc-item toc-level-${level} ${activeId === id ? 'active' : ''}`}
           >
             <a

@@ -12,6 +12,7 @@ const AnnotationSystem = () => {
     updateAnnotation,
     deleteAnnotation,
     isViewingShared,
+    isAuthenticated,
     loadAnnotationsForPage
   } = useAnnotationContext();
   const [showToolbar, setShowToolbar] = useState(false);
@@ -230,7 +231,7 @@ const AnnotationSystem = () => {
   return (
     <>
       {/* Selection Toolbar */}
-      {showToolbar && !isCreatingNote && !isViewingShared && (
+      {showToolbar && !isCreatingNote && !isViewingShared && isAuthenticated && (
         <div
           className="annotation-toolbar"
           style={{
@@ -245,6 +246,21 @@ const AnnotationSystem = () => {
           >
             <HiAnnotation /> Add Note
           </button>
+        </div>
+      )}
+
+      {/* Unauthenticated Tooltip */}
+      {showToolbar && !isCreatingNote && !isViewingShared && !isAuthenticated && (
+        <div
+          className="annotation-toolbar annotation-toolbar-disabled"
+          style={{
+            left: `${toolbarPosition.x}px`,
+            top: `${toolbarPosition.y}px`
+          }}
+        >
+          <span className="annotation-toolbar-message">
+            Connect to GitHub to add notes
+          </span>
         </div>
       )}
 

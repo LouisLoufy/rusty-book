@@ -155,7 +155,12 @@ export function parseAllGistFiles(gistFiles) {
     }
 
     const parsed = parseGistFileContent(fileData.content);
-    allAnnotations.push(...parsed.annotations);
+    // Add path field to each annotation
+    const annotationsWithPath = parsed.annotations.map(annotation => ({
+      ...annotation,
+      path: parsed.path  // Get path from file data
+    }));
+    allAnnotations.push(...annotationsWithPath);
   });
 
   return allAnnotations;

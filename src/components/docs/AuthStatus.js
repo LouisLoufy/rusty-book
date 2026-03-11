@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HiLogin, HiLogout, HiShare, HiCheckCircle, HiExclamation, HiRefresh, HiEye } from 'react-icons/hi';
+import { HiLogout, HiShare, HiEye } from 'react-icons/hi';
 import { useAnnotationContext } from '../../contexts/AnnotationContext';
 import AuthModal from './AuthModal';
 import ShareAnnotationsDialog from './ShareAnnotationsDialog';
@@ -10,21 +10,14 @@ const AuthStatus = () => {
     isAuthenticated,
     username,
     avatarUrl,
-    isSyncing,
-    syncError,
     isViewingShared,
     sharedUsername,
     logout,
-    syncToGist,
     exitSharedMode
   } = useAnnotationContext();
 
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showShareDialog, setShowShareDialog] = useState(false);
-
-  const handleRetrySync = () => {
-    syncToGist(true);
-  };
 
   // Viewing shared annotations mode
   if (isViewingShared) {
@@ -69,7 +62,7 @@ const AuthStatus = () => {
     );
   }
 
-  // Authenticated - show user info and sync status
+  // Authenticated - show user info
   return (
     <>
       <div className="auth-status">
@@ -82,32 +75,6 @@ const AuthStatus = () => {
             />
           )}
           <span className="auth-status-username">@{username}</span>
-        </div>
-
-        <div className="auth-status-sync">
-          {isSyncing ? (
-            <span className="auth-status-sync-indicator auth-status-syncing">
-              <HiRefresh className="auth-status-sync-icon spinning" />
-              Syncing...
-            </span>
-          ) : syncError ? (
-            <span className="auth-status-sync-indicator auth-status-error">
-              <HiExclamation className="auth-status-sync-icon" />
-              Sync failed
-              <button
-                className="auth-status-retry-btn"
-                onClick={handleRetrySync}
-                title="Retry sync"
-              >
-                <HiRefresh />
-              </button>
-            </span>
-          ) : (
-            <span className="auth-status-sync-indicator auth-status-synced">
-              <HiCheckCircle className="auth-status-sync-icon" />
-              Synced
-            </span>
-          )}
         </div>
 
         <button

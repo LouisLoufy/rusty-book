@@ -81,8 +81,10 @@ const DocContent = () => {
     const timer = setTimeout(() => {
       const article = document.querySelector('.doc-content');
       const headingElements = article?.querySelectorAll('h2, h3, h4');
-      const extractedHeadings = Array.from(headingElements || []).map((el) => ({
+      const extractedHeadings = Array.from(headingElements || []).map((el, index) => ({
         id: el.id,
+        originalId: el.id,
+        uniqueKey: `${el.id}-${index}`,
         text: el.textContent,
         level: parseInt(el.tagName.substring(1))
       }));

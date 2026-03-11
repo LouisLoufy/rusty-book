@@ -10,6 +10,21 @@
   pointer-events: auto;
 }
 
+.annotation-toolbar-disabled {
+  background: rgba(107, 114, 128, 0.95);
+  cursor: not-allowed;
+}
+
+.annotation-toolbar-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 .annotation-toolbar::after {
   content: '';
   position: absolute;
@@ -21,6 +36,10 @@
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid var(--accent-start);
+}
+
+.annotation-toolbar-disabled::after {
+  border-top-color: rgba(107, 114, 128, 0.95);
 }
 
 .annotation-toolbar-btn {

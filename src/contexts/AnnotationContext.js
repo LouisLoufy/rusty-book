@@ -52,11 +52,8 @@ export function AnnotationProvider({ children }) {
   const [lastSyncTime, setLastSyncTime] = useState(null);
   const [syncError, setSyncError] = useState(null);
 
-  // Fallback to localStorage
-  const [useLocalStorage, setUseLocalStorage] = useState(false);
-
-  // Debounce timer for auto-sync
-  const syncTimerRef = useRef(null);
+  // Track last load time to avoid frequent reloading
+  const lastLoadTimeRef = useRef(null);
 
   // Load auth state from localStorage on mount
   useEffect(() => {
@@ -74,7 +71,6 @@ export function AnnotationProvider({ children }) {
         setAvatarUrl(userInfo.avatarUrl);
         setGistId(storedGistId);
         setIsAuthenticated(true);
-        setUseLocalStorage(false);
 
         // Load annotations from Gist
         if (storedGistId) {
@@ -82,33 +78,9 @@ export function AnnotationProvider({ children }) {
         }
       } catch (error) {
         console.error('Failed to restore auth state:', error);
-        setUseLocalStorage(true);
-        loadAnnotationsFromLocalStorage();
       }
-    } else {
-      // Not authenticated, use localStorage
-      setUseLocalStorage(true);
-      loadAnnotationsFromLocalStorage();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Load annotations from localStorage
-  const loadAnnotationsFromLocalStorage = useCallback(() => {
-    const saved = localStorage.getItem(getAnnotationsStorageKey());
-    if (saved) {
-      try {
-        const loaded = JSON.parse(saved);
-        const grouped = groupAnnotationsByPath(loaded);
-        setAllAnnotations(grouped);
-
-        // Set annotations for current path
-        const currentPath = window.location.pathname;
-        setAnnotations(grouped[currentPath] || []);
-      } catch (error) {
-        console.error('Failed to load from localStorage:', error);
-      }
-    }
   }, []);
 
   // Load annotations from Gist
@@ -129,13 +101,48 @@ export function AnnotationProvider({ children }) {
       setSyncError(null);
     } catch (error) {
       console.error('Failed to load from Gist:', error);
-      setSyncError(error.message);
-      // Fallback to localStorage
-      loadAnnotationsFromLocalStorage();
+
+      // If Gist doesn't exist (was deleted), clean up and recreate
+      if (error.message.includes('Failed to get gist')) {
+        console.log('Gist not found, creating new one...');
+        localStorage.removeItem(getGistIdStorageKey());
+        setGistId(null);
+
+        // Try to recreate Gist
+        try {
+          // Get backup data from localStorage, if none use empty object
+          const localBackup = localStorage.getItem(getAnnotationsStorageKey());
+          let dataToUse = {};
+
+          if (localBackup) {
+            const annotations = JSON.parse(localBackup);
+            dataToUse = groupAnnotationsByPath(annotations);
+          } else if (Object.keys(allAnnotations).length > 0) {
+            dataToUse = allAnnotations;
+          }
+
+          const files = convertToGistFiles(dataToUse);
+          const newGist = await createAnnotationGist(token, files);
+          localStorage.setItem(getGistIdStorageKey(), newGist.id);
+          setGistId(newGist.id);
+
+          // Update allAnnotations
+          setAllAnnotations(dataToUse);
+          const currentPath = window.location.pathname;
+          setAnnotations(dataToUse[currentPath] || []);
+
+          setSyncError(null);
+        } catch (createError) {
+          console.error('Failed to create new gist:', createError);
+          setSyncError('Gist was deleted. Failed to create new one.');
+        }
+      } else {
+        setSyncError(error.message);
+      }
     } finally {
       setIsSyncing(false);
     }
-  }, [loadAnnotationsFromLocalStorage]);
+  }, [allAnnotations]);
 
   // Login with GitHub token
   const login = useCallback(async (token) => {
@@ -183,7 +190,6 @@ export function AnnotationProvider({ children }) {
       setAvatarUrl(user.avatarUrl);
       setGistId(gist.id);
       setIsAuthenticated(true);
-      setUseLocalStorage(false);
 
       // Load annotations from Gist
       await loadAnnotationsFromGist(token, gist.id);
@@ -206,50 +212,35 @@ export function AnnotationProvider({ children }) {
     setAvatarUrl(null);
     setGistId(null);
     setIsAuthenticated(false);
-    setUseLocalStorage(true);
+    setAllAnnotations({});
+    setAnnotations([]);
+  }, []);
 
-    // Load annotations from localStorage
-    loadAnnotationsFromLocalStorage();
-  }, [loadAnnotationsFromLocalStorage]);
-
-  // Sync to Gist with debouncing
-  const syncToGist = useCallback(async (immediate = false) => {
-    if (!isAuthenticated || !githubToken || !gistId || useLocalStorage) {
+  // Sync to Gist
+  const syncToGist = useCallback(async (dataToSync = null) => {
+    if (!isAuthenticated || !githubToken || !gistId) {
       return;
     }
 
-    // Clear existing timer
-    if (syncTimerRef.current) {
-      clearTimeout(syncTimerRef.current);
+    try {
+      setIsSyncing(true);
+      setSyncError(null);
+
+      // Convert all annotations to Gist files format
+      // Use provided data or current allAnnotations
+      const files = convertToGistFiles(dataToSync || allAnnotations);
+
+      // Update Gist
+      await updateGistFiles(githubToken, gistId, files);
+
+      setLastSyncTime(new Date());
+    } catch (error) {
+      console.error('Sync failed:', error);
+      setSyncError(error.message);
+    } finally {
+      setIsSyncing(false);
     }
-
-    const doSync = async () => {
-      try {
-        setIsSyncing(true);
-        setSyncError(null);
-
-        // Convert all annotations to Gist files format
-        const files = convertToGistFiles(allAnnotations);
-
-        // Update Gist
-        await updateGistFiles(githubToken, gistId, files);
-
-        setLastSyncTime(new Date());
-      } catch (error) {
-        console.error('Sync failed:', error);
-        setSyncError(error.message);
-      } finally {
-        setIsSyncing(false);
-      }
-    };
-
-    if (immediate) {
-      await doSync();
-    } else {
-      // Debounce: sync after 3 seconds of inactivity
-      syncTimerRef.current = setTimeout(doSync, 3000);
-    }
-  }, [isAuthenticated, githubToken, gistId, useLocalStorage, allAnnotations]);
+  }, [isAuthenticated, githubToken, gistId, allAnnotations]);
 
   // Add annotation
   const addAnnotation = useCallback((text, note, path) => {
@@ -274,16 +265,11 @@ export function AnnotationProvider({ children }) {
       setAnnotations(updatedForPath);
     }
 
-    // Save to storage
-    if (useLocalStorage) {
-      const flatAnnotations = Object.values(updatedAll).flat();
-      localStorage.setItem(getAnnotationsStorageKey(), JSON.stringify(flatAnnotations));
-    } else {
-      syncToGist();
-    }
+    // Save to Gist immediately
+    syncToGist(updatedAll);
 
     return newAnnotation;
-  }, [allAnnotations, useLocalStorage, syncToGist]);
+  }, [allAnnotations, syncToGist]);
 
   // Update annotation
   const updateAnnotation = useCallback((id, note, path) => {
@@ -304,14 +290,9 @@ export function AnnotationProvider({ children }) {
       setAnnotations(updatedForPath);
     }
 
-    // Save to storage
-    if (useLocalStorage) {
-      const flatAnnotations = Object.values(updatedAll).flat();
-      localStorage.setItem(getAnnotationsStorageKey(), JSON.stringify(flatAnnotations));
-    } else {
-      syncToGist();
-    }
-  }, [allAnnotations, useLocalStorage, syncToGist]);
+    // Save to Gist immediately
+    syncToGist(updatedAll);
+  }, [allAnnotations, syncToGist]);
 
   // Delete annotation
   const deleteAnnotation = useCallback((id, path) => {
@@ -327,19 +308,26 @@ export function AnnotationProvider({ children }) {
       setAnnotations(updatedForPath);
     }
 
-    // Save to storage
-    if (useLocalStorage) {
-      const flatAnnotations = Object.values(updatedAll).flat();
-      localStorage.setItem(getAnnotationsStorageKey(), JSON.stringify(flatAnnotations));
-    } else {
-      syncToGist();
-    }
-  }, [allAnnotations, useLocalStorage, syncToGist]);
+    // Save to Gist immediately
+    syncToGist(updatedAll);
+  }, [allAnnotations, syncToGist]);
 
   // Load annotations for a specific page
-  const loadAnnotationsForPage = useCallback((path) => {
-    setAnnotations(allAnnotations[path] || []);
-  }, [allAnnotations]);
+  const loadAnnotationsForPage = useCallback(async (path) => {
+    // If authenticated, reload latest data from Gist first
+    if (isAuthenticated && githubToken && gistId && !isViewingShared) {
+      // Avoid reloading within 5 seconds
+      const now = Date.now();
+      if (!lastLoadTimeRef.current || now - lastLoadTimeRef.current > 5000) {
+        lastLoadTimeRef.current = now;
+        await loadAnnotationsFromGist(githubToken, gistId);
+      } else {
+        setAnnotations(allAnnotations[path] || []);
+      }
+    } else {
+      setAnnotations(allAnnotations[path] || []);
+    }
+  }, [isAuthenticated, githubToken, gistId, isViewingShared, allAnnotations, loadAnnotationsFromGist]);
 
   // Load shared annotations
   const loadSharedAnnotations = useCallback(async (sharedGistIdToLoad) => {
@@ -378,9 +366,11 @@ export function AnnotationProvider({ children }) {
     if (isAuthenticated && githubToken && gistId) {
       loadAnnotationsFromGist(githubToken, gistId);
     } else {
-      loadAnnotationsFromLocalStorage();
+      // Not authenticated, clear annotations
+      setAllAnnotations({});
+      setAnnotations([]);
     }
-  }, [isAuthenticated, githubToken, gistId, loadAnnotationsFromGist, loadAnnotationsFromLocalStorage]);
+  }, [isAuthenticated, githubToken, gistId, loadAnnotationsFromGist]);
 
   const value = {
     // Auth state
@@ -399,14 +389,6 @@ export function AnnotationProvider({ children }) {
     sharedGistId,
     sharedUsername,
 
-    // Sync state
-    isSyncing,
-    lastSyncTime,
-    syncError,
-
-    // Storage mode
-    useLocalStorage,
-
     // Methods
     login,
     logout,
@@ -415,8 +397,7 @@ export function AnnotationProvider({ children }) {
     deleteAnnotation,
     loadAnnotationsForPage,
     loadSharedAnnotations,
-    exitSharedMode,
-    syncToGist
+    exitSharedMode
   };
 
   return (
