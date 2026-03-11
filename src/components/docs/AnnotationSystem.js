@@ -45,6 +45,13 @@ const AnnotationSystem = () => {
       // Wait longer for DocContent to finish rendering
       const timer = setTimeout(() => {
         applyAllHighlights(annotations);
+
+        // Check URL hash and scroll to target annotation
+        const hash = window.location.hash;
+        if (hash.startsWith('#annotation-')) {
+          const annotationId = hash.replace('#annotation-', '');
+          scrollToAnnotation(annotationId);
+        }
       }, 200);
 
       return () => clearTimeout(timer);
@@ -227,6 +234,33 @@ const AnnotationSystem = () => {
     setIsEditingNote(false);
     setEditingAnnotationId(null);
     setNoteContent('');
+  };
+
+  const scrollToAnnotation = (annotationId) => {
+    // Wait for additional time to ensure highlights are rendered
+    setTimeout(() => {
+      const targetElement = document.querySelector(
+        `.highlighted-text[data-annotation-id="${annotationId}"]`
+      );
+
+      if (targetElement) {
+        // Scroll to target element, centered in viewport
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        // Add visual pulse animation
+        targetElement.classList.add('annotation-pulse');
+        setTimeout(() => {
+          targetElement.classList.remove('annotation-pulse');
+        }, 2000);
+
+        // Remove hash from URL after scrolling
+        // This prevents re-scrolling on page refresh
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }, 100); // Additional delay to ensure DOM is updated
   };
 
   return (

@@ -55,7 +55,7 @@ const MyNotes = () => {
             <div
               key={annotation.id}
               className="my-notes-item"
-              onClick={() => navigate(annotation.path)}
+              onClick={() => navigate(`${annotation.path}#annotation-${annotation.id}`)}
             >
               <div className="my-notes-item-header">
                 <span className="my-notes-item-page">
