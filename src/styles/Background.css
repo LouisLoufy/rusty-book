@@ -305,7 +305,7 @@
     radial-gradient(circle at 50% 80%, var(--bg-radial-3) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
-  animation: backgroundFlow 20s ease-in-out infinite;
+  /* Animation removed for better performance */
   transition: background 0.5s ease;
 }
 
@@ -331,7 +331,8 @@
   opacity: 0;
 }
 
-/* 粒子效果容器 (使用 JS 动态创建) */
+/* 粒子效果和动画 - 已移除以提升性能 */
+/*
 .background-particles {
   position: absolute;
   top: 0;
@@ -370,8 +371,10 @@
     opacity: 0;
   }
 }
+*/
 
-/* 背景流动动画 */
+/* 背景流动动画 - 已移除以提升性能 */
+/*
 @keyframes backgroundFlow {
   0%, 100% {
     opacity: 1;
@@ -390,6 +393,7 @@
     transform: scale(1.05) rotate(-2deg);
   }
 }
+*/
 
 /* 可选：静态版本（无动画） */
 .dynamic-background-static::before {
