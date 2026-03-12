@@ -1,23 +1,112 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HiAnnotation, HiArrowLeft } from 'react-icons/hi';
 import { useAnnotationContext } from '../../contexts/AnnotationContext';
 import AppHeader from '../AppHeader/AppHeader';
+import { loadBookTitles, getBookTitle } from '../../utils/bookTitles';
 import './MyNotes.css';
 
 const MyNotes = () => {
   const { allAnnotations, isAuthenticated } = useAnnotationContext();
   const navigate = useNavigate();
+  const [activeBook, setActiveBook] = useState('all');
+  const [bookTitlesLoaded, setBookTitlesLoaded] = useState(false);
 
-  // Get all annotations sorted by time (newest first)
-  const sortedAnnotations = useMemo(() => {
-    const all = Object.values(allAnnotations).flat();
-    return all.sort((a, b) => {
-      const timeA = new Date(a.createdAt).getTime();
-      const timeB = new Date(b.createdAt).getTime();
-      return timeB - timeA; // Descending order
+  // Load book titles on mount
+  useEffect(() => {
+    loadBookTitles().then(() => {
+      setBookTitlesLoaded(true);
     });
+  }, []);
+
+  // Group annotations by book and pageTitle
+  const bookGroups = useMemo(() => {
+    const all = Object.values(allAnnotations).flat();
+
+    // First, group by book
+    const byBook = all.reduce((acc, annotation) => {
+      const pathParts = annotation.path.split('/').filter(p => p);
+      const bookName = pathParts[0] || 'Uncategorized';
+
+      if (!acc[bookName]) {
+        acc[bookName] = [];
+      }
+      acc[bookName].push(annotation);
+      return acc;
+    }, {});
+
+    // Then, within each book, group by pageTitle
+    const result = Object.entries(byBook).map(([bookName, annotations]) => {
+      const pageGroups = annotations.reduce((acc, annotation) => {
+        const title = annotation.pageTitle || annotation.path.split('/').pop() || 'Untitled';
+
+        if (!acc[title]) {
+          acc[title] = {
+            title,
+            path: annotation.path,
+            annotations: []
+          };
+        }
+        acc[title].annotations.push(annotation);
+        return acc;
+      }, {});
+
+      // Sort annotations within each page by time (newest first)
+      const sortedPageGroups = Object.values(pageGroups).map(group => ({
+        ...group,
+        annotations: group.annotations.sort((a, b) => {
+          const timeA = new Date(a.createdAt).getTime();
+          const timeB = new Date(b.createdAt).getTime();
+          return timeB - timeA;
+        })
+      }));
+
+      // Sort page groups by newest annotation
+      sortedPageGroups.sort((a, b) => {
+        const timeA = new Date(a.annotations[0].createdAt).getTime();
+        const timeB = new Date(b.annotations[0].createdAt).getTime();
+        return timeB - timeA;
+      });
+
+      return {
+        bookName,
+        pageGroups: sortedPageGroups,
+        totalCount: annotations.length,
+        newestTime: Math.max(...annotations.map(a => new Date(a.createdAt).getTime()))
+      };
+    });
+
+    // Sort books by newest annotation
+    return result.sort((a, b) => b.newestTime - a.newestTime);
   }, [allAnnotations]);
+
+  // Get filtered page groups based on active book
+  const filteredPageGroups = useMemo(() => {
+    if (activeBook === 'all') {
+      // Combine all page groups from all books
+      return bookGroups.flatMap(book =>
+        book.pageGroups.map(group => ({
+          ...group,
+          bookName: book.bookName
+        }))
+      ).sort((a, b) => {
+        const timeA = new Date(a.annotations[0].createdAt).getTime();
+        const timeB = new Date(b.annotations[0].createdAt).getTime();
+        return timeB - timeA;
+      });
+    }
+
+    const selectedBook = bookGroups.find(b => b.bookName === activeBook);
+    return selectedBook ? selectedBook.pageGroups.map(group => ({
+      ...group,
+      bookName: selectedBook.bookName
+    })) : [];
+  }, [bookGroups, activeBook]);
+
+  // Total count of all annotations
+  const totalCount = useMemo(() => {
+    return bookGroups.reduce((sum, book) => sum + book.totalCount, 0);
+  }, [bookGroups]);
 
   if (!isAuthenticated) {
     return (
@@ -45,37 +134,72 @@ const MyNotes = () => {
         <div className="my-notes-title">
           <HiAnnotation />
           <h1>My Notes</h1>
-          <span className="my-notes-count">{sortedAnnotations.length}</span>
+          <span className="my-notes-count">{totalCount}</span>
         </div>
       </div>
 
-      {sortedAnnotations.length > 0 ? (
-        <div className="my-notes-list">
-          {sortedAnnotations.map((annotation) => (
-            <div
-              key={annotation.id}
-              className="my-notes-item"
-              onClick={() => navigate(`${annotation.path}#annotation-${annotation.id}`)}
+      {/* Book Tabs */}
+      {bookGroups.length > 0 && (
+        <div className="my-notes-tabs">
+          <button
+            className={`my-notes-tab ${activeBook === 'all' ? 'active' : ''}`}
+            onClick={() => setActiveBook('all')}
+          >
+            All Books
+            <span className="my-notes-tab-count">{totalCount}</span>
+          </button>
+          {bookGroups.map((book) => (
+            <button
+              key={book.bookName}
+              className={`my-notes-tab ${activeBook === book.bookName ? 'active' : ''}`}
+              onClick={() => setActiveBook(book.bookName)}
             >
-              <div className="my-notes-item-header">
-                <span className="my-notes-item-page">
-                  {annotation.pageTitle || annotation.path.split('/').pop() || 'Untitled'}
-                </span>
-                <span className="my-notes-item-date">
-                  {new Date(annotation.createdAt).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                  })}
-                </span>
+              {getBookTitle(book.bookName)}
+              <span className="my-notes-tab-count">{book.totalCount}</span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {filteredPageGroups.length > 0 ? (
+        <div className="my-notes-groups">
+          {filteredPageGroups.map((group) => (
+            <div key={`${group.bookName}-${group.title}`} className="my-notes-group">
+              <div className="my-notes-group-header">
+                <h2 className="my-notes-group-title">
+                  {activeBook === 'all' && group.bookName && (
+                    <span className="my-notes-group-book">{getBookTitle(group.bookName)}</span>
+                  )}
+                  {group.title}
+                </h2>
+                <span className="my-notes-group-count">{group.annotations.length}</span>
               </div>
-              <div className="my-notes-item-quote">
-                "{annotation.text}"
-              </div>
-              <div className="my-notes-item-content">
-                {annotation.note}
+              <div className="my-notes-list">
+                {group.annotations.map((annotation) => (
+                  <div
+                    key={annotation.id}
+                    className="my-notes-item"
+                    onClick={() => navigate(`${annotation.path}#annotation-${annotation.id}`)}
+                  >
+                    <div className="my-notes-item-header">
+                      <span className="my-notes-item-date">
+                        {new Date(annotation.createdAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        })}
+                      </span>
+                    </div>
+                    <div className="my-notes-item-quote">
+                      "{annotation.text}"
+                    </div>
+                    <div className="my-notes-item-content">
+                      {annotation.note}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}

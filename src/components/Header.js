@@ -6,7 +6,6 @@ import ThemeSelector from './ThemeSelector';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <header className="header">
       <div className="container">

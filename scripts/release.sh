@@ -57,5 +57,5 @@ echo "🏷️  Tags:"
 git tag -l | tail -5
 echo ""
 echo "🔗 GitHub links:"
-echo "   Commit: https://github.com/genesislab-ai/beatai-website/commit/$(git rev-parse HEAD)"
-echo "   Tag: https://github.com/genesislab-ai/beatai-website/releases/tag/v${VERSION}"
+echo "   Commit: https://github.com/beatai-org/beatai.org/commit/$(git rev-parse HEAD)"
+echo "   Tag: https://github.com/beatai-org/beatai.org/releases/tag/v${VERSION}"
