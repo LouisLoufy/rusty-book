@@ -27,8 +27,8 @@ const Docs = () => {
     return <div className="docs-loading">Loading documentation...</div>;
   }
 
-  // Get default path from first category's first section's first item
-  const defaultPath = docsMeta.categories?.[0]?.sections?.[0]?.items?.[0]?.path || '/getting-started/introduction';
+  // Get default path - prioritize Rust Course
+  const defaultPath = '/rust-course/first-try/intro';
 
   return (
     <>

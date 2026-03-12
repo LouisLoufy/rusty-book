@@ -29,8 +29,14 @@ const DocsLayoutInner = ({ meta, children }) => {
 
     // Find which category the current path belongs to
     const current = categories.find(cat =>
-      cat.sections.some(section =>
-        section.items?.some(item => {
+      cat.sections.some(section => {
+        // Check if current path matches the section itself
+        if (section.path && location.pathname === section.path) {
+          return true;
+        }
+
+        // Check if current path matches any item in the section
+        return section.items?.some(item => {
           // Check if current path matches this item or its children
           const matchPath = (i) => {
             if (location.pathname === i.path) return true;
@@ -40,15 +46,25 @@ const DocsLayoutInner = ({ meta, children }) => {
             return false;
           };
           return matchPath(item);
-        })
-      )
+        });
+      })
     );
 
     if (current) {
       setActiveCategory(current);
     } else {
-      // Default to first category if no match found
-      setActiveCategory(categories[0]);
+      // Check if path starts with a category's common prefix
+      const categoryByPrefix = categories.find(cat => {
+        const categoryId = cat.id;
+        return location.pathname.startsWith(`/${categoryId}`);
+      });
+
+      if (categoryByPrefix) {
+        setActiveCategory(categoryByPrefix);
+      } else {
+        // Default to first category if no match found
+        setActiveCategory(categories[0]);
+      }
     }
   }, [location.pathname, categories]);
 

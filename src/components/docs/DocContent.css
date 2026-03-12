@@ -170,7 +170,7 @@
 }
 
 .doc-pre {
-  background: linear-gradient(135deg, #f6f8fa 0%, #f3f4f6 100%);
+  background: #333;
   border: 1px solid #e1e4e8;
   border-radius: 12px;
   padding: 20px;
