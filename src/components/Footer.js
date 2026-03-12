@@ -17,12 +17,12 @@ const Footer = () => {
           <div className="footer-links">
             <Link to="/">Docs</Link>
             <a href="#api">API</a>
-            <a href="https://github.com/loong-ai" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/beatai-org" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="#blog">Blog</a>
           </div>
 
           <div className="footer-social">
-            <a href="https://github.com/loong-ai" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/beatai-org" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub />
             </a>
             <a href="#twitter" aria-label="Twitter">

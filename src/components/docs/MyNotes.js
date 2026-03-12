@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { HiAnnotation, HiArrowLeft } from 'react-icons/hi';
 import { useAnnotationContext } from '../../contexts/AnnotationContext';
 import AppHeader from '../AppHeader/AppHeader';
+import Footer from '../Footer/Footer';
 import { loadBookTitles, getBookTitle } from '../../utils/bookTitles';
 import './MyNotes.css';
 
@@ -212,6 +213,7 @@ const MyNotes = () => {
         </div>
       )}
     </div>
+    <Footer />
   </div>
   );
 };

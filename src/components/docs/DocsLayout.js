@@ -8,6 +8,7 @@ import AppHeader from '../AppHeader/AppHeader';
 import Sidebar from './Sidebar';
 import AIAssistant from './AIAssistant';
 import AnnotationSystem from './AnnotationSystem';
+import Footer from '../Footer/Footer';
 import { AnnotationProvider } from '../../contexts/AnnotationContext';
 import { PageTitleProvider } from '../../contexts/PageTitleContext';
 
@@ -95,6 +96,9 @@ const DocsLayoutInner = ({ meta, children }) => {
           {children}
         </main>
       </div>
+
+      {/* Footer */}
+      <Footer />
 
       {/* AI Assistant */}
       <AIAssistant />
