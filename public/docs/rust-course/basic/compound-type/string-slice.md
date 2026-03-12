@@ -15,9 +15,9 @@ fn greet(name: String) {
 }
 ```
 
-`greet` 函数接受一个字符串类型的 `name` 参数，然后打印到终端控制台中，非常好理解，你们猜猜，这段代码能否通过编译？
+`greet` 函数接受字符串类型的 `name` 参数，打印到终端控制台中，非常好理解。但大家猜猜，这段代码能否通过编译？
 
-```conole
+```console
 error[E0308]: mismatched types
  --> src/main.rs:3:11
   |
@@ -176,7 +176,7 @@ Rust 在语言级别，只有一种字符串类型： `str`，它通常是以引
 
 `str` 类型是硬编码进可执行文件，也无法被修改，但是 `String` 则是一个可增长、可改变且具有所有权的 UTF-8 编码字符串，**当 Rust 用户提到字符串时，往往指的就是 `String` 类型和 `&str` 字符串切片类型，这两个类型都是 UTF-8 编码**。
 
-除了 `String` 类型的字符串，Rust 的标准库还提供了其他类型的字符串，例如 `OsString`， `OsStr`， `CsString` 和 `CsStr` 等，注意到这些名字都以 `String` 或者 `Str` 结尾了吗？它们分别对应的是具有所有权和被借用的变量。
+除了 `String` 类型的字符串，Rust 的标准库还提供了其他类型的字符串，例如 `OsString`， `OsStr`， `CString` 和 `CStr` 等，注意到这些名字都以 `String` 或者 `Str` 结尾了吗？它们分别对应的是具有所有权和被借用的变量。
 
 ## String 与 &str 的转换
 

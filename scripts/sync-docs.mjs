@@ -20,7 +20,7 @@ const CONFIG = {
   sourceDir: 'src',
 
   // 目标本地目录
-  targetDir: path.resolve(__dirname, '../public/docs/rust'),
+  targetDir: path.resolve(__dirname, '../public/docs/rust-course'),
 
   // 临时目录（用于 git clone）
   tempDir: path.resolve(__dirname, '../.temp-rust-course'),
