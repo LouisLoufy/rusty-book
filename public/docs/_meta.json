@@ -896,12 +896,46 @@
                 {
                   "title": "生命周期",
                   "path": "/rust-course/compiler/fight-with-compiler/lifetime/intro",
-                  "file": "/docs/rust-course/compiler/fight-with-compiler/lifetime/intro.md"
+                  "file": "/docs/rust-course/compiler/fight-with-compiler/lifetime/intro.md",
+                  "children": [
+                    {
+                      "title": "生命周期过长",
+                      "path": "/rust-course/compiler/fight-with-compiler/lifetime/too-long1",
+                      "file": "/docs/rust-course/compiler/fight-with-compiler/lifetime/too-long1.md"
+                    },
+                    {
+                      "title": "生命周期过长 Part2",
+                      "path": "/rust-course/compiler/fight-with-compiler/lifetime/too-long2",
+                      "file": "/docs/rust-course/compiler/fight-with-compiler/lifetime/too-long2.md"
+                    },
+                    {
+                      "title": "循环中的生命周期",
+                      "path": "/rust-course/compiler/fight-with-compiler/lifetime/loop",
+                      "file": "/docs/rust-course/compiler/fight-with-compiler/lifetime/loop.md"
+                    },
+                    {
+                      "title": "闭包函数的消除规则",
+                      "path": "/rust-course/compiler/fight-with-compiler/lifetime/closure-with-static",
+                      "file": "/docs/rust-course/compiler/fight-with-compiler/lifetime/closure-with-static.md"
+                    }
+                  ]
                 },
                 {
                   "title": "重复借用",
                   "path": "/rust-course/compiler/fight-with-compiler/borrowing/intro",
-                  "file": "/docs/rust-course/compiler/fight-with-compiler/borrowing/intro.md"
+                  "file": "/docs/rust-course/compiler/fight-with-compiler/borrowing/intro.md",
+                  "children": [
+                    {
+                      "title": "结构体中的字段借用",
+                      "path": "/rust-course/compiler/fight-with-compiler/borrowing/borrow-distinct-fields-of-struct",
+                      "file": "/docs/rust-course/compiler/fight-with-compiler/borrowing/borrow-distinct-fields-of-struct.md"
+                    },
+                    {
+                      "title": "引用在函数返回后存在",
+                      "path": "/rust-course/compiler/fight-with-compiler/borrowing/ref-exist-in-out-fn",
+                      "file": "/docs/rust-course/compiler/fight-with-compiler/borrowing/ref-exist-in-out-fn.md"
+                    }
+                  ]
                 }
               ]
             },
