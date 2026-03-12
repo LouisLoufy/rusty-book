@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
-import ThemeToggle from '../ThemeToggle';
+import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
 import AuthStatus from '../docs/AuthStatus';
-import logo from '../../assets/logo.jpg';
 import './AppHeader.css';
+
+// GitHub repository mapping for each book
+const GITHUB_REPOS = {
+  'ai-insights': 'https://github.com/beatai-org/beatai',
+  'rust-course': 'https://github.com/sunface/rust-course'
+};
 
 /**
  * 应用统一 Header 组件
@@ -37,32 +42,45 @@ const AppHeader = ({
       <div className="app-header-content">
         {/* Desktop Logo */}
         <Link to="/" className="app-logo desktop-only">
-          <img src={logo} alt="BeatAI" className="logo-image" />
           <span className="logo-text">BeatAI</span>
         </Link>
 
         {/* Mobile Category Dropdown */}
         {showCategoryNav && (
-          <div className="mobile-category-dropdown mobile-only">
-            <button
-              className="mobile-category-toggle"
-              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-            >
-              <span>{activeCategory?.title || '选择书籍'}</span>
-              <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
-            </button>
-            {mobileDropdownOpen && (
-              <div className="mobile-category-menu">
-                {categories.map(category => (
-                  <button
-                    key={category.id}
-                    className={`mobile-category-item ${activeCategory?.id === category.id ? 'active' : ''}`}
-                    onClick={() => handleMobileCategoryClick(category)}
-                  >
-                    {category.title}
-                  </button>
-                ))}
-              </div>
+          <div className="mobile-category-wrapper mobile-only">
+            <div className="mobile-category-dropdown">
+              <button
+                className="mobile-category-toggle"
+                onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+              >
+                <span>{activeCategory?.title || '选择书籍'}</span>
+                <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
+              </button>
+              {mobileDropdownOpen && (
+                <div className="mobile-category-menu">
+                  {categories.map(category => (
+                    <button
+                      key={category.id}
+                      className={`mobile-category-item ${activeCategory?.id === category.id ? 'active' : ''}`}
+                      onClick={() => handleMobileCategoryClick(category)}
+                    >
+                      {category.title}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            {/* GitHub icon next to the dropdown */}
+            {activeCategory && GITHUB_REPOS[activeCategory.id] && (
+              <a
+                href={GITHUB_REPOS[activeCategory.id]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-link-mobile"
+                title={`访问 ${activeCategory.title} 的 GitHub 仓库`}
+              >
+                <FaGithub />
+              </a>
             )}
           </div>
         )}
@@ -76,7 +94,20 @@ const AppHeader = ({
                 className={`category-tab ${activeCategory?.id === category.id ? 'active' : ''}`}
                 onClick={() => onCategoryClick(category)}
               >
-                {category.title}
+                <span className="category-title">{category.title}</span>
+                {/* GitHub icon appears only for the active category */}
+                {activeCategory?.id === category.id && GITHUB_REPOS[category.id] && (
+                  <a
+                    href={GITHUB_REPOS[category.id]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-link-inline"
+                    title={`访问 ${category.title} 的 GitHub 仓库`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <FaGithub />
+                  </a>
+                )}
               </button>
             ))}
           </nav>
@@ -85,7 +116,6 @@ const AppHeader = ({
         {/* Actions */}
         <div className="app-header-actions">
           <AuthStatus />
-          <ThemeToggle />
           <ThemeSelector />
           {onMenuToggle && (
             <button

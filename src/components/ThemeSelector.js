@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { HiMoon, HiSun } from 'react-icons/hi';
+import { useTheme } from '../contexts/ThemeContext';
 import './ThemeSelector.css';
 
 const THEMES = [
@@ -165,6 +167,7 @@ const FONT_SIZES = [
 ];
 
 const ThemeSelector = () => {
+  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [currentTheme, setCurrentTheme] = useState('classic-mono');
   const [currentFont, setCurrentFont] = useState('system');
@@ -336,6 +339,31 @@ const ThemeSelector = () => {
                 right: `${panelPosition.right}px`
               }}
             >
+              {/* Theme Mode Toggle Section */}
+              <div className="theme-section theme-mode-section">
+                <h3 className="theme-panel-title">Theme Mode</h3>
+                <div className="theme-mode-toggle">
+                  <button
+                    className={`theme-mode-option ${theme === 'light' ? 'active' : ''}`}
+                    onClick={() => theme === 'dark' && toggleTheme()}
+                    aria-label="Switch to light mode"
+                  >
+                    <HiSun className="theme-mode-icon" />
+                    <span className="theme-mode-name">Light</span>
+                    {theme === 'light' && <span className="theme-mode-check">✓</span>}
+                  </button>
+                  <button
+                    className={`theme-mode-option ${theme === 'dark' ? 'active' : ''}`}
+                    onClick={() => theme === 'light' && toggleTheme()}
+                    aria-label="Switch to dark mode"
+                  >
+                    <HiMoon className="theme-mode-icon" />
+                    <span className="theme-mode-name">Dark</span>
+                    {theme === 'dark' && <span className="theme-mode-check">✓</span>}
+                  </button>
+                </div>
+              </div>
+
               {/* Color Themes Section */}
               <div className="theme-section">
                 <h3 className="theme-panel-title">Color Theme</h3>

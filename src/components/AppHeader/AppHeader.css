@@ -65,8 +65,9 @@
 
 .category-tab {
   padding: 6px 16px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-family: var(--font-family);
+  font-weight: 600;
   color: var(--text-secondary);
   background: transparent;
   border: none;
@@ -75,6 +76,9 @@
   transition: all 0.2s ease;
   white-space: nowrap;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .category-tab:hover {
@@ -86,6 +90,43 @@
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.1);
   font-weight: 600;
+}
+
+.category-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* GitHub Link Inline with Category Title */
+.github-link-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.25s ease;
+  margin-left: 2px;
+}
+
+.github-link-inline:hover {
+  color: var(--accent-start);
+  transform: scale(1.15);
+}
+
+.category-tab.active .github-link-inline {
+  color: var(--text-primary);
+}
+
+.category-tab.active .github-link-inline:hover {
+  color: var(--accent-start);
+  transform: scale(1.2) rotate(5deg);
+}
+
+[data-theme-mode="dark"] .category-tab.active .github-link-inline:hover {
+  filter: drop-shadow(0 0 6px var(--glow-color));
 }
 
 .app-header-actions {
@@ -125,9 +166,17 @@
 }
 
 /* Mobile Category Dropdown */
+.mobile-category-wrapper {
+  position: relative;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+}
+
 .mobile-category-dropdown {
   position: relative;
   flex: 1;
+  min-width: 0;
 }
 
 .mobile-category-toggle {
@@ -149,6 +198,35 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.github-link-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.github-link-mobile:hover,
+.github-link-mobile:active {
+  color: var(--accent-start);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  border-color: var(--accent-start);
+}
+
+[data-theme-mode="dark"] .github-link-mobile:hover {
+  box-shadow: 0 0 12px var(--glow-color);
 }
 
 .mobile-category-toggle::before {
@@ -199,7 +277,7 @@
   border: 1px solid var(--border-primary);
   border-radius: 16px;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3),
-              0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 0 0 1px rgba(255, 255, 255, 0.05);
   overflow: hidden;
   z-index: 1000;
   animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -210,6 +288,7 @@
     opacity: 0;
     transform: translateY(-20px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -286,9 +365,11 @@
     opacity: 0;
     transform: scale(0);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -306,7 +387,11 @@
   }
 
   .mobile-only {
-    display: block;
+    display: flex;
+  }
+
+  .mobile-category-wrapper {
+    display: flex;
   }
 
   .app-header-content {
@@ -325,11 +410,11 @@
     font-size: 18px;
   }
 
-  /* 让书籍选择框占据更多空间 */
-  .mobile-category-dropdown {
-    flex: 1;
-    max-width: none;
-    min-width: 0;
+  /* GitHub 按钮在移动端 */
+  .github-link-mobile {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 
 }
@@ -345,7 +430,11 @@
   }
 
   .mobile-only {
-    display: block;
+    display: flex;
+  }
+
+  .mobile-category-wrapper {
+    display: flex;
   }
 
   .app-header-actions {
@@ -362,8 +451,17 @@
     padding: 0;
   }
 
+  /* GitHub 按钮在小屏幕 */
+  .github-link-mobile {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
   /* 书籍选择框占据最大空间 */
-  .mobile-category-dropdown {
+  .mobile-category-wrapper {
+    gap: 6px;
     flex: 1;
     min-width: 0;
   }
