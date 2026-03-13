@@ -113,6 +113,11 @@ const AppHeader = ({
           </nav>
         )}
 
+        {/* Square Link - Independent Navigation */}
+        <Link to="/square" className="square-link">
+          <span>广场</span>
+        </Link>
+
         {/* Actions */}
         <div className="app-header-actions">
           <AuthStatus />

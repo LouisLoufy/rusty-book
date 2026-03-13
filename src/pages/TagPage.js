@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { TagProvider, useTag } from '../contexts/TagContext';
 import AppHeader from '../components/AppHeader/AppHeader';
+import Footer from '../components/Footer/Footer';
 import './TagPage.css';
 
 // Inner component that uses TagContext
@@ -10,13 +11,43 @@ const TagPageContent = () => {
   const { tagName } = useParams();
   const decodedTagName = decodeURIComponent(tagName);
   const { getArticlesByTag, groupByCategory } = useTag();
+  const [meta, setMeta] = useState(null);
+  const navigate = useNavigate();
+
+  // Load meta for AppHeader categories
+  useEffect(() => {
+    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
+    fetch(metaPath)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        setMeta(data);
+      })
+      .catch(err => console.error('Failed to load docs meta:', err));
+  }, []);
+
+  const handleCategoryClick = (category) => {
+    // Navigate to the first item in the first section of this category
+    const firstSection = category.sections?.[0];
+    const firstItem = firstSection?.items?.[0];
+
+    if (firstItem?.path) {
+      navigate(firstItem.path);
+    }
+  };
+
+  const categories = meta?.categories || [];
 
   // Get all articles with this tag
   const articles = getArticlesByTag(decodedTagName);
 
   // Group articles by category
   const groupedArticles = groupByCategory(articles);
-  const categories = Object.keys(groupedArticles);
+  const articleCategories = Object.keys(groupedArticles);
 
   return (
     <>
@@ -28,8 +59,16 @@ const TagPageContent = () => {
         />
       </Helmet>
 
-      <div className="tag-page">
-        <AppHeader />
+      <div className="tag-page dynamic-background">
+        {/* Background Layer */}
+        <div className="sailor-moon-bg-layer"></div>
+
+        {/* 复用统一的 AppHeader - 标签页面不激活任何书籍标签 */}
+        <AppHeader
+          categories={categories}
+          activeCategory={null}
+          onCategoryClick={handleCategoryClick}
+        />
 
         <div className="tag-page-container">
           <div className="tag-page-header">
@@ -48,7 +87,7 @@ const TagPageContent = () => {
             </div>
           ) : (
             <div className="tag-page-content">
-              {categories.map((category) => (
+              {articleCategories.map((category) => (
                 <div key={category} className="tag-category-section">
                   <h2 className="tag-category-title">
                     <span className="tag-category-icon">📖</span>
@@ -72,6 +111,9 @@ const TagPageContent = () => {
             </div>
           )}
         </div>
+
+        {/* 复用统一的 Footer */}
+        <Footer />
       </div>
     </>
   );

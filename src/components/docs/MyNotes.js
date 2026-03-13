@@ -12,6 +12,7 @@ const MyNotes = () => {
   const navigate = useNavigate();
   const [activeBook, setActiveBook] = useState('all');
   const [bookTitlesLoaded, setBookTitlesLoaded] = useState(false);
+  const [meta, setMeta] = useState(null);
 
   // Load book titles on mount
   useEffect(() => {
@@ -19,6 +20,34 @@ const MyNotes = () => {
       setBookTitlesLoaded(true);
     });
   }, []);
+
+  // Load meta for AppHeader categories
+  useEffect(() => {
+    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
+    fetch(metaPath)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        setMeta(data);
+      })
+      .catch(err => console.error('Failed to load docs meta:', err));
+  }, []);
+
+  const handleCategoryClick = (category) => {
+    // Navigate to the first item in the first section of this category
+    const firstSection = category.sections?.[0];
+    const firstItem = firstSection?.items?.[0];
+
+    if (firstItem?.path) {
+      navigate(firstItem.path);
+    }
+  };
+
+  const categories = meta?.categories || [];
 
   // Group annotations by book and pageTitle
   const bookGroups = useMemo(() => {
@@ -111,8 +140,15 @@ const MyNotes = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="my-notes-page">
-        <AppHeader />
+      <div className="my-notes-page dynamic-background">
+        {/* Background Layer */}
+        <div className="sailor-moon-bg-layer"></div>
+
+        <AppHeader
+          categories={categories}
+          activeCategory={null}
+          onCategoryClick={handleCategoryClick}
+        />
         <div className="my-notes-container">
           <div className="my-notes-empty">
             <HiAnnotation />
@@ -120,13 +156,21 @@ const MyNotes = () => {
             <p>You need to connect your GitHub account to view your notes.</p>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="my-notes-page">
-      <AppHeader />
+    <div className="my-notes-page dynamic-background">
+      {/* Background Layer */}
+      <div className="sailor-moon-bg-layer"></div>
+
+      <AppHeader
+        categories={categories}
+        activeCategory={null}
+        onCategoryClick={handleCategoryClick}
+      />
       <div className="my-notes-container">
       <div className="my-notes-header">
         <button className="my-notes-back-btn" onClick={() => navigate(-1)}>

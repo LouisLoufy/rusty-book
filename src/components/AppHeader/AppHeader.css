@@ -247,6 +247,72 @@
   opacity: 1;
 }
 
+/* Square Link */
+.square-link {
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.square-link:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.square-link:active {
+  transform: translateY(0);
+}
+
+/* Mobile - Hide square link text on small screens */
+@media (max-width: 768px) {
+  .square-link {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .square-link span {
+    display: none;
+  }
+
+  .square-link::before {
+    content: '🏠';
+    font-size: 18px;
+  }
+
+  .square-link {
+    padding: 8px 12px;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme-mode="light"] .square-link {
+  background: rgba(139, 92, 246, 0.1);
+  color: rgba(139, 92, 246, 0.9);
+}
+
+[data-theme-mode="light"] .square-link:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: rgba(139, 92, 246, 1);
+}
+
+
 .mobile-category-toggle:hover {
   background: linear-gradient(135deg, rgba(103, 80, 164, 0.15), rgba(103, 58, 183, 0.1));
   transform: translateY(-1px);
