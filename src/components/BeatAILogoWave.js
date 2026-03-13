@@ -7,6 +7,7 @@ import React from 'react';
  * - 音频波形条代表 "Beat" 的节奏感
  * - 波形形成 "AI" 的形状
  * - 简洁、动感、现代
+ * - 使用主题配色（--accent-gradient）
  */
 const BeatAILogoWave = ({ size = 32, className = '' }) => {
   // 使用唯一 ID 避免多个实例冲突
@@ -23,9 +24,10 @@ const BeatAILogoWave = ({ size = 32, className = '' }) => {
       style={{ overflow: 'visible' }}
     >
       <defs>
+        {/* 使用 CSS 变量获取主题配色 */}
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#667eea" />
-          <stop offset="100%" stopColor="#f093fb" />
+          <stop offset="0%" stopColor="var(--accent-start, #667eea)" />
+          <stop offset="100%" stopColor="var(--accent-end, #f093fb)" />
         </linearGradient>
       </defs>
 
@@ -53,9 +55,9 @@ const BeatAILogoWave = ({ size = 32, className = '' }) => {
         <rect x="38" y="20" width="4" height="8" rx="2" />
       </g>
 
-      {/* AI 装饰点 - 调整到安全区域内 */}
-      <circle cx="10" cy="12" r="1.5" fill="#667eea" opacity="0.7" />
-      <circle cx="38" cy="36" r="1.5" fill="#f093fb" opacity="0.7" />
+      {/* AI 装饰点 - 使用主题配色 */}
+      <circle cx="10" cy="12" r="1.5" fill="var(--accent-start, #667eea)" opacity="0.7" />
+      <circle cx="38" cy="36" r="1.5" fill="var(--accent-end, #f093fb)" opacity="0.7" />
     </svg>
   );
 };

@@ -7,44 +7,44 @@
 
 .square-container {
   flex: 1;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem 2rem 3rem;
   width: 100%;
 }
 
 /* Hero Section */
 .square-hero {
   text-align: center;
-  padding: 4rem 2rem;
-  margin-bottom: 3rem;
+  padding: 2rem 1.5rem 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .square-title {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .square-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Content Sections */
 .square-content {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.5rem;
 }
 
 .square-section {
@@ -52,10 +52,10 @@
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   text-align: center;
 }
 
@@ -63,13 +63,13 @@
 .square-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .square-card {
   position: relative;
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -95,9 +95,9 @@
 .square-card:hover {
   transform: translateY(-8px);
   box-shadow:
-    0 12px 48px rgba(139, 92, 246, 0.25),
-    0 0 80px rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.4);
+    0 12px 48px var(--glow-color),
+    0 0 80px var(--glow-color);
+  border-color: var(--accent-start);
 }
 
 .square-card:hover::before {
@@ -105,36 +105,43 @@
 }
 
 .card-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
   display: inline-block;
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .square-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .square-card p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
 }
 
 .card-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(139, 92, 246, 0.9);
+  color: var(--accent-start);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -142,7 +149,7 @@
 }
 
 .card-link:hover {
-  color: rgba(139, 92, 246, 1);
+  color: var(--accent-end);
   gap: 0.75rem;
 }
 
@@ -150,43 +157,102 @@
 .tags-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.85rem;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem 1.5rem;
 }
 
 .tag-cloud-item {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  z-index: 1;
 }
 
+/* Gradient border effect using mask */
 .tag-cloud-item::before {
-  content: '#';
-  margin-right: 0.25rem;
-  opacity: 0.7;
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1.5px;
+  background: var(--accent-gradient);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+/* Gradient background glow on hover */
+.tag-cloud-item::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+  z-index: -2;
+}
+
+/* Hash symbol with gradient */
+.tag-cloud-item:has(.tag-hash) {
+  padding-left: 1rem;
+}
+
+.tag-hash {
+  margin-right: 0.35rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 .tag-cloud-item:hover {
-  transform: translateY(-4px) scale(1.05);
-  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px) scale(1.08);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  border-color: rgba(139, 92, 246, 0.4);
   box-shadow:
-    0 8px 32px rgba(139, 92, 246, 0.3),
-    0 0 60px rgba(139, 92, 246, 0.2);
+    0 8px 24px var(--glow-color),
+    0 4px 48px var(--glow-color);
+}
+
+.tag-cloud-item:hover::before {
+  opacity: 1;
+  padding: 2px;
+}
+
+.tag-cloud-item:hover::after {
+  opacity: 0.6;
+}
+
+.tag-cloud-item:hover .tag-hash {
+  opacity: 1;
+}
+
+/* Active/pressed state */
+.tag-cloud-item:active {
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* Tablet Responsive */
@@ -276,36 +342,34 @@
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: light) {
-  .square-card {
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-  }
+/* Light mode adjustments */
+[data-theme-mode="light"] .square-card {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
 
-  .square-card h3 {
-    color: rgba(0, 0, 0, 0.9);
-  }
+[data-theme-mode="light"] .square-card h3 {
+  color: rgba(0, 0, 0, 0.9);
+}
 
-  .square-card p {
-    color: rgba(0, 0, 0, 0.6);
-  }
+[data-theme-mode="light"] .square-card p {
+  color: rgba(0, 0, 0, 0.6);
+}
 
-  .square-subtitle {
-    color: rgba(0, 0, 0, 0.6);
-  }
+[data-theme-mode="light"] .square-subtitle {
+  color: rgba(0, 0, 0, 0.6);
+}
 
-  .section-title {
-    color: rgba(0, 0, 0, 0.9);
-  }
+[data-theme-mode="light"] .section-title {
+  color: rgba(0, 0, 0, 0.9);
+}
 
-  .tag-cloud-item {
-    background: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.8);
-  }
+[data-theme-mode="light"] .tag-cloud-item {
+  background: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.85);
+}
 
-  .tag-cloud-item:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.95);
-  }
+[data-theme-mode="light"] .tag-cloud-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
 }

@@ -26,7 +26,7 @@ const Footer = () => {
 
         {/* Made with ❤️ */}
         <div className="footer-made-with">
-          Made with <FaHeart className="footer-heart-icon" /> by BeatAI 社区
+          Made with <FaHeart className="footer-heart-icon" /> by 创世实验室
         </div>
       </div>
     </footer>

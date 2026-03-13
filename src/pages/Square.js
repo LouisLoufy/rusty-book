@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import AppHeader from '../components/AppHeader/AppHeader';
 import Footer from '../components/Footer/Footer';
+import AIInsightsIcon from '../components/icons/AIInsightsIcon';
+import RustBookIcon from '../components/icons/RustBookIcon';
 import './Square.css';
 
 const Square = () => {
@@ -57,9 +59,9 @@ const Square = () => {
 
         <div className="square-container">
           <div className="square-hero">
-            <h1 className="square-title">欢迎来到广场</h1>
+            <h1 className="square-title">BeatAI</h1>
             <p className="square-subtitle">
-              这是一个开放的交流空间，在这里你可以分享想法、探索知识、结识同好
+              让 AI 更简单 - 创世实验室
             </p>
           </div>
 
@@ -68,31 +70,21 @@ const Square = () => {
               <h2 className="section-title">探索内容</h2>
               <div className="square-grid">
                 <div className="square-card glass-card">
-                  <div className="card-icon">🏷️</div>
-                  <h3>标签浏览</h3>
-                  <p>按标签探索相关内容</p>
-                  <a href="/tags/Rust" className="card-link">浏览标签 →</a>
-                </div>
-
-                <div className="square-card glass-card">
-                  <div className="card-icon">📚</div>
-                  <h3>知识文档</h3>
-                  <p>系统化的技术学习资料</p>
-                  <a href="/rust-course/about-book" className="card-link">开始学习 →</a>
-                </div>
-
-                <div className="square-card glass-card">
-                  <div className="card-icon">💡</div>
-                  <h3>AI 前沿</h3>
-                  <p>最新的 AI 技术分享</p>
+                  <div className="card-icon">
+                    <AIInsightsIcon size={80} />
+                  </div>
+                  <h3>AI 前沿分享</h3>
+                  <p>AI 领域最新动态、技术分享与深度解析</p>
                   <a href="/ai-insights/viewpoint/intro" className="card-link">了解更多 →</a>
                 </div>
 
                 <div className="square-card glass-card">
-                  <div className="card-icon">📝</div>
-                  <h3>我的笔记</h3>
-                  <p>记录学习与思考</p>
-                  <a href="/my-notes" className="card-link">查看笔记 →</a>
+                  <div className="card-icon">
+                    <RustBookIcon size={80} />
+                  </div>
+                  <h3>Rust 语言圣经</h3>
+                  <p>Rust 编程语言完整学习指南</p>
+                  <a href="/rust-course/about-book" className="card-link">开始学习 →</a>
                 </div>
               </div>
             </div>
@@ -100,14 +92,30 @@ const Square = () => {
             <div className="square-section">
               <h2 className="section-title">热门标签</h2>
               <div className="tags-cloud">
-                <a href="/tags/Rust" className="tag-cloud-item">Rust</a>
-                <a href="/tags/基础" className="tag-cloud-item">基础</a>
-                <a href="/tags/进阶" className="tag-cloud-item">进阶</a>
-                <a href="/tags/所有权" className="tag-cloud-item">所有权</a>
-                <a href="/tags/AI" className="tag-cloud-item">AI</a>
-                <a href="/tags/入门" className="tag-cloud-item">入门</a>
-                <a href="/tags/数据类型" className="tag-cloud-item">数据类型</a>
-                <a href="/tags/Cargo" className="tag-cloud-item">Cargo</a>
+                <a href="/tags/Rust" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>Rust
+                </a>
+                <a href="/tags/基础" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>基础
+                </a>
+                <a href="/tags/进阶" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>进阶
+                </a>
+                <a href="/tags/所有权" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>所有权
+                </a>
+                <a href="/tags/AI" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>AI
+                </a>
+                <a href="/tags/入门" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>入门
+                </a>
+                <a href="/tags/数据类型" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>数据类型
+                </a>
+                <a href="/tags/Cargo" className="tag-cloud-item">
+                  <span className="tag-hash">#</span>Cargo
+                </a>
               </div>
             </div>
           </div>
