@@ -415,6 +415,7 @@
     width: 36px;
     height: 36px;
     font-size: 18px;
+    display: none; /* 隐藏移动端的 GitHub 按钮 */
   }
 
 }
@@ -457,6 +458,7 @@
     height: 34px;
     font-size: 16px;
     border-radius: 8px;
+    display: none; /* 隐藏移动端的 GitHub 按钮 */
   }
 
   /* 书籍选择框占据最大空间 */

@@ -1,6 +1,7 @@
 .auth-status {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   position: relative;
 }
@@ -14,6 +15,9 @@
   border-radius: 50%;
   transition: all 0.2s;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-status-avatar-btn:hover {
@@ -42,6 +46,7 @@
   right: 0;
   width: 280px;
   background: var(--card-bg);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--border-primary);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -51,7 +56,10 @@
 }
 
 [data-theme-mode="dark"] .auth-status-user-panel {
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(30px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 @keyframes slideDown {
@@ -168,21 +176,24 @@
   font-size: 16px;
 }
 
-.auth-status-btn-github {
+.auth-status-btn-signin {
   background: var(--card-bg);
-  color: var(--text-secondary);
-  width: 40px;
+  color: var(--text-primary);
   height: 40px;
+  padding: 0 16px;
   border-radius: 10px;
   border: 1px solid var(--border-primary);
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.auth-status-btn-github:hover {
+.auth-status-btn-signin:hover {
   background: var(--card-bg-hover);
   border-color: var(--accent-start);
   color: var(--accent-start);
@@ -190,8 +201,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.auth-status-btn-github svg {
-  font-size: 20px;
+.auth-status-btn-signin svg {
+  font-size: 16px;
+  flex-shrink: 0;
 }
 
 /* Mobile Responsive */
@@ -200,13 +212,14 @@
     gap: 6px;
   }
 
-  .auth-status-btn-github {
-    width: 36px !important;
-    height: 36px !important;
+  .auth-status-btn-signin {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
   }
 
-  .auth-status-btn-github svg {
-    font-size: 18px !important;
+  .auth-status-btn-signin svg {
+    font-size: 14px;
   }
 
   .auth-status-avatar {
@@ -232,14 +245,19 @@
     gap: 4px;
   }
 
-  .auth-status-btn-github {
-    width: 34px !important;
-    height: 34px !important;
-    border-radius: 8px !important;
+  .auth-status-btn-signin {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-radius: 8px;
   }
 
-  .auth-status-btn-github svg {
-    font-size: 16px !important;
+  .auth-status-btn-signin svg {
+    font-size: 13px;
+  }
+
+  .auth-status-btn-signin span {
+    display: none; /* 小屏幕隐藏文字，只显示图标 */
   }
 
   .auth-status-avatar {
