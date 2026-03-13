@@ -58,8 +58,11 @@
 
 /* Highlighted text marker */
 .highlighted-text {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.15));
-  border-bottom: 2px solid rgba(139, 92, 246, 0.6);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent-start) 20%, transparent),
+    color-mix(in srgb, var(--accent-end) 15%, transparent)
+  );
+  border-bottom: 2px solid color-mix(in srgb, var(--accent-start) 60%, transparent);
   cursor: pointer;
   transition: all 0.2s ease;
   padding: 2px 0;
@@ -67,18 +70,27 @@
 }
 
 .highlighted-text:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.25));
-  border-bottom-color: rgba(139, 92, 246, 0.9);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent-start) 30%, transparent),
+    color-mix(in srgb, var(--accent-end) 25%, transparent)
+  );
+  border-bottom-color: color-mix(in srgb, var(--accent-start) 90%, transparent);
 }
 
 [data-theme-mode="dark"] .highlighted-text {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(236, 72, 153, 0.2));
-  border-bottom: 2px solid rgba(167, 139, 250, 0.6);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent-start) 25%, transparent),
+    color-mix(in srgb, var(--accent-end) 20%, transparent)
+  );
+  border-bottom: 2px solid color-mix(in srgb, var(--accent-start) 60%, transparent);
 }
 
 [data-theme-mode="dark"] .highlighted-text:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(236, 72, 153, 0.3));
-  border-bottom-color: rgba(167, 139, 250, 0.9);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent-start) 35%, transparent),
+    color-mix(in srgb, var(--accent-end) 30%, transparent)
+  );
+  border-bottom-color: color-mix(in srgb, var(--accent-start) 90%, transparent);
 }
 
 /* Target annotation pulse animation */
@@ -238,7 +250,7 @@
   transition: all 0.2s ease;
   border: 1px solid rgba(139, 92, 246, 0.3);
   background: transparent;
-  color: #8b5cf6;
+  color: var(--accent-primary);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -246,17 +258,17 @@
 
 .annotation-btn-edit:hover {
   background: rgba(139, 92, 246, 0.1);
-  border-color: #8b5cf6;
+  border-color: var(--accent-primary);
 }
 
 [data-theme-mode="dark"] .annotation-btn-edit {
-  color: #a78bfa;
+  color: var(--accent-primary);
   border-color: rgba(167, 139, 250, 0.3);
 }
 
 [data-theme-mode="dark"] .annotation-btn-edit:hover {
   background: rgba(167, 139, 250, 0.15);
-  border-color: #a78bfa;
+  border-color: var(--accent-primary);
 }
 
 .annotation-btn-delete {

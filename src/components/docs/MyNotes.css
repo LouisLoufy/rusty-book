@@ -194,7 +194,7 @@
 [data-theme-mode="dark"] .my-notes-group-book {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.15));
   border-color: rgba(139, 92, 246, 0.4);
-  color: #a78bfa;
+  color: var(--accent-primary);
 }
 
 .my-notes-group-count {

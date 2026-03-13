@@ -19,9 +19,8 @@
   --text-tertiary: #9ca3af;
   --border-primary: rgba(255, 255, 255, 0.1);
   --border-secondary: rgba(255, 255, 255, 0.05);
-  --accent-primary: #8b5cf6;
-  --accent-secondary: #ec4899;
-  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --accent-primary: var(--accent-start, #8b5cf6);
+  --accent-secondary: var(--accent-end, #ec4899);
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-bg-hover: rgba(255, 255, 255, 0.05);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -39,9 +38,8 @@
   --text-tertiary: #9ca3af;
   --border-primary: rgba(255, 255, 255, 0.1);
   --border-secondary: rgba(255, 255, 255, 0.05);
-  --accent-primary: #8b5cf6;
-  --accent-secondary: #ec4899;
-  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --accent-primary: var(--accent-start, #8b5cf6);
+  --accent-secondary: var(--accent-end, #ec4899);
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-bg-hover: rgba(255, 255, 255, 0.05);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -59,9 +57,8 @@
   --text-tertiary: #9ca3af;
   --border-primary: rgba(0, 0, 0, 0.08);
   --border-secondary: rgba(0, 0, 0, 0.04);
-  --accent-primary: #8b5cf6;
-  --accent-secondary: #ec4899;
-  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --accent-primary: var(--accent-start, #8b5cf6);
+  --accent-secondary: var(--accent-end, #ec4899);
   --card-bg: #f9fafb;
   --card-bg-hover: #f3f4f6;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);

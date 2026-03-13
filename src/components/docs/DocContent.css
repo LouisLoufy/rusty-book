@@ -152,7 +152,7 @@
 /* Code - Modern pill design */
 .doc-code-inline {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.08));
-  color: #6d28d9;
+  color: var(--accent-primary);
   padding: 3px 10px;
   border-radius: 6px;
   font-size: 14px;
