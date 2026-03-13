@@ -35,7 +35,12 @@ const buildTagIndex = (meta) => {
       });
     }
 
-    // Process children recursively
+    // Process children recursively (for nested structures)
+    if (item.children && Array.isArray(item.children)) {
+      item.children.forEach(child => processItem(child, categoryTitle));
+    }
+
+    // Process items recursively
     if (item.items && Array.isArray(item.items)) {
       item.items.forEach(child => processItem(child, categoryTitle));
     }
@@ -49,13 +54,8 @@ const buildTagIndex = (meta) => {
       // Process sections
       if (category.sections) {
         category.sections.forEach(section => {
-          // Process section itself
+          // Process section itself (only if it has tags, the recursion will handle items)
           processItem(section, categoryTitle);
-
-          // Process items in section
-          if (section.items) {
-            section.items.forEach(item => processItem(item, categoryTitle));
-          }
         });
       }
     });
