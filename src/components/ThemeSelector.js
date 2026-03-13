@@ -178,10 +178,10 @@ const FONT_SIZES = [
 const ThemeSelector = () => {
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState('classic-mono');
-  const [currentFont, setCurrentFont] = useState('system');
-  const [currentFontWeight, setCurrentFontWeight] = useState('normal');
-  const [currentFontSize, setCurrentFontSize] = useState('normal');
+  const [currentTheme, setCurrentTheme] = useState('sailor-moon');
+  const [currentFont, setCurrentFont] = useState('zcool-kuaile');
+  const [currentFontWeight, setCurrentFontWeight] = useState('medium');
+  const [currentFontSize, setCurrentFontSize] = useState('large');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [panelPosition, setPanelPosition] = useState({ top: 0, right: 0 });
@@ -194,11 +194,9 @@ const ThemeSelector = () => {
       setCurrentTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
     } else {
-      // Set default gradient theme only if not already set
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      if (!currentTheme) {
-        document.documentElement.setAttribute('data-theme', 'classic-mono');
-      }
+      // Set default gradient theme
+      setCurrentTheme('sailor-moon');
+      document.documentElement.setAttribute('data-theme', 'sailor-moon');
     }
 
     // Load saved font from localStorage
@@ -206,6 +204,10 @@ const ThemeSelector = () => {
     if (savedFont && FONTS.some(f => f.id === savedFont)) {
       setCurrentFont(savedFont);
       applyFont(savedFont);
+    } else {
+      // Set default font
+      setCurrentFont('zcool-kuaile');
+      applyFont('zcool-kuaile');
     }
 
     // Load saved font weight from localStorage
@@ -213,6 +215,10 @@ const ThemeSelector = () => {
     if (savedFontWeight && FONT_WEIGHTS.some(w => w.id === savedFontWeight)) {
       setCurrentFontWeight(savedFontWeight);
       applyFontWeight(savedFontWeight);
+    } else {
+      // Set default font weight
+      setCurrentFontWeight('medium');
+      applyFontWeight('medium');
     }
 
     // Load saved font size from localStorage
@@ -220,6 +226,10 @@ const ThemeSelector = () => {
     if (savedFontSize && FONT_SIZES.some(s => s.id === savedFontSize)) {
       setCurrentFontSize(savedFontSize);
       applyFontSize(savedFontSize);
+    } else {
+      // Set default font size
+      setCurrentFontSize('large');
+      applyFontSize('large');
     }
 
     // Check initial dark mode

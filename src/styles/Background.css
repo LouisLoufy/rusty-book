@@ -4,15 +4,15 @@
  */
 
 :root {
-  /* 默认主题：黑白经典 - 浅色模式 */
-  --accent-start: #1a1a1a;
-  --accent-end: #1a1a1a;
-  --accent-gradient: #1a1a1a;
-  --glow-color: rgba(26, 26, 26, 0.3);
-  --particle-color: #525252;
-  --bg-radial-1: rgba(0, 0, 0, 0.08);
-  --bg-radial-2: rgba(0, 0, 0, 0.05);
-  --bg-radial-3: rgba(0, 0, 0, 0.03);
+  /* 默认主题：Sailor Moon - 粉金色系 */
+  --accent-start: #ff69b4;
+  --accent-end: #ff1493;
+  --accent-gradient: linear-gradient(135deg, #ff69b4 0%, #ffd700 50%, #ff1493 100%);
+  --glow-color: rgba(255, 105, 180, 0.6);
+  --particle-color: #ffd700;
+  --bg-radial-1: rgba(255, 105, 180, 0.15);
+  --bg-radial-2: rgba(255, 215, 0, 0.12);
+  --bg-radial-3: rgba(255, 20, 147, 0.10);
 }
 
 /* ==================== Purple-Pink Theme ==================== */
