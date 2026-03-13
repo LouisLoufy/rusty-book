@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import DocsLayout from '../components/docs/DocsLayout';
 import DocContent from '../components/docs/DocContent';
+import { TagProvider } from '../contexts/TagContext';
 import './Docs.css';
 
 // Component to handle category-level redirects
@@ -79,13 +80,15 @@ const Docs = () => {
         <meta name="description" content="Complete documentation for BeatAI - the open-source AI bot framework" />
       </Helmet>
 
-      <DocsLayout meta={docsMeta}>
-        <Routes>
-          <Route index element={<Navigate to={defaultPath} replace />} />
-          <Route path=":categoryId" element={<CategoryRedirect meta={docsMeta} />} />
-          <Route path="*" element={<DocContent />} />
-        </Routes>
-      </DocsLayout>
+      <TagProvider meta={docsMeta}>
+        <DocsLayout meta={docsMeta}>
+          <Routes>
+            <Route index element={<Navigate to={defaultPath} replace />} />
+            <Route path=":categoryId" element={<CategoryRedirect meta={docsMeta} />} />
+            <Route path="*" element={<DocContent />} />
+          </Routes>
+        </DocsLayout>
+      </TagProvider>
     </>
   );
 };

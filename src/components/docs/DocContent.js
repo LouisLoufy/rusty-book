@@ -19,8 +19,10 @@ import '../../styles/prism-custom.css';
 import TableOfContents from './TableOfContents';
 import CodePlayground from './CodePlayground';
 import PaginationNav from './PaginationNav';
+import ArticleTags from './ArticleTags';
 import { usePageTitle } from '../../contexts/PageTitleContext';
 import { useMeta } from '../../contexts/MetaContext';
+import { useTag } from '../../contexts/TagContext';
 import { flattenChapters, getAdjacentChapters } from '../../utils/navigationHelpers';
 import './DocContent.css';
 import '../../styles/3d-effects.css';
@@ -45,12 +47,14 @@ const DocContent = () => {
   const location = useLocation();
   const { setPageTitle, findTitleByPath } = usePageTitle();
   const { meta } = useMeta();
+  const { findArticleTags } = useTag();
   const [content, setContent] = useState('');
   const [frontmatter, setFrontmatter] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [headings, setHeadings] = useState([]);
   const [adjacentChapters, setAdjacentChapters] = useState({ prev: null, next: null });
+  const [articleTags, setArticleTags] = useState([]);
 
   // Extract the path from URL (now starts from root)
   const docPath = location.pathname.replace(/^\//, '');
@@ -124,7 +128,11 @@ const DocContent = () => {
     const chapters = flattenChapters(meta);
     const adjacent = getAdjacentChapters(chapters, location.pathname);
     setAdjacentChapters(adjacent);
-  }, [meta, location.pathname]);
+
+    // Find tags for current article
+    const tags = findArticleTags(location.pathname);
+    setArticleTags(tags);
+  }, [meta, location.pathname, findArticleTags]);
 
   if (error) {
     return (
@@ -238,6 +246,9 @@ const DocContent = () => {
               {content}
             </ReactMarkdown>
           </article>
+
+          {/* Article Tags */}
+          <ArticleTags tags={articleTags} />
 
           {/* Pagination Navigation */}
           <PaginationNav prev={adjacentChapters.prev} next={adjacentChapters.next} />
