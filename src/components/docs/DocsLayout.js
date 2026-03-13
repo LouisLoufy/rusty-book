@@ -89,6 +89,9 @@ const DocsLayoutInner = ({ meta, children }) => {
 
   return (
     <div className="docs-layout dynamic-background">
+      {/* Sailor Moon Background Layer */}
+      <div className="sailor-moon-bg-layer"></div>
+
       {/* Header with glassmorphism */}
       <AppHeader
         categories={categories}

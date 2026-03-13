@@ -76,6 +76,15 @@ const THEMES = [
     gradient: 'linear-gradient(135deg, #065f46 0%, #f59e0b 50%, #dc2626 100%)',
     gradientDark: 'linear-gradient(135deg, #047857 0%, #fbbf24 50%, #f87171 100%)',
     colors: ['#065f46', '#f59e0b', '#dc2626']
+  },
+  {
+    id: 'sailor-moon',
+    name: 'Sailor Moon',
+    gradient: 'linear-gradient(135deg, #ff69b4 0%, #ffd700 50%, #ff1493 100%)',
+    gradientDark: 'linear-gradient(135deg, #ff69b4 0%, #ffd700 50%, #ff1493 100%)',
+    colors: ['#ff69b4', '#ffd700', '#ff1493'],
+    backgroundImage: '/images/themes/sailor-moon-bg.svg',
+    isImageTheme: true
   }
 ];
 
@@ -373,16 +382,27 @@ const ThemeSelector = () => {
                     return (
                       <button
                         key={theme.id}
-                        className={`theme-card ${currentTheme === theme.id ? 'active' : ''}`}
+                        className={`theme-card ${currentTheme === theme.id ? 'active' : ''} ${theme.isImageTheme ? 'image-theme' : ''}`}
                         onClick={() => handleThemeChange(theme.id)}
                         aria-label={`Switch to ${theme.name} theme`}
                       >
                         <div
                           className="theme-card-gradient"
-                          style={{ background: themeGradient }}
+                          style={{
+                            background: themeGradient,
+                            ...(theme.isImageTheme && {
+                              backgroundImage: `${themeGradient}, url(${theme.backgroundImage})`,
+                              backgroundSize: 'cover, cover',
+                              backgroundPosition: 'center, center',
+                              backgroundBlend: 'overlay'
+                            })
+                          }}
                         >
                           {currentTheme === theme.id && (
                             <div className="theme-card-check">✓</div>
+                          )}
+                          {theme.isImageTheme && (
+                            <div className="theme-card-badge">🌙</div>
                           )}
                         </div>
                         <span className="theme-card-name">{theme.name}</span>
