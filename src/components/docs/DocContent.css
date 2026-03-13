@@ -15,6 +15,11 @@
   /* transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
+/* 文档内容区域所有链接默认显示下划线 */
+.doc-content a {
+  text-decoration: underline;
+}
+
 @media (max-width: 1200px) {
   .doc-content {
     padding-right: 0;
@@ -124,7 +129,7 @@
 /* Links */
 .doc-link {
   color: var(--accent-start);
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: 500;
   position: relative;
   transition: all 0.3s ease;
@@ -134,19 +139,8 @@
   color: var(--accent-start);
 }
 
-.doc-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-gradient);
-  transition: width 0.3s ease;
-}
-
-.doc-link:hover::after {
-  width: 100%;
+.doc-link:hover {
+  opacity: 0.8;
 }
 
 /* Code - Modern pill design */
