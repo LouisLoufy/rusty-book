@@ -9,12 +9,17 @@ const PaginationNav = ({ prev, next }) => {
     return null;
   }
 
+  // 点击导航时强制滚动到顶部
+  const handleNavClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className="pagination-nav">
       {/* 上一章按钮 */}
       <div className="pagination-item">
         {prev ? (
-          <Link to={prev.path} className="pagination-link prev">
+          <Link to={prev.path} className="pagination-link prev" onClick={handleNavClick}>
             <HiArrowLeft className="pagination-icon" />
             <div className="pagination-content">
               <span className="pagination-label">上一章</span>
@@ -30,7 +35,7 @@ const PaginationNav = ({ prev, next }) => {
       {/* 下一章按钮 */}
       <div className="pagination-item">
         {next ? (
-          <Link to={next.path} className="pagination-link next">
+          <Link to={next.path} className="pagination-link next" onClick={handleNavClick}>
             <div className="pagination-content">
               <span className="pagination-label">下一章</span>
               <span className="pagination-title">{next.title}</span>
