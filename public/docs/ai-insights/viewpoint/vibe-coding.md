@@ -16,6 +16,10 @@
 
 但就在上周，大模型领域的「优等生」、Claude（也是最受欢迎的 Vibe Coding 模型之一）的母公司 Anthropic 居然自己跳出来，给这股热潮泼了一盆冰水。
 
+![Anthropic 论文封面](https://mmbiz.qpic.cn/sz_mmbiz_png/z6JAVpoB67S8tdAxTXRw0WQP1kYooOmiaH5mTqHook66YAK2ldsNOM5G2nyAO5AibfIwwybjTiczdxWibDhZTt2WzchTuyTCgAib96nKy7up2kvw/640?wx_fmt=png&from=appmsg)
+
+*图源：arxiv*
+
 他们发了一篇题为《AI 如何影响技能形成》的硬核论文，告诉我们一个残酷的真相：**如果你在学习新东西时过度依赖 AI，你不仅不会变快，你的核心能力还会出现显著退化**。
 
 甚至，你可能正在变成一个「半废」的工程师。
@@ -39,6 +43,10 @@ Anthropic 的研究员这次很较真，他们找来 50 多位有经验的 Pytho
 
 **但实验结果出来后，所有人都沉默了。**
 
+![无 AI 组问答得分普遍高于 AI 辅助组](https://mmbiz.qpic.cn/mmbiz_png/z6JAVpoB67TRJXqpLEbMtyIJJT6QaOJEn7iaT14XxZ3OFzJVr1jNlf6fEibpQKosibtNN4myuNb3EyEcicChqa4D4HPzuSFmfXd5siaXj2zgsvME/640?wx_fmt=png&from=appmsg)
+
+*图源：Anthropic*
+
 最明显的结果是：成绩不好。数据显示，**使用了 AI 的那组人，考试得分平均比手写组低了 17%**。
 
 论文中特别提到，分差最大的领域在于调试（Debug）。
@@ -54,6 +62,10 @@ Anthropic 的研究员这次很较真，他们找来 50 多位有经验的 Pytho
 「**交互税**」。
 
 **有些程序员为了让 AI 写出完美的代码，花了大量时间在「写提示词」上**。数据显示，有人甚至花了 11 分钟在跟 AI 聊天，或者在一项 35 分钟的任务里，花了 30% 的时间在构思怎么问问题。
+
+![「时价比」不高，花费的时间并没有转换成得分](https://mmbiz.qpic.cn/mmbiz_png/z6JAVpoB67S4cp58cqmQh4FiaSs8ClMDBDYnnFBHQC10GmlrmdMP2yUbEqYibCUEiaJFU7L1sqN7uZrCxN3j2eR2Iibt22TaDIyicRF79aY0Gicibg/640?wx_fmt=png&from=appmsg)
+
+*图源：Anthropic*
 
 再结合上 Vibe Coding 最短的短板——Debug 困难。AI 组很容易陷入试错式调试（Iterative Debugging）的循环：AI 生成代码 → 报错了 → 把报错丢给 AI：「解决一下这个 bug」→ AI 再生成 → 又报错了……
 
@@ -89,6 +101,10 @@ Anthropic 的研究员这次很较真，他们找来 50 多位有经验的 Pytho
 
 第二类用户就乐观多了，虽然用了 AI，但考试成绩甚至能和手写组持平（65% - 86%），寻找到了人机共生的解决方案。
 
+![拿 AI 作「辅助驾驶」的三类人得分更高](https://mmbiz.qpic.cn/sz_mmbiz_png/z6JAVpoB67QJ6nZUJ15XEv8ibic5ic6Df7mmOlzHpJUKXmXZG13x2B1P4G98iaicKaqCz4C4JUP4jibXk15dY6sTc0SrKd8OBlicpibO44KJtA7q0w/640?wx_fmt=png&from=appmsg)
+
+*图源：Anthropic*
+
 这一大类里也能细分为三个小类：
 
 ### 打破砂锅型 (Conceptual Inquiry)
@@ -119,11 +135,19 @@ Anthropic 的这篇报告，其实触及了一个心理学概念：
 
 论文里用了个比喻：AI 就像一副「外骨骼」，当你穿着它时，你力大无穷，能搬起千斤重。但问题在于，肌肉的生长需要负重和撕裂，如果你长期穿着它不脱下来，你的肌肉就会因为缺乏刺激而萎缩。
 
+![研究认为，过度依赖 AI 会直接跳过思考过程](https://mmbiz.qpic.cn/mmbiz_png/z6JAVpoB67TNgLYKIhqicBia8fvWScwNDfvCOeFNnTGictztoYS54lopBblDmKwR3qe6xxMcMxp2M6A8T2f1yOTicgqxCDy2KwxdHHZIlRjrYjA/640?wx_fmt=png&from=appmsg)
+
+*图源：Anthropic*
+
 这篇论文中有一个非常不起眼、但细思极恐的数据：**报错数量**。
 
 手动组在做任务时，平均每人遇到了 3 次报错。所以他们被迫停下来，盯着红色的报错信息，去查文档、去思考「为什么类型不匹配」、「为什么线程没挂起」。
 
 而 AI 组平均每人只遇到了 1 次报错，大多数时候，AI 给出的代码不仅能跑，而且跑得极其顺滑。
+
+![AI 组的报错显著少于无 AI 组](https://mmbiz.qpic.cn/sz_mmbiz_png/z6JAVpoB67SjibljEF1pXFdVmzicn9u1gmFGRD9Siaak2hL3cP2wRsicXnfvd9k9GicqMgxvM2b5kicubnOsichKATsyEGBPuH3icIDGicv0FHuD0NA/640?wx_fmt=png&from=appmsg)
+
+*图源：Anthropic*
 
 这听起来是 AI 的优点？不，Anthropic 的研究员指出，这恰恰是问题的根源。
 
@@ -154,6 +178,10 @@ Vibe Coding 最迷人也最危险的地方，在于**它制造了一种「快乐
 研究人员按照编程经验将参与者分成了三层：1-3 年、4-6 年、7 年以上。
 
 结果数据显示，在所有经验层级中，不使用 AI 的组，考试得分都高于使用 AI 的组。
+
+![哪怕是资深工程师，在 AI 辅助下得分也低于无 AI 组](https://mmbiz.qpic.cn/sz_mmbiz_png/z6JAVpoB67S7Uu3O7WIdFS3vYewD151guPrFeS2Hic8ia4QMibliaESOBUFh6TJhEKZhWo0uWViaHWUiaM7L0rrV6TG2Qq9pzjJjnKLGJjQl6Q0A/640?wx_fmt=png&from=appmsg)
+
+*图源：Anthropic*
 
 这意味着，即使你是入行 7 年以上的老鸟，在面对一个全新的技术领域时，如果过度依赖 AI，你的学习效果依然会大打折扣。
 
