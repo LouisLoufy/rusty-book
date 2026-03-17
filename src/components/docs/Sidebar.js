@@ -163,6 +163,11 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
     title: meta.repoTitle || '繁星点点，只因有你'
   } : null;
 
+  // For ai-insights category, reverse sections order (newest first)
+  const sectionsToRender = meta.id === 'ai-insights'
+    ? [...meta.sections].reverse()
+    : meta.sections;
+
   return (
     <>
       {/* Mobile Overlay */}
@@ -180,7 +185,7 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
         )}
 
         <nav className="sidebar-nav">
-          {meta.sections.map((section, idx) => (
+          {sectionsToRender.map((section, idx) => (
             <div
               key={idx}
               ref={(el) => (sectionRefs.current[idx] = el)}
