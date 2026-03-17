@@ -7,14 +7,15 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { AnnotationProvider } from './contexts/AnnotationContext';
 import { TagProvider } from './contexts/TagContext';
 import PageTransitionLoader from './components/PageTransitionLoader';
+import { lazyWithMinLoadTime } from './utils/lazyWithMinLoadTime';
 
-// Lazy load components
-const Home = lazy(() => import('./pages/Home'));
-const Docs = lazy(() => import('./pages/Docs'));
-const MyNotes = lazy(() => import('./components/docs/MyNotes'));
-const TagPage = lazy(() => import('./pages/TagPage'));
-const Square = lazy(() => import('./pages/Square'));
-const LogoShowcase = lazy(() => import('./pages/LogoShowcase'));
+// Lazy load components with minimum load time (500ms)
+const Home = lazy(() => lazyWithMinLoadTime(() => import('./pages/Home')));
+const Docs = lazy(() => lazyWithMinLoadTime(() => import('./pages/Docs')));
+const MyNotes = lazy(() => lazyWithMinLoadTime(() => import('./components/docs/MyNotes')));
+const TagPage = lazy(() => lazyWithMinLoadTime(() => import('./pages/TagPage')));
+const Square = lazy(() => lazyWithMinLoadTime(() => import('./pages/Square')));
+const LogoShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/LogoShowcase')));
 
 function App() {
   return (
