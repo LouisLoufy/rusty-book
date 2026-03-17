@@ -28,6 +28,16 @@ Wendy's 6450 家餐厅糖浆短缺，以往需 15 人干一整天，现在 5 分
 
 ---
 
-**原文**：[Palantir's Ontology: The Enterprise AI Operating System Revolutionizing Business Intelligence](https://ai.plainenglish.io/palantirs-ontology-the-enterprise-ai-operating-system-revolutionizing-business-intelligence-b8b0dcd4f90a) | 来源：AI.Plain English
+## 原文链接
+
+> **Palantir's Ontology: The Enterprise AI Operating System Revolutionizing Business Intelligence**
+>
+> 来源：AI.Plain English
+>
+> 深度剖析 Palantir 三层架构、NVIDIA 合作、财务数据和实施路径
+>
+> 👉 [点击阅读原文](https://ai.plainenglish.io/palantirs-ontology-the-enterprise-ai-operating-system-revolutionizing-business-intelligence-b8b0dcd4f90a)
+
+---
 
 **#Palantir #企业AI #本体论 #商业智能 #语义驱动**
