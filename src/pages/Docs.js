@@ -45,6 +45,14 @@ const Docs = () => {
         return res.json();
       })
       .then(data => {
+        // Sort ai-insights sections in reverse chronological order (newest first)
+        if (data?.categories) {
+          data.categories.forEach(cat => {
+            if (cat.id === 'ai-insights' && cat.sections) {
+              cat.sections.reverse();
+            }
+          });
+        }
         setDocsMeta(data);
       })
       .catch(err => console.error('Failed to load docs meta:', err));
