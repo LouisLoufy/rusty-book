@@ -42,7 +42,7 @@
 >
 > 五个馒头的完整解析：文化、人才、流程、数据、智能
 >
-> 👉 [点击阅读原文](https://mp.weixin.qq.com/s/NeT-ahsm4xfxhm7Hn3IwKg)
+> 👉 <a href="https://mp.weixin.qq.com/s/NeT-ahsm4xfxhm7Hn3IwKg" target="_blank" rel="noopener noreferrer">点击阅读原文</a>
 
 ---
 

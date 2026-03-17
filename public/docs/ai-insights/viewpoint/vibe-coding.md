@@ -42,7 +42,7 @@ Anthropic 不是让我们因噎废食，而是改变使用习惯：多问"为什
 >
 > Anthropic 论文《AI 如何影响技能形成》完整解读，50+ 程序员实验数据
 >
-> 👉 [点击阅读原文](https://mp.weixin.qq.com/s/5LP9E6A__gsJvuNS1QGonw)
+> 👉 <a href="https://mp.weixin.qq.com/s/5LP9E6A__gsJvuNS1QGonw" target="_blank" rel="noopener noreferrer">点击阅读原文</a>
 
 ---
 
