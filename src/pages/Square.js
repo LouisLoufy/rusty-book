@@ -95,7 +95,7 @@ const Square = () => {
                     <RustBookIcon size={80} />
                   </div>
                   <h3>Rust 语言圣经</h3>
-                  <p>Rust 编程语言完整学习指南</p>
+                  <p>学习 AI 时代最安全的语言</p>
                   <span className="card-link">开始学习 →</span>
                 </a>
               </div>
