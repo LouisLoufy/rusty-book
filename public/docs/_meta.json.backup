@@ -5,8 +5,6 @@
       "id": "ai-insights",
       "title": "AI前沿分享",
       "description": "AI 领域最新动态、技术分享与深度解析",
-      "githubRepo": "https://github.com/beatai-org/beatai.org",
-      "repoTitle": "欢迎贡献内容",
       "sections": [
         {
           "title": "AI视点",
@@ -27,8 +25,6 @@
       "id": "rust-course",
       "title": "Rust语言圣经",
       "description": "Rust 编程语言完整学习指南",
-      "githubRepo": "https://github.com/sunface/rust-course",
-      "repoTitle": "繁星点点，只因有你",
       "sections": [
         {
           "title": "📖 序言",
