@@ -6,6 +6,7 @@ import './styles/Background.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { AnnotationProvider } from './contexts/AnnotationContext';
 import { TagProvider } from './contexts/TagContext';
+import PageTransitionLoader from './components/PageTransitionLoader';
 
 // Lazy load components
 const Home = lazy(() => import('./pages/Home'));
@@ -22,7 +23,7 @@ function App() {
         <AnnotationProvider>
           <BrowserRouter>
             <div className="App dynamic-background">
-              <Suspense fallback={<div className="loading">Loading...</div>}>
+              <Suspense fallback={<PageTransitionLoader />}>
                 <Routes>
                   {/* 根目录跳转到广场 */}
                   <Route path="/" element={<Navigate to="/square" replace />} />

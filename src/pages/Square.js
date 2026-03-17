@@ -81,23 +81,23 @@ const Square = () => {
             <div className="square-section">
               <h2 className="section-title">探索内容</h2>
               <div className="square-grid">
-                <div className="square-card glass-card">
+                <a href={getFirstItemPath('ai-insights')} className="square-card glass-card">
                   <div className="card-icon">
                     <AIInsightsIcon size={80} />
                   </div>
                   <h3>AI 前沿分享</h3>
                   <p>AI 领域最新动态、技术分享与深度解析</p>
-                  <a href={getFirstItemPath('ai-insights')} className="card-link">了解更多 →</a>
-                </div>
+                  <span className="card-link">了解更多 →</span>
+                </a>
 
-                <div className="square-card glass-card">
+                <a href={getFirstItemPath('rust-course')} className="square-card glass-card">
                   <div className="card-icon">
                     <RustBookIcon size={80} />
                   </div>
                   <h3>Rust 语言圣经</h3>
                   <p>Rust 编程语言完整学习指南</p>
-                  <a href={getFirstItemPath('rust-course')} className="card-link">开始学习 →</a>
-                </div>
+                  <span className="card-link">开始学习 →</span>
+                </a>
               </div>
             </div>
 
