@@ -564,13 +564,12 @@
         var search = window.location.search;
         var hash = window.location.hash;
         var payload = path + search + hash;
+        var shellEntry = window.location.origin + '/';
 
         sessionStorage.setItem('githubPagesRedirect', payload);
         window.__BEATAI_404__ = { payload: payload };
 
-        window.setTimeout(function () {
-          window.location.replace('./');
-        }, 1200);
+        window.location.replace(shellEntry);
       })();
     </script>
   </head>
@@ -605,7 +604,7 @@
                 <span class="chip ok">CORE ONLINE</span>
               </div>
               <div class="actions">
-                <a class="button primary" href="./">立即返回 BeatAI</a>
+                <a class="button primary" href="/">立即返回 BeatAI</a>
                 <a class="button secondary" href="https://github.com/beatai-org/beatai" target="_blank" rel="noopener noreferrer">查看仓库</a>
               </div>
             </div>
