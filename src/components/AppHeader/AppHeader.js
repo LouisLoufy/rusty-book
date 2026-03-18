@@ -68,7 +68,7 @@ const AppHeader = ({
                 className="mobile-category-toggle"
                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
               >
-                <span>{isLearnClaudeCodeActive ? 'Learn Claude Code' : (activeCategory?.title || '选择书籍')}</span>
+                <span>{isLearnClaudeCodeActive ? 'CC宝典' : (activeCategory?.title || '选择书籍')}</span>
                 <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
               </button>
               {mobileDropdownOpen && (
@@ -86,7 +86,7 @@ const AppHeader = ({
                     className={`mobile-category-item ${isLearnClaudeCodeActive ? 'active' : ''}`}
                     onClick={handleMobileLearnClaudeCodeClick}
                   >
-                    Learn Claude Code
+                    CC宝典
                   </button>
                 </div>
               )}
@@ -137,7 +137,7 @@ const AppHeader = ({
             to="/learn-claude-code/preface"
             className={`category-tab category-link ${isLearnClaudeCodeActive ? 'active' : ''}`}
           >
-            <span className="category-title">Learn Claude Code</span>
+            <span className="category-title">CC宝典</span>
           </Link>
         </nav>
 

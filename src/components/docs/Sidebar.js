@@ -121,6 +121,7 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
   const renderMenuItem = (item, level = 1) => {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedItems[item.path];
+    const isActive = item.highlightable === false ? false : location.pathname === item.path;
     const indent = level > 1 ? `${(level - 1) * 16}px` : '0px';
 
     return (
@@ -130,7 +131,7 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
             <>
               <NavLink
                 to={item.path}
-                className={({ isActive }) =>
+                className={() =>
                   `sidebar-link sidebar-link-with-children ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`
                 }
                 onClick={() => handleParentItemClick(item.path)}
@@ -156,7 +157,7 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
           ) : (
             <NavLink
               to={item.path}
-              className={({ isActive }) =>
+              className={() =>
                 `sidebar-link ${isActive ? 'active' : ''}`
               }
               onClick={onClose}

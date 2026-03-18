@@ -102,8 +102,8 @@ const Square = () => {
                   <div className="card-icon">
                     <LearnClaudeCodeIcon size={80} />
                   </div>
-                  <h3>Learn Claude Code</h3>
-                  <p>从 0 到 1 构建 nano Claude Code-like agent，每次只加一个机制</p>
+                  <h3>CC宝典</h3>
+                  <p>欲练此功...</p>
                 </a>
               </div>
             </div>

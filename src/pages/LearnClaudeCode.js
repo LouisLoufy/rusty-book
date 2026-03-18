@@ -107,6 +107,13 @@ function trimPrefaceContent(version, content) {
   return markerIndex >= 0 ? normalized.slice(0, markerIndex).trimEnd() : normalized;
 }
 
+function renameBookTitle(content) {
+  return String(content || '').replace(
+    /^# Learn Claude Code\b/m,
+    '# CC宝典'
+  );
+}
+
 function safeSessionLabel(version) {
   return normalizeSessionTitle(
     zhMessages.sessions?.[version] || VERSION_META[version]?.title || version
@@ -115,7 +122,7 @@ function safeSessionLabel(version) {
 
 function getLayerLabelForVersion(version) {
   const layer = LAYERS.find((item) => item.versions.includes(version));
-  return layer ? (zhMessages.layer_labels?.[layer.id] || layer.label) : 'Learn Claude Code';
+  return layer ? (zhMessages.layer_labels?.[layer.id] || layer.label) : 'CC宝典';
 }
 
 function LearnClaudeCode() {
@@ -155,10 +162,10 @@ function LearnClaudeCode() {
   }, [location.pathname]);
 
   const sidebarMeta = useMemo(() => ({
-    title: 'Learn Claude Code',
+    title: 'CC宝典',
     sections: [
       {
-        title: '从零开始复刻Claude CODE',
+        title: '从零手搓 Claude Code',
         items: LAYERS.map((layer) => {
           const versions = layer.versions || [];
           const firstVersion = versions[0];
@@ -173,6 +180,7 @@ function LearnClaudeCode() {
           return {
             title: zhMessages.layer_labels?.[layer.id] || layer.label,
             path: firstVersion ? `/learn-claude-code/${firstVersion}` : '/learn-claude-code',
+            highlightable: false,
             children: versions.map((versionId) => ({
               title: getVersionNavTitle(versionId),
               path: `/learn-claude-code/${versionId}`
@@ -186,10 +194,10 @@ function LearnClaudeCode() {
   return (
     <>
       <Helmet>
-        <title>Learn Claude Code | BeatAI</title>
+        <title>CC宝典 | BeatAI</title>
         <meta
           name="description"
-          content="Learn Claude Code 学习路径已接入 BeatAI，包含学习路径、版本详情、文档讲解、模拟器与源码浏览。"
+          content="CC宝典学习路径已接入 BeatAI，包含学习路径、版本详情、文档讲解、模拟器与源码浏览。"
         />
       </Helmet>
 
@@ -330,7 +338,7 @@ function DocRenderer({ version }) {
   const articleRef = useRef(null);
   const [headings, setHeadings] = useState([]);
   const content = useMemo(
-    () => trimPrefaceContent(version, stripLearningPathCode(doc?.content)),
+    () => renameBookTitle(trimPrefaceContent(version, stripLearningPathCode(doc?.content))),
     [doc, version]
   );
 
