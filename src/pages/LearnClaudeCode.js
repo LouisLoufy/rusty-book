@@ -156,13 +156,15 @@ function LearnClaudeCode() {
 
   const sidebarMeta = useMemo(() => ({
     title: 'Learn Claude Code',
-    sections: LAYERS.map((layer) => ({
-      title: zhMessages.layer_labels?.[layer.id] || layer.label,
-      items: layer.versions.map((versionId) => ({
-        title: getVersionNavTitle(versionId),
-        path: `/learn-claude-code/${versionId}`
-      }))
-    }))
+    sections: [
+      {
+        title: '从零开始复刻Claude CODE',
+        items: LEARNING_PATH.map((versionId) => ({
+          title: getVersionNavTitle(versionId),
+          path: `/learn-claude-code/${versionId}`
+        }))
+      }
+    ]
   }), []);
 
   return (
