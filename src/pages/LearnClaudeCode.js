@@ -159,10 +159,26 @@ function LearnClaudeCode() {
     sections: [
       {
         title: '从零开始复刻Claude CODE',
-        items: LEARNING_PATH.map((versionId) => ({
-          title: getVersionNavTitle(versionId),
-          path: `/learn-claude-code/${versionId}`
-        }))
+        items: LAYERS.map((layer) => {
+          const versions = layer.versions || [];
+          const firstVersion = versions[0];
+
+          if (layer.id === 'introduction') {
+            return {
+              title: zhMessages.layer_labels?.[layer.id] || layer.label,
+              path: firstVersion ? `/learn-claude-code/${firstVersion}` : '/learn-claude-code'
+            };
+          }
+
+          return {
+            title: zhMessages.layer_labels?.[layer.id] || layer.label,
+            path: firstVersion ? `/learn-claude-code/${firstVersion}` : '/learn-claude-code',
+            children: versions.map((versionId) => ({
+              title: getVersionNavTitle(versionId),
+              path: `/learn-claude-code/${versionId}`
+            }))
+          };
+        })
       }
     ]
   }), []);

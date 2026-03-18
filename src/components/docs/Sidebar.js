@@ -25,6 +25,9 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
           parents.forEach(parentPath => {
             expandState[parentPath] = true;
           });
+          if (item.children && item.children.length > 0) {
+            expandState[item.path] = true;
+          }
           setExpandedItems(expandState);
           return true;
         }
@@ -74,6 +77,20 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
     }));
   };
 
+  const expandAndNavigate = () => {
+    if (onClose) {
+      onClose();
+    }
+  };
+
+  const handleParentItemClick = (path) => {
+    setExpandedItems(prev => ({
+      ...prev,
+      [path]: true
+    }));
+    expandAndNavigate();
+  };
+
   // Mouse tracking for 3D tilt effect (minimal rotation for subtle visual depth)
   const handleMouseMove = (e, idx) => {
     const card = sectionRefs.current[idx];
@@ -116,7 +133,7 @@ const Sidebar = ({ meta, isOpen, onClose }) => {
                 className={({ isActive }) =>
                   `sidebar-link sidebar-link-with-children ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`
                 }
-                onClick={onClose}
+                onClick={() => handleParentItemClick(item.path)}
               >
                 <span className="sidebar-link-text">{item.title}</span>
                 <span
