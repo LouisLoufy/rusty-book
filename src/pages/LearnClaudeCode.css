@@ -64,7 +64,7 @@
 .lcc-content {
   min-width: 0;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1560px;
   padding: 40px 0;
   position: relative;
 }
@@ -213,6 +213,9 @@
 }
 
 .lcc-hero-shell {
+  width: calc(100% - 256px);
+  max-width: calc(100% - 256px);
+  margin-right: auto;
   padding: 20px;
   border: 1px solid rgba(96, 165, 250, 0.14);
   background:
@@ -229,7 +232,37 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
-.lcc-hero-shell + .lcc-body-shell {
+.lcc-body-shell-doc {
+  width: calc(100% - 256px);
+  max-width: calc(100% - 256px);
+  margin-right: auto;
+}
+
+.doc-content.lcc-doc-content {
+  width: 100%;
+  max-width: none;
+  padding: 32px 0 !important;
+  border-radius: 0;
+  background: transparent;
+}
+
+@media (max-width: 1200px) {
+  .lcc-hero-shell {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .lcc-body-shell-doc {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .doc-content.lcc-doc-content {
+    padding: 32px 0 !important;
+  }
+}
+
+.lcc-hero-shell+.lcc-body-shell {
   margin-top: 4px;
 }
 
@@ -260,7 +293,7 @@
   align-items: center;
 }
 
-.lcc-growth-row > span,
+.lcc-growth-row>span,
 .lcc-mono-small,
 .lcc-counter,
 .lcc-line-no,
@@ -270,7 +303,7 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-.lcc-growth-row > span,
+.lcc-growth-row>span,
 .lcc-mono-small {
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.86rem;
@@ -340,13 +373,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 16px;
 }
 
 .lcc-prose {
   color: #f8fafc;
 }
 
-.lcc-prose > * + * {
+.lcc-prose>*+* {
   margin-top: 1rem;
 }
 
@@ -1070,6 +1104,7 @@
 }
 
 @media (max-width: 760px) {
+
   .lcc-grid-2,
   .lcc-grid-3,
   .lcc-concept-columns,
@@ -1119,7 +1154,7 @@
 :root[data-theme-mode='light'] .lcc-card li,
 :root[data-theme-mode='light'] .lcc-card em,
 :root[data-theme-mode='light'] .lcc-card small,
-:root[data-theme-mode='light'] .lcc-growth-row > span,
+:root[data-theme-mode='light'] .lcc-growth-row>span,
 :root[data-theme-mode='light'] .lcc-mono-small,
 :root[data-theme-mode='light'] .lcc-version-nav a span {
   color: rgba(15, 23, 42, 0.66);

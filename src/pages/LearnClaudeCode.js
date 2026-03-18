@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   Link,
@@ -13,10 +13,23 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Pause, Play, RotateCcw, SkipForward } from 'lucide-react';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-tsx';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-rust';
 import AppHeader from '../components/AppHeader/AppHeader';
 import Sidebar from '../components/docs/Sidebar';
+import TableOfContents from '../components/docs/TableOfContents';
 import Footer from '../components/Footer/Footer';
 import './LearnClaudeCode.css';
+import '../components/docs/DocContent.css';
+import '../styles/prism-custom.css';
 import {
   ANNOTATIONS,
   LAYERS,
@@ -34,6 +47,19 @@ function cn(...parts) {
   return parts.filter(Boolean).join(' ');
 }
 
+function slugify(text) {
+  return encodeURIComponent(
+    text
+      .toLowerCase()
+      .trim()
+      .replace(/[\s_]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+  )
+    .replace(/%20/g, '-')
+    .replace(/[!'()*]/g, (char) => char)
+    .replace(/%2D/g, '-');
+}
+
 function getVersionData(version) {
   return versionsData.versions.find((item) => item.id === version) || null;
 }
@@ -46,8 +72,27 @@ function getVersionDoc(version, locale = 'zh') {
   );
 }
 
+function formatVersionCode(version) {
+  return version.toUpperCase();
+}
+
+function normalizeSessionTitle(title) {
+  return String(title || '').replace(/^(s\d{2})(:|\b)/, (match, code, suffix) => (
+    `${code.toUpperCase()}${suffix}`
+  ));
+}
+
+function stripLearningPathCode(content) {
+  return String(content || '').replace(
+    /\n\n`(?=[^`\n]*(?:s01|s02|s03|s04|s05|s06|s07|s08|s09|s10|s11|s12))[^`\n]*`\n\n/i,
+    '\n\n'
+  );
+}
+
 function safeSessionLabel(version) {
-  return zhMessages.sessions?.[version] || VERSION_META[version]?.title || version;
+  return normalizeSessionTitle(
+    zhMessages.sessions?.[version] || VERSION_META[version]?.title || version
+  );
 }
 
 function LearnClaudeCode() {
@@ -91,7 +136,7 @@ function LearnClaudeCode() {
     sections: LAYERS.map((layer) => ({
       title: zhMessages.layer_labels?.[layer.id] || layer.label,
       items: layer.versions.map((versionId) => ({
-        title: `${versionId} ${safeSessionLabel(versionId)}`,
+        title: `${formatVersionCode(versionId)} ${safeSessionLabel(versionId)}`,
         path: `/learn-claude-code/${versionId}`
       }))
     }))
@@ -173,7 +218,7 @@ function VersionPage() {
         <SessionVisualization version={version} />
       </section>
 
-      <section className="lcc-body-shell">
+      <section className={cn('lcc-body-shell', activeTab === 'learn' && 'lcc-body-shell-doc')}>
         <div className="lcc-tabs">
           {tabs.map((tab) => (
             <button
@@ -209,7 +254,7 @@ function VersionPage() {
         {prevVersion ? (
           <Link to={`/learn-claude-code/${prevVersion}`}>
             <span>{zhMessages.version.prev}</span>
-            <strong>{prevVersion} - {safeSessionLabel(prevVersion)}</strong>
+            <strong>{formatVersionCode(prevVersion)} - {safeSessionLabel(prevVersion)}</strong>
           </Link>
         ) : (
           <div></div>
@@ -218,7 +263,7 @@ function VersionPage() {
         {nextVersion ? (
           <Link to={`/learn-claude-code/${nextVersion}`} className="align-right">
             <span>{zhMessages.version.next}</span>
-            <strong>{safeSessionLabel(nextVersion)} - {nextVersion}</strong>
+            <strong>{safeSessionLabel(nextVersion)} - {formatVersionCode(nextVersion)}</strong>
           </Link>
         ) : (
           <div></div>
@@ -230,14 +275,90 @@ function VersionPage() {
 
 function DocRenderer({ version }) {
   const doc = useMemo(() => getVersionDoc(version), [version]);
+  const articleRef = useRef(null);
+  const [headings, setHeadings] = useState([]);
+  const content = useMemo(() => stripLearningPathCode(doc?.content), [doc]);
+
+  useEffect(() => {
+    if (!doc) {
+      setHeadings([]);
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      const article = articleRef.current;
+      const headingElements = article?.querySelectorAll('h2, h3, h4');
+      const extractedHeadings = Array.from(headingElements || []).map((el, index) => ({
+        id: el.id,
+        originalId: el.id,
+        uniqueKey: `${el.id}-${index}`,
+        text: el.textContent,
+        level: parseInt(el.tagName.substring(1), 10)
+      }));
+      setHeadings(extractedHeadings);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [content, doc, version]);
 
   if (!doc) {
     return null;
   }
 
+  const createHeading = (level) => {
+    return ({ children, ...props }) => {
+      const text = children?.toString() || '';
+      const id = slugify(text);
+      const Tag = `h${level}`;
+      return (
+        <Tag id={id} className={`doc-h${level}`} {...props}>
+          {children}
+        </Tag>
+      );
+    };
+  };
+
+  const CodeComponent = ({ inline, className, children, ...props }) => {
+    if (inline) {
+      return <code className="doc-code-inline" {...props}>{children}</code>;
+    }
+
+    const match = /language-(\w+)/.exec(className || '');
+    const language = match ? match[1] : '';
+    const code = String(children).replace(/\n$/, '');
+    const highlightedCode = language && Prism.languages[language]
+      ? Prism.highlight(code, Prism.languages[language], language)
+      : code;
+
+    return (
+      <code
+        className={`doc-code-block ${className || ''}`}
+        dangerouslySetInnerHTML={{ __html: highlightedCode }}
+        {...props}
+      />
+    );
+  };
+
+  const PreComponent = ({ children, ...props }) => {
+    const codeClassName = children?.props?.className || '';
+    const languageMatch = /language-(\w+)/.exec(codeClassName);
+    const language = languageMatch ? languageMatch[1] : '';
+    const preClassName = ['doc-pre', codeClassName, props.className].filter(Boolean).join(' ');
+
+    return (
+      <pre
+        {...props}
+        className={preClassName}
+        data-language={language || undefined}
+      >
+        {children}
+      </pre>
+    );
+  };
+
   return (
-    <div className="lcc-card">
-      <div className="lcc-prose">
+    <div className="doc-wrapper">
+      <article ref={articleRef} className="doc-content lcc-doc-content">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
@@ -245,26 +366,39 @@ function DocRenderer({ version }) {
             h1() {
               return null;
             },
-            blockquote({ children }) {
-              return <blockquote className="lcc-callout">{children}</blockquote>;
+            h2: createHeading(2),
+            h3: createHeading(3),
+            h4: createHeading(4),
+            p({ node, ...props }) {
+              return <p className="doc-p" {...props} />;
             },
-            code(props) {
-              const { className, children, inline } = props;
-              const match = /language-(\w+)/.exec(className || '');
-              if (inline) {
-                return <code className="lcc-inline-code">{children}</code>;
-              }
+            a({ node, children, ...props }) {
+              return <a className="doc-link" {...props}>{children}</a>;
+            },
+            blockquote({ node, ...props }) {
+              return <blockquote className="doc-blockquote" {...props} />;
+            },
+            code: CodeComponent,
+            pre: PreComponent,
+            table({ node, ...props }) {
               return (
-                <pre className="lcc-code-block" data-language={match ? match[1] : ''}>
-                  <code className={className}>{children}</code>
-                </pre>
+                <div className="doc-table-wrapper">
+                  <table className="doc-table" {...props} />
+                </div>
               );
+            },
+            ul({ node, ...props }) {
+              return <ul className="doc-ul" {...props} />;
+            },
+            ol({ node, ...props }) {
+              return <ol className="doc-ol" {...props} />;
             }
           }}
         >
-          {doc.content}
+          {content}
         </ReactMarkdown>
-      </div>
+      </article>
+      <TableOfContents headings={headings} />
     </div>
   );
 }

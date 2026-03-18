@@ -15,6 +15,7 @@ import 'prismjs/components/prism-tsx';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-rust';
 import '../../styles/prism-custom.css';
 import TableOfContents from './TableOfContents';
@@ -206,8 +207,17 @@ const DocContent = () => {
 
   // Custom pre component
   const PreComponent = ({ children, ...props }) => {
+    const codeClassName = children?.props?.className || '';
+    const languageMatch = /language-(\w+)/.exec(codeClassName);
+    const language = languageMatch ? languageMatch[1] : '';
+    const preClassName = ['doc-pre', codeClassName, props.className].filter(Boolean).join(' ');
+
     return (
-      <pre className="doc-pre" {...props}>
+      <pre
+        {...props}
+        className={preClassName}
+        data-language={language || undefined}
+      >
         {children}
       </pre>
     );

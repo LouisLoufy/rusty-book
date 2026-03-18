@@ -88,7 +88,6 @@ const Square = () => {
                   </div>
                   <h3>AI 前沿分享</h3>
                   <p>AI 领域最新动态、技术分享与深度解析</p>
-                  <span className="card-link">了解更多 →</span>
                 </a>
 
                 <a href={getFirstItemPath('rust-course')} className="square-card glass-card">
@@ -97,7 +96,6 @@ const Square = () => {
                   </div>
                   <h3>Rust 语言圣经</h3>
                   <p>学习 AI 时代最安全的语言</p>
-                  <span className="card-link">开始学习 →</span>
                 </a>
 
                 <a href="/learn-claude-code/s01" className="square-card glass-card">
@@ -105,8 +103,7 @@ const Square = () => {
                     <FaCodeBranch size={72} />
                   </div>
                   <h3>Learn Claude Code</h3>
-                  <p>已迁移 Learn Claude Code 学习路径，直接进入版本目录与详情页</p>
-                  <span className="card-link">进入学习路径 →</span>
+                  <p>从 0 到 1 构建 nano Claude Code-like agent，每次只加一个机制</p>
                 </a>
               </div>
             </div>
