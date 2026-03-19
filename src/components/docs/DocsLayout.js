@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import './DocsLayout.css';
 import '../../styles/Background.css';
@@ -12,13 +12,14 @@ import { AnnotationProvider } from '../../contexts/AnnotationContext';
 import { PageTitleProvider } from '../../contexts/PageTitleContext';
 import { MetaProvider } from '../../contexts/MetaContext';
 import { useCategoryNavigation } from '../../hooks/useCategoryNavigation';
+import { useSidebarState } from '../../hooks/useSidebarState';
 import { findActiveCategoryByPath } from '../../utils/docsMeta';
 
 // Inner component that uses the context
 const DocsLayoutInner = ({ meta, children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const handleCategoryClick = useCategoryNavigation();
+  const { sidebarOpen, closeSidebar, toggleSidebar } = useSidebarState();
 
   // Extract categories from meta with useMemo to prevent recreation
   const categories = useMemo(() => meta?.categories || [], [meta]);
@@ -42,7 +43,7 @@ const DocsLayoutInner = ({ meta, children }) => {
       activeCategory={activeCategory}
       onCategoryClick={handleCategoryClick}
       sidebarOpen={sidebarOpen}
-      onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
+      onMenuToggle={toggleSidebar}
     >
       <div className="docs-container">
         {/* Sidebar - shows only current category's sections */}
@@ -50,7 +51,7 @@ const DocsLayoutInner = ({ meta, children }) => {
           <Sidebar
             meta={sidebarMeta}
             isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+            onClose={closeSidebar}
           />
         )}
 

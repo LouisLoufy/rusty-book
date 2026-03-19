@@ -4,6 +4,7 @@ import { HiAnnotation, HiArrowLeft } from 'react-icons/hi';
 import { useAnnotationContext } from '../../contexts/AnnotationContext';
 import { TabGroup } from '../common';
 import PageShell from '../layout/PageShell';
+import MyNotesEmptyState from './MyNotesEmptyState';
 import { useCategoryNavigation } from '../../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../../hooks/useDocsMeta';
 import { loadBookTitles, getBookTitle } from '../../utils/bookTitles';
@@ -121,11 +122,10 @@ const MyNotes = () => {
         onCategoryClick={handleCategoryClick}
       >
         <div className="my-notes-container">
-          <div className="my-notes-empty">
-            <HiAnnotation />
-            <h2>Please Connect to GitHub</h2>
-            <p>You need to connect your GitHub account to view your notes.</p>
-          </div>
+          <MyNotesEmptyState
+            title="Please Connect to GitHub"
+            description="You need to connect your GitHub account to view your notes."
+          />
         </div>
       </PageShell>
     );
@@ -214,11 +214,10 @@ const MyNotes = () => {
             ))}
           </div>
         ) : (
-          <div className="my-notes-empty">
-            <HiAnnotation />
-            <h2>No Notes Yet</h2>
-            <p>Start highlighting text and adding notes to build your collection.</p>
-          </div>
+          <MyNotesEmptyState
+            title="No Notes Yet"
+            description="Start highlighting text and adding notes to build your collection."
+          />
         )}
       </div>
     </PageShell>

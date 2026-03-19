@@ -1,4 +1,13 @@
-import { LAYERS, VERSION_META, versionsData, zhMessages } from '../../vendor/learn-claude-code/data';
+import {
+  ANNOTATIONS,
+  LAYERS,
+  LEARNING_PATH,
+  SCENARIOS,
+  VERSION_META,
+  getFlowForVersion,
+  versionsData,
+  zhMessages
+} from '../../vendor/learn-claude-code/data';
 
 export function getVersionData(version) {
   return versionsData.versions.find((item) => item.id === version) || null;
@@ -29,4 +38,41 @@ export function getVersionNavTitle(version) {
 export function getLayerLabelForVersion(version) {
   const layer = LAYERS.find((item) => item.versions.includes(version));
   return layer ? (zhMessages.layer_labels?.[layer.id] || layer.label) : 'CC宝典';
+}
+
+export function getVersionPagination(version) {
+  const pathIndex = LEARNING_PATH.indexOf(version);
+  const prevVersion = pathIndex > 0 ? LEARNING_PATH[pathIndex - 1] : null;
+  const nextVersion = pathIndex < LEARNING_PATH.length - 1 ? LEARNING_PATH[pathIndex + 1] : null;
+
+  return {
+    prev: prevVersion ? {
+      path: `/learn-claude-code/${prevVersion}`,
+      title: getVersionNavTitle(prevVersion),
+      section: getLayerLabelForVersion(prevVersion)
+    } : null,
+    next: nextVersion ? {
+      path: `/learn-claude-code/${nextVersion}`,
+      title: getVersionNavTitle(nextVersion),
+      section: getLayerLabelForVersion(nextVersion)
+    } : null
+  };
+}
+
+export function getVersionTabs(version, versionData) {
+  const tabs = [{ id: 'learn', label: zhMessages.version.tab_learn }];
+
+  if (SCENARIOS[version]) {
+    tabs.push({ id: 'simulate', label: zhMessages.version.tab_simulate });
+  }
+
+  if (versionData?.source) {
+    tabs.push({ id: 'code', label: zhMessages.version.tab_code });
+  }
+
+  if (getFlowForVersion(version) || ANNOTATIONS[version]?.decisions?.length) {
+    tabs.push({ id: 'deep-dive', label: zhMessages.version.tab_deep_dive });
+  }
+
+  return tabs;
 }

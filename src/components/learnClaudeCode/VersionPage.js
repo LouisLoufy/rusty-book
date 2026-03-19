@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PaginationNav from '../docs/PaginationNav';
+import { cn } from '../../utils/classNames';
 import {
   ANNOTATIONS,
   LEARNING_PATH,
-  SCENARIOS,
   VERSION_META,
   getFlowForVersion,
   zhMessages
@@ -16,11 +16,7 @@ import DocRenderer from './DocRenderer';
 import ExecutionFlow from './ExecutionFlow';
 import { NotFoundState } from './NotFoundState';
 import SourceViewer from './SourceViewer';
-import { getLayerLabelForVersion, getVersionData, getVersionNavTitle, safeSessionLabel } from './versionUtils';
-
-function cn(...parts) {
-  return parts.filter(Boolean).join(' ');
-}
+import { getVersionData, getVersionPagination, getVersionTabs, safeSessionLabel } from './versionUtils';
 
 function VersionPage() {
   const { version } = useParams();
@@ -37,35 +33,8 @@ function VersionPage() {
   const versionData = getVersionData(version);
   const meta = VERSION_META[version];
   const hasVisualization = Boolean(zhMessages.viz?.[version]);
-  const hasSimulateTab = Boolean(SCENARIOS[version]);
-  const hasCodeTab = Boolean(versionData?.source);
-  const hasDeepDiveTab = Boolean(getFlowForVersion(version) || ANNOTATIONS[version]?.decisions?.length);
-  const pathIndex = LEARNING_PATH.indexOf(version);
-  const prevVersion = pathIndex > 0 ? LEARNING_PATH[pathIndex - 1] : null;
-  const nextVersion = pathIndex < LEARNING_PATH.length - 1 ? LEARNING_PATH[pathIndex + 1] : null;
-  const prevNav = prevVersion ? {
-    path: `/learn-claude-code/${prevVersion}`,
-    title: getVersionNavTitle(prevVersion),
-    section: getLayerLabelForVersion(prevVersion)
-  } : null;
-  const nextNav = nextVersion ? {
-    path: `/learn-claude-code/${nextVersion}`,
-    title: getVersionNavTitle(nextVersion),
-    section: getLayerLabelForVersion(nextVersion)
-  } : null;
-  const tabs = [{ id: 'learn', label: zhMessages.version.tab_learn }];
-
-  if (hasSimulateTab) {
-    tabs.push({ id: 'simulate', label: zhMessages.version.tab_simulate });
-  }
-
-  if (hasCodeTab) {
-    tabs.push({ id: 'code', label: zhMessages.version.tab_code });
-  }
-
-  if (hasDeepDiveTab) {
-    tabs.push({ id: 'deep-dive', label: zhMessages.version.tab_deep_dive });
-  }
+  const { prev: prevNav, next: nextNav } = getVersionPagination(version);
+  const tabs = getVersionTabs(version, versionData);
 
   return (
     <section className="lcc-section">

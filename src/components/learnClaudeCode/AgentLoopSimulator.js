@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Pause, Play, RotateCcw, SkipForward } from 'lucide-react';
+import { cn } from '../../utils/classNames';
 import { SCENARIOS, zhMessages } from '../../vendor/learn-claude-code/data';
-
-function cn(...parts) {
-  return parts.filter(Boolean).join(' ');
-}
 
 function AgentLoopSimulator({ version }) {
   const scenario = SCENARIOS[version];

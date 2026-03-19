@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   Navigate,
@@ -11,6 +11,7 @@ import { LearnRouteNotFound } from '../components/learnClaudeCode/NotFoundState'
 import VersionPage from '../components/learnClaudeCode/VersionPage';
 import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
+import { useSidebarState } from '../hooks/useSidebarState';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import './LearnClaudeCode.css';
 import '../components/docs/DocContent.css';
@@ -20,15 +21,13 @@ import { getVersionNavTitle } from '../components/learnClaudeCode/versionUtils';
 
 function LearnClaudeCode() {
   const { meta } = useDocsMeta();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const handleCategoryClick = useCategoryNavigation();
+  const { sidebarOpen, closeSidebar, toggleSidebar } = useSidebarState({
+    closeOnChange: location.pathname
+  });
 
   const categories = meta?.categories || [];
-
-  useEffect(() => {
-    setSidebarOpen(false);
-  }, [location.pathname]);
 
   const sidebarMeta = useMemo(() => {
     const courseLayers = LAYERS.filter((l) => l.id !== 'best-practices');
@@ -90,18 +89,18 @@ function LearnClaudeCode() {
 
       <PageShell
         rootClassName="lcc-page"
-        categories={categories}
-        activeCategory={null}
-        onCategoryClick={handleCategoryClick}
-        sidebarOpen={sidebarOpen}
-        onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
-      >
-        <div className="lcc-shell">
+      categories={categories}
+      activeCategory={null}
+      onCategoryClick={handleCategoryClick}
+      sidebarOpen={sidebarOpen}
+      onMenuToggle={toggleSidebar}
+    >
+      <div className="lcc-shell">
           <div className="lcc-workspace">
             <Sidebar
               meta={sidebarMeta}
               isOpen={sidebarOpen}
-              onClose={() => setSidebarOpen(false)}
+              onClose={closeSidebar}
             />
 
             <div className="lcc-content">
