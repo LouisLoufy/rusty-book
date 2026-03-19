@@ -40,6 +40,22 @@ function VersionPage() {
     <section className="lcc-section">
       <header className="lcc-version-header">
         <h2>{safeSessionLabel(version)}</h2>
+        {version === 'preface' ? (
+          <section className="lcc-copyright-card" aria-label="版权声明">
+            <div className="lcc-copyright-card-title">版权声明</div>
+            <p>
+              版权归属于原版 LCC：
+              <a
+                className="doc-link"
+                href="https://github.com/shareAI-lab/learn-claude-code"
+                target="_blank"
+                rel="noreferrer"
+              >
+                shareAI-lab/learn-claude-code
+              </a>
+            </p>
+          </section>
+        ) : null}
         <p>{meta.subtitle}</p>
         <blockquote className="doc-blockquote">{meta.keyInsight}</blockquote>
       </header>

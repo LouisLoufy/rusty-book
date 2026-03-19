@@ -64,20 +64,6 @@ function DocRenderer({ version }) {
       >
         {content}
       </ReactMarkdown>
-      <section className="lcc-copyright-card" aria-label="版权声明">
-        <div className="lcc-copyright-card-title">版权声明</div>
-        <p>
-          本章节内容版权归属于原版 LCC：
-          <a
-            className="doc-link"
-            href="https://github.com/shareAI-lab/learn-claude-code"
-            target="_blank"
-            rel="noreferrer"
-          >
-            shareAI-lab/learn-claude-code
-          </a>
-        </p>
-      </section>
     </DocArticleLayout>
   );
 }
