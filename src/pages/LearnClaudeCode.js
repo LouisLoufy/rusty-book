@@ -12,22 +12,19 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Pause, Play, RotateCcw, SkipForward } from 'lucide-react';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-tsx';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-bash';
-import 'prismjs/components/prism-python';
-import 'prismjs/components/prism-rust';
 import Sidebar from '../components/docs/Sidebar';
+import {
+  createMarkdownCodeComponent,
+  createMarkdownHeading,
+  createMarkdownPreComponent
+} from '../components/docs/markdownRenderers';
 import TableOfContents from '../components/docs/TableOfContents';
 import PaginationNav from '../components/docs/PaginationNav';
 import PageShell from '../components/layout/PageShell';
 import { useDocsMeta } from '../hooks/useDocsMeta';
+import { useRenderedHeadings } from '../hooks/useRenderedHeadings';
 import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
+import { resolvePublicContentUrl } from '../utils/markdown';
 import './LearnClaudeCode.css';
 import '../components/docs/DocContent.css';
 import '../styles/prism-custom.css';
@@ -46,19 +43,6 @@ import { SessionVisualization } from '../vendor/learn-claude-code/visualizations
 
 function cn(...parts) {
   return parts.filter(Boolean).join(' ');
-}
-
-function slugify(text) {
-  return encodeURIComponent(
-    text
-      .toLowerCase()
-      .trim()
-      .replace(/[\s_]+/g, '-')
-      .replace(/^-+|-+$/g, '')
-  )
-    .replace(/%20/g, '-')
-    .replace(/[!'()*]/g, (char) => char)
-    .replace(/%2D/g, '-');
 }
 
 function getVersionData(version) {
@@ -113,21 +97,6 @@ function renameBookTitle(content) {
     /^# Learn Claude Code\b/m,
     '# CC宝典'
   );
-}
-
-function resolveDocContentUrl(contentPath) {
-  if (!contentPath) {
-    return '';
-  }
-
-  if (/^https?:\/\//.test(contentPath)) {
-    return contentPath;
-  }
-
-  const publicBase = process.env.PUBLIC_URL || '';
-  const normalizedPath = contentPath.startsWith('/') ? contentPath : `/${contentPath}`;
-
-  return `${publicBase}${normalizedPath}`;
 }
 
 function safeSessionLabel(version) {
@@ -349,13 +318,15 @@ function VersionPage() {
 function DocRenderer({ version }) {
   const doc = useMemo(() => getVersionDoc(version), [version]);
   const articleRef = useRef(null);
-  const [headings, setHeadings] = useState([]);
   const [rawContent, setRawContent] = useState('');
   const [contentLoading, setContentLoading] = useState(false);
   const content = useMemo(
     () => renameBookTitle(trimPrefaceContent(version, stripLearningPathCode(rawContent))),
     [rawContent, version]
   );
+  const headings = useRenderedHeadings(articleRef, content, {
+    enabled: Boolean(doc)
+  });
 
   useEffect(() => {
     if (!doc) {
@@ -366,7 +337,7 @@ function DocRenderer({ version }) {
 
     if (doc.contentPath) {
       const controller = new AbortController();
-      const url = resolveDocContentUrl(doc.contentPath);
+      const url = resolvePublicContentUrl(doc.contentPath);
 
       setRawContent('');
       setContentLoading(true);
@@ -398,28 +369,6 @@ function DocRenderer({ version }) {
     return undefined;
   }, [doc]);
 
-  useEffect(() => {
-    if (!doc) {
-      setHeadings([]);
-      return undefined;
-    }
-
-    const timer = setTimeout(() => {
-      const article = articleRef.current;
-      const headingElements = article?.querySelectorAll('h2, h3, h4');
-      const extractedHeadings = Array.from(headingElements || []).map((el, index) => ({
-        id: el.id,
-        originalId: el.id,
-        uniqueKey: `${el.id}-${index}`,
-        text: el.textContent,
-        level: parseInt(el.tagName.substring(1), 10)
-      }));
-      setHeadings(extractedHeadings);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [content, doc, version]);
-
   if (!doc) {
     return null;
   }
@@ -427,57 +376,8 @@ function DocRenderer({ version }) {
   if (contentLoading && !rawContent) {
     return null;
   }
-
-  const createHeading = (level) => {
-    return ({ children, ...props }) => {
-      const text = children?.toString() || '';
-      const id = slugify(text);
-      const Tag = `h${level}`;
-      return (
-        <Tag id={id} className={`doc-h${level}`} {...props}>
-          {children}
-        </Tag>
-      );
-    };
-  };
-
-  const CodeComponent = ({ inline, className, children, ...props }) => {
-    if (inline) {
-      return <code className="doc-code-inline" {...props}>{children}</code>;
-    }
-
-    const match = /language-(\w+)/.exec(className || '');
-    const language = match ? match[1] : '';
-    const code = String(children).replace(/\n$/, '');
-    const highlightedCode = language && Prism.languages[language]
-      ? Prism.highlight(code, Prism.languages[language], language)
-      : code;
-
-    return (
-      <code
-        className={`doc-code-block ${className || ''}`}
-        dangerouslySetInnerHTML={{ __html: highlightedCode }}
-        {...props}
-      />
-    );
-  };
-
-  const PreComponent = ({ children, ...props }) => {
-    const codeClassName = children?.props?.className || '';
-    const languageMatch = /language-(\w+)/.exec(codeClassName);
-    const language = languageMatch ? languageMatch[1] : '';
-    const preClassName = ['doc-pre', codeClassName, props.className].filter(Boolean).join(' ');
-
-    return (
-      <pre
-        {...props}
-        className={preClassName}
-        data-language={language || undefined}
-      >
-        {children}
-      </pre>
-    );
-  };
+  const CodeComponent = createMarkdownCodeComponent();
+  const PreComponent = createMarkdownPreComponent();
 
   return (
     <div className="doc-wrapper">
@@ -489,9 +389,9 @@ function DocRenderer({ version }) {
             h1() {
               return null;
             },
-            h2: createHeading(2),
-            h3: createHeading(3),
-            h4: createHeading(4),
+            h2: createMarkdownHeading(2),
+            h3: createMarkdownHeading(3),
+            h4: createMarkdownHeading(4),
             p({ node, ...props }) {
               return <p className="doc-p" {...props} />;
             },

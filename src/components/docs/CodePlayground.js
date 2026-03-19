@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Editor from 'react-simple-code-editor';
-import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-javascript';
+import Prism from '../../utils/prism';
 import 'prismjs/themes/prism-tomorrow.css';
 import { HiPlay, HiRefresh, HiShare } from 'react-icons/hi';
 import './CodePlayground.css';
@@ -95,6 +94,16 @@ const CodePlayground = ({ initialCode = '', language = 'javascript' }) => {
     alert('Code copied to clipboard!');
   };
 
+  const highlightCode = (source) => {
+    const grammar = Prism.languages[language] || Prism.languages.javascript;
+
+    if (!grammar) {
+      return source;
+    }
+
+    return Prism.highlight(source, grammar, language || 'javascript');
+  };
+
   return (
     <div className="code-playground card-3d glass-morphism">
       <div className="playground-header">
@@ -133,7 +142,7 @@ const CodePlayground = ({ initialCode = '', language = 'javascript' }) => {
           <Editor
             value={code}
             onValueChange={setCode}
-            highlight={code => highlight(code, languages[language])}
+            highlight={highlightCode}
             padding={16}
             style={{
               fontFamily: '"Fira Code", "Consolas", monospace',
