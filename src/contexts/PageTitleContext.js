@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
+import { findMetaEntryByPath } from '../utils/docsMeta';
 
 const PageTitleContext = createContext(null);
 
@@ -17,34 +18,7 @@ export function usePageTitle() {
  * @returns {string|null} - Page title or null
  */
 function findTitleInMeta(meta, path) {
-  if (!meta || !meta.categories) {
-    return null;
-  }
-
-  // Recursively search in items
-  function searchItems(items) {
-    for (const item of items) {
-      if (item.path === path) {
-        return item.title;
-      }
-      // Search in children
-      if (item.children && item.children.length > 0) {
-        const found = searchItems(item.children);
-        if (found) return found;
-      }
-    }
-    return null;
-  }
-
-  // Search through all categories and sections
-  for (const category of meta.categories) {
-    for (const section of category.sections) {
-      const found = searchItems(section.items);
-      if (found) return found;
-    }
-  }
-
-  return null;
+  return findMetaEntryByPath(meta, path)?.item?.title || null;
 }
 
 export function PageTitleProvider({ meta, children }) {

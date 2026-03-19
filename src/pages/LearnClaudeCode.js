@@ -27,6 +27,8 @@ import Sidebar from '../components/docs/Sidebar';
 import TableOfContents from '../components/docs/TableOfContents';
 import PaginationNav from '../components/docs/PaginationNav';
 import Footer from '../components/Footer/Footer';
+import { useDocsMeta } from '../hooks/useDocsMeta';
+import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
 import './LearnClaudeCode.css';
 import '../components/docs/DocContent.css';
 import '../styles/prism-custom.css';
@@ -141,34 +143,17 @@ function getLayerLabelForVersion(version) {
 }
 
 function LearnClaudeCode() {
-  const [meta, setMeta] = useState(null);
+  const { meta } = useDocsMeta();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
-    fetch(metaPath)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setMeta(data);
-      })
-      .catch((err) => console.error('Failed to load docs meta:', err));
-  }, []);
-
   const categories = meta?.categories || [];
 
   const handleCategoryClick = (category) => {
-    const firstSection = category.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-
-    if (firstItem?.path) {
-      navigate(firstItem.path);
+    const path = getFirstNavigablePathForCategory(category);
+    if (path) {
+      navigate(path);
     }
   };
 

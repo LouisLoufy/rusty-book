@@ -25,6 +25,7 @@ import ArticleTags from './ArticleTags';
 import { usePageTitle } from '../../contexts/PageTitleContext';
 import { useMeta } from '../../contexts/MetaContext';
 import { useTag } from '../../contexts/TagContext';
+import { findMetaEntryByPath } from '../../utils/docsMeta';
 import { flattenChapters, getAdjacentChapters } from '../../utils/navigationHelpers';
 import './DocContent.css';
 import '../../styles/3d-effects.css';
@@ -58,40 +59,6 @@ const sanitizeSchema = {
   }
 };
 
-const findDocMetaByPath = (meta, path) => {
-  if (!meta?.categories) {
-    return null;
-  }
-
-  const searchItems = (items = [], category, section) => {
-    for (const item of items) {
-      if (item.path === path) {
-        return { item, category, section };
-      }
-
-      if (item.children?.length) {
-        const found = searchItems(item.children, category, section);
-        if (found) {
-          return found;
-        }
-      }
-    }
-
-    return null;
-  };
-
-  for (const category of meta.categories) {
-    for (const section of category.sections || []) {
-      const found = searchItems(section.items || [], category, section);
-      if (found) {
-        return found;
-      }
-    }
-  }
-
-  return null;
-};
-
 const formatPublishedDate = (publishedAt) => {
   if (!publishedAt) {
     return '';
@@ -120,9 +87,10 @@ const DocContent = () => {
 
   // Extract the path from URL (now starts from root)
   const docPath = location.pathname.replace(/^\//, '');
-  const docMetaEntry = useMemo(() => findDocMetaByPath(meta, location.pathname), [meta, location.pathname]);
+  const docMetaEntry = useMemo(() => findMetaEntryByPath(meta, location.pathname), [meta, location.pathname]);
   const isAiInsightsArticle = docMetaEntry?.category?.id === 'ai-insights';
   const formattedPublishedDate = formatPublishedDate(docMetaEntry?.item?.publishedAt);
+  const titleFromMeta = docMetaEntry?.item?.title || findTitleByPath(location.pathname);
 
   useEffect(() => {
     const loadDoc = async () => {
@@ -143,9 +111,6 @@ const DocContent = () => {
         setContent(markdownContent);
 
         // Get title from _meta.json using current path
-        const currentPath = location.pathname;
-        const titleFromMeta = findTitleByPath(currentPath);
-
         // Use title from _meta.json, fallback to frontmatter, or generate from path
         const title = titleFromMeta || data.title || docPath.split('/').pop()?.split('-').map(word =>
           word.charAt(0).toUpperCase() + word.slice(1)
@@ -163,7 +128,7 @@ const DocContent = () => {
     };
 
     loadDoc();
-  }, [docPath, location.pathname, setPageTitle, findTitleByPath]);
+  }, [docPath, location.pathname, setPageTitle, titleFromMeta]);
 
   // Extract headings from rendered content for TOC
   useEffect(() => {
@@ -283,7 +248,7 @@ const DocContent = () => {
 
   // Prepare page title and description with fallbacks
   const slug = docPath.split('/').pop() || 'documentation';
-  const pageTitle = frontmatter.title || slug.split('-').map(word =>
+  const pageTitle = titleFromMeta || frontmatter.title || slug.split('-').map(word =>
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join(' ');
   const pageDescription = frontmatter.description || `Documentation for ${pageTitle}`;

@@ -1,46 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { TagProvider, useTag } from '../contexts/TagContext';
 import AppHeader from '../components/AppHeader/AppHeader';
 import Footer from '../components/Footer/Footer';
+import { useDocsMeta } from '../hooks/useDocsMeta';
+import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
 import './TagPage.css';
 
 // Inner component that uses TagContext
-const TagPageContent = () => {
+const TagPageContent = ({ categories }) => {
   const { tagName } = useParams();
   const decodedTagName = decodeURIComponent(tagName);
   const { getArticlesByTag, groupByCategory } = useTag();
-  const [meta, setMeta] = useState(null);
   const navigate = useNavigate();
 
-  // Load meta for AppHeader categories
-  useEffect(() => {
-    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
-    fetch(metaPath)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then(data => {
-        setMeta(data);
-      })
-      .catch(err => console.error('Failed to load docs meta:', err));
-  }, []);
-
   const handleCategoryClick = (category) => {
-    // Navigate to the first item in the first section of this category
-    const firstSection = category.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-
-    if (firstItem?.path) {
-      navigate(firstItem.path);
+    const path = getFirstNavigablePathForCategory(category);
+    if (path) {
+      navigate(path);
     }
   };
-
-  const categories = meta?.categories || [];
 
   // Get all articles with this tag
   const articles = getArticlesByTag(decodedTagName);
@@ -121,40 +101,19 @@ const TagPageContent = () => {
 
 // Main component that loads meta and provides TagContext
 const TagPage = () => {
-  const [meta, setMeta] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Load docs metadata
-    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
-    fetch(metaPath)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then(data => {
-        setMeta(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to load docs meta:', err);
-        setLoading(false);
-      });
-  }, []);
+  const { meta, loading, error } = useDocsMeta();
 
   if (loading) {
     return <div className="tag-page-loading">Loading...</div>;
   }
 
-  if (!meta) {
+  if (error || !meta) {
     return <div className="tag-page-error">Failed to load metadata</div>;
   }
 
   return (
     <TagProvider meta={meta}>
-      <TagPageContent />
+      <TagPageContent categories={meta.categories || []} />
     </TagProvider>
   );
 };

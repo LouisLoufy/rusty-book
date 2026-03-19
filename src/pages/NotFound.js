@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import AppHeader from '../components/AppHeader/AppHeader';
 import Footer from '../components/Footer/Footer';
+import { useDocsMeta } from '../hooks/useDocsMeta';
+import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
 import './NotFound.css';
 
 const NotFound = ({ requestedPath = '' }) => {
-  const [meta, setMeta] = useState(null);
-
-  useEffect(() => {
-    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
-    fetch(metaPath)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => setMeta(data))
-      .catch((err) => console.error('Failed to load docs meta:', err));
-  }, []);
+  const { meta } = useDocsMeta();
 
   const categories = meta?.categories || [];
 
   const handleCategoryClick = (category) => {
-    const firstSection = category.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-    const targetPath = firstItem?.path || firstSection?.path;
+    const targetPath = getFirstNavigablePathForCategory(category);
 
     if (targetPath) {
       window.location.href = targetPath;

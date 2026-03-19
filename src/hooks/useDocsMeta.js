@@ -1,0 +1,49 @@
+import { useEffect, useState } from 'react';
+import { loadDocsMeta } from '../utils/docsMeta';
+
+export function useDocsMeta(initialMeta = null) {
+  const [meta, setMeta] = useState(initialMeta);
+  const [loading, setLoading] = useState(!initialMeta);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    if (initialMeta) {
+      setMeta(initialMeta);
+      setLoading(false);
+      setError(null);
+      return undefined;
+    }
+
+    setLoading(true);
+
+    loadDocsMeta()
+      .then((data) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setMeta(data);
+        setError(null);
+      })
+      .catch((err) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setError(err);
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [initialMeta]);
+
+  return { meta, loading, error };
+}

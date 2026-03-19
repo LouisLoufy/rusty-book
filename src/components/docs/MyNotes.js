@@ -5,46 +5,26 @@ import { useAnnotationContext } from '../../contexts/AnnotationContext';
 import AppHeader from '../AppHeader/AppHeader';
 import Footer from '../Footer/Footer';
 import { TabGroup } from '../common';
+import { useDocsMeta } from '../../hooks/useDocsMeta';
 import { loadBookTitles, getBookTitle } from '../../utils/bookTitles';
+import { getFirstNavigablePathForCategory } from '../../utils/docsMeta';
 import './MyNotes.css';
 
 const MyNotes = () => {
   const { allAnnotations, isAuthenticated } = useAnnotationContext();
   const navigate = useNavigate();
   const [activeBook, setActiveBook] = useState('all');
-  const [bookTitlesLoaded, setBookTitlesLoaded] = useState(false);
-  const [meta, setMeta] = useState(null);
+  const { meta } = useDocsMeta();
 
   // Load book titles on mount
   useEffect(() => {
-    loadBookTitles().then(() => {
-      setBookTitlesLoaded(true);
-    });
-  }, []);
-
-  // Load meta for AppHeader categories
-  useEffect(() => {
-    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
-    fetch(metaPath)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then(data => {
-        setMeta(data);
-      })
-      .catch(err => console.error('Failed to load docs meta:', err));
+    loadBookTitles();
   }, []);
 
   const handleCategoryClick = (category) => {
-    // Navigate to the first item in the first section of this category
-    const firstSection = category.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-
-    if (firstItem?.path) {
-      navigate(firstItem.path);
+    const path = getFirstNavigablePathForCategory(category);
+    if (path) {
+      navigate(path);
     }
   };
 

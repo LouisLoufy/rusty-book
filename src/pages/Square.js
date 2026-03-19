@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import AppHeader from '../components/AppHeader/AppHeader';
@@ -7,44 +7,25 @@ import AIInsightsIcon from '../components/icons/AIInsightsIcon';
 import RustBookIcon from '../components/icons/RustBookIcon';
 import LearnClaudeCodeIcon from '../components/icons/LearnClaudeCodeIcon';
 import BeatAILogoWave from '../components/BeatAILogoWave';
+import { useDocsMeta } from '../hooks/useDocsMeta';
+import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
 import './Square.css';
 
 const Square = () => {
-  const [meta, setMeta] = useState(null);
+  const { meta } = useDocsMeta();
   const navigate = useNavigate();
 
-  // Load docs metadata
-  useEffect(() => {
-    const metaPath = `${process.env.PUBLIC_URL}/docs/_meta.json`;
-    fetch(metaPath)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then(data => {
-        setMeta(data);
-      })
-      .catch(err => console.error('Failed to load docs meta:', err));
-  }, []);
-
   const handleCategoryClick = (category) => {
-    // Navigate to the first item in the first section of this category
-    const firstSection = category.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-
-    if (firstItem?.path) {
-      navigate(firstItem.path);
+    const path = getFirstNavigablePathForCategory(category);
+    if (path) {
+      navigate(path);
     }
   };
 
   // Get first item path for a category
   const getFirstItemPath = (categoryId) => {
-    const category = meta?.categories?.find(cat => cat.id === categoryId);
-    const firstSection = category?.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-    return firstItem?.path || '#';
+    const category = meta?.categories?.find((item) => item.id === categoryId);
+    return getFirstNavigablePathForCategory(category) || '#';
   };
 
   const categories = meta?.categories || [];

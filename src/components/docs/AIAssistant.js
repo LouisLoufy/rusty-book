@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { HiSparkles, HiX, HiSearch } from 'react-icons/hi';
 import Fuse from 'fuse.js';
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
+import { loadDocsMeta } from '../../utils/docsMeta';
 import './AIAssistant.css';
 import '../../styles/3d-effects.css';
 import '../../styles/animations.css';
@@ -33,9 +34,8 @@ const AIAssistant = () => {
 
   useEffect(() => {
     // Load and index documentation metadata
-    fetch('/docs/_meta.json')
-      .then(res => res.json())
-      .then(data => {
+    loadDocsMeta()
+      .then((data) => {
         const searchableContent = [];
 
         // Handle new categories structure
@@ -73,7 +73,7 @@ const AIAssistant = () => {
 
         setDocIndex(fuse);
       })
-      .catch(err => console.error('Failed to load docs index:', err));
+      .catch((err) => console.error('Failed to load docs index:', err));
   }, []);
 
   const handleSearch = async (searchQuery) => {

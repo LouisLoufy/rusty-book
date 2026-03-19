@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './DocsLayout.css';
 import '../../styles/Background.css';
@@ -12,6 +12,10 @@ import Footer from '../Footer/Footer';
 import { AnnotationProvider } from '../../contexts/AnnotationContext';
 import { PageTitleProvider } from '../../contexts/PageTitleContext';
 import { MetaProvider } from '../../contexts/MetaContext';
+import {
+  findActiveCategoryByPath,
+  getFirstNavigablePathForCategory
+} from '../../utils/docsMeta';
 
 // Inner component that uses the context
 const DocsLayoutInner = ({ meta, children }) => {
@@ -22,62 +26,14 @@ const DocsLayoutInner = ({ meta, children }) => {
   // Extract categories from meta with useMemo to prevent recreation
   const categories = useMemo(() => meta?.categories || [], [meta]);
 
-  // Determine active category based on current path
-  const [activeCategory, setActiveCategory] = useState(null);
-
-  useEffect(() => {
-    if (!categories.length) return;
-
-    // Find which category the current path belongs to
-    const current = categories.find(cat =>
-      cat.sections.some(section => {
-        // Check if current path matches the section itself
-        if (section.path && location.pathname === section.path) {
-          return true;
-        }
-
-        // Check if current path matches any item in the section
-        return section.items?.some(item => {
-          // Check if current path matches this item or its children
-          const matchPath = (i) => {
-            if (location.pathname === i.path) return true;
-            if (i.children) {
-              return i.children.some(child => matchPath(child));
-            }
-            return false;
-          };
-          return matchPath(item);
-        });
-      })
-    );
-
-    if (current) {
-      setActiveCategory(current);
-    } else {
-      // Check if path starts with a category's common prefix
-      const categoryByPrefix = categories.find(cat => {
-        const categoryId = cat.id;
-        return location.pathname.startsWith(`/${categoryId}`);
-      });
-
-      if (categoryByPrefix) {
-        setActiveCategory(categoryByPrefix);
-      } else {
-        // Default to first category if no match found
-        setActiveCategory(categories[0]);
-      }
-    }
-  }, [location.pathname, categories]);
+  const activeCategory = useMemo(() => {
+    return findActiveCategoryByPath(meta, location.pathname);
+  }, [meta, location.pathname]);
 
   const handleCategoryClick = (category) => {
-    setActiveCategory(category);
-
-    // Navigate to the first item in the first section of this category
-    const firstSection = category.sections?.[0];
-    const firstItem = firstSection?.items?.[0];
-
-    if (firstItem?.path) {
-      navigate(firstItem.path);
+    const path = getFirstNavigablePathForCategory(category);
+    if (path) {
+      navigate(path);
     }
   };
 

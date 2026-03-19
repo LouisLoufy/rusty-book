@@ -1,5 +1,6 @@
 // Book title mapping utility
 // Maps book IDs (from URL paths) to human-readable titles from _meta.json
+import { loadDocsMeta } from './docsMeta';
 
 let bookTitleMap = null;
 let loadPromise = null;
@@ -21,12 +22,7 @@ export async function loadBookTitles() {
 
   loadPromise = (async () => {
     try {
-      const response = await fetch('/docs/_meta.json');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const meta = await response.json();
+      const meta = await loadDocsMeta();
 
       // Build map from categories
       bookTitleMap = {};
