@@ -5,7 +5,6 @@ import '../../styles/Background.css';
 import '../../styles/3d-effects.css';
 import '../../styles/animations.css';
 import Sidebar from './Sidebar';
-import AIAssistant from './AIAssistant';
 import AnnotationSystem from './AnnotationSystem';
 import PageShell from '../layout/PageShell';
 import { AnnotationProvider } from '../../contexts/AnnotationContext';
@@ -60,9 +59,6 @@ const DocsLayoutInner = ({ meta, children }) => {
           {children}
         </main>
       </div>
-
-      {/* AI Assistant */}
-      <AIAssistant />
 
       {/* Annotation System */}
       <AnnotationSystem />
