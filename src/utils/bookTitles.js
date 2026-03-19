@@ -1,12 +1,12 @@
 // Book title mapping utility
-// Maps book IDs (from URL paths) to human-readable titles from _meta.json
+// Maps book IDs (from URL paths) to human-readable titles from docs meta
 import { loadDocsMeta } from './docsMeta';
 
 let bookTitleMap = null;
 let loadPromise = null;
 
 /**
- * Load book titles from _meta.json
+ * Load book titles from docs meta
  * @returns {Promise<Object>} Map of book ID to title
  */
 export async function loadBookTitles() {

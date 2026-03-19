@@ -16,12 +16,17 @@ fi
 
 VERSION=$1
 COMMIT_MSG=${2:-"Release v${VERSION}"}
+RELEASE_DATE=$(date +%F)
 
 echo "🚀 Starting release process for v${VERSION}..."
 
 # Update package.json version
 echo "📝 Updating package.json..."
 sed -i '' "s/\"version\": \".*\"/\"version\": \"${VERSION}\"/" package.json
+
+# Update changelog
+echo "🗒️  Updating CHANGELOG.md..."
+node scripts/update-changelog.mjs --version "${VERSION}" --message "${COMMIT_MSG}" --date "${RELEASE_DATE}"
 
 # Check git status
 echo "📊 Checking git status..."

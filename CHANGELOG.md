@@ -1,0 +1,13 @@
+# Changelog
+
+All notable releases for this project are recorded in this file.
+
+## [Unreleased]
+
+## [0.11.1] - 2026-03-19
+
+- Split markdown book metadata and add changelog tooling
+
+## [0.11.0] - 2026-03-19
+
+- Extract reusable theme and annotation modules

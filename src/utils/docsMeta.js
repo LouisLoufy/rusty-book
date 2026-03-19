@@ -1,7 +1,19 @@
-const DOCS_META_PATH = `${process.env.PUBLIC_URL || ''}/docs/_meta.json`;
+const PUBLIC_URL = process.env.PUBLIC_URL || '';
+const DOCS_META_PATH = `${PUBLIC_URL}/docs/_meta.json`;
 
 let docsMetaCache = null;
 let docsMetaPromise = null;
+
+function normalizeCategoryMeta(category) {
+  if (category?.id !== 'ai-insights' || !Array.isArray(category.sections)) {
+    return category;
+  }
+
+  return {
+    ...category,
+    sections: [...category.sections].reverse()
+  };
+}
 
 function normalizeDocsMeta(meta) {
   if (!meta?.categories) {
@@ -10,16 +22,63 @@ function normalizeDocsMeta(meta) {
 
   return {
     ...meta,
-    categories: meta.categories.map((category) => {
-      if (category.id !== 'ai-insights' || !Array.isArray(category.sections)) {
-        return category;
-      }
+    categories: meta.categories.map(normalizeCategoryMeta)
+  };
+}
 
-      return {
-        ...category,
-        sections: [...category.sections].reverse()
-      };
+function resolveMetaUrl(metaPath) {
+  if (!metaPath) {
+    return '';
+  }
+
+  if (/^https?:\/\//.test(metaPath)) {
+    return metaPath;
+  }
+
+  const normalizedPath = metaPath.startsWith('/') ? metaPath : `/${metaPath}`;
+  return `${PUBLIC_URL}${normalizedPath}`;
+}
+
+function fetchJson(url) {
+  return fetch(url).then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return response.json();
+  });
+}
+
+function mergeBookMeta(entry, categoryMeta) {
+  return {
+    ...categoryMeta,
+    id: categoryMeta?.id || entry.id,
+    title: categoryMeta?.title || entry.title,
+    description: categoryMeta?.description || entry.description || '',
+    githubRepo: categoryMeta?.githubRepo || entry.githubRepo,
+    repoTitle: categoryMeta?.repoTitle || entry.repoTitle
+  };
+}
+
+async function resolveDocsMeta(data) {
+  if (Array.isArray(data?.categories)) {
+    return data;
+  }
+
+  if (!Array.isArray(data?.books)) {
+    return data;
+  }
+
+  const categories = await Promise.all(
+    data.books.map(async (entry) => {
+      const categoryMeta = await fetchJson(resolveMetaUrl(entry.metaFile));
+      return mergeBookMeta(entry, categoryMeta);
     })
+  );
+
+  return {
+    ...data,
+    categories
   };
 }
 
@@ -70,14 +129,8 @@ export async function loadDocsMeta() {
     return docsMetaPromise;
   }
 
-  docsMetaPromise = fetch(getDocsMetaUrl())
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return response.json();
-    })
+  docsMetaPromise = fetchJson(getDocsMetaUrl())
+    .then(resolveDocsMeta)
     .then((data) => {
       docsMetaCache = normalizeDocsMeta(data);
       return docsMetaCache;

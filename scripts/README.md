@@ -1,4 +1,14 @@
-# Release Script
+# Scripts
+
+常用脚本入口：
+
+- 发布：`npm run release <version> "<commit message>"`
+- 新增 Markdown 书籍：`npm run register-markdown-book -- --id <book-id> --title "<title>" --description "<description>"`
+- 更新变更日志：`npm run update-changelog -- --version <version> --message "<message>" --date <YYYY-MM-DD>`
+
+Markdown 书籍接入说明见 [`scripts/MARKDOWN-BOOK-README.md`](/Users/sunfei/development/test1/scripts/MARKDOWN-BOOK-README.md)。
+
+## Release Script
 
 自动化发布流程脚本，用于快速发布新版本到 GitHub。
 
