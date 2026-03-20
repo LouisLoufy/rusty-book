@@ -174,7 +174,18 @@ const DocContent = () => {
                       {' '}
                       <span className="doc-article-meta-credit-from">From</span>
                       {' '}
-                      <span className="doc-article-meta-credit-name">{contributor.name}</span>
+                      {contributor.link ? (
+                        <a
+                          className="doc-article-meta-credit-name"
+                          href={contributor.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {contributor.name}
+                        </a>
+                      ) : (
+                        <span className="doc-article-meta-credit-name">{contributor.name}</span>
+                      )}
                     </span>
                   </React.Fragment>
                 ))}

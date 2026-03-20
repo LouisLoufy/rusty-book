@@ -28,7 +28,10 @@ export function formatContributors(contributors) {
     .map((contributor) => ({
       key: `${contributor.role}:${contributor.name}`,
       label: CONTRIBUTOR_ROLE_LABELS[contributor.role] || contributor.role,
-      name: contributor.name
+      name: contributor.name,
+      link: typeof contributor.link === 'string' && /^https?:\/\//.test(contributor.link)
+        ? contributor.link
+        : ''
     }));
 }
 

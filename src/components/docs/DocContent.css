@@ -137,9 +137,14 @@
   font-weight: 500;
 }
 
-.doc-article-meta-credit-name {
+.doc-content .doc-article-meta-credit-name {
   font-weight: 500;
   color: var(--accent-start);
+  text-decoration: none;
+}
+
+.doc-content .doc-article-meta-credit-name:hover {
+  text-decoration: underline;
 }
 
 .doc-h2 {

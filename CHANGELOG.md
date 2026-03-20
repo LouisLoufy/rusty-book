@@ -4,6 +4,10 @@ All notable releases for this project are recorded in this file.
 
 ## [Unreleased]
 
+## [0.13.1] - 2026-03-20
+
+- Add reviewer links and SKILL link lookup rules
+
 ## [0.13.0] - 2026-03-20
 
 - Add reviewer metadata and refresh AI insights spicy reviews
