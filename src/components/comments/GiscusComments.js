@@ -52,7 +52,7 @@ function buildDiscussionUrl(pathname, pageTitle, config) {
   return `${config.repo ? `https://github.com/${config.repo}/discussions/new` : config.discussionsUrl}?${searchParams.toString()}`;
 }
 
-function GiscusComments({ pageTitle = '', containerRef: sectionRef = null }) {
+function GiscusComments({ className = '', pageTitle = '', containerRef: sectionRef = null }) {
   const containerRef = useRef(null);
   const location = useLocation();
   const { theme } = useTheme();
@@ -126,7 +126,11 @@ function GiscusComments({ pageTitle = '', containerRef: sectionRef = null }) {
   }, [giscusTheme, isEmbeddedMode]);
 
   return (
-    <section ref={sectionRef} className="doc-comments" aria-label="文章评论">
+    <section
+      ref={sectionRef}
+      className={['doc-comments', className].filter(Boolean).join(' ')}
+      aria-label="文章评论"
+    >
       {isEmbeddedMode ? (
         <div ref={containerRef} className="doc-comments-embed" />
       ) : (
