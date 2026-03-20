@@ -5,7 +5,7 @@
   box-sizing: border-box;
   border: 1px solid color-mix(in srgb, var(--accent-start) 18%, var(--border-primary));
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 1);
   box-shadow:
     0 24px 48px color-mix(in srgb, var(--bg-primary) 22%, transparent),
     0 10px 24px color-mix(in srgb, var(--accent-start) 8%, transparent),

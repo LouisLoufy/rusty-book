@@ -1,6 +1,6 @@
 export const DEFAULT_THEME_ID = 'classic-mono';
 export const DEFAULT_FONT_ID = 'system';
-export const DEFAULT_FONT_WEIGHT_ID = 'medium';
+export const DEFAULT_FONT_WEIGHT_ID = 'normal';
 export const DEFAULT_FONT_SIZE_ID = 'large';
 
 export const THEMES = [
