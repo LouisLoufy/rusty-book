@@ -9,9 +9,10 @@ import {
 
 export function NotFoundState({ label }) {
   return (
-    <section className="lcc-section">
-      <div className="lcc-empty">Page not found: {label}</div>
-    </section>
+    <div className="doc-error">
+      <h1>Page not found</h1>
+      <p>{label}</p>
+    </div>
   );
 }
 

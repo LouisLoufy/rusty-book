@@ -7,10 +7,9 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
-import Sidebar from '../components/docs/Sidebar';
+import BookWorkspaceLayout from '../components/docs/BookWorkspaceLayout';
 import { LearnRouteNotFound, NotFoundState } from '../components/learnClaudeCode/NotFoundState';
 import VersionPage from '../components/learnClaudeCode/VersionPage';
-import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useSidebarState } from '../hooks/useSidebarState';
 import { useDocsMeta } from '../hooks/useDocsMeta';
@@ -63,7 +62,7 @@ function LearnClaudeCode() {
         />
       </Helmet>
 
-      <PageShell
+      <BookWorkspaceLayout
         rootClassName="lcc-page"
         spaces={spaces}
         activeSpace={activeSpace}
@@ -71,27 +70,17 @@ function LearnClaudeCode() {
         categories={categories}
         activeCategory={null}
         onCategoryClick={handleCategoryClick}
+        sidebarMeta={sidebarMeta}
         sidebarOpen={sidebarOpen}
         onMenuToggle={toggleSidebar}
+        onSidebarClose={closeSidebar}
       >
-        <div className="lcc-shell">
-          <div className="lcc-workspace">
-            <Sidebar
-              meta={sidebarMeta}
-              isOpen={sidebarOpen}
-              onClose={closeSidebar}
-            />
-
-            <div className="lcc-content">
-              <Routes>
-                <Route index element={<Navigate to={getLearnAiDefaultPath(currentSpace.slug)} replace />} />
-                <Route path=":version" element={<VersionPage />} />
-                <Route path="*" element={<LearnRouteNotFound />} />
-              </Routes>
-            </div>
-          </div>
-        </div>
-      </PageShell>
+        <Routes>
+          <Route index element={<Navigate to={getLearnAiDefaultPath(currentSpace.slug)} replace />} />
+          <Route path=":version" element={<VersionPage />} />
+          <Route path="*" element={<LearnRouteNotFound />} />
+        </Routes>
+      </BookWorkspaceLayout>
     </>
   );
 }

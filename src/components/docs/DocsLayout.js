@@ -1,12 +1,7 @@
 import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import './DocsLayout.css';
-import '../../styles/Background.css';
-import '../../styles/3d-effects.css';
-import '../../styles/animations.css';
-import Sidebar from './Sidebar';
 import AnnotationSystem from './AnnotationSystem';
-import PageShell from '../layout/PageShell';
+import BookWorkspaceLayout from './BookWorkspaceLayout';
 import { AnnotationProvider } from '../../contexts/AnnotationContext';
 import { PageTitleProvider } from '../../contexts/PageTitleContext';
 import { MetaProvider } from '../../contexts/MetaContext';
@@ -42,7 +37,7 @@ const DocsLayoutInner = ({ meta, children }) => {
   } : null;
 
   return (
-    <PageShell
+    <BookWorkspaceLayout
       rootClassName="docs-layout"
       spaces={spaces}
       activeSpace={activeSpace}
@@ -50,28 +45,14 @@ const DocsLayoutInner = ({ meta, children }) => {
       categories={categories}
       activeCategory={activeCategory}
       onCategoryClick={handleCategoryClick}
+      sidebarMeta={sidebarMeta}
       sidebarOpen={sidebarOpen}
       onMenuToggle={toggleSidebar}
+      onSidebarClose={closeSidebar}
+      afterMain={<AnnotationSystem />}
     >
-      <div className="docs-container">
-        {/* Sidebar - shows only current category's sections */}
-        {sidebarMeta && (
-          <Sidebar
-            meta={sidebarMeta}
-            isOpen={sidebarOpen}
-            onClose={closeSidebar}
-          />
-        )}
-
-        {/* Main Content */}
-        <main className="docs-main">
-          {children}
-        </main>
-      </div>
-
-      {/* Annotation System */}
-      <AnnotationSystem />
-    </PageShell>
+      {children}
+    </BookWorkspaceLayout>
   );
 };
 
