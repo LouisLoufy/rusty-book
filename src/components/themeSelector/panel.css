@@ -5,8 +5,8 @@
   padding: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  min-width: 560px;
-  max-width: 600px;
+  min-width: 500px;
+  max-width: 540px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   max-height: 80vh;
   overflow-y: auto;
@@ -40,5 +40,6 @@
   .theme-panel {
     right: -10px;
     min-width: 260px;
+    max-width: calc(100vw - 20px);
   }
 }
