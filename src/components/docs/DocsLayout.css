@@ -37,11 +37,21 @@
   .docs-container {
     grid-template-columns: 1fr;
     gap: 0;
+    padding: 0;
+  }
+
+  .docs-main {
+    max-width: none;
+    width: 100%;
   }
 }
 
 @media (max-width: 640px) {
   .docs-container {
-    padding: 0 16px;
+    padding: 0;
+  }
+
+  .docs-main {
+    padding: 24px 0 32px;
   }
 }
