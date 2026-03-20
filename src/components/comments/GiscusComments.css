@@ -13,7 +13,7 @@
 }
 
 :root[data-theme-mode='dark'] .doc-comments {
-  background: #2f2f2f;
+  background: transparent;
 }
 
 .doc-comments-link {

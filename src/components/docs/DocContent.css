@@ -55,7 +55,7 @@
 }
 
 :root[data-theme-mode='dark'] .doc-content::before {
-  background: #2f2f2f;
+  background: #141922;
   border-color: #263144;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }
@@ -418,7 +418,7 @@
 
 [data-theme-mode="dark"] .doc-ul,
 [data-theme-mode="dark"] .doc-ol {
-  color: #d1d5db;
+  color: #eee;
 }
 
 .doc-ul li,
