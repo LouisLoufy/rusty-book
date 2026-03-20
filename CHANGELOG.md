@@ -4,6 +4,10 @@ All notable releases for this project are recorded in this file.
 
 ## [Unreleased]
 
+## [0.12.5] - 2026-03-20
+
+- Refine mobile category dropdown behavior
+
 ## [0.12.4] - 2026-03-20
 
 - Refine docs and LCC reading layout

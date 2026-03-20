@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
@@ -31,10 +31,47 @@ const AppHeader = ({
   onMenuToggle = null
 }) => {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const mobileDropdownRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
   const showCategoryNav = categories.length > 0 && onCategoryClick;
   const isLearnClaudeCodeActive = location.pathname.startsWith('/learn-claude-code');
+
+  useEffect(() => {
+    setMobileDropdownOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!mobileDropdownOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMobileDropdownOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setMobileDropdownOpen(false);
+    };
+
+    const handlePointerDown = (event) => {
+      if (!mobileDropdownRef.current?.contains(event.target)) {
+        setMobileDropdownOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('pointerdown', handlePointerDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, [mobileDropdownOpen]);
 
   const handleMobileCategoryClick = (category) => {
     onCategoryClick(category);
@@ -63,19 +100,26 @@ const AppHeader = ({
         {/* Mobile Category Dropdown */}
         {showCategoryNav ? (
           <div className="mobile-category-wrapper mobile-only">
-            <div className="mobile-category-dropdown">
+            <div
+              ref={mobileDropdownRef}
+              className={`mobile-category-dropdown ${mobileDropdownOpen ? 'open' : ''}`}
+            >
               <button
+                type="button"
                 className="mobile-category-toggle"
+                aria-expanded={mobileDropdownOpen}
+                aria-haspopup="menu"
                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
               >
                 <span>{isLearnClaudeCodeActive ? 'CC宝典' : (activeCategory?.title || '选择书籍')}</span>
                 <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
               </button>
               {mobileDropdownOpen && (
-                <div className="mobile-category-menu">
+                <div className="mobile-category-menu" role="menu">
                   {categories.map(category => (
                     <button
                       key={category.id}
+                      type="button"
                       className={`mobile-category-item ${activeCategory?.id === category.id ? 'active' : ''}`}
                       onClick={() => handleMobileCategoryClick(category)}
                     >
@@ -83,6 +127,7 @@ const AppHeader = ({
                     </button>
                   ))}
                   <button
+                    type="button"
                     className={`mobile-category-item ${isLearnClaudeCodeActive ? 'active' : ''}`}
                     onClick={handleMobileLearnClaudeCodeClick}
                   >
