@@ -55,7 +55,7 @@
 }
 
 :root[data-theme-mode='dark'] .doc-content::before {
-  background: #1a1a1a;
+  background: #2f2f2f;
   border-color: #263144;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }
@@ -281,11 +281,9 @@
 }
 
 .doc-code-copy-btn.copied {
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent-start) 72%, rgba(255, 255, 255, 0.16)),
-    color-mix(in srgb, var(--accent-end) 68%, rgba(255, 255, 255, 0.16))
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent-start) 72%, rgba(255, 255, 255, 0.16)),
+      color-mix(in srgb, var(--accent-end) 68%, rgba(255, 255, 255, 0.16)));
   border-color: transparent;
   color: #ffffff;
 }

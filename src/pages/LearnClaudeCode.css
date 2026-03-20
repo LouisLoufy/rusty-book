@@ -1260,7 +1260,7 @@
 }
 
 :root[data-theme-mode='dark'] .lcc-body-shell {
-  background: #1a1a1a;
+  background: #2f2f2f;
   border-color: #263144;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }
@@ -1272,7 +1272,7 @@
 }
 
 :root[data-theme-mode='dark'] .lcc-body-shell.lcc-body-shell-doc::before {
-  background: #1a1a1a;
+  background: #2f2f2f;
   border-color: #263144;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }
