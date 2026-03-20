@@ -4,6 +4,9 @@ import Footer from '../Footer/Footer';
 
 function PageShell({
   rootClassName = '',
+  spaces = null,
+  activeSpace = null,
+  onSpaceClick = null,
   categories = [],
   activeCategory = null,
   onCategoryClick = null,
@@ -13,15 +16,18 @@ function PageShell({
   children
 }) {
   const classes = [rootClassName, 'dynamic-background'].filter(Boolean).join(' ');
+  const resolvedSpaces = spaces || categories;
+  const resolvedActiveSpace = activeSpace || activeCategory;
+  const resolvedOnSpaceClick = onSpaceClick || onCategoryClick;
 
   return (
     <div className={classes}>
       <div className="sailor-moon-bg-layer"></div>
 
       <AppHeader
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategoryClick={onCategoryClick}
+        spaces={resolvedSpaces}
+        activeSpace={resolvedActiveSpace}
+        onSpaceClick={resolvedOnSpaceClick}
         sidebarOpen={sidebarOpen}
         onMenuToggle={onMenuToggle}
       />

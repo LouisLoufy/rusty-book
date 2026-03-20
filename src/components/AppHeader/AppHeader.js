@@ -1,42 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
 import AuthStatus from '../docs/AuthStatus';
 import BeatAILogoWave from '../BeatAILogoWave';
-import { getLearnAiDefaultPath } from '../../utils/learnAiPaths';
 import './AppHeader.css';
-
-// GitHub repository mapping for each book
-const GITHUB_REPOS = {
-  'ai-insights': 'https://github.com/beatai-org/beatai',
-  'rust-course': 'https://github.com/sunface/rust-course'
-};
 
 /**
  * 应用统一 Header 组件
  *
  * @param {Object} props
- * @param {Array} props.categories - 分类导航数据（可选）
- * @param {Object} props.activeCategory - 当前激活的分类（可选）
- * @param {Function} props.onCategoryClick - 分类点击回调（可选）
+ * @param {Array} props.spaces - 顶部知识空间导航数据（可选）
+ * @param {Object} props.activeSpace - 当前激活的知识空间（可选）
+ * @param {Function} props.onSpaceClick - 知识空间点击回调（可选）
  * @param {boolean} props.sidebarOpen - 侧边栏打开状态（可选）
  * @param {Function} props.onMenuToggle - 菜单切换回调（可选）
  */
 const AppHeader = ({
-  categories = [],
-  activeCategory = null,
-  onCategoryClick = null,
+  spaces = [],
+  activeSpace = null,
+  onSpaceClick = null,
   sidebarOpen = false,
   onMenuToggle = null
 }) => {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const mobileDropdownRef = useRef(null);
   const location = useLocation();
-  const navigate = useNavigate();
-  const showCategoryNav = categories.length > 0 && onCategoryClick;
-  const isLearnClaudeCodeActive = location.pathname.startsWith('/learn-ai/');
+  const showSpaceNav = spaces.length > 0 && onSpaceClick;
 
   useEffect(() => {
     setMobileDropdownOpen(false);
@@ -74,13 +65,8 @@ const AppHeader = ({
     };
   }, [mobileDropdownOpen]);
 
-  const handleMobileCategoryClick = (category) => {
-    onCategoryClick(category);
-    setMobileDropdownOpen(false);
-  };
-
-  const handleMobileLearnClaudeCodeClick = () => {
-    navigate(getLearnAiDefaultPath());
+  const handleMobileSpaceClick = (space) => {
+    onSpaceClick(space);
     setMobileDropdownOpen(false);
   };
 
@@ -99,7 +85,7 @@ const AppHeader = ({
         </Link>
 
         {/* Mobile Category Dropdown */}
-        {showCategoryNav ? (
+        {showSpaceNav ? (
           <div className="mobile-category-wrapper mobile-only">
             <div
               ref={mobileDropdownRef}
@@ -112,39 +98,32 @@ const AppHeader = ({
                 aria-haspopup="menu"
                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
               >
-                <span>{isLearnClaudeCodeActive ? 'AI 学习宝典' : (activeCategory?.title || '选择书籍')}</span>
+                <span>{activeSpace?.title || '选择书籍'}</span>
                 <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
               </button>
               {mobileDropdownOpen && (
                 <div className="mobile-category-menu" role="menu">
-                  {categories.map(category => (
+                  {spaces.map((space) => (
                     <button
-                      key={category.id}
+                      key={space.id}
                       type="button"
-                      className={`mobile-category-item ${activeCategory?.id === category.id ? 'active' : ''}`}
-                      onClick={() => handleMobileCategoryClick(category)}
+                      className={`mobile-category-item ${activeSpace?.id === space.id ? 'active' : ''}`}
+                      onClick={() => handleMobileSpaceClick(space)}
                     >
-                      {category.title}
+                      {space.title}
                     </button>
                   ))}
-                  <button
-                    type="button"
-                    className={`mobile-category-item ${isLearnClaudeCodeActive ? 'active' : ''}`}
-                    onClick={handleMobileLearnClaudeCodeClick}
-                  >
-                    AI 学习宝典
-                  </button>
                 </div>
               )}
             </div>
             {/* GitHub icon next to the dropdown */}
-            {activeCategory && GITHUB_REPOS[activeCategory.id] && (
+            {activeSpace?.githubRepo && (
               <a
-                href={GITHUB_REPOS[activeCategory.id]}
+                href={activeSpace.githubRepo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="github-link-mobile"
-                title={`访问 ${activeCategory.title} 的 GitHub 仓库`}
+                title={`访问 ${activeSpace.title} 的 GitHub 仓库`}
               >
                 <FaGithub />
               </a>
@@ -157,20 +136,20 @@ const AppHeader = ({
 
         {/* Desktop Category Navigation */}
         <nav className="category-nav desktop-only">
-          {showCategoryNav && categories.map(category => (
+          {showSpaceNav && spaces.map((space) => (
             <button
-              key={category.id}
-              className={`category-tab ${activeCategory?.id === category.id ? 'active' : ''}`}
-              onClick={() => onCategoryClick(category)}
+              key={space.id}
+              className={`category-tab ${activeSpace?.id === space.id ? 'active' : ''}`}
+              onClick={() => onSpaceClick(space)}
             >
-              <span className="category-title">{category.title}</span>
-              {activeCategory?.id === category.id && GITHUB_REPOS[category.id] && (
+              <span className="category-title">{space.title}</span>
+              {activeSpace?.id === space.id && space.githubRepo && (
                 <a
-                  href={GITHUB_REPOS[category.id]}
+                  href={space.githubRepo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="github-link-inline"
-                  title={`访问 ${category.title} 的 GitHub 仓库`}
+                  title={`访问 ${space.title} 的 GitHub 仓库`}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <FaGithub />
@@ -178,13 +157,6 @@ const AppHeader = ({
               )}
             </button>
           ))}
-
-          <Link
-            to={getLearnAiDefaultPath()}
-            className={`category-tab category-link ${isLearnClaudeCodeActive ? 'active' : ''}`}
-          >
-            <span className="category-title">AI 学习宝典</span>
-          </Link>
         </nav>
 
         {/* Actions */}

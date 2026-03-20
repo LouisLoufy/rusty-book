@@ -23,6 +23,7 @@ import {
   getLearnAiEntryPath
 } from '../utils/learnAiPaths';
 import { getLearnAiSpace, getLearnAiSpaceByVersion } from '../utils/learnAiSpaces';
+import { buildKnowledgeSpaces, getLearnAiHubSpace } from '../utils/knowledgeSpaces';
 
 function LearnClaudeCode() {
   const { space: spaceSlug } = useParams();
@@ -34,7 +35,9 @@ function LearnClaudeCode() {
   });
 
   const categories = meta?.categories || [];
+  const spaces = useMemo(() => buildKnowledgeSpaces(meta), [meta]);
   const sidebarMeta = useMemo(() => buildLearnAiSidebarMeta(), []);
+  const activeSpace = useMemo(() => getLearnAiHubSpace(), []);
   const currentSpace = getLearnAiSpace(spaceSlug);
   const pathParts = location.pathname.split('/').filter(Boolean);
   const currentVersion = pathParts.length > 2 ? pathParts[2] : '';
@@ -62,6 +65,9 @@ function LearnClaudeCode() {
 
       <PageShell
         rootClassName="lcc-page"
+        spaces={spaces}
+        activeSpace={activeSpace}
+        onSpaceClick={handleCategoryClick}
         categories={categories}
         activeCategory={null}
         onCategoryClick={handleCategoryClick}

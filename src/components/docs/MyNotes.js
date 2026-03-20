@@ -7,6 +7,7 @@ import PageShell from '../layout/PageShell';
 import MyNotesEmptyState from './MyNotesEmptyState';
 import { useCategoryNavigation } from '../../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../../hooks/useDocsMeta';
+import { buildKnowledgeSpaces } from '../../utils/knowledgeSpaces';
 import { loadBookTitles, getBookTitle } from '../../utils/bookTitles';
 import {
   buildBookGroups,
@@ -29,6 +30,7 @@ const MyNotes = () => {
   }, []);
 
   const categories = meta?.categories || [];
+  const spaces = useMemo(() => buildKnowledgeSpaces(meta), [meta]);
   const bookGroups = useMemo(() => buildBookGroups(allAnnotations), [allAnnotations]);
   const filteredPageGroups = useMemo(
     () => getFilteredPageGroups(bookGroups, activeBook),
@@ -40,6 +42,9 @@ const MyNotes = () => {
     return (
       <PageShell
         rootClassName="my-notes-page"
+        spaces={spaces}
+        activeSpace={null}
+        onSpaceClick={handleCategoryClick}
         categories={categories}
         activeCategory={null}
         onCategoryClick={handleCategoryClick}
@@ -57,6 +62,9 @@ const MyNotes = () => {
   return (
     <PageShell
       rootClassName="my-notes-page"
+      spaces={spaces}
+      activeSpace={null}
+      onSpaceClick={handleCategoryClick}
       categories={categories}
       activeCategory={null}
       onCategoryClick={handleCategoryClick}

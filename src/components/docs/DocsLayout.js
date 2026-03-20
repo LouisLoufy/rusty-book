@@ -13,6 +13,7 @@ import { MetaProvider } from '../../contexts/MetaContext';
 import { useCategoryNavigation } from '../../hooks/useCategoryNavigation';
 import { useSidebarState } from '../../hooks/useSidebarState';
 import { findActiveCategoryByPath } from '../../utils/docsMeta';
+import { buildKnowledgeSpaces, findActiveKnowledgeSpace } from '../../utils/knowledgeSpaces';
 
 // Inner component that uses the context
 const DocsLayoutInner = ({ meta, children }) => {
@@ -22,9 +23,14 @@ const DocsLayoutInner = ({ meta, children }) => {
 
   // Extract categories from meta with useMemo to prevent recreation
   const categories = useMemo(() => meta?.categories || [], [meta]);
+  const spaces = useMemo(() => buildKnowledgeSpaces(meta), [meta]);
 
   const activeCategory = useMemo(() => {
     return findActiveCategoryByPath(meta, location.pathname);
+  }, [meta, location.pathname]);
+
+  const activeSpace = useMemo(() => {
+    return findActiveKnowledgeSpace(meta, location.pathname);
   }, [meta, location.pathname]);
 
   // Prepare meta object for Sidebar (using only active category's sections)
@@ -38,6 +44,9 @@ const DocsLayoutInner = ({ meta, children }) => {
   return (
     <PageShell
       rootClassName="docs-layout"
+      spaces={spaces}
+      activeSpace={activeSpace}
+      onSpaceClick={handleCategoryClick}
       categories={categories}
       activeCategory={activeCategory}
       onCategoryClick={handleCategoryClick}

@@ -5,8 +5,8 @@ export function useCategoryNavigation(options = {}) {
   const { mode = 'navigate' } = options;
   const navigate = useNavigate();
 
-  return (category) => {
-    const path = getFirstNavigablePathForCategory(category);
+  return (entry) => {
+    const path = entry?.entryPath || getFirstNavigablePathForCategory(entry);
 
     if (!path) {
       return;

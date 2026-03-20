@@ -5,10 +5,11 @@ import { TagProvider, useTag } from '../contexts/TagContext';
 import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
+import { buildKnowledgeSpaces } from '../utils/knowledgeSpaces';
 import './TagPage.css';
 
 // Inner component that uses TagContext
-const TagPageContent = ({ categories }) => {
+const TagPageContent = ({ categories, spaces }) => {
   const { tagName } = useParams();
   const decodedTagName = decodeURIComponent(tagName);
   const { getArticlesByTag, groupByCategory } = useTag();
@@ -33,6 +34,9 @@ const TagPageContent = ({ categories }) => {
 
       <PageShell
         rootClassName="tag-page"
+        spaces={spaces}
+        activeSpace={null}
+        onSpaceClick={handleCategoryClick}
         categories={categories}
         activeCategory={null}
         onCategoryClick={handleCategoryClick}
@@ -97,7 +101,7 @@ const TagPage = () => {
 
   return (
     <TagProvider meta={meta}>
-      <TagPageContent categories={meta.categories || []} />
+      <TagPageContent categories={meta.categories || []} spaces={buildKnowledgeSpaces(meta)} />
     </TagProvider>
   );
 };

@@ -5,6 +5,7 @@ import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
+import { buildKnowledgeSpaces } from '../utils/knowledgeSpaces';
 import './NotFound.css';
 
 const NotFound = ({ requestedPath = '' }) => {
@@ -12,6 +13,7 @@ const NotFound = ({ requestedPath = '' }) => {
   const handleCategoryClick = useCategoryNavigation({ mode: 'reload' });
 
   const categories = meta?.categories || [];
+  const spaces = buildKnowledgeSpaces(meta);
 
   return (
     <>
@@ -22,6 +24,9 @@ const NotFound = ({ requestedPath = '' }) => {
 
       <PageShell
         rootClassName="notfound-page"
+        spaces={spaces}
+        activeSpace={null}
+        onSpaceClick={handleCategoryClick}
         categories={categories}
         activeCategory={null}
         onCategoryClick={handleCategoryClick}

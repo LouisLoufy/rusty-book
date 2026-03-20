@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import AIInsightsIcon from '../components/icons/AIInsightsIcon';
 import RustBookIcon from '../components/icons/RustBookIcon';
@@ -9,11 +9,13 @@ import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
 import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
+import { buildKnowledgeSpaces } from '../utils/knowledgeSpaces';
 import './Square.css';
 
 const Square = () => {
   const { meta } = useDocsMeta();
   const handleCategoryClick = useCategoryNavigation();
+  const spaces = useMemo(() => buildKnowledgeSpaces(meta), [meta]);
 
   // Get first item path for a category
   const getFirstItemPath = (categoryId) => {
@@ -32,6 +34,9 @@ const Square = () => {
 
       <PageShell
         rootClassName="square-page"
+        spaces={spaces}
+        activeSpace={null}
+        onSpaceClick={handleCategoryClick}
         categories={categories}
         activeCategory={null}
         onCategoryClick={handleCategoryClick}
