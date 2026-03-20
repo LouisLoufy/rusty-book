@@ -33,7 +33,7 @@ const AuthModal = ({ isOpen, onClose }) => {
         setMigrated(false);
       }, 2000);
     } else {
-      setError(result.error || 'Failed to connect. Please check your token.');
+      setError(result.error || '连接失败，请检查你的 Token 是否正确。');
     }
   };
 
@@ -52,7 +52,7 @@ const AuthModal = ({ isOpen, onClose }) => {
     <div className="auth-modal-backdrop" onClick={handleClose}>
       <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
         <div className="auth-modal-header">
-          <h2>Connect to GitHub</h2>
+          <h2>连接 GitHub</h2>
           <button
             className="auth-modal-close"
             onClick={handleClose}
@@ -66,9 +66,9 @@ const AuthModal = ({ isOpen, onClose }) => {
           {success ? (
             <div className="auth-modal-success">
               <HiCheckCircle className="auth-modal-success-icon" />
-              <h3>Successfully Connected!</h3>
+              <h3>连接成功！</h3>
               {migrated && (
-                <p>Your local annotations have been synced to GitHub.</p>
+                <p>你本地的标注数据已经同步到 GitHub。</p>
               )}
             </div>
           ) : (
@@ -80,35 +80,35 @@ const AuthModal = ({ isOpen, onClose }) => {
                   </svg>
                 </div>
 
-                <h3>Why Connect GitHub?</h3>
+                <h3>为什么要连接 GitHub？</h3>
                 <ul className="auth-modal-benefits">
                   <li>
-                    <strong>Secure Storage:</strong> Annotations saved to your GitHub account
+                    <strong>安全存储：</strong> 标注内容保存到你的 GitHub 账号
                   </li>
                   <li>
-                    <strong>Cross-Device Sync:</strong> Access from any device or browser
+                    <strong>多端同步：</strong> 可在不同设备和浏览器中访问
                   </li>
                   <li>
-                    <strong>Share Notes:</strong> Generate links to share with others
+                    <strong>参与评论：</strong> 登录后可在文章底部发表评论
                   </li>
                 </ul>
               </div>
 
               <form onSubmit={handleSubmit}>
                 <div className="auth-modal-form-group">
-                  <label htmlFor="token">Personal Access Token (PAT)</label>
+                  <label htmlFor="token">个人访问令牌（PAT）</label>
                   <input
                     id="token"
                     type="password"
                     className="auth-modal-input"
-                    placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+                    placeholder="请输入 GitHub Token"
                     value={token}
                     onChange={(e) => setToken(e.target.value)}
                     disabled={isLoading}
                     required
                   />
                   <div className="auth-modal-hint">
-                    The token only needs <code>gist</code> scope permission.
+                    该 Token 只需要开启 <code>gist</code> 权限。
                   </div>
                 </div>
 
@@ -126,14 +126,14 @@ const AuthModal = ({ isOpen, onClose }) => {
                     rel="noopener noreferrer"
                     className="auth-modal-help-link"
                   >
-                    🔗 How to create a token?
+                    🔗 30秒快速生成 Token
                   </a>
                   <div className="auth-modal-help-steps">
                     <ol>
-                      <li>Click the link above to open GitHub</li>
-                      <li>Ensure <strong>gist</strong> scope is checked</li>
-                      <li>Click "Generate token" at the bottom</li>
-                      <li>Copy the token and paste it above</li>
+                      <li>点击上方链接打开 GitHub</li>
+                      <li>确认勾选了 <strong>gist</strong> 权限(默认会勾选)</li>
+                      <li>点击页面底部的“Generate token”</li>
+                      <li>复制生成的 Token 并粘贴到上方输入框</li>
                     </ol>
                   </div>
                 </div>
@@ -145,14 +145,14 @@ const AuthModal = ({ isOpen, onClose }) => {
                     onClick={handleClose}
                     disabled={isLoading}
                   >
-                    Maybe Later
+                    稍后再说
                   </button>
                   <button
                     type="submit"
                     className="auth-modal-btn auth-modal-btn-primary"
                     disabled={isLoading || !token}
                   >
-                    {isLoading ? 'Connecting...' : 'Connect GitHub'}
+                    {isLoading ? '连接中...' : '连接 GitHub'}
                   </button>
                 </div>
               </form>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { HiLogout, HiUser, HiAnnotation, HiLightningBolt } from 'react-icons/hi';
+import { HiLogout, HiUser, HiAnnotation, HiSparkles } from 'react-icons/hi';
 import { useAnnotationContext } from '../../contexts/AnnotationContext';
 import { useNavigate } from 'react-router-dom';
 import AuthModal from './AuthModal';
@@ -136,7 +136,7 @@ const AuthStatus = () => {
                 setShowUserPanel(false);
               }}
             >
-              <HiLightningBolt />
+              <HiSparkles />
               <span>隐藏技巧</span>
             </button>
 
