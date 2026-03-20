@@ -4,15 +4,23 @@ import { useTheme } from '../../contexts/ThemeContext';
 import './GiscusComments.css';
 
 const GISCUS_ORIGIN = 'https://giscus.app';
-const DEFAULT_REPO = process.env.REACT_APP_GISCUS_REPO || 'sunface/rust-course';
-const DEFAULT_REPO_ID = process.env.REACT_APP_GISCUS_REPO_ID || 'MDEwOlJlcG9zaXRvcnkxNDM4MjIwNjk=';
-// 'R_kgDOGmKA_Q'
-const DEFAULT_CATEGORY = process.env.REACT_APP_GISCUS_CATEGORY || '章节评论区';
-const DEFAULT_CATEGORY_ID = process.env.REACT_APP_GISCUS_CATEGORY_ID || 'DIC_kwDOCJKM9c4COQcP';
-// 'DIC_kwDOGmKA_c4COcYR'
-const DEFAULT_DISCUSSIONS_URL = process.env.REACT_APP_GISCUS_DISCUSSIONS_URL ||
-  'https://github.com/sunface/rust-course/discussions/categories/giscus';
 const DEFAULT_GISCUS_THEME_ID = 'classic-mono';
+const BEATAI_GISCUS_CONFIG = {
+  repo: process.env.REACT_APP_GISCUS_REPO || 'beatai-org/BeatAI',
+  repoId: process.env.REACT_APP_GISCUS_REPO_ID || 'R_kgDOGmKA_Q',
+  category: process.env.REACT_APP_GISCUS_CATEGORY || 'giscus',
+  categoryId: process.env.REACT_APP_GISCUS_CATEGORY_ID || 'DIC_kwDOGmKA_c4COcYR',
+  discussionsUrl: process.env.REACT_APP_GISCUS_DISCUSSIONS_URL ||
+    'https://github.com/beatai-org/BeatAI/discussions/categories/giscus'
+};
+const RUST_COURSE_GISCUS_CONFIG = {
+  repo: process.env.REACT_APP_RUST_COURSE_GISCUS_REPO || 'sunface/rust-course',
+  repoId: process.env.REACT_APP_RUST_COURSE_GISCUS_REPO_ID || 'MDEwOlJlcG9zaXRvcnkxNDM4MjIwNjk=',
+  category: process.env.REACT_APP_RUST_COURSE_GISCUS_CATEGORY || '章节评论区',
+  categoryId: process.env.REACT_APP_RUST_COURSE_GISCUS_CATEGORY_ID || 'DIC_kwDOCJKM9c4COQcP',
+  discussionsUrl: process.env.REACT_APP_RUST_COURSE_GISCUS_DISCUSSIONS_URL ||
+    'https://github.com/sunface/rust-course/discussions/categories/%E7%AB%A0%E8%8A%82%E8%AF%84%E8%AE%BA%E5%8C%BA'
+};
 
 function normalizeColor(value, fallback) {
   const normalized = String(value || '').trim();
@@ -194,7 +202,13 @@ main .gsc-main .color-fg-subtle {
   return `data:text/css;charset=utf-8,${encodeURIComponent(css)}`;
 }
 
-function buildDiscussionUrl(pathname, pageTitle) {
+function getGiscusConfig(pathname) {
+  return pathname.startsWith('/rust-course')
+    ? RUST_COURSE_GISCUS_CONFIG
+    : BEATAI_GISCUS_CONFIG;
+}
+
+function buildDiscussionUrl(pathname, pageTitle, config) {
   const normalizedPath = pathname || '/';
   const pageUrl = `https://beatai.org${normalizedPath}`;
   const discussionTitle = `评论：${pageTitle || normalizedPath}`;
@@ -207,12 +221,12 @@ function buildDiscussionUrl(pathname, pageTitle) {
   ].join('\n');
 
   const searchParams = new URLSearchParams({
-    category: DEFAULT_CATEGORY,
+    category: config.category,
     title: discussionTitle,
     body: discussionBody
   });
 
-  return `${DEFAULT_REPO ? `https://github.com/${DEFAULT_REPO}/discussions/new` : DEFAULT_DISCUSSIONS_URL}?${searchParams.toString()}`;
+  return `${config.repo ? `https://github.com/${config.repo}/discussions/new` : config.discussionsUrl}?${searchParams.toString()}`;
 }
 
 function GiscusComments({ pageTitle = '' }) {
@@ -223,11 +237,17 @@ function GiscusComments({ pageTitle = '' }) {
   const [giscusTheme, setGiscusTheme] = useState(() => buildGiscusTheme(theme));
 
   const pathname = location.pathname || '/';
+  const giscusConfig = useMemo(() => getGiscusConfig(pathname), [pathname]);
   const discussionUrl = useMemo(
-    () => buildDiscussionUrl(pathname, pageTitle),
-    [pageTitle, pathname]
+    () => buildDiscussionUrl(pathname, pageTitle, giscusConfig),
+    [giscusConfig, pageTitle, pathname]
   );
-  const isEmbeddedMode = Boolean(DEFAULT_REPO && DEFAULT_REPO_ID && DEFAULT_CATEGORY && DEFAULT_CATEGORY_ID);
+  const isEmbeddedMode = Boolean(
+    giscusConfig.repo &&
+    giscusConfig.repoId &&
+    giscusConfig.category &&
+    giscusConfig.categoryId
+  );
 
   useEffect(() => {
     giscusThemeRef.current = giscusTheme;
@@ -265,10 +285,10 @@ function GiscusComments({ pageTitle = '' }) {
     script.src = `${GISCUS_ORIGIN}/client.js`;
     script.async = true;
     script.crossOrigin = 'anonymous';
-    script.setAttribute('data-repo', DEFAULT_REPO);
-    script.setAttribute('data-repo-id', DEFAULT_REPO_ID);
-    script.setAttribute('data-category', DEFAULT_CATEGORY);
-    script.setAttribute('data-category-id', DEFAULT_CATEGORY_ID);
+    script.setAttribute('data-repo', giscusConfig.repo);
+    script.setAttribute('data-repo-id', giscusConfig.repoId);
+    script.setAttribute('data-category', giscusConfig.category);
+    script.setAttribute('data-category-id', giscusConfig.categoryId);
     script.setAttribute('data-mapping', 'pathname');
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
@@ -283,7 +303,7 @@ function GiscusComments({ pageTitle = '' }) {
     return () => {
       container.innerHTML = '';
     };
-  }, [isEmbeddedMode, pathname]);
+  }, [giscusConfig, isEmbeddedMode, pathname]);
 
   useEffect(() => {
     if (!isEmbeddedMode) {
