@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import AIInsightsIcon from '../components/icons/AIInsightsIcon';
 import RustBookIcon from '../components/icons/RustBookIcon';
@@ -16,6 +16,8 @@ const Square = () => {
   const { meta } = useDocsMeta();
   const handleCategoryClick = useCategoryNavigation();
   const spaces = useMemo(() => buildKnowledgeSpaces(meta), [meta]);
+  const [heroLogoAnimated, setHeroLogoAnimated] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState('');
 
   // Get first item path for a category
   const getFirstItemPath = (categoryId) => {
@@ -43,8 +45,12 @@ const Square = () => {
       >
         <div className="square-container">
           <div className="square-hero">
-            <div className="square-hero-logo">
-              <BeatAILogoWave size={64} />
+            <div
+              className="square-hero-logo"
+              onMouseEnter={() => setHeroLogoAnimated(true)}
+              onMouseLeave={() => setHeroLogoAnimated(false)}
+            >
+              <BeatAILogoWave size={64} animated={heroLogoAnimated} />
             </div>
             <h1 className="square-title">BeatAI</h1>
             <p className="square-subtitle">
@@ -56,25 +62,40 @@ const Square = () => {
             <div className="square-section">
               <h2 className="section-title">探索内容</h2>
               <div className="square-grid">
-                <a href={getFirstItemPath('ai-insights')} className="square-card glass-card">
+                <a
+                  href={getFirstItemPath('ai-insights')}
+                  className="square-card glass-card"
+                  onMouseEnter={() => setHoveredCard('ai-insights')}
+                  onMouseLeave={() => setHoveredCard('')}
+                >
                   <div className="card-icon">
-                    <AIInsightsIcon size={80} />
+                    <AIInsightsIcon size={80} animated={hoveredCard === 'ai-insights'} />
                   </div>
                   <h3>AI 前沿分享</h3>
                   <p>AI 领域最新动态、技术分享与深度解析</p>
                 </a>
 
-                <a href={getFirstItemPath('rust-course')} className="square-card glass-card">
+                <a
+                  href={getFirstItemPath('rust-course')}
+                  className="square-card glass-card"
+                  onMouseEnter={() => setHoveredCard('rust-course')}
+                  onMouseLeave={() => setHoveredCard('')}
+                >
                   <div className="card-icon">
-                    <RustBookIcon size={80} />
+                    <RustBookIcon size={80} animated={hoveredCard === 'rust-course'} />
                   </div>
                   <h3>Rust 语言圣经</h3>
                   <p>学习 AI 时代最安全的语言</p>
                 </a>
 
-                <a href={getLearnAiDefaultPath()} className="square-card glass-card">
+                <a
+                  href={getLearnAiDefaultPath()}
+                  className="square-card glass-card"
+                  onMouseEnter={() => setHoveredCard('learn-ai')}
+                  onMouseLeave={() => setHoveredCard('')}
+                >
                   <div className="card-icon">
-                    <LearnClaudeCodeIcon size={80} />
+                    <LearnClaudeCodeIcon size={80} animated={hoveredCard === 'learn-ai'} />
                   </div>
                   <h3>AI 学习宝典</h3>
                   <p>欲练此功...</p>

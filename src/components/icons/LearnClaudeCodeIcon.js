@@ -8,7 +8,7 @@ import React from 'react';
  * - 使用当前主题色，不写死固定配色
  * - 视觉风格与广场其它 SVG 图标保持一致，但更具未来感
  */
-const LearnClaudeCodeIcon = ({ size = 80, className = '' }) => {
+const LearnClaudeCodeIcon = ({ size = 80, className = '', animated = true }) => {
   const gradientId = `lcc-icon-gradient-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
@@ -51,15 +51,17 @@ const LearnClaudeCodeIcon = ({ size = 80, className = '' }) => {
         strokeDasharray="4 6"
         opacity="0.24"
       >
-        <animateTransform
-          attributeName="transform"
-          attributeType="XML"
-          type="rotate"
-          from="0 50 50"
-          to="360 50 50"
-          dur="24s"
-          repeatCount="indefinite"
-        />
+        {animated ? (
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur="24s"
+            repeatCount="indefinite"
+          />
+        ) : null}
       </circle>
 
       <path

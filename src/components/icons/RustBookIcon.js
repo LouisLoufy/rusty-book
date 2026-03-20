@@ -8,7 +8,7 @@ import React from 'react';
  * - 代表 Rust 的系统编程和精密性
  * - 使用主题配色
  */
-const RustBookIcon = ({ size = 80, className = '' }) => {
+const RustBookIcon = ({ size = 80, className = '', animated = true }) => {
   const gradientId = `rust-icon-gradient-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
@@ -125,15 +125,17 @@ const RustBookIcon = ({ size = 80, className = '' }) => {
       </g>
 
       {/* 旋转动画齿轮（可选） */}
-      <animateTransform
-        attributeName="transform"
-        attributeType="XML"
-        type="rotate"
-        from="0 50 45"
-        to="360 50 45"
-        dur="20s"
-        repeatCount="indefinite"
-      />
+      {animated ? (
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0 50 45"
+          to="360 50 45"
+          dur="20s"
+          repeatCount="indefinite"
+        />
+      ) : null}
     </svg>
   );
 };

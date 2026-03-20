@@ -4,6 +4,10 @@ All notable releases for this project are recorded in this file.
 
 ## [Unreleased]
 
+## [0.12.10] - 2026-03-20
+
+- Static square icons by default
+
 ## [0.12.7] - 2026-03-20
 
 - Add doc shortcuts and hidden tips

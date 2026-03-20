@@ -8,7 +8,7 @@ import React from 'react';
  * - 代表 AI 的智能和动态
  * - 使用主题配色
  */
-const AIInsightsIcon = ({ size = 80, className = '' }) => {
+const AIInsightsIcon = ({ size = 80, className = '', animated = true }) => {
   const gradientId = `ai-icon-gradient-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
@@ -120,20 +120,24 @@ const AIInsightsIcon = ({ size = 80, className = '' }) => {
         fill="none"
         opacity="0.6"
       >
-        <animate
-          attributeName="r"
-          from="20"
-          to="35"
-          dur="2s"
-          repeatCount="indefinite"
-        />
-        <animate
-          attributeName="opacity"
-          from="0.6"
-          to="0"
-          dur="2s"
-          repeatCount="indefinite"
-        />
+        {animated ? (
+          <>
+            <animate
+              attributeName="r"
+              from="20"
+              to="35"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              from="0.6"
+              to="0"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+          </>
+        ) : null}
       </circle>
 
       {/* 装饰粒子 */}
