@@ -38,5 +38,7 @@ export function stripAiInsightsTitle(content, isAiInsightsArticle) {
     return content;
   }
 
-  return content.replace(/^\s*#\s+.+?(?:\r?\n){1,2}/, '');
+  return content
+    .replace(/^\s*#\s+.+?(?:\r?\n){1,2}/, '')
+    .replace(/\r?\n---\r?\n\r?\n(?=##\s+原文链接)/g, '\n\n');
 }
