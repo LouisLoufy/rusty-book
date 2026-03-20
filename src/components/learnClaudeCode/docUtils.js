@@ -1,7 +1,4 @@
-import {
-  LEARN_CLAUDE_CODE_BASE_PATH,
-  LEGACY_LEARN_CLAUDE_CODE_BASE_PATH
-} from '../../utils/learnAiPaths';
+import { getLearnAiEntryPath, LEGACY_LEARN_CLAUDE_CODE_BASE_PATH } from '../../utils/learnAiPaths';
 import { docsData } from '../../vendor/learn-claude-code/data';
 
 export function getVersionDoc(version, locale = 'zh') {
@@ -39,9 +36,9 @@ export function renameBookTitle(content) {
 }
 
 export function rewriteLearnClaudeCodeLinks(content) {
-  return String(content || '').replaceAll(
-    `](${LEGACY_LEARN_CLAUDE_CODE_BASE_PATH}/`,
-    `](${LEARN_CLAUDE_CODE_BASE_PATH}/`
+  return String(content || '').replace(
+    new RegExp(`\\]\\(${LEGACY_LEARN_CLAUDE_CODE_BASE_PATH}/([^)]+)\\)`, 'g'),
+    (_, slug) => `](${getLearnAiEntryPath(slug)})`
   );
 }
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
-import { getLearnClaudeCodePath } from '../utils/learnAiPaths';
+import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
 import './NotFound.css';
 
 const NotFound = ({ requestedPath = '' }) => {
@@ -62,7 +62,7 @@ const NotFound = ({ requestedPath = '' }) => {
                     <Link to="/square" className="notfound-btn primary">
                       返回广场
                     </Link>
-                    <Link to={getLearnClaudeCodePath('preface')} className="notfound-btn secondary">
+                    <Link to={getLearnAiDefaultPath()} className="notfound-btn secondary">
                       进入学习路径
                     </Link>
                   </div>

@@ -8,8 +8,8 @@ import { AnnotationProvider } from './contexts/AnnotationContext';
 import PageTransitionLoader from './components/PageTransitionLoader';
 import { lazyWithMinLoadTime } from './utils/lazyWithMinLoadTime';
 import {
-  LEARN_AI_PRACTICES_BASE_PATH,
-  LEARN_CLAUDE_CODE_BASE_PATH,
+  getLearnAiDefaultPath,
+  LEARN_AI_BASE_PATH,
   rewriteLegacyLearnClaudeCodePath
 } from './utils/learnAiPaths';
 
@@ -44,9 +44,9 @@ function App() {
                   <Route path="/my-notes" element={<MyNotes />} />
                   <Route path="/square" element={<Square />} />
                   <Route path="/logo-showcase" element={<LogoShowcase />} />
+                  <Route path={LEARN_AI_BASE_PATH} element={<Navigate to={getLearnAiDefaultPath()} replace />} />
                   <Route path="/learn-claude-code/*" element={<LegacyLearnClaudeCodeRedirect />} />
-                  <Route path={`${LEARN_CLAUDE_CODE_BASE_PATH}/*`} element={<LearnClaudeCode />} />
-                  <Route path={`${LEARN_AI_PRACTICES_BASE_PATH}/*`} element={<LearnClaudeCode />} />
+                  <Route path={`${LEARN_AI_BASE_PATH}/:space/*`} element={<LearnClaudeCode />} />
                   <Route path="/tags/:tagName" element={<TagPage />} />
                   <Route path="/*" element={<Docs />} />
                 </Routes>

@@ -257,7 +257,7 @@
   z-index: 0;
 }
 
-.lcc-body-shell.lcc-body-shell-doc > * {
+.lcc-body-shell.lcc-body-shell-doc>* {
   position: relative;
   z-index: 1;
 }
@@ -1260,7 +1260,7 @@
 }
 
 :root[data-theme-mode='dark'] .lcc-body-shell {
-  background: #141a24;
+  background: #1a1a1a;
   border-color: #263144;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }
@@ -1272,7 +1272,7 @@
 }
 
 :root[data-theme-mode='dark'] .lcc-body-shell.lcc-body-shell-doc::before {
-  background: #141a24;
+  background: #1a1a1a;
   border-color: #263144;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }

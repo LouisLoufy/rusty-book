@@ -4,10 +4,11 @@ import {
   Navigate,
   Route,
   Routes,
-  useLocation
+  useLocation,
+  useParams
 } from 'react-router-dom';
 import Sidebar from '../components/docs/Sidebar';
-import { LearnRouteNotFound } from '../components/learnClaudeCode/NotFoundState';
+import { LearnRouteNotFound, NotFoundState } from '../components/learnClaudeCode/NotFoundState';
 import VersionPage from '../components/learnClaudeCode/VersionPage';
 import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
@@ -16,15 +17,15 @@ import { useDocsMeta } from '../hooks/useDocsMeta';
 import './LearnClaudeCode.css';
 import '../components/docs/DocContent.css';
 import '../styles/prism-custom.css';
-import { LEARNING_PATH } from '../vendor/learn-claude-code/data';
-import { buildLearnClaudeCodeSidebarMeta } from '../components/learnClaudeCode/sidebarMeta';
+import { buildLearnAiSidebarMeta } from '../components/learnClaudeCode/sidebarMeta';
 import {
-  getLearnClaudeCodePath,
-  isPracticeVersion,
-  LEARN_AI_PRACTICES_BASE_PATH
+  getLearnAiDefaultPath,
+  getLearnAiEntryPath
 } from '../utils/learnAiPaths';
+import { getLearnAiSpace, getLearnAiSpaceByVersion } from '../utils/learnAiSpaces';
 
 function LearnClaudeCode() {
+  const { space: spaceSlug } = useParams();
   const { meta } = useDocsMeta();
   const location = useLocation();
   const handleCategoryClick = useCategoryNavigation();
@@ -33,21 +34,21 @@ function LearnClaudeCode() {
   });
 
   const categories = meta?.categories || [];
-  const sidebarMeta = useMemo(() => buildLearnClaudeCodeSidebarMeta(), []);
-  const isPracticesRoute = location.pathname.startsWith(LEARN_AI_PRACTICES_BASE_PATH);
-  const currentVersion = location.pathname.split('/').filter(Boolean).at(-1) || '';
-  const isVersionPath = currentVersion !== 'learn-claude-code' && currentVersion !== 'practices';
+  const sidebarMeta = useMemo(() => buildLearnAiSidebarMeta(), []);
+  const currentSpace = getLearnAiSpace(spaceSlug);
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const currentVersion = pathParts.length > 2 ? pathParts[2] : '';
 
-  if (isVersionPath) {
-    const shouldUsePracticesRoute = isPracticeVersion(currentVersion);
-    if (shouldUsePracticesRoute !== isPracticesRoute) {
-      return <Navigate to={getLearnClaudeCodePath(currentVersion)} replace />;
-    }
+  if (!currentSpace) {
+    return <NotFoundState label={spaceSlug || location.pathname} />;
   }
 
-  const defaultVersion = isPracticesRoute
-    ? LEARNING_PATH.find(isPracticeVersion) || LEARNING_PATH[0]
-    : LEARNING_PATH.find((version) => !isPracticeVersion(version)) || LEARNING_PATH[0];
+  if (currentVersion) {
+    const targetSpace = getLearnAiSpaceByVersion(currentVersion);
+    if (targetSpace && targetSpace.slug !== currentSpace.slug) {
+      return <Navigate to={getLearnAiEntryPath(currentVersion)} replace />;
+    }
+  }
 
   return (
     <>
@@ -77,7 +78,7 @@ function LearnClaudeCode() {
 
             <div className="lcc-content">
               <Routes>
-                <Route index element={<Navigate to={defaultVersion} replace />} />
+                <Route index element={<Navigate to={getLearnAiDefaultPath(currentSpace.slug)} replace />} />
                 <Route path=":version" element={<VersionPage />} />
                 <Route path="*" element={<LearnRouteNotFound />} />
               </Routes>

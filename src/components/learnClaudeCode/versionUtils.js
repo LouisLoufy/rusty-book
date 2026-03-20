@@ -8,7 +8,7 @@ import {
   versionsData,
   zhMessages
 } from '../../vendor/learn-claude-code/data';
-import { getLearnClaudeCodePath } from '../../utils/learnAiPaths';
+import { getLearnAiEntryPath } from '../../utils/learnAiPaths';
 
 export function getVersionData(version) {
   return versionsData.versions.find((item) => item.id === version) || null;
@@ -48,12 +48,12 @@ export function getVersionPagination(version) {
 
   return {
     prev: prevVersion ? {
-      path: getLearnClaudeCodePath(prevVersion),
+      path: getLearnAiEntryPath(prevVersion),
       title: getVersionNavTitle(prevVersion),
       section: getLayerLabelForVersion(prevVersion)
     } : null,
     next: nextVersion ? {
-      path: getLearnClaudeCodePath(nextVersion),
+      path: getLearnAiEntryPath(nextVersion),
       title: getVersionNavTitle(nextVersion),
       section: getLayerLabelForVersion(nextVersion)
     } : null

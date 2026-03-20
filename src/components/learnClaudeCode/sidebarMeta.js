@@ -1,8 +1,9 @@
 import { LAYERS, zhMessages } from '../../vendor/learn-claude-code/data';
-import { getLearnClaudeCodePath, LEARN_CLAUDE_CODE_BASE_PATH } from '../../utils/learnAiPaths';
+import { getLearnAiEntryPath, getLearnAiSpacePath } from '../../utils/learnAiPaths';
+import { LEARN_AI_SPACES } from '../../utils/learnAiSpaces';
 import { getVersionNavTitle } from './versionUtils';
 
-function mapLayerToSidebarItem(layer) {
+function mapLayerToSidebarItem(layer, space) {
   const versions = layer.versions || [];
   const firstVersion = versions[0];
   const title = zhMessages.layer_labels?.[layer.id] || layer.label;
@@ -10,44 +11,47 @@ function mapLayerToSidebarItem(layer) {
   if (layer.id === 'introduction') {
     return {
       title,
-      path: firstVersion ? getLearnClaudeCodePath(firstVersion) : LEARN_CLAUDE_CODE_BASE_PATH
+      path: firstVersion ? getLearnAiEntryPath(firstVersion) : getLearnAiSpacePath(space.slug)
     };
   }
 
   return {
     title,
-    path: firstVersion ? getLearnClaudeCodePath(firstVersion) : LEARN_CLAUDE_CODE_BASE_PATH,
+    path: firstVersion ? getLearnAiEntryPath(firstVersion) : getLearnAiSpacePath(space.slug),
     highlightable: false,
     children: versions.map((versionId) => ({
       title: getVersionNavTitle(versionId),
-      path: getLearnClaudeCodePath(versionId)
+      path: getLearnAiEntryPath(versionId)
     }))
   };
 }
 
-function mapBestPracticeItems(layer) {
-  return (layer.versions || []).map((versionId) => ({
+function mapFlatSpaceItems(space) {
+  return (space.versionIds || []).map((versionId) => ({
     title: getVersionNavTitle(versionId),
-    path: getLearnClaudeCodePath(versionId)
+    path: getLearnAiEntryPath(versionId)
   }));
 }
 
-export function buildLearnClaudeCodeSidebarMeta() {
-  const courseLayers = LAYERS.filter((layer) => layer.id !== 'best-practices');
-  const bestPracticeLayers = LAYERS.filter((layer) => layer.id === 'best-practices');
-  const sections = [
-    {
-      title: '从零手搓 Claude Code',
-      items: courseLayers.map(mapLayerToSidebarItem)
-    }
-  ];
+export function buildLearnAiSidebarMeta() {
+  const sections = LEARN_AI_SPACES.map((space) => {
+    if (space.sidebarKind === 'layered') {
+      const items = (space.layerIds || [])
+        .map((layerId) => LAYERS.find((layer) => layer.id === layerId))
+        .filter(Boolean)
+        .map((layer) => mapLayerToSidebarItem(layer, space));
 
-  if (bestPracticeLayers.length > 0) {
-    sections.push({
-      title: '最佳实践',
-      items: bestPracticeLayers.flatMap(mapBestPracticeItems)
-    });
-  }
+      return {
+        title: space.title,
+        items
+      };
+    }
+
+    return {
+      title: space.title,
+      items: mapFlatSpaceItems(space)
+    };
+  });
 
   return { title: 'AI 学习宝典', sections };
 }

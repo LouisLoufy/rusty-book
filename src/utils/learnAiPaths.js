@@ -1,20 +1,39 @@
+import {
+  getDefaultLearnAiSpace,
+  getLearnAiSpace,
+  getLearnAiSpaceByVersion
+} from './learnAiSpaces';
+
+export const LEARN_AI_BASE_PATH = '/learn-ai';
 export const LEARN_CLAUDE_CODE_BASE_PATH = '/learn-ai/learn-claude-code';
 export const LEARN_AI_PRACTICES_BASE_PATH = '/learn-ai/practices';
 export const LEGACY_LEARN_CLAUDE_CODE_BASE_PATH = '/learn-claude-code';
 
 export function isPracticeVersion(version = '') {
-  return /^bp\d+$/i.test(String(version || ''));
+  return Boolean(getLearnAiSpaceByVersion(version)?.slug === 'practices');
 }
 
-export function getLearnClaudeCodePath(version = '') {
-  const basePath = isPracticeVersion(version)
-    ? LEARN_AI_PRACTICES_BASE_PATH
-    : LEARN_CLAUDE_CODE_BASE_PATH;
+export function getLearnAiSpacePath(spaceSlug = '') {
+  const space = getLearnAiSpace(spaceSlug) || getDefaultLearnAiSpace();
+  return `${LEARN_AI_BASE_PATH}/${space?.slug || ''}`.replace(/\/$/, '');
+}
+
+export function getLearnAiEntryPath(version = '') {
+  const space = getLearnAiSpaceByVersion(version) || getDefaultLearnAiSpace();
+  const basePath = getLearnAiSpacePath(space?.slug);
 
   return version
     ? `${basePath}/${version}`
     : basePath;
 }
+
+export function getLearnAiDefaultPath(spaceSlug = '') {
+  const space = getLearnAiSpace(spaceSlug) || getDefaultLearnAiSpace();
+  return getLearnAiEntryPath(space?.defaultEntry || '');
+}
+
+// Backward-compatible alias for existing callers.
+export const getLearnClaudeCodePath = getLearnAiEntryPath;
 
 export function rewriteLegacyLearnClaudeCodePath(pathname = '') {
   if (!pathname.startsWith(LEGACY_LEARN_CLAUDE_CODE_BASE_PATH)) {
@@ -27,6 +46,6 @@ export function rewriteLegacyLearnClaudeCodePath(pathname = '') {
 
   return pathname.replace(
     LEGACY_LEARN_CLAUDE_CODE_BASE_PATH,
-    isPracticeVersion(version) ? LEARN_AI_PRACTICES_BASE_PATH : LEARN_CLAUDE_CODE_BASE_PATH
+    getLearnAiSpacePath(getLearnAiSpaceByVersion(version)?.slug)
   );
 }

@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
 import AuthStatus from '../docs/AuthStatus';
 import BeatAILogoWave from '../BeatAILogoWave';
-import { getLearnClaudeCodePath } from '../../utils/learnAiPaths';
+import { getLearnAiDefaultPath } from '../../utils/learnAiPaths';
 import './AppHeader.css';
 
 // GitHub repository mapping for each book
@@ -80,7 +80,7 @@ const AppHeader = ({
   };
 
   const handleMobileLearnClaudeCodeClick = () => {
-    navigate(getLearnClaudeCodePath('preface'));
+    navigate(getLearnAiDefaultPath());
     setMobileDropdownOpen(false);
   };
 
@@ -180,7 +180,7 @@ const AppHeader = ({
           ))}
 
           <Link
-            to={getLearnClaudeCodePath('preface')}
+            to={getLearnAiDefaultPath()}
             className={`category-tab category-link ${isLearnClaudeCodeActive ? 'active' : ''}`}
           >
             <span className="category-title">AI 学习宝典</span>

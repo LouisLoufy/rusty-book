@@ -8,7 +8,7 @@ import PageShell from '../components/layout/PageShell';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import { getFirstNavigablePathForCategory } from '../utils/docsMeta';
-import { getLearnClaudeCodePath } from '../utils/learnAiPaths';
+import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
 import './Square.css';
 
 const Square = () => {
@@ -67,7 +67,7 @@ const Square = () => {
                   <p>学习 AI 时代最安全的语言</p>
                 </a>
 
-                <a href={getLearnClaudeCodePath('preface')} className="square-card glass-card">
+                <a href={getLearnAiDefaultPath()} className="square-card glass-card">
                   <div className="card-icon">
                     <LearnClaudeCodeIcon size={80} />
                   </div>
