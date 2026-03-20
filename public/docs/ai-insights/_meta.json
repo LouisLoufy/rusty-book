@@ -85,6 +85,12 @@
           "path": "/ai-insights/viewpoint/harness-engineering-revolution",
           "file": "/docs/ai-insights/viewpoint/harness-engineering-revolution.md",
           "publishedAt": "2026-03-20",
+          "contributors": [
+            {
+              "role": "reviewer",
+              "name": "Sheldon Cooper"
+            }
+          ],
           "tags": [
             "HarnessEngineering",
             "Codex",
@@ -98,6 +104,12 @@
           "path": "/ai-insights/viewpoint/claude-code-team-10-tips",
           "file": "/docs/ai-insights/viewpoint/claude-code-team-10-tips.md",
           "publishedAt": "2026-03-20",
+          "contributors": [
+            {
+              "role": "reviewer",
+              "name": "Sheldon Cooper"
+            }
+          ],
           "tags": [
             "ClaudeCode",
             "Worktree",
@@ -111,6 +123,12 @@
           "path": "/ai-insights/viewpoint/dingtalk-cli",
           "file": "/docs/ai-insights/viewpoint/dingtalk-cli.md",
           "publishedAt": "2026-03-20",
+          "contributors": [
+            {
+              "role": "reviewer",
+              "name": "Sheldon Cooper"
+            }
+          ],
           "tags": [
             "CLI",
             "钉钉",

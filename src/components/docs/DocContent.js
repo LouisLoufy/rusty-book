@@ -16,6 +16,7 @@ import GiscusComments from '../comments/GiscusComments';
 import {
   buildDocPageDescription,
   buildDocPageTitle,
+  formatContributors,
   formatDocErrorMessage,
   formatPublishedDate,
   stripAiInsightsTitle
@@ -54,6 +55,7 @@ const DocContent = () => {
   const docMetaEntry = useMemo(() => findMetaEntryByPath(meta, location.pathname), [meta, location.pathname]);
   const isAiInsightsArticle = docMetaEntry?.category?.id === 'ai-insights';
   const formattedPublishedDate = formatPublishedDate(docMetaEntry?.item?.publishedAt);
+  const formattedContributors = formatContributors(docMetaEntry?.item?.contributors);
   const titleFromMeta = docMetaEntry?.item?.title || findTitleByPath(location.pathname);
   const { text: rawDoc, error } = useMarkdownSource({
     url: resolvePublicContentUrl(`/docs/${docPath}.md`),
@@ -155,11 +157,27 @@ const DocContent = () => {
         {isAiInsightsArticle && (
           <DocArticleHeader
             title={pageTitle}
-            meta={formattedPublishedDate ? (
-              <div className="doc-article-meta" aria-label="文章发布时间">
-                <time className="doc-article-meta-value" dateTime={docMetaEntry?.item?.publishedAt}>
-                  {formattedPublishedDate}
-                </time>
+            meta={formattedPublishedDate || formattedContributors.length ? (
+              <div className="doc-article-meta" aria-label="文章发布时间和署名">
+                {formattedPublishedDate ? (
+                  <time className="doc-article-meta-value" dateTime={docMetaEntry?.item?.publishedAt}>
+                    {formattedPublishedDate}
+                  </time>
+                ) : null}
+                {formattedContributors.map((contributor, index) => (
+                  <React.Fragment key={contributor.key}>
+                    <span className="doc-article-meta-separator" aria-hidden="true">
+                      {formattedPublishedDate || index > 0 ? '·' : ''}
+                    </span>
+                    <span className="doc-article-meta-credit">
+                      <span className="doc-article-meta-credit-label">{contributor.label}</span>
+                      {' '}
+                      <span className="doc-article-meta-credit-from">From</span>
+                      {' '}
+                      <span className="doc-article-meta-credit-name">{contributor.name}</span>
+                    </span>
+                  </React.Fragment>
+                ))}
               </div>
             ) : null}
           />

@@ -4,6 +4,10 @@ All notable releases for this project are recorded in this file.
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-03-20
+
+- Add reviewer metadata and refresh AI insights spicy reviews
+
 ## [0.12.13] - 2026-03-20
 
 - Refine theme panel defaults

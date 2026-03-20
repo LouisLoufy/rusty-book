@@ -118,6 +118,30 @@
   font-weight: 500;
 }
 
+.doc-article-meta-separator {
+  margin: 0 8px;
+  opacity: 0.72;
+}
+
+.doc-article-meta-credit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.doc-article-meta-credit-label {
+  font-weight: 600;
+}
+
+.doc-article-meta-credit-from {
+  font-weight: 500;
+}
+
+.doc-article-meta-credit-name {
+  font-weight: 500;
+  color: var(--accent-start);
+}
+
 .doc-h2 {
   font-size: var(--doc-h2-size);
   font-weight: 700;
