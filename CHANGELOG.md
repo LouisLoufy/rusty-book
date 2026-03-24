@@ -4,6 +4,10 @@ All notable releases for this project are recorded in this file.
 
 ## [Unreleased]
 
+## [0.13.2] - 2026-03-21
+
+- Rewrite Rust course links to beatai domains
+
 ## [0.13.1] - 2026-03-20
 
 - Add reviewer links and SKILL link lookup rules
