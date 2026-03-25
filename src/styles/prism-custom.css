@@ -370,6 +370,26 @@ pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
     inset 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 
+:root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) pre.doc-pre,
+:root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) pre.doc-pre[class*="language-"],
+:root[data-theme="ink-paper"][data-theme-mode="light"] pre.doc-pre,
+:root[data-theme="ink-paper"][data-theme-mode="light"] pre.doc-pre[class*="language-"] {
+  background: #2d2d2d !important;
+  border: 1px solid #e1e4e8 !important;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+:root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) pre.doc-pre code[class*="language-"],
+:root[data-theme="ink-paper"][data-theme-mode="light"] pre.doc-pre code[class*="language-"] {
+  background: none !important;
+  border: none !important;
+  color: #e6edf3 !important;
+  box-shadow: none !important;
+}
+
 :root[data-theme="ink-paper"][data-theme-mode="dark"] code[class*="language-"],
 :root[data-theme="ink-paper"][data-theme-mode="dark"] pre[class*="language-"] {
   color: #ece5d8;
@@ -404,12 +424,12 @@ pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.prolog,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.doctype,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.cdata {
-  color: #7e756a;
+  color: #7f848e;
 }
 
 :root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .token.punctuation,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.punctuation {
-  color: #433d35;
+  color: #c9d1d9;
 }
 
 :root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .token.property,
@@ -441,7 +461,7 @@ pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.char,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.builtin,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.inserted {
-  color: #4d654d;
+  color: #7ee787;
 }
 
 :root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .token.operator,
@@ -454,7 +474,7 @@ pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.url,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .language-css .token.string,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .style .token.string {
-  color: #72522a;
+  color: #79c0ff;
 }
 
 :root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .token.atrule,
@@ -470,7 +490,7 @@ pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
 :root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .token.class-name,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.function,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .token.class-name {
-  color: #6f547f;
+  color: #d2a8ff;
 }
 
 :root[data-theme="ink-paper"][data-theme-mode="dark"] .token.comment,

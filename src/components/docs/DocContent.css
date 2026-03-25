@@ -386,12 +386,13 @@
 
 :root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .doc-pre,
 :root[data-theme="ink-paper"][data-theme-mode="light"] .doc-pre {
-  background: linear-gradient(180deg, #f3eee3 0%, #ece5d8 100%) !important;
-  border: 1px solid #cfc6b6 !important;
-  color: #2d2925 !important;
+  background: #2d2d2d !important;
+  border: 1px solid #e1e4e8 !important;
+  color: #e6edf3 !important;
   box-shadow:
-    0 8px 18px rgba(42, 34, 28, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.32) !important;
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
 }
 
 :root[data-theme="ink-paper"][data-theme-mode="dark"] .doc-pre {
@@ -685,6 +686,11 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   line-height: 30px;
+}
+
+:root[data-theme="ink-paper"]:not([data-theme-mode="dark"]) .doc-pre:has(code[class*="language-"])::before,
+:root[data-theme="ink-paper"][data-theme-mode="light"] .doc-pre:has(code[class*="language-"])::before {
+  color: #9ca3af;
 }
 
 /* Mobile */
