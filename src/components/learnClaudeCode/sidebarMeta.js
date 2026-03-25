@@ -33,25 +33,39 @@ function mapFlatSpaceItems(space) {
   }));
 }
 
-export function buildLearnAiSidebarMeta() {
-  const sections = LEARN_AI_SPACES.map((space) => {
+export function buildLearnAiSidebarMeta(currentSpace = null) {
+  const sections = LEARN_AI_SPACES.flatMap((space) => {
     if (space.sidebarKind === 'layered') {
-      const items = (space.layerIds || [])
-        .map((layerId) => LAYERS.find((layer) => layer.id === layerId))
-        .filter(Boolean)
-        .map((layer) => mapLayerToSidebarItem(layer, space));
+      const sectionGroups = space.sectionGroups?.length
+        ? space.sectionGroups
+        : [{ title: space.title, layerIds: space.layerIds || [] }];
 
-      return {
-        title: space.title,
-        items
-      };
+      return sectionGroups.map((group) => ({
+        title: group.title,
+        items: group.versionIds?.length
+          ? group.versionIds.map((versionId) => ({
+            title: getVersionNavTitle(versionId),
+            path: getLearnAiEntryPath(versionId)
+          }))
+          : (group.layerIds || [])
+            .map((layerId) => LAYERS.find((layer) => layer.id === layerId))
+            .filter(Boolean)
+            .map((layer) => mapLayerToSidebarItem(layer, space))
+      }));
     }
 
-    return {
+    return [{
       title: space.title,
       items: mapFlatSpaceItems(space)
-    };
+    }];
   });
 
-  return { title: 'AI 学习宝典', sections };
+  return {
+    title: currentSpace?.bookTitle || currentSpace?.title || 'Learn Claude Code',
+    sections,
+    bookPath: {
+      parentTitle: 'AI学习教程',
+      currentTitle: currentSpace?.bookTitle || currentSpace?.title || 'Learn Claude Code'
+    }
+  };
 }

@@ -38,7 +38,7 @@ export function getVersionNavTitle(version) {
 
 export function getLayerLabelForVersion(version) {
   const layer = LAYERS.find((item) => item.versions.includes(version));
-  return layer ? (zhMessages.layer_labels?.[layer.id] || layer.label) : 'AI 学习宝典';
+  return layer ? (zhMessages.layer_labels?.[layer.id] || layer.label) : 'Learn Claude Code';
 }
 
 export function getVersionPagination(version) {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "AI 学习宝典",
+    "title": "Learn Claude Code",
     "description": "从 0 到 1 构建 nano Claude Code-like agent，每次只加一个机制"
   },
   "nav": {
@@ -11,7 +11,7 @@
     "github": "GitHub"
   },
   "home": {
-    "hero_title": "AI 学习宝典",
+    "hero_title": "Learn Claude Code",
     "hero_subtitle": "从 0 到 1 构建 nano Claude Code-like agent，每次只加一个机制",
     "start": "开始学习",
     "core_pattern": "核心模式",
@@ -116,7 +116,8 @@
     "planning": "规划与协调",
     "memory": "内存管理",
     "concurrency": "并发",
-    "collaboration": "协作"
+    "collaboration": "协作",
+    "best-practices": "最佳实践"
   },
   "viz": {
     "s01": "Agent While 循环",

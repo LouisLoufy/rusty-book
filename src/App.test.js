@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { getLearnAiEntryPath } from './utils/learnAiPaths';
+import { buildLearnAiSidebarMeta } from './components/learnClaudeCode/sidebarMeta';
 
 jest.mock('./utils/lazyWithMinLoadTime', () => ({
   lazyWithMinLoadTime: (importFunc) => importFunc()
@@ -8,6 +10,7 @@ jest.mock('./utils/lazyWithMinLoadTime', () => ({
 const originalFetch = global.fetch;
 
 beforeEach(() => {
+  window.history.pushState({}, '', '/');
   global.fetch = jest.fn((input) => {
     const url = String(input);
 
@@ -69,4 +72,29 @@ afterEach(() => {
 test('renders square page entry content', async () => {
   render(<App />);
   expect(await screen.findByText('探索内容')).toBeInTheDocument();
+  expect(await screen.findByText('AI 学习教程')).toBeInTheDocument();
+});
+
+test('renders ai tutorials page with learn-ai card', async () => {
+  window.history.pushState({}, '', '/learn-ai');
+  render(<App />);
+  expect(await screen.findByRole('heading', { name: 'Learn Claude Code' })).toBeInTheDocument();
+});
+
+test('maps best-practices chapter to unified learn-claude-code path', () => {
+  expect(getLearnAiEntryPath('bp01')).toBe('/learn-ai/learn-claude-code/bp01');
+});
+
+test('renders best-practices as a separate sidebar section', () => {
+  const sidebarMeta = buildLearnAiSidebarMeta({ title: 'Learn Claude Code', bookTitle: 'Learn Claude Code' });
+  expect(sidebarMeta.sections.map((section) => section.title)).toEqual([
+    '从零手搓 Claude Code',
+    '最佳实践'
+  ]);
+  expect(sidebarMeta.bookPath).toEqual({
+    parentTitle: 'AI学习教程',
+    currentTitle: 'Learn Claude Code'
+  });
+  expect(sidebarMeta.sections[1].items[0].title).toBe('BP01 Claude Code 最佳实践指南');
+  expect(sidebarMeta.sections[1].items[0].path).toBe('/learn-ai/learn-claude-code/bp01');
 });

@@ -8,10 +8,10 @@ import { AnnotationProvider } from './contexts/AnnotationContext';
 import PageTransitionLoader from './components/PageTransitionLoader';
 import { lazyWithMinLoadTime } from './utils/lazyWithMinLoadTime';
 import {
-  getLearnAiDefaultPath,
   LEARN_AI_BASE_PATH,
   rewriteLegacyLearnClaudeCodePath
 } from './utils/learnAiPaths';
+import { AI_TUTORIALS_PATH } from './utils/knowledgeSpaces';
 
 // Lazy load components with minimum load time (500ms)
 const Home = lazy(() => lazyWithMinLoadTime(() => import('./pages/Home')));
@@ -21,6 +21,7 @@ const TagPage = lazy(() => lazyWithMinLoadTime(() => import('./pages/TagPage')))
 const Square = lazy(() => lazyWithMinLoadTime(() => import('./pages/Square')));
 const LogoShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/LogoShowcase')));
 const LearnClaudeCode = lazy(() => lazyWithMinLoadTime(() => import('./pages/LearnClaudeCode')));
+const AITutorials = lazy(() => lazyWithMinLoadTime(() => import('./pages/AITutorials')));
 
 function LegacyLearnClaudeCodeRedirect() {
   const location = useLocation();
@@ -44,7 +45,7 @@ function App() {
                   <Route path="/my-notes" element={<MyNotes />} />
                   <Route path="/square" element={<Square />} />
                   <Route path="/logo-showcase" element={<LogoShowcase />} />
-                  <Route path={LEARN_AI_BASE_PATH} element={<Navigate to={getLearnAiDefaultPath()} replace />} />
+                  <Route path={AI_TUTORIALS_PATH} element={<AITutorials />} />
                   <Route path="/learn-claude-code/*" element={<LegacyLearnClaudeCodeRedirect />} />
                   <Route path={`${LEARN_AI_BASE_PATH}/:space/*`} element={<LearnClaudeCode />} />
                   <Route path="/tags/:tagName" element={<TagPage />} />

@@ -21,8 +21,11 @@ import {
   getLearnAiDefaultPath,
   getLearnAiEntryPath
 } from '../utils/learnAiPaths';
-import { getLearnAiSpace, getLearnAiSpaceByVersion } from '../utils/learnAiSpaces';
-import { buildKnowledgeSpaces, getLearnAiHubSpace } from '../utils/knowledgeSpaces';
+import {
+  getLearnAiSpace,
+  getLearnAiSpaceByVersion
+} from '../utils/learnAiSpaces';
+import { buildKnowledgeSpaces, getAiTutorialSpace } from '../utils/knowledgeSpaces';
 
 function LearnClaudeCode() {
   const { space: spaceSlug } = useParams();
@@ -35,9 +38,9 @@ function LearnClaudeCode() {
 
   const categories = meta?.categories || [];
   const spaces = useMemo(() => buildKnowledgeSpaces(meta), [meta]);
-  const sidebarMeta = useMemo(() => buildLearnAiSidebarMeta(), []);
-  const activeSpace = useMemo(() => getLearnAiHubSpace(), []);
   const currentSpace = getLearnAiSpace(spaceSlug);
+  const sidebarMeta = useMemo(() => buildLearnAiSidebarMeta(currentSpace), [currentSpace]);
+  const activeSpace = useMemo(() => getAiTutorialSpace(), []);
   const pathParts = location.pathname.split('/').filter(Boolean);
   const currentVersion = pathParts.length > 2 ? pathParts[2] : '';
 
@@ -55,10 +58,10 @@ function LearnClaudeCode() {
   return (
     <>
       <Helmet>
-        <title>AI 学习宝典 | BeatAI</title>
+        <title>Learn Claude Code | BeatAI</title>
         <meta
           name="description"
-          content="AI 学习宝典学习路径已接入 BeatAI，包含学习路径、版本详情、文档讲解、模拟器与源码浏览。"
+          content="Learn Claude Code 学习路径已接入 BeatAI，包含学习路径、版本详情、文档讲解、模拟器与源码浏览。"
         />
       </Helmet>
 

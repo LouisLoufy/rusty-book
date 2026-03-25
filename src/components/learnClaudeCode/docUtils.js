@@ -30,8 +30,8 @@ export function trimPrefaceContent(version, content) {
 
 export function renameBookTitle(content) {
   return String(content || '').replace(
-    /^# Learn Claude Code\b/m,
-    '# AI 学习宝典'
+    /^# (?:Learn Claude Code|AI 学习宝典)\b/m,
+    '# Learn Claude Code'
   );
 }
 

@@ -288,6 +288,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
     name: meta.githubRepo.split('/').slice(-1)[0] || '',
     title: meta.repoTitle || '繁星点点，只因有你'
   } : null;
+  const bookPath = meta.bookPath || null;
 
   return (
     <>
@@ -303,6 +304,21 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
             repoName={repoInfo.name}
             title={repoInfo.title}
           />
+        )}
+
+        {bookPath && (
+          <div
+            className="sidebar-section card-3d glass-morphism sidebar-book-path-card"
+            aria-label="当前书籍路径"
+          >
+            <div className="sidebar-section-header sidebar-book-path-row">
+              <div className="sidebar-book-path-value">
+                <span className="sidebar-book-path-parent">{bookPath.parentTitle}</span>
+                <span className="sidebar-book-path-separator">/</span>
+                <span className="sidebar-book-path-current">{bookPath.currentTitle}</span>
+              </div>
+            </div>
+          </div>
         )}
 
         <nav className="sidebar-nav">

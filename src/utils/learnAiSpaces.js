@@ -4,19 +4,22 @@ export const LEARN_AI_SPACES = [
   {
     id: 'learn-claude-code',
     slug: 'learn-claude-code',
-    title: '从零手搓 Claude Code',
+    title: 'Learn Claude Code',
+    bookTitle: 'Learn Claude Code',
     sidebarKind: 'layered',
     defaultEntry: 'preface',
-    layerIds: ['introduction', 'tools', 'planning', 'memory', 'concurrency', 'collaboration'],
-    versionIds: ['preface', 's01', 's02', 's03', 's04', 's05', 's06', 's07', 's08', 's09', 's10', 's11', 's12']
-  },
-  {
-    id: 'practices',
-    slug: 'practices',
-    title: '最佳实践',
-    sidebarKind: 'flat',
-    defaultEntry: 'bp01',
-    versionIds: ['bp01']
+    layerIds: ['introduction', 'tools', 'planning', 'memory', 'concurrency', 'collaboration', 'best-practices'],
+    sectionGroups: [
+      {
+        title: '从零手搓 Claude Code',
+        layerIds: ['introduction', 'tools', 'planning', 'memory', 'concurrency', 'collaboration']
+      },
+      {
+        title: '最佳实践',
+        versionIds: ['bp01']
+      }
+    ],
+    versionIds: ['preface', 's01', 's02', 's03', 's04', 's05', 's06', 's07', 's08', 's09', 's10', 's11', 's12', 'bp01']
   }
 ];
 

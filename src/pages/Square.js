@@ -97,7 +97,7 @@ const Square = () => {
                   <div className="card-icon">
                     <LearnClaudeCodeIcon size={80} animated={hoveredCard === 'learn-ai'} />
                   </div>
-                  <h3>AI 学习宝典</h3>
+                  <h3>Learn Claude Code</h3>
                   <p>欲练此功...</p>
                 </a>
               </div>

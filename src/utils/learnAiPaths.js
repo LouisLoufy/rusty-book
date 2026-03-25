@@ -6,12 +6,7 @@ import {
 
 export const LEARN_AI_BASE_PATH = '/learn-ai';
 export const LEARN_CLAUDE_CODE_BASE_PATH = '/learn-ai/learn-claude-code';
-export const LEARN_AI_PRACTICES_BASE_PATH = '/learn-ai/practices';
 export const LEGACY_LEARN_CLAUDE_CODE_BASE_PATH = '/learn-claude-code';
-
-export function isPracticeVersion(version = '') {
-  return Boolean(getLearnAiSpaceByVersion(version)?.slug === 'practices');
-}
 
 export function getLearnAiSpacePath(spaceSlug = '') {
   const space = getLearnAiSpace(spaceSlug) || getDefaultLearnAiSpace();

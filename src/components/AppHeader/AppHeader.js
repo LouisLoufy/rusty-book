@@ -32,7 +32,9 @@ const AppHeader = ({
   const [mobileLogoAnimated, setMobileLogoAnimated] = useState(false);
   const mobileDropdownRef = useRef(null);
   const location = useLocation();
-  const showSpaceNav = spaces.length > 0 && onSpaceClick;
+  const navSpaces = spaces.filter((space) => space?.id !== 'learn-ai' && space?.kind !== 'learn-ai');
+  const visibleActiveSpace = navSpaces.find((space) => space.id === activeSpace?.id) || null;
+  const showSpaceNav = navSpaces.length > 0 && onSpaceClick;
 
   useEffect(() => {
     setMobileDropdownOpen(false);
@@ -113,16 +115,16 @@ const AppHeader = ({
                 aria-haspopup="menu"
                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
               >
-                <span>{activeSpace?.title || '选择书籍'}</span>
+                <span>{visibleActiveSpace?.title || '选择书籍'}</span>
                 <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
               </button>
               {mobileDropdownOpen && (
                 <div className="mobile-category-menu" role="menu">
-                  {spaces.map((space) => (
+                  {navSpaces.map((space) => (
                     <button
                       key={space.id}
                       type="button"
-                      className={`mobile-category-item ${activeSpace?.id === space.id ? 'active' : ''}`}
+                      className={`mobile-category-item ${visibleActiveSpace?.id === space.id ? 'active' : ''}`}
                       onClick={() => handleMobileSpaceClick(space)}
                     >
                       {space.title}
@@ -132,13 +134,13 @@ const AppHeader = ({
               )}
             </div>
             {/* GitHub icon next to the dropdown */}
-            {activeSpace?.githubRepo && (
+            {visibleActiveSpace?.githubRepo && (
               <a
-                href={activeSpace.githubRepo}
+                href={visibleActiveSpace.githubRepo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="github-link-mobile"
-                title={`访问 ${activeSpace.title} 的 GitHub 仓库`}
+                title={`访问 ${visibleActiveSpace.title} 的 GitHub 仓库`}
               >
                 <FaGithub />
               </a>
@@ -151,14 +153,14 @@ const AppHeader = ({
 
         {/* Desktop Category Navigation */}
         <nav className="category-nav desktop-only">
-          {showSpaceNav && spaces.map((space) => (
+          {showSpaceNav && navSpaces.map((space) => (
             <button
               key={space.id}
-              className={`category-tab ${activeSpace?.id === space.id ? 'active' : ''}`}
+              className={`category-tab ${visibleActiveSpace?.id === space.id ? 'active' : ''}`}
               onClick={() => onSpaceClick(space)}
             >
               <span className="category-title">{space.title}</span>
-              {activeSpace?.id === space.id && space.githubRepo && (
+              {visibleActiveSpace?.id === space.id && space.githubRepo && (
                 <a
                   href={space.githubRepo}
                   target="_blank"
