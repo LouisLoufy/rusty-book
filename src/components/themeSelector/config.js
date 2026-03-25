@@ -1,4 +1,4 @@
-export const DEFAULT_THEME_ID = 'ink-paper';
+export const DEFAULT_THEME_ID = 'kindle-paper';
 export const DEFAULT_FONT_ID = 'pingfang';
 export const DEFAULT_FONT_WEIGHT_ID = 'normal';
 export const DEFAULT_FONT_SIZE_ID = '18';
@@ -19,6 +19,13 @@ export const THEMES = [
     gradient: 'linear-gradient(135deg, #f4efe3 0%, #d8cdbd 52%, #39433a 100%)',
     gradientDark: 'linear-gradient(135deg, #181511 0%, #3a332b 52%, #d9d0c0 100%)',
     colors: ['#f4efe3', '#d8cdbd', '#39433a']
+  },
+  {
+    id: 'kindle-paper',
+    name: 'Kindle Paper',
+    gradient: 'linear-gradient(135deg, #f2f1ed 0%, #d8d7d1 58%, #3a3a37 100%)',
+    gradientDark: 'linear-gradient(135deg, #141413 0%, #252522 58%, #d9d7cf 100%)',
+    colors: ['#f2f1ed', '#d8d7d1', '#3a3a37']
   },
   {
     id: 'classic-blue',

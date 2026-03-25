@@ -123,12 +123,13 @@
 
 .category-tab:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: color-mix(in srgb, var(--card-bg-hover) 92%, transparent);
 }
 
 .category-tab.active {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.1);
+  background: color-mix(in srgb, var(--card-bg) 90%, var(--bg-tertiary));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--border-primary) 88%, transparent);
   font-weight: 600;
 }
 
@@ -437,6 +438,85 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+:root[data-theme="kindle-paper"] .app-header {
+  border-bottom-color: color-mix(in srgb, var(--border-primary) 92%, transparent);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+:root[data-theme="kindle-paper"] .logo-text {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+:root[data-theme="kindle-paper"] .github-link-inline:hover,
+:root[data-theme="kindle-paper"] .category-tab.active .github-link-inline:hover {
+  color: var(--text-primary);
+  transform: none;
+  filter: none;
+}
+
+:root[data-theme="kindle-paper"] .mobile-menu-toggle,
+:root[data-theme="kindle-paper"] .github-link-mobile {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+  backdrop-filter: none;
+}
+
+:root[data-theme="kindle-paper"] .mobile-menu-toggle:hover,
+:root[data-theme="kindle-paper"] .github-link-mobile:hover,
+:root[data-theme="kindle-paper"] .github-link-mobile:active {
+  background: var(--card-bg-hover);
+  border-color: color-mix(in srgb, var(--border-primary) 100%, transparent);
+  transform: none;
+  box-shadow: none;
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  backdrop-filter: none;
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-toggle::before {
+  display: none;
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-toggle:hover,
+:root[data-theme="kindle-paper"] .mobile-category-toggle[aria-expanded="true"] {
+  background: var(--card-bg-hover);
+  box-shadow: none;
+  transform: none;
+}
+
+:root[data-theme="kindle-paper"] .dropdown-icon {
+  color: var(--text-tertiary);
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-menu {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+  backdrop-filter: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-item:hover {
+  background: color-mix(in srgb, var(--card-bg-hover) 96%, transparent);
+  color: var(--text-primary);
+  padding-left: 20px;
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-item.active {
+  background: color-mix(in srgb, var(--card-bg) 92%, var(--bg-tertiary));
+  color: var(--text-primary);
+  padding-left: 20px;
+}
+
+:root[data-theme="kindle-paper"] .mobile-category-item.active::after {
+  color: var(--text-tertiary);
 }
 
 /* Mobile Responsive */

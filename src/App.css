@@ -75,9 +75,9 @@
   --bg-primary: #f3efe4;
   --bg-secondary: #f8f3e9;
   --bg-tertiary: #ece5d8;
-  --text-primary: #1f1d1a;
-  --text-secondary: #5d564d;
-  --text-tertiary: #877d6f;
+  --text-primary: #14110d;
+  --text-secondary: #403a33;
+  --text-tertiary: #62594f;
   --border-primary: rgba(53, 44, 35, 0.14);
   --border-secondary: rgba(53, 44, 35, 0.08);
   --accent-primary: #39433a;
@@ -89,13 +89,32 @@
   --shadow-lg: 0 18px 36px rgba(39, 33, 27, 0.08);
 }
 
+:root[data-theme="kindle-paper"]:not([data-theme-mode="dark"]),
+:root[data-theme="kindle-paper"][data-theme-mode="light"] {
+  --bg-primary: #e7e6e2;
+  --bg-secondary: #f2f1ed;
+  --bg-tertiary: #d8d7d1;
+  --text-primary: #1f1f1c;
+  --text-secondary: #353531;
+  --text-tertiary: #60605a;
+  --border-primary: rgba(58, 58, 55, 0.16);
+  --border-secondary: rgba(58, 58, 55, 0.08);
+  --accent-primary: #3a3a37;
+  --accent-secondary: #5c5c57;
+  --card-bg: #f6f5f1;
+  --card-bg-hover: #efeee9;
+  --shadow-sm: 0 1px 2px rgba(26, 26, 24, 0.025);
+  --shadow-md: 0 4px 10px rgba(26, 26, 24, 0.035);
+  --shadow-lg: 0 8px 18px rgba(26, 26, 24, 0.045);
+}
+
 :root[data-theme="ink-paper"][data-theme-mode="dark"] {
   --bg-primary: #171411;
   --bg-secondary: #201c18;
   --bg-tertiary: #2a241f;
-  --text-primary: #f2ecdf;
-  --text-secondary: #c7beaf;
-  --text-tertiary: #9d9487;
+  --text-primary: #f7f1e6;
+  --text-secondary: #ddd4c7;
+  --text-tertiary: #b4ab9e;
   --border-primary: rgba(242, 236, 223, 0.12);
   --border-secondary: rgba(242, 236, 223, 0.06);
   --accent-primary: #d8cfbf;
@@ -105,6 +124,24 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.18);
   --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.22);
   --shadow-lg: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme="kindle-paper"][data-theme-mode="dark"] {
+  --bg-primary: #141413;
+  --bg-secondary: #1b1b19;
+  --bg-tertiary: #252522;
+  --text-primary: #eceae3;
+  --text-secondary: #d1cfc8;
+  --text-tertiary: #9c9a94;
+  --border-primary: rgba(236, 234, 227, 0.12);
+  --border-secondary: rgba(236, 234, 227, 0.06);
+  --accent-primary: #d9d7cf;
+  --accent-secondary: #b4b2ab;
+  --card-bg: rgba(247, 245, 239, 0.03);
+  --card-bg-hover: rgba(247, 245, 239, 0.05);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.14);
+  --shadow-lg: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 body {
@@ -130,6 +167,15 @@ body {
 
 :root[data-theme="ink-paper"][data-theme-mode="dark"] body {
   background: linear-gradient(180deg, #171411 0%, #201c18 100%);
+}
+
+:root[data-theme="kindle-paper"]:not([data-theme-mode="dark"]) body,
+:root[data-theme="kindle-paper"][data-theme-mode="light"] body {
+  background: linear-gradient(180deg, #e7e6e2 0%, #dfded8 100%);
+}
+
+:root[data-theme="kindle-paper"][data-theme-mode="dark"] body {
+  background: linear-gradient(180deg, #141413 0%, #1b1b19 100%);
 }
 
 /* App 容器使用通用动态背景 */

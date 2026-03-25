@@ -280,6 +280,53 @@
   opacity: 0.3;
 }
 
+:root[data-theme="kindle-paper"] .toc::before {
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      color-mix(in srgb, var(--border-primary) 92%, transparent) 20%,
+      color-mix(in srgb, var(--border-primary) 92%, transparent) 80%,
+      transparent 100%);
+  opacity: 0.9;
+}
+
+:root[data-theme="kindle-paper"] .toc-title {
+  opacity: 0.72;
+}
+
+:root[data-theme="kindle-paper"] .toc-title::before {
+  content: '•';
+  color: var(--text-tertiary);
+}
+
+:root[data-theme="kindle-paper"] .toc-item::before {
+  background: var(--text-tertiary);
+}
+
+:root[data-theme="kindle-paper"] .toc-link::after {
+  display: none;
+}
+
+:root[data-theme="kindle-paper"] .toc-link:hover {
+  background: color-mix(in srgb, var(--card-bg-hover) 94%, transparent);
+  border-left-color: var(--text-tertiary);
+  padding-left: 12px;
+}
+
+:root[data-theme="kindle-paper"] .toc-item.active .toc-link {
+  color: var(--text-primary);
+  border-left-color: var(--text-tertiary);
+  background: color-mix(in srgb, var(--card-bg) 88%, var(--bg-tertiary));
+}
+
+:root[data-theme="kindle-paper"] .toc-item.active .toc-link::before {
+  background: var(--text-tertiary);
+  animation: none;
+}
+
+:root[data-theme="kindle-paper"] .toc-level-2::after {
+  background: linear-gradient(to right, var(--border-primary), transparent);
+}
+
 /* Hide TOC on smaller screens */
 @media (max-width: 1200px) {
   .toc {

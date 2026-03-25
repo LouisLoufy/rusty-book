@@ -25,7 +25,7 @@ beforeEach(() => {
             },
             {
               id: 'rust-course',
-              title: 'Rust语言圣经',
+              title: 'RUST语言圣经',
               description: 'Rust 编程语言完整学习指南',
               metaFile: '/docs/rust-course/_meta.json'
             }
@@ -51,7 +51,7 @@ beforeEach(() => {
         ok: true,
         json: async () => ({
           id: 'rust-course',
-          title: 'Rust语言圣经',
+          title: 'RUST语言圣经',
           description: 'Rust 编程语言完整学习指南',
           sections: []
         })

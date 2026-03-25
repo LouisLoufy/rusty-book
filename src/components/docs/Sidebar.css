@@ -284,6 +284,48 @@
   display: none;
 }
 
+:root[data-theme="kindle-paper"] .sidebar-section {
+  border-color: var(--border-primary);
+  box-shadow: none;
+}
+
+:root[data-theme="kindle-paper"] .sidebar-section::before {
+  display: none;
+}
+
+:root[data-theme="kindle-paper"] .sidebar-section:hover {
+  box-shadow: none;
+}
+
+:root[data-theme="kindle-paper"] .sidebar-section-title,
+:root[data-theme="kindle-paper"] .sidebar-section-title .sidebar-title-text {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text-primary);
+}
+
+:root[data-theme="kindle-paper"] .sidebar-global-new-badge {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  -webkit-text-fill-color: currentColor;
+  box-shadow: none;
+}
+
+:root[data-theme="kindle-paper"] .sidebar-expand-icon {
+  color: var(--text-tertiary);
+}
+
+:root[data-theme="kindle-paper"] .sidebar-link-with-children:hover,
+:root[data-theme="kindle-paper"] .sidebar-link:hover {
+  background: color-mix(in srgb, var(--card-bg-hover) 92%, transparent);
+  transform: none;
+}
+
+:root[data-theme="kindle-paper"] .sidebar-link-with-children.active,
+:root[data-theme="kindle-paper"] .sidebar-link.active {
+  background: color-mix(in srgb, var(--card-bg) 94%, var(--bg-tertiary));
+}
+
 .docs-sidebar.reading-mode-overlay {
   position: fixed;
   top: 0;

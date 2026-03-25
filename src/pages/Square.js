@@ -84,7 +84,7 @@ const Square = () => {
                   <div className="card-icon">
                     <RustBookIcon size={80} animated={hoveredCard === 'rust-course'} />
                   </div>
-                  <h3>Rust 语言圣经</h3>
+                  <h3>RUST 语言圣经</h3>
                   <p>学习 AI 时代最安全的语言</p>
                 </a>
 
