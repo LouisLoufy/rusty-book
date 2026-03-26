@@ -165,13 +165,22 @@ function SceneSequencePlayer({
   const viewportWidth = viewport?.width || 960;
   const viewportHeight = viewport?.height || 540;
 
-  const goToScene = (nextIndex) => {
+  const goToScene = (nextIndex, options = {}) => {
+    const {
+      progress = 0,
+      pause = false
+    } = options;
+
     if (nextIndex < 0 || nextIndex >= totalScenes) {
       return;
     }
 
     setCurrentSceneIndex(nextIndex);
-    setSceneProgress(0);
+    setSceneProgress(clamp(progress, 0, 1));
+
+    if (pause) {
+      setIsPlaying(false);
+    }
   };
 
   const handlePrevious = () => {
@@ -180,7 +189,7 @@ function SceneSequencePlayer({
     }
 
     const previousIndex = currentSceneIndex === 0 ? totalScenes - 1 : currentSceneIndex - 1;
-    goToScene(previousIndex);
+    goToScene(previousIndex, { progress: 1, pause: true });
   };
 
   const handleNext = () => {
@@ -196,7 +205,7 @@ function SceneSequencePlayer({
       return;
     }
 
-    goToScene(nextIndex);
+    goToScene(nextIndex, { progress: 1, pause: true });
   };
 
   const handleTogglePlayback = () => {
@@ -204,8 +213,11 @@ function SceneSequencePlayer({
       return;
     }
 
-    if (currentSceneIndex === totalScenes - 1 && sceneProgress >= 1 && !loop) {
-      setCurrentSceneIndex(0);
+    if (!isPlaying && sceneProgress >= 1) {
+      if (currentSceneIndex === totalScenes - 1 && !loop) {
+        setCurrentSceneIndex(0);
+      }
+
       setSceneProgress(0);
     }
 
@@ -303,7 +315,7 @@ function SceneSequencePlayer({
                 role="tab"
                 aria-selected={index === currentSceneIndex}
                 className={cn('scene-sequence-player__scene-tab', index === currentSceneIndex && 'active')}
-                onClick={() => goToScene(index)}
+                onClick={() => goToScene(index, { progress: 1, pause: true })}
               >
                 <span className="scene-sequence-player__scene-tab-index">{index + 1}</span>
                 <span className="scene-sequence-player__scene-tab-label">{scene.shortLabel || scene.title}</span>
