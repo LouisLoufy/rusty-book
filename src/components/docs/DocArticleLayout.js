@@ -7,7 +7,6 @@ function DocArticleLayout({
   articleClassName = 'doc-content',
   articleKey,
   headings,
-  onArticleClick = null,
   afterArticle = null,
   children
 }) {
@@ -17,12 +16,7 @@ function DocArticleLayout({
   return (
     <>
       <div className="doc-wrapper">
-        <article
-          ref={articleRef}
-          className={resolvedArticleClassName}
-          key={articleKey}
-          onClick={onArticleClick}
-        >
+        <article ref={articleRef} className={resolvedArticleClassName} key={articleKey}>
           {children}
         </article>
         {afterArticle ? (

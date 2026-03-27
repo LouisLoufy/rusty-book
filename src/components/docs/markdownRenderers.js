@@ -199,7 +199,8 @@ export function createDocMarkdownComponents({
   codeComponent,
   preComponent,
   includeH1 = true,
-  markdownUrl = ''
+  markdownUrl = '',
+  onImageClick = null
 } = {}) {
   return {
     h1: includeH1 ? createMarkdownHeading(1) : () => null,
@@ -213,12 +214,30 @@ export function createDocMarkdownComponents({
       return <a className="doc-link" {...props}>{children}</a>;
     },
     img({ node, src, alt, ...props }) {
+      const resolvedSrc = resolveMarkdownAssetUrl(src, markdownUrl);
+      const handleClick = (event) => {
+        if (typeof onImageClick !== 'function') {
+          return;
+        }
+
+        if (event.currentTarget.closest('a')) {
+          return;
+        }
+
+        event.preventDefault();
+        onImageClick({
+          src: resolvedSrc,
+          alt: alt || ''
+        });
+      };
+
       return (
         <img
           {...props}
-          src={resolveMarkdownAssetUrl(src, markdownUrl)}
+          src={resolvedSrc}
           alt={alt || ''}
           loading="lazy"
+          onClick={handleClick}
         />
       );
     },
