@@ -228,6 +228,15 @@ const DocContent = () => {
         close={() => setLightboxOpen(false)}
         slides={lightboxSlides}
         plugins={[Zoom]}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null
+        }}
+        zoom={{
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 1.8,
+          scrollToZoom: true
+        }}
       />
     </>
   );
