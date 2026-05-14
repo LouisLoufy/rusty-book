@@ -22,6 +22,8 @@ const Square = lazy(() => lazyWithMinLoadTime(() => import('./pages/Square')));
 const LogoShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/LogoShowcase')));
 const LearnAiBook = lazy(() => lazyWithMinLoadTime(() => import('./pages/LearnAiBook')));
 const AITutorials = lazy(() => lazyWithMinLoadTime(() => import('./pages/AITutorials')));
+const AIContinentDemo = lazy(() => lazyWithMinLoadTime(() => import('./pages/AIContinentDemo')));
+const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/MapTextureShowcase')));
 
 function LegacyLearnClaudeCodeRedirect() {
   const location = useLocation();
@@ -44,6 +46,8 @@ function App() {
                   <Route path="/genesis-lab" element={<Home />} />
                   <Route path="/my-notes" element={<MyNotes />} />
                   <Route path="/square" element={<Square />} />
+                  <Route path="/ai-continent-demo" element={<AIContinentDemo />} />
+                  <Route path="/map-texture-showcase" element={<MapTextureShowcase />} />
                   <Route path="/logo-showcase" element={<LogoShowcase />} />
                   <Route path={AI_TUTORIALS_PATH} element={<AITutorials />} />
                   <Route path="/learn-claude-code/*" element={<LegacyLearnClaudeCodeRedirect />} />

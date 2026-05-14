@@ -81,6 +81,19 @@
       "path": "/ai-insights/viewpoint/2026-03",
       "items": [
         {
+          "title": "AI时代设计该何去何从",
+          "path": "/ai-insights/viewpoint/what-ai-exposes-about-design",
+          "file": "/docs/ai-insights/viewpoint/what-ai-exposes-about-design.md",
+          "publishedAt": "2026-03-27",
+          "tags": [
+            "Design",
+            "UX",
+            "AI",
+            "Service Design",
+            "Research"
+          ]
+        },
+        {
           "title": "Agent/Skills/Teams 架构演进过程及技术选型之道",
           "path": "/ai-insights/viewpoint/agent-skills-teams-architecture-evolution",
           "file": "/docs/ai-insights/viewpoint/agent-skills-teams-architecture-evolution.md",
