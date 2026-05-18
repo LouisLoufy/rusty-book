@@ -4,7 +4,7 @@ import { dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const VIEWPOINT_DIR = join(REPO_ROOT, 'public/docs/ai-insights');
+const AI_INSIGHTS_DIR = join(REPO_ROOT, 'public/docs/ai-insights');
 const README_PATH = join(REPO_ROOT, 'README.md');
 const BASE_URL = 'https://beatai.org';
 const MONTH_RE = /^\d{4}-\d{2}$/;
@@ -33,13 +33,13 @@ function extractTitle(mdPath) {
 }
 
 function collectArticles(today) {
-  const monthDirs = readdirSync(VIEWPOINT_DIR)
+  const monthDirs = readdirSync(AI_INSIGHTS_DIR)
     .filter((name) => MONTH_RE.test(name))
-    .filter((name) => statSync(join(VIEWPOINT_DIR, name)).isDirectory());
+    .filter((name) => statSync(join(AI_INSIGHTS_DIR, name)).isDirectory());
 
   const byDate = new Map();
   for (const month of monthDirs) {
-    const monthPath = join(VIEWPOINT_DIR, month);
+    const monthPath = join(AI_INSIGHTS_DIR, month);
     const dayDirs = readdirSync(monthPath)
       .filter((name) => DAY_RE.test(name))
       .filter((name) => statSync(join(monthPath, name)).isDirectory());
