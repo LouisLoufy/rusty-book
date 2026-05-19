@@ -5,7 +5,6 @@ import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
 import AuthStatus from '../docs/AuthStatus';
 import ReadingModeToggleButton from '../docs/ReadingModeToggleButton';
-import BeatAILogoWave from '../BeatAILogoWave';
 import './AppHeader.css';
 
 /**
@@ -28,8 +27,6 @@ const AppHeader = ({
   showReadingModeToggle = false
 }) => {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
-  const [desktopLogoAnimated, setDesktopLogoAnimated] = useState(false);
-  const [mobileLogoAnimated, setMobileLogoAnimated] = useState(false);
   const mobileDropdownRef = useRef(null);
   const location = useLocation();
   const navSpaces = spaces.filter((space) => space?.id !== 'learn-ai' && space?.kind !== 'learn-ai');
@@ -80,25 +77,14 @@ const AppHeader = ({
   return (
     <header className="app-header glass-morphism">
       <div className="app-header-content">
-        {/* Desktop Logo */}
-        <Link
-          to="/square"
-          className="app-logo desktop-only"
-          onMouseEnter={() => setDesktopLogoAnimated(true)}
-          onMouseLeave={() => setDesktopLogoAnimated(false)}
-        >
-          <BeatAILogoWave size={32} animated={desktopLogoAnimated} />
+        {/* Desktop brand text */}
+        <Link to="/square" className="app-logo desktop-only">
           <span className="logo-text">BeatAI</span>
         </Link>
 
-        {/* Mobile Logo - 始终显示 */}
-        <Link
-          to="/square"
-          className="app-logo-mobile mobile-only"
-          onMouseEnter={() => setMobileLogoAnimated(true)}
-          onMouseLeave={() => setMobileLogoAnimated(false)}
-        >
-          <BeatAILogoWave size={28} animated={mobileLogoAnimated} />
+        {/* Mobile brand text */}
+        <Link to="/square" className="app-logo-mobile mobile-only">
+          <span className="logo-text">BeatAI</span>
         </Link>
 
         {/* Mobile Category Dropdown */}
