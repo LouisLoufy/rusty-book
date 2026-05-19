@@ -129,7 +129,8 @@ function GlobalNewBadge({ anchorRef, visible }) {
 }
 
 function TitleWithNewBadge({ title, publishedAt }) {
-  const showNewBadge = isPublishedWithinTwoDays(publishedAt);
+  // NEW 角标暂时屏蔽：保留逻辑与组件，仅停止渲染。
+  // const showNewBadge = isPublishedWithinTwoDays(publishedAt);
   const titleRef = useRef(null);
 
   return (
@@ -137,13 +138,12 @@ function TitleWithNewBadge({ title, publishedAt }) {
       <span ref={titleRef} className="sidebar-title-text">
         {title}
       </span>
-      <GlobalNewBadge anchorRef={titleRef} visible={showNewBadge} />
+      {/* <GlobalNewBadge anchorRef={titleRef} visible={showNewBadge} /> */}
     </span>
   );
 }
 
 const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' }) => {
-  const sectionRefs = useRef({});
   const navRef = useRef(null);
   const [expandedItems, setExpandedItems] = useState({});
   const location = useLocation();
@@ -231,32 +231,6 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
     expandAndNavigate();
   };
 
-  // Mouse tracking for 3D tilt effect (minimal rotation for subtle visual depth)
-  const handleMouseMove = (e, idx) => {
-    const card = sectionRefs.current[idx];
-    if (!card || window.innerWidth <= 968) return; // Disable on mobile
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    // Minimal rotation: max 1 degree for barely noticeable tilt
-    const rotateX = ((y - centerY) / centerY) * -1;
-    const rotateY = ((x - centerX) / centerX) * 1;
-
-    // Very subtle Z-axis lift
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(2px)`;
-  };
-
-  const handleMouseLeave = (idx) => {
-    const card = sectionRefs.current[idx];
-    if (!card) return;
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-  };
-
   // Recursive component to render nested menu items
   const renderMenuItem = (item, level = 1) => {
     const hasChildren = item.children && item.children.length > 0;
@@ -342,7 +316,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
 
         {bookPath && (
           <div
-            className="sidebar-section card-3d glass-morphism sidebar-book-path-card"
+            className="sidebar-section sidebar-book-path-card"
             aria-label="当前书籍路径"
           >
             <div className="sidebar-section-header sidebar-book-path-row">
@@ -359,10 +333,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
           {meta.sections.map((section, idx) => (
             <div
               key={idx}
-              ref={(el) => (sectionRefs.current[idx] = el)}
-              className="sidebar-section card-3d glass-morphism"
-              onMouseMove={(e) => handleMouseMove(e, idx)}
-              onMouseLeave={() => handleMouseLeave(idx)}
+              className="sidebar-section"
             >
               <div className="sidebar-section-header">
                 <h3 className="sidebar-section-title">
