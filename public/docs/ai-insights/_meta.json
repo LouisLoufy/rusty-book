@@ -379,6 +379,305 @@
               "name": "David Rodenas PhD"
             }
           ]
+        },
+        {
+          "title": "Agentic AI —— 那个热情过头的初级软件考古学家",
+          "path": "/ai-insights/agentic-ai-the-enthusiastic-junior-software-archaeologist",
+          "file": "/docs/ai-insights/2026-05/19/agentic-ai-the-enthusiastic-junior-software-archaeologist.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Thilo Hermann"
+            }
+          ]
+        },
+        {
+          "title": "Back Propagation Through Time:RNN 的数学基础",
+          "path": "/ai-insights/back-propagation-through-time-the-mathematical-foundation-of-rnns",
+          "file": "/docs/ai-insights/2026-05/19/back-propagation-through-time-the-mathematical-foundation-of-rnns.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Najib Sharifi, Ph.D."
+            }
+          ]
+        },
+        {
+          "title": "不用更好的模型，也能造出更好的 AI",
+          "path": "/ai-insights/better-ai-without-a-better-model",
+          "file": "/docs/ai-insights/2026-05/19/better-ai-without-a-better-model.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Sau Sheong"
+            }
+          ]
+        },
+        {
+          "title": "Claude Code 大陆探险记",
+          "path": "/ai-insights/claude-code-the-complete-architectural-deep-dive-best-practices",
+          "file": "/docs/ai-insights/2026-05/19/claude-code-the-complete-architectural-deep-dive-best-practices.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Allohvk"
+            }
+          ]
+        },
+        {
+          "title": "Foundry 托管 Agent 入门",
+          "path": "/ai-insights/getting-started-with-foundry-hosted-agents",
+          "file": "/docs/ai-insights/2026-05/19/getting-started-with-foundry-hosted-agents.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Valentina Alto"
+            }
+          ]
+        },
+        {
+          "title": "Harness：企业被打造来迎接的时代",
+          "path": "/ai-insights/harness-the-era-enterprises-were-built-for",
+          "file": "/docs/ai-insights/2026-05/19/harness-the-era-enterprises-were-built-for.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Fabio Yáñez Romero"
+            }
+          ]
+        },
+        {
+          "title": "我如何在 30 分钟里教 100 名学生从零搭出 Google 的核心算法",
+          "path": "/ai-insights/how-i-taught-100-students-to-build-googles-core-algorithm-in-30-minutes",
+          "file": "/docs/ai-insights/2026-05/19/how-i-taught-100-students-to-build-googles-core-algorithm-in-30-minutes.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Mohamed Noordeen Alaudeen"
+            }
+          ]
+        },
+        {
+          "title": "LatentVLA：面向自动驾驶的潜在推理模型",
+          "path": "/ai-insights/latentvla-latent-reasoning-models-for-autonomous-driving",
+          "file": "/docs/ai-insights/2026-05/19/latentvla-latent-reasoning-models-for-autonomous-driving.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Ryan Pégoud"
+            }
+          ]
+        },
+        {
+          "title": "简明讲透 Speculative Decoding",
+          "path": "/ai-insights/speculative-decoding-simply-explained",
+          "file": "/docs/ai-insights/2026-05/19/speculative-decoding-simply-explained.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Dr. Ashish Bamania"
+            }
+          ]
+        },
+        {
+          "title": "你的第一个 Transformer：通往注意力之路 Part 4。",
+          "path": "/ai-insights/your-first-transformer-the-road-to-attention-part-4",
+          "file": "/docs/ai-insights/2026-05/19/your-first-transformer-the-road-to-attention-part-4.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "DR Strehlow"
+            }
+          ]
+        },
+        {
+          "title": "[1989] 口袋伙伴：为什么 1989 年是移动/蜂窝电话终于走向大众的一年",
+          "path": "/ai-insights/1989-pocket-pal-why-1989-was-the-year-mobile-cell-phones-finally-went-mainstream",
+          "file": "/docs/ai-insights/2026-05/19/1989-pocket-pal-why-1989-was-the-year-mobile-cell-phones-finally-went-mainstream.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Retro Tech Show"
+            }
+          ]
+        },
+        {
+          "title": "AI Agent 不是用户；别再像对待用户那样去认证它们",
+          "path": "/ai-insights/ai-agents-are-not-users-stop-authenticating-them-like-they-are",
+          "file": "/docs/ai-insights/2026-05/19/ai-agents-are-not-users-stop-authenticating-them-like-they-are.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Samvardhan Singh"
+            }
+          ]
+        },
+        {
+          "title": "AI 让每个人都成了创作者，而不是设计师",
+          "path": "/ai-insights/ai-made-everyone-a-creator-not-a-designer",
+          "file": "/docs/ai-insights/2026-05/19/ai-made-everyone-a-creator-not-a-designer.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Aurélie Radom"
+            }
+          ]
+        },
+        {
+          "title": "Anthropic 的工程师说 \"干掉 Markdown\"，他真正想表达的是什么。",
+          "path": "/ai-insights/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant",
+          "file": "/docs/ai-insights/2026-05/19/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Yanli Liu"
+            }
+          ]
+        },
+        {
+          "title": "作为一种宗教的无神论",
+          "path": "/ai-insights/atheism-as-a-religion",
+          "file": "/docs/ai-insights/2026-05/19/atheism-as-a-religion.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Matthew"
+            }
+          ]
+        },
+        {
+          "title": "用初等微积分为神经网络中的梯度下降建立扎实直觉",
+          "path": "/ai-insights/building-strong-intuition-for-gradient-descent-in-neural-networks-through-elementary-calculus",
+          "file": "/docs/ai-insights/2026-05/19/building-strong-intuition-for-gradient-descent-in-neural-networks-through-elementary-calculus.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Tomio Kobayashi"
+            }
+          ]
+        },
+        {
+          "title": "为一团中等规模的混乱编写架构文档",
+          "path": "/ai-insights/documenting-architecture-of-a-mid-size-chaos",
+          "file": "/docs/ai-insights/2026-05/19/documenting-architecture-of-a-mid-size-chaos.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Ondřej Popelka"
+            }
+          ]
+        },
+        {
+          "title": "我用数字之眼监视你：安全摄像头",
+          "path": "/ai-insights/i-spy-with-my-digital-eye-safety-cameras",
+          "file": "/docs/ai-insights/2026-05/19/i-spy-with-my-digital-eye-safety-cameras.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Investigator515"
+            }
+          ]
+        },
+        {
+          "title": "一个实验室发明了现代计算机，却几乎一台也没卖出去",
+          "path": "/ai-insights/one-lab-invented-the-modern-computer-and-sold-almost-none-of-it",
+          "file": "/docs/ai-insights/2026-05/19/one-lab-invented-the-modern-computer-and-sold-almost-none-of-it.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "huizhou92"
+            }
+          ]
+        },
+        {
+          "title": "为墨尔本一家紧急护理诊所预测每日就诊量",
+          "path": "/ai-insights/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic",
+          "file": "/docs/ai-insights/2026-05/19/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Herman Wandabwa"
+            }
+          ]
+        },
+        {
+          "title": "化圆为方：那个不可能的梦想",
+          "path": "/ai-insights/the-impossible-dream-of-squaring-the-circle",
+          "file": "/docs/ai-insights/2026-05/19/the-impossible-dream-of-squaring-the-circle.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Vagelis Plevris"
+            }
+          ]
+        },
+        {
+          "title": "Nikon D70s 是一台 21 年的老相机，我永远都不会停止使用它",
+          "path": "/ai-insights/the-nikon-d70s-is-a-21-year-old-camera-i-will-never-stop-using",
+          "file": "/docs/ai-insights/2026-05/19/the-nikon-d70s-is-a-21-year-old-camera-i-will-never-stop-using.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Favian Rafif"
+            }
+          ]
+        },
+        {
+          "title": "两支团队，一次转向：AI 如何重塑我们的产品设计流程",
+          "path": "/ai-insights/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process",
+          "file": "/docs/ai-insights/2026-05/19/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process.md",
+          "publishedAt": "2026-05-19",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "DoorDash Design Team"
+            }
+          ]
         }
       ]
     }
