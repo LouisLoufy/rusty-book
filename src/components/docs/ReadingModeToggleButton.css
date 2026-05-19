@@ -52,6 +52,26 @@
   z-index: 140;
 }
 
+.reading-mode-toc-popover {
+  position: fixed;
+  top: 56px;
+  right: max(24px, calc((100vw - 1400px) / 2 + 24px));
+  z-index: 140;
+  width: 320px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border-primary) 78%, transparent);
+  background: color-mix(in srgb, var(--card-bg) 94%, transparent);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+
 @media (max-width: 968px) {
   .reading-mode-toggle-btn,
   .reading-mode-floating-actions,
