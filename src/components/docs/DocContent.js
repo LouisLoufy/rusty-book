@@ -175,7 +175,9 @@ const DocContent = () => {
           <>
             <ArticleTags tags={articleTags} />
             <PaginationNav prev={adjacentChapters.prev} next={adjacentChapters.next} />
-            <GiscusComments pageTitle={pageTitle} containerRef={commentsRef} />
+            {!isAiInsightsArticle && (
+              <GiscusComments pageTitle={pageTitle} containerRef={commentsRef} />
+            )}
           </>
         )}
       >
