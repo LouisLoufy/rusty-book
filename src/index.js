@@ -4,9 +4,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  applySavedThemeSelectorState,
+  getSavedThemeSelectorState
+} from './components/themeSelector/themeSelectorUtils';
 
 // Inject Buffer polyfill for gray-matter compatibility
 window.Buffer = Buffer;
+
+applySavedThemeSelectorState(getSavedThemeSelectorState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
