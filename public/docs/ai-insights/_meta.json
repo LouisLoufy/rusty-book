@@ -394,19 +394,6 @@
           ]
         },
         {
-          "title": "Claude Code 大陆探险记",
-          "path": "/ai-insights/claude-code-the-complete-architectural-deep-dive-best-practices",
-          "file": "/docs/ai-insights/2026-05/19/claude-code-the-complete-architectural-deep-dive-best-practices.md",
-          "publishedAt": "2026-05-19",
-          "tags": [],
-          "contributors": [
-            {
-              "role": "author",
-              "name": "Allohvk"
-            }
-          ]
-        },
-        {
           "title": "Harness：企业被打造来迎接的时代",
           "path": "/ai-insights/harness-the-era-enterprises-were-built-for",
           "file": "/docs/ai-insights/2026-05/19/harness-the-era-enterprises-were-built-for.md",
@@ -420,58 +407,6 @@
           ]
         },
         {
-          "title": "我如何在 30 分钟里教 100 名学生从零搭出 Google 的核心算法",
-          "path": "/ai-insights/how-i-taught-100-students-to-build-googles-core-algorithm-in-30-minutes",
-          "file": "/docs/ai-insights/2026-05/19/how-i-taught-100-students-to-build-googles-core-algorithm-in-30-minutes.md",
-          "publishedAt": "2026-05-19",
-          "tags": [],
-          "contributors": [
-            {
-              "role": "author",
-              "name": "Mohamed Noordeen Alaudeen"
-            }
-          ]
-        },
-        {
-          "title": "LatentVLA：面向自动驾驶的潜在推理模型",
-          "path": "/ai-insights/latentvla-latent-reasoning-models-for-autonomous-driving",
-          "file": "/docs/ai-insights/2026-05/19/latentvla-latent-reasoning-models-for-autonomous-driving.md",
-          "publishedAt": "2026-05-19",
-          "tags": [],
-          "contributors": [
-            {
-              "role": "author",
-              "name": "Ryan Pégoud"
-            }
-          ]
-        },
-        {
-          "title": "简明讲透 Speculative Decoding",
-          "path": "/ai-insights/speculative-decoding-simply-explained",
-          "file": "/docs/ai-insights/2026-05/19/speculative-decoding-simply-explained.md",
-          "publishedAt": "2026-05-19",
-          "tags": [],
-          "contributors": [
-            {
-              "role": "author",
-              "name": "Dr. Ashish Bamania"
-            }
-          ]
-        },
-        {
-          "title": "AI Agent 不是用户；别再像对待用户那样去认证它们",
-          "path": "/ai-insights/ai-agents-are-not-users-stop-authenticating-them-like-they-are",
-          "file": "/docs/ai-insights/2026-05/19/ai-agents-are-not-users-stop-authenticating-them-like-they-are.md",
-          "publishedAt": "2026-05-19",
-          "tags": [],
-          "contributors": [
-            {
-              "role": "author",
-              "name": "Samvardhan Singh"
-            }
-          ]
-        },
-        {
           "title": "Anthropic 的工程师说 \"干掉 Markdown\"，他真正想表达的是什么。",
           "path": "/ai-insights/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant",
           "file": "/docs/ai-insights/2026-05/19/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant.md",
@@ -481,19 +416,6 @@
             {
               "role": "author",
               "name": "Yanli Liu"
-            }
-          ]
-        },
-        {
-          "title": "用初等微积分为神经网络中的梯度下降建立扎实直觉",
-          "path": "/ai-insights/building-strong-intuition-for-gradient-descent-in-neural-networks-through-elementary-calculus",
-          "file": "/docs/ai-insights/2026-05/19/building-strong-intuition-for-gradient-descent-in-neural-networks-through-elementary-calculus.md",
-          "publishedAt": "2026-05-19",
-          "tags": [],
-          "contributors": [
-            {
-              "role": "author",
-              "name": "Tomio Kobayashi"
             }
           ]
         },
