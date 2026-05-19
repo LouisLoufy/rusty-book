@@ -6,7 +6,7 @@
   "repoTitle": "繁星点点，只因有你",
   "sections": [
     {
-      "title": "📖 序言",
+      "title": "序言",
       "path": "/rust-course/about-book",
       "file": "/docs/rust-course/about-book.md",
       "items": [
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "title": "🔧 第一部分：寻找牛刀",
+      "title": "第一部分：寻找牛刀",
       "path": "/rust-course/first-try/intro",
       "file": "/docs/rust-course/first-try/intro.md",
       "items": [
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "title": "📚 第二部分：Rust 基础入门",
+      "title": "第二部分：Rust 基础入门",
       "path": "/rust-course/basic/intro",
       "file": "/docs/rust-course/basic/intro.md",
       "items": [
@@ -394,7 +394,7 @@
       ]
     },
     {
-      "title": "💻 第三部分：入门实战",
+      "title": "第三部分：入门实战",
       "path": "/rust-course/basic-practice/intro",
       "items": [
         {
@@ -431,7 +431,7 @@
       "file": "/docs/rust-course/basic-practice/intro.md"
     },
     {
-      "title": "🚀 第四部分：Rust 高级进阶",
+      "title": "第四部分：Rust 高级进阶",
       "path": "/rust-course/advance/intro",
       "items": [
         {
@@ -659,7 +659,7 @@
       "file": "/docs/rust-course/advance/intro.md"
     },
     {
-      "title": "⚡ 第五部分：进阶实战1 - Web服务器",
+      "title": "第五部分：进阶实战1 - Web服务器",
       "path": "/rust-course/advance-practice1/intro",
       "file": "/docs/rust-course/advance-practice1/intro.md",
       "items": [
@@ -681,7 +681,7 @@
       ]
     },
     {
-      "title": "🔥 第六部分：进阶实战2 - 实现Redis",
+      "title": "第六部分：进阶实战2 - 实现Redis",
       "path": "/rust-course/advance-practice/intro",
       "file": "/docs/rust-course/advance-practice/intro.md",
       "items": [
@@ -748,7 +748,7 @@
       ]
     },
     {
-      "title": "🎯 Rust 难点攻关",
+      "title": "Rust 难点攻关",
       "path": "/rust-course/difficulties/intro",
       "file": "/docs/rust-course/difficulties/intro.md",
       "items": [
@@ -765,7 +765,7 @@
       ]
     },
     {
-      "title": "🛠️ 常用工具链",
+      "title": "常用工具链",
       "path": "/rust-course/test/intro",
       "file": "/docs/rust-course/test/intro.md",
       "items": [
@@ -934,7 +934,7 @@
       ]
     },
     {
-      "title": "💼 开发实践",
+      "title": "开发实践",
       "path": "/rust-course/usecases/intro",
       "file": "/docs/rust-course/usecases/intro.md",
       "items": [
@@ -1238,7 +1238,7 @@
       ]
     },
     {
-      "title": "🔨 攻克编译错误",
+      "title": "攻克编译错误",
       "path": "/rust-course/compiler/intro",
       "file": "/docs/rust-course/compiler/intro.md",
       "items": [
@@ -1358,7 +1358,7 @@
       ]
     },
     {
-      "title": "⚡ 性能优化",
+      "title": "性能优化",
       "path": "/rust-course/profiling/intro",
       "file": "/docs/rust-course/profiling/intro.md",
       "items": [
@@ -1392,7 +1392,7 @@
       ]
     },
     {
-      "title": "📖 附录",
+      "title": "附录",
       "path": "/rust-course/appendix/intro",
       "file": "/docs/rust-course/appendix/intro.md",
       "items": [
