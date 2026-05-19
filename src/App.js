@@ -24,6 +24,7 @@ const LearnAiBook = lazy(() => lazyWithMinLoadTime(() => import('./pages/LearnAi
 const AITutorials = lazy(() => lazyWithMinLoadTime(() => import('./pages/AITutorials')));
 const AIContinentDemo = lazy(() => lazyWithMinLoadTime(() => import('./pages/AIContinentDemo')));
 const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/MapTextureShowcase')));
+const AiInsightsArchive = lazy(() => lazyWithMinLoadTime(() => import('./pages/AiInsightsArchive')));
 
 function LegacyLearnClaudeCodeRedirect() {
   const location = useLocation();
@@ -53,6 +54,7 @@ function App() {
                   <Route path="/learn-claude-code/*" element={<LegacyLearnClaudeCodeRedirect />} />
                   <Route path={`${LEARN_AI_BASE_PATH}/:space/*`} element={<LearnAiBook />} />
                   <Route path="/tags/:tagName" element={<TagPage />} />
+                  <Route path="/ai-insights" element={<AiInsightsArchive />} />
                   <Route path="/*" element={<Docs />} />
                 </Routes>
               </Suspense>
