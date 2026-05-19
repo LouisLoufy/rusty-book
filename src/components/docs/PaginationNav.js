@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
+import { useReadingMode } from '../../contexts/ReadingModeContext';
 import './PaginationNav.css';
 
 const PaginationNav = ({ prev, next }) => {
+  const { isReadingMode } = useReadingMode();
+
   // 如果前后都没有章节，不显示组件
   if (!prev && !next) {
     return null;
@@ -14,12 +17,15 @@ const PaginationNav = ({ prev, next }) => {
     window.scrollTo(0, 0);
   };
 
+  const buildTo = (path) =>
+    isReadingMode ? { pathname: path, search: '?mode=read' } : path;
+
   return (
     <nav className="pagination-nav">
       {/* 上一章按钮 */}
       <div className="pagination-item">
         {prev ? (
-          <Link to={prev.path} className="pagination-link prev" onClick={handleNavClick}>
+          <Link to={buildTo(prev.path)} className="pagination-link prev" onClick={handleNavClick}>
             <HiArrowLeft className="pagination-icon" />
             <div className="pagination-content">
               <span className="pagination-label">上一章</span>
@@ -35,7 +41,7 @@ const PaginationNav = ({ prev, next }) => {
       {/* 下一章按钮 */}
       <div className="pagination-item">
         {next ? (
-          <Link to={next.path} className="pagination-link next" onClick={handleNavClick}>
+          <Link to={buildTo(next.path)} className="pagination-link next" onClick={handleNavClick}>
             <div className="pagination-content">
               <span className="pagination-label">下一章</span>
               <span className="pagination-title">{next.title}</span>

@@ -143,7 +143,7 @@ function TitleWithNewBadge({ title, publishedAt }) {
   );
 }
 
-const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' }) => {
+const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '', linkSearch = '' }) => {
   const navRef = useRef(null);
   const [expandedItems, setExpandedItems] = useState({});
   const location = useLocation();
@@ -231,6 +231,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
     expandAndNavigate();
   };
 
+  const buildLinkTo = (path) =>
+    linkSearch ? { pathname: path, search: linkSearch } : path;
+
   // Recursive component to render nested menu items
   const renderMenuItem = (item, level = 1) => {
     const hasChildren = item.children && item.children.length > 0;
@@ -246,7 +249,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
           {hasChildren ? (
             <>
               <NavLink
-                to={item.path}
+                to={buildLinkTo(item.path)}
                 className={() =>
                   `sidebar-link sidebar-link-with-children ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`
                 }
@@ -272,7 +275,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '' 
             </>
           ) : (
             <NavLink
-              to={item.path}
+              to={buildLinkTo(item.path)}
               className={() =>
                 `sidebar-link ${isActive ? 'active' : ''}`
               }

@@ -123,6 +123,7 @@ function BookWorkspaceLayout({
               onClose={() => setIsReadingModeDirectoryOpen(false)}
               className="reading-mode-overlay"
               overlayClassName="reading-mode-overlay"
+              linkSearch={`?${READING_MODE_PARAM}=${READING_MODE_VALUE}`}
             />
           </>
         ) : null}
