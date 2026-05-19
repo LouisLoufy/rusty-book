@@ -2,6 +2,8 @@ import React, { createContext, useContext } from 'react';
 
 const ReadingModeContext = createContext({
   isReadingMode: false,
+  isReadonlyMode: false,
+  modeSearch: '',
   setReadingMode: () => {},
   toggleReadingMode: () => {}
 });

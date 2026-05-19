@@ -5,7 +5,7 @@ import { useReadingMode } from '../../contexts/ReadingModeContext';
 import './PaginationNav.css';
 
 const PaginationNav = ({ prev, next }) => {
-  const { isReadingMode } = useReadingMode();
+  const { isReadingMode, modeSearch } = useReadingMode();
 
   // 如果前后都没有章节，不显示组件
   if (!prev && !next) {
@@ -18,7 +18,7 @@ const PaginationNav = ({ prev, next }) => {
   };
 
   const buildTo = (path) =>
-    isReadingMode ? { pathname: path, search: '?mode=read' } : path;
+    isReadingMode && modeSearch ? { pathname: path, search: modeSearch } : path;
 
   return (
     <nav className="pagination-nav">

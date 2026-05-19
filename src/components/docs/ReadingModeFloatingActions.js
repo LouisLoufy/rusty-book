@@ -3,12 +3,14 @@ import { HiSparkles, HiOutlineMenuAlt2 } from 'react-icons/hi';
 import HiddenTipsModal from './HiddenTipsModal';
 import ReadingModeToggleButton from './ReadingModeToggleButton';
 import ReadingModeToc from './ReadingModeToc';
+import { useReadingMode } from '../../contexts/ReadingModeContext';
 
 function ReadingModeFloatingActions() {
   const [showTipsModal, setShowTipsModal] = useState(false);
   const [showToc, setShowToc] = useState(false);
   const tocPopoverRef = useRef(null);
   const tocButtonRef = useRef(null);
+  const { isReadonlyMode } = useReadingMode();
 
   useEffect(() => {
     if (!showToc) return undefined;
@@ -62,7 +64,7 @@ function ReadingModeFloatingActions() {
         >
           <HiOutlineMenuAlt2 />
         </button>
-        <ReadingModeToggleButton />
+        {!isReadonlyMode && <ReadingModeToggleButton />}
       </div>
       {showToc && (
         <div

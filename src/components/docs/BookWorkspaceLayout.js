@@ -12,6 +12,8 @@ import { ReadingModeProvider } from '../../contexts/ReadingModeContext';
 
 const READING_MODE_PARAM = 'mode';
 const READING_MODE_VALUE = 'read';
+const READING_MODE_READONLY = 'readonly';
+const READING_MODE_VALUES = new Set([READING_MODE_VALUE, READING_MODE_READONLY]);
 
 function BookWorkspaceLayout({
   rootClassName = '',
@@ -32,13 +34,16 @@ function BookWorkspaceLayout({
   children
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const isReadingMode = searchParams.get(READING_MODE_PARAM) === READING_MODE_VALUE;
+  const modeParam = searchParams.get(READING_MODE_PARAM) || '';
+  const isReadingMode = READING_MODE_VALUES.has(modeParam);
+  const isReadonlyMode = modeParam === READING_MODE_READONLY;
+  const modeSearch = isReadingMode ? `?${READING_MODE_PARAM}=${modeParam}` : '';
   const [isReadingModeDirectoryOpen, setIsReadingModeDirectoryOpen] = useState(false);
 
   const setIsReadingMode = useCallback((next) => {
     setSearchParams((prev) => {
       const params = new URLSearchParams(prev);
-      const currentValue = params.get(READING_MODE_PARAM) === READING_MODE_VALUE;
+      const currentValue = READING_MODE_VALUES.has(params.get(READING_MODE_PARAM));
       const resolved = typeof next === 'function' ? next(currentValue) : next;
       if (resolved) {
         params.set(READING_MODE_PARAM, READING_MODE_VALUE);
@@ -69,6 +74,7 @@ function BookWorkspaceLayout({
           setIsReadingModeDirectoryOpen(false);
           return;
         }
+        if (isReadonlyMode) return;
         setIsReadingMode(false);
       }
     };
@@ -78,7 +84,7 @@ function BookWorkspaceLayout({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isReadingMode, isReadingModeDirectoryOpen, setIsReadingMode]);
+  }, [isReadingMode, isReadonlyMode, isReadingModeDirectoryOpen, setIsReadingMode]);
 
   useEffect(() => {
     if (isReadingMode && sidebarOpen && onSidebarClose) {
@@ -94,9 +100,11 @@ function BookWorkspaceLayout({
 
   const readingModeValue = useMemo(() => ({
     isReadingMode,
+    isReadonlyMode,
+    modeSearch,
     setReadingMode: setIsReadingMode,
     toggleReadingMode
-  }), [isReadingMode, setIsReadingMode, toggleReadingMode]);
+  }), [isReadingMode, isReadonlyMode, modeSearch, setIsReadingMode, toggleReadingMode]);
 
   return (
     <ReadingModeProvider value={readingModeValue}>
@@ -114,7 +122,7 @@ function BookWorkspaceLayout({
         hideHeader={isReadingMode}
         showReadingModeToggle
       >
-        {isReadingMode && sidebarMeta ? (
+        {isReadingMode && sidebarMeta && !isReadonlyMode ? (
           <>
             <ReadingModeDirectoryButton onClick={() => setIsReadingModeDirectoryOpen(true)} />
             <Sidebar
@@ -123,7 +131,7 @@ function BookWorkspaceLayout({
               onClose={() => setIsReadingModeDirectoryOpen(false)}
               className="reading-mode-overlay"
               overlayClassName="reading-mode-overlay"
-              linkSearch={`?${READING_MODE_PARAM}=${READING_MODE_VALUE}`}
+              linkSearch={modeSearch}
             />
           </>
         ) : null}
