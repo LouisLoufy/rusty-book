@@ -34,6 +34,7 @@ console.log('');
 console.log(`📊 总量:`);
 console.log(`   scanned:    ${result.pngCount} png + ${result.gifCount} gif`);
 console.log(`   converted:  ${result.converted}`);
+console.log(`   kept(原图): ${result.skippedLarger}  （webp 反而更大，保留原文件、引用不改写）`);
 console.log(`   failed:     ${result.failed}`);
 console.log(`   ${DRY ? '估算' : '实际'}: ${fmtMB(result.totalBefore)} → ${DRY ? '≈' : ''}${fmtMB(result.totalAfter)} (省 ≈ ${fmtMB(result.totalBefore - result.totalAfter)}, ${result.totalBefore > 0 ? Math.round((1 - result.totalAfter / result.totalBefore) * 100) : 0}%)`);
 if (result.failures.length > 0) {

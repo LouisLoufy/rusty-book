@@ -9,7 +9,7 @@
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
-import { extname, join, relative } from 'node:path';
+import { dirname, extname, join, relative } from 'node:path';
 
 export const DEFAULT_CWEBP = process.env.CWEBP_BIN || '/opt/homebrew/bin/cwebp';
 export const DEFAULT_GIF2WEBP = process.env.GIF2WEBP_BIN || '/opt/homebrew/bin/gif2webp';
@@ -119,7 +119,8 @@ export function makeThumbnail(srcPath, {
  *   logger      `(msg) => void`，默认 console.log；可传 () => {} 静默
  *
  * 返回：
- *   { pngCount, gifCount, converted, failed, failures, totalBefore, totalAfter }
+ *   { pngCount, gifCount, converted, skippedLarger, failed, failures, totalBefore, totalAfter }
+ *   skippedLarger：转出的 webp 比原图还大，已丢弃 webp、保留原文件的张数
  */
 export function compressTree({
   root,
@@ -138,6 +139,7 @@ export function compressTree({
   let totalBefore = 0;
   let totalAfter = 0;
   let converted = 0;
+  let skippedLarger = 0;
   let failed = 0;
   const failures = [];
 
@@ -168,6 +170,16 @@ export function compressTree({
       return;
     }
     const after = statSync(dst).size;
+    if (after >= before) {
+      // webp 反而比原图大（部分复杂动图 / 已高度优化的图会这样）——
+      // 丢弃 webp、保留原文件；rewriteMdRefs 只改写有对应 .webp 的引用，
+      // 所以这里的 .md 引用会自动保持原样，不会指向不存在的文件。
+      unlinkSync(dst);
+      totalAfter += before;
+      skippedLarger++;
+      logger(`  · ${kind}  ${fmtMB(before).padStart(8)} → webp 更大(${fmtMB(after).trim()})，保留原文件  ${relative(logRoot, src)}`);
+      return;
+    }
     totalAfter += after;
     unlinkSync(src);
     converted++;
@@ -182,6 +194,7 @@ export function compressTree({
     pngCount: pngs.length,
     gifCount: gifs.length,
     converted,
+    skippedLarger,
     failed,
     failures,
     totalBefore,
@@ -192,6 +205,10 @@ export function compressTree({
 /**
  * 改写一组 .md 文件中 `images/.../<name>.(png|gif)` 引用为 `.webp`。
  * 只匹配 path 形如 `images/...` 的部分；alt text 中的字面量 `.png` 不动。
+ *
+ * 仅在对应 `.webp` 文件**真实存在**时才改写——转码失败、或 webp 体积更大
+ * 被 compressTree 保留原文件的情况下，`.webp` 不存在，引用保持原样，
+ * 不会指向缺失文件。
  *
  * 参数：
  *   mdFiles  必填；要扫描的 .md 绝对路径数组（由调用方决定范围）
@@ -207,7 +224,9 @@ export function rewriteMdRefs({ mdFiles, dryRun = false } = {}) {
   for (const md of mdFiles) {
     const before = readFileSync(md, 'utf8');
     let count = 0;
-    const after = before.replace(/(images\/[^\s)"'<>]+?)\.(png|gif)/gi, (_m, p1) => {
+    const mdDir = dirname(md);
+    const after = before.replace(/(images\/[^\s)"'<>]+?)\.(png|gif)/gi, (match, p1) => {
+      if (!existsSync(join(mdDir, `${p1}.webp`))) return match;
       count++;
       return p1 + '.webp';
     });
