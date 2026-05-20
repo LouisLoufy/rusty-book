@@ -1,3 +1,7 @@
+---
+summary: Anthropic 自己打脸：AI 组得分低 17%，时间没省，技能还退化。
+---
+
 # Vibe Coding，是怎么「玩废」程序员的？
 
 > Anthropic 自己打脸：AI 组得分低 17%，时间没省，技能还退化。

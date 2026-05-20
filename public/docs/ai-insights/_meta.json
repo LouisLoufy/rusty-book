@@ -15,65 +15,42 @@
           "path": "/ai-insights/why-claude-code-is-so-good",
           "file": "/docs/ai-insights/2026-02/27/why-claude-code-is-so-good.md",
           "publishedAt": "2026-02-27",
-          "tags": [
-            "AI",
-            "Claude Code",
-            "小模型",
-            "Agent",
-            "工具设计"
-          ]
+          "tags": [],
+          "summary": "真相可能让很多“全都上最强模型”的团队不太舒服：Claude Code 好用，不是因为它处处蛮力，而是因为它知道哪里该省。"
         },
         {
           "title": "从写代码到验代码：AI 搭档写走 3 年，我踩出来的协作路线图",
           "path": "/ai-insights/from-writing-code-to-validating-code",
           "file": "/docs/ai-insights/2026-02/17/from-writing-code-to-validating-code.md",
           "publishedAt": "2026-02-17",
-          "tags": [
-            "AI",
-            "AI Coding",
-            "代码验证",
-            "工程实践",
-            "上下文工程"
-          ]
+          "tags": [],
+          "summary": "这篇文章最值钱的地方，不是教你怎么让 AI 多写，而是逼你承认一件事：以后最贵的工种，不是码农，是验货员。"
         },
         {
           "title": "2028全球智能危机",
           "path": "/ai-insights/2028-global-intelligence-crisis",
           "file": "/docs/ai-insights/2026-02/18/2028-global-intelligence-crisis.md",
           "publishedAt": "2026-02-18",
-          "tags": [
-            "AI",
-            "宏观经济",
-            "白领替代",
-            "系统性风险",
-            "按揭市场"
-          ]
+          "tags": [],
+          "cover": "https://substackcdn.com/image/fetch/%24s_%21rCTy%21%2Cw_1456%2Cc_limit%2Cf_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ede0b37-f3be-4787-90ff-10cb24719fdc_710x1119.jpeg",
+          "summary": "如果我们对 AI 的乐观判断继续成立，但这种“继续成立”本身反而对市场偏空，会怎么样？"
         },
         {
           "title": "微软中国 CTO 韦青：警惕朋友圈 AI 神话，重视苦活、脏活、累活",
           "path": "/ai-insights/weiching-ai-reform",
           "file": "/docs/ai-insights/2026-03/17/weiching-ai-reform.md",
           "publishedAt": "2026-03-17",
-          "tags": [
-            "AI",
-            "企业转型",
-            "微软",
-            "组织变革",
-            "数字化"
-          ]
+          "tags": [],
+          "summary": "所有人都只想吃第五个馒头——AI 智能，却不想先吃文化、人才、流程、数据这些前四个。"
         },
         {
           "title": "用 AI 反向工程 1986 年的游戏",
           "path": "/ai-insights/ai-reverse-engineered-bubble-bobble",
           "file": "/docs/ai-insights/2026-02/18/ai-reverse-engineered-bubble-bobble.md",
           "publishedAt": "2026-02-18",
-          "tags": [
-            "AI",
-            "逆向工程",
-            "二进制分析",
-            "游戏",
-            "软件安全"
-          ]
+          "tags": [],
+          "cover": "./images/ai-reverse-engineered-bubble-bobble/roms.webp",
+          "summary": "我们让 AI 去读 1986 年的原始二进制文件。"
         }
       ]
     },
@@ -86,14 +63,9 @@
           "path": "/ai-insights/what-ai-exposes-about-design",
           "file": "/docs/ai-insights/2026-03/27/what-ai-exposes-about-design.md",
           "publishedAt": "2026-03-27",
-          "tags": [
-            "Design",
-            "UX",
-            "AI",
-            "Service Design",
-            "Research"
-          ],
-          "summary": "设计实践正在再次改写。流程在持续压缩，过去常由初级设计师承担的大量任务，正在被自动化替代。速度比以往任何时候都更重要，产品上线周期也随着 AI 技术演进不断缩短。"
+          "tags": [],
+          "summary": "设计实践正在再次改写。流程在持续压缩，过去常由初级设计师承担的大量任务，正在被自动化替代。速度比以往任何时候都更重要，产品上线周期也随着 AI 技术演进不断缩短。",
+          "cover": "./images/what-ai-exposes-about-design/01.webp"
         },
         {
           "title": "Agent/Skills/Teams 架构演进过程及技术选型之道",
@@ -107,13 +79,9 @@
               "link": "https://baike.baidu.com/item/霍华德·沃洛维茨/18428561"
             }
           ],
-          "tags": [
-            "Agent",
-            "Multi-Agent",
-            "Agent Skills",
-            "Agent Teams",
-            "架构选型"
-          ]
+          "tags": [],
+          "cover": "./images/agent-skills-teams-architecture-evolution/01.jpg",
+          "summary": "上来先争论“要不要多智能体”，却不先画清问题边界，这和先选喷漆配色再写控制程序一样不靠谱。"
         },
         {
           "title": "你的 Claude 配置会随着时间变质：用这条自检提示词，60 秒排毒",
@@ -126,14 +94,9 @@
               "name": "Ole Lehmann"
             }
           ],
-          "tags": [
-            "Claude",
-            "CLAUDE.md",
-            "Prompt Hygiene",
-            "自检提示词",
-            "配置优化"
-          ],
-          "summary": "我上周把自己的 Claude 配置砍掉了一半，结果每一次输出都变得更好了。"
+          "tags": [],
+          "summary": "我上周把自己的 Claude 配置砍掉了一半，结果每一次输出都变得更好了。",
+          "cover": "./images/claude-self-audit-prompt/cover.jpg"
         },
         {
           "title": "如何把 Claude Skills 的效果提升 10 倍：用 Karpathy 的 autoresearch 方法自动打磨",
@@ -146,14 +109,9 @@
               "name": "Ole Lehmann"
             }
           ],
-          "tags": [
-            "Claude Skills",
-            "Autoresearch",
-            "Prompt Engineering",
-            "Agent Workflow",
-            "Karpathy"
-          ],
-          "summary": "Claude Skills 很可能有 30% 的时候在失效，而且这种失效甚至不会被注意到。"
+          "tags": [],
+          "summary": "Claude Skills 很可能有 30% 的时候在失效，而且这种失效甚至不会被注意到。",
+          "cover": "./images/how-to-10x-your-claude-skills/cover.jpg"
         },
         {
           "title": "开源项目--1300 年前的唐朝制度，吊打了我用过的所有 AI 框架",
@@ -167,13 +125,8 @@
               "link": "https://baike.baidu.com/item/谢尔顿·库珀/9982394"
             }
           ],
-          "tags": [
-            "多Agent",
-            "审核机制",
-            "工作流",
-            "AI框架",
-            "制度设计"
-          ]
+          "tags": [],
+          "summary": "终于有人把一个本该写进所有多 Agent 框架首页的常识说出来了：没有审议链路的协作系统，不叫“自治”，那叫多人同时犯错。"
         },
         {
           "title": "模型不是关键，Harness 才是",
@@ -187,26 +140,17 @@
               "link": "https://baike.baidu.com/item/谢尔顿·库珀/9982394"
             }
           ],
-          "tags": [
-            "HarnessEngineering",
-            "AI Coding",
-            "Agent",
-            "工程系统",
-            "ContextEngineering"
-          ]
+          "tags": [],
+          "summary": "这篇文章真正值得表扬的地方，在于它终于把一个显而易见、却长期被大量人故意忽略的事实说清楚了。是的，我在看着你们，那些一出问题就怪模型不够大的团队。"
         },
         {
           "title": "构建 Claude Code 的经验：Prompt Caching 才是一切",
           "path": "/ai-insights/prompt-caching-is-everything",
           "file": "/docs/ai-insights/2026-03/24/prompt-caching-is-everything.md",
           "publishedAt": "2026-03-24",
-          "tags": [
-            "ClaudeCode",
-            "PromptCaching",
-            "Agent",
-            "缓存",
-            "工程实践"
-          ]
+          "tags": [],
+          "cover": "./images/prompt-caching-is-everything/cover.jpg",
+          "summary": "工程界常说 “Cache Rules Everything Around Me”，这条规则放到 Agent 产品上一样成立。Claude Code 这类长时运行、不断往返调用模型的产品之所以在成本和延迟上可行，关键不是“模型更便宜了”，而是 prompt caching 让前几轮已经算过的前缀可以被重复利用。"
         },
         {
           "title": "Harness Engineering:2026年最被低估的工程革命",
@@ -220,13 +164,8 @@
               "link": "https://baike.baidu.com/item/谢尔顿·库珀/9982394"
             }
           ],
-          "tags": [
-            "HarnessEngineering",
-            "Codex",
-            "软件工程",
-            "AIAgent",
-            "开发范式"
-          ]
+          "tags": [],
+          "summary": "严格地说，被这场变化淘汰的并不是程序员，而是那种把“亲手写下每一行代码”误认为工程价值本体的浪漫主义幻觉。两者并不等价。"
         },
         {
           "title": "CC之父曝内部团队使用Claude Code的10条技巧！网友：工作流很管用，但钱包有点痛",
@@ -240,13 +179,8 @@
               "link": "https://baike.baidu.com/item/谢尔顿·库珀/9982394"
             }
           ],
-          "tags": [
-            "ClaudeCode",
-            "Worktree",
-            "PlanMode",
-            "CLAUDE.md",
-            "AI Coding"
-          ]
+          "tags": [],
+          "summary": "如果你还把 Claude Code 当成一个“更聪明一点的聊天框”，那不是模型限制，那是你的使用方式停留在石器时代。请坐，这个判断并不激进，只是准确。"
         },
         {
           "title": "钉钉已经彻底 CLI 化了。",
@@ -260,39 +194,24 @@
               "link": "https://baike.baidu.com/item/谢尔顿·库珀/9982394"
             }
           ],
-          "tags": [
-            "CLI",
-            "钉钉",
-            "Agent",
-            "AI产品",
-            "SaaS"
-          ]
+          "tags": [],
+          "summary": "严格地说，一个要求 Agent 去截图、识别、点击弹窗的软件，并不能算“AI 友好”。它只是把低效包装成了图形界面。请坐，这并不复杂。"
         },
         {
           "title": "Vibe Coding，是怎么「玩废」程序员的？",
           "path": "/ai-insights/vibe-coding",
           "file": "/docs/ai-insights/2026-03/17/vibe-coding.md",
           "publishedAt": "2026-03-17",
-          "tags": [
-            "AI",
-            "编程",
-            "Vibe Coding",
-            "程序员",
-            "认知科学"
-          ]
+          "tags": [],
+          "summary": "Anthropic 自己打脸：AI 组得分低 17%，时间没省，技能还退化。"
         },
         {
           "title": "百万级代码背后的零人工奇迹",
           "path": "/ai-insights/harness-engineering",
           "file": "/docs/ai-insights/2026-03/17/harness-engineering.md",
           "publishedAt": "2026-03-17",
-          "tags": [
-            "AI",
-            "Codex",
-            "软件工程",
-            "Agent",
-            "开发效率"
-          ]
+          "tags": [],
+          "summary": "这篇文章最狠的地方，不是“一百万行代码”，而是它把工程师的饭碗从“敲代码”硬生生改成了“造环境”。"
         },
         {
           "title": "从 Google ADK 到 OpenFang，我试了七个 Agent 框架，最后被一个教程点醒了",
@@ -300,38 +219,25 @@
           "file": "/docs/ai-insights/2026-03/18/agent-framework-illusion.md",
           "publishedAt": "2026-03-18",
           "tags": [
-            "AI",
-            "Agent",
-            "框架选择",
-            "Context Engineering",
             "LLM"
-          ]
+          ],
+          "summary": "七个框架试完，答案不在框架里。"
         },
         {
           "title": "为什么大模型越用越上头？",
           "path": "/ai-insights/why-llms-are-so-addictive",
           "file": "/docs/ai-insights/2026-03/19/why-llms-are-so-addictive.md",
           "publishedAt": "2026-03-19",
-          "tags": [
-            "AI",
-            "大模型",
-            "认知偏差",
-            "情绪价值",
-            "人机协同"
-          ]
+          "tags": [],
+          "summary": "大模型最狠的地方，不是帮你把事做了，而是顺手让你觉得“牛的人是我”。"
         },
         {
           "title": "Claude code团队内部skill构建踩坑经验大全",
           "path": "/ai-insights/claude-code-skills-pitfalls",
           "file": "/docs/ai-insights/2026-03/19/claude-code-skills-pitfalls.md",
           "publishedAt": "2026-03-19",
-          "tags": [
-            "ClaudeCode",
-            "Skills",
-            "Agent",
-            "工程实践",
-            "工作流"
-          ]
+          "tags": [],
+          "summary": "真正烂的 Skill，不是没写长，而是什么都想管，最后什么都管不好。"
         }
       ]
     },
@@ -350,14 +256,9 @@
               "name": "Jose Parreño"
             }
           ],
-          "tags": [
-            "Claude Code",
-            "Skills",
-            "设计模式",
-            "AI Coding",
-            "工程实践"
-          ],
-          "summary": "这个月，我为自己 newsletter 写作 pipeline 的每一个环节都构建了一个 skill。"
+          "tags": [],
+          "summary": "这个月，我为自己 newsletter 写作 pipeline 的每一个环节都构建了一个 skill。",
+          "cover": "./images/what-the-docs-dont-tell-you-about-claude-code-skills/01.webp"
         },
         {
           "title": "云端蚁群",
@@ -371,7 +272,8 @@
               "name": "Jordan Carson"
             }
           ],
-          "summary": "科学、数学和工程中最美的东西，很多都不是被发明出来的。它们是被发现的——早已在自然界中运行着、早已最优、早已优雅，只等着我们去注意到它们、把它们写下来。"
+          "summary": "科学、数学和工程中最美的东西，很多都不是被发明出来的。它们是被发现的——早已在自然界中运行着、早已最优、早已优雅，只等着我们去注意到它们、把它们写下来。",
+          "cover": "./images/cloud-ant-colonies/01.webp"
         },
         {
           "title": "我们已经走到 legacy code 的尽头了吗？",
@@ -385,91 +287,112 @@
               "name": "David Rodenas PhD"
             }
           ],
-          "summary": "让软件演化并不简单。每一次改动都意味着把新代码与既有代码集成在一起，而那并不总是容易的。既有代码通常没有预见到未来的改动，即便预见到了，也从来不会正好就是必须做出的那些改动。所以你必须沿途不断地更新和清理。"
+          "summary": "让软件演化并不简单。每一次改动都意味着把新代码与既有代码集成在一起，而那并不总是容易的。既有代码通常没有预见到未来的改动，即便预见到了，也从来不会正好就是必须做出的那些改动。所以你必须沿途不断地更新和清理。",
+          "cover": "./images/have-we-reached-the-end-of-legacy-code/01.webp"
         },
         {
           "title": "不用更好的模型，也能造出更好的 AI",
           "path": "/ai-insights/better-ai-without-a-better-model",
           "file": "/docs/ai-insights/2026-05/19/better-ai-without-a-better-model.md",
           "publishedAt": "2026-05-19",
-          "tags": [],
+          "tags": [
+            "AI Agent"
+          ],
           "contributors": [
             {
               "role": "author",
               "name": "Sau Sheong"
             }
           ],
-          "summary": "我第一次玩 LLM（大语言模型）时，让我印象最深的一个主要瓶颈是：它们本质上是静态函数，接收输入、吐出回应。能力已经被权重锁死。能微调或后训练，是的，但实时学习、对新输入做出适应，完全不行。一些批评者拿这一点当作\"它其实不是真智能\"的证据，因为不像人类智能那样能实时学习与成长，LLM 基本上是冻结在时间中的。我当时没怎么深想，就接受了它们的样子。"
+          "summary": "我第一次玩 LLM（大语言模型）时，让我印象最深的一个主要瓶颈是：它们本质上是静态函数，接收输入、吐出回应。能力已经被权重锁死。能微调或后训练，是的，但实时学习、对新输入做出适应，完全不行。一些批评者拿这一点当作\"它其实不是真智能\"的证据，因为不像人类智能那样能实时学习与成长，LLM 基本上是冻结在时间中的。我当时没怎么深想，就接受了它们的样子。",
+          "cover": "./images/better-ai-without-a-better-model/01.webp"
         },
         {
           "title": "Harness：企业被打造来迎接的时代",
           "path": "/ai-insights/harness-the-era-enterprises-were-built-for",
           "file": "/docs/ai-insights/2026-05/19/harness-the-era-enterprises-were-built-for.md",
           "publishedAt": "2026-05-19",
-          "tags": [],
+          "tags": [
+            "Artificial Intelligence"
+          ],
           "contributors": [
             {
               "role": "author",
               "name": "Fabio Yáñez Romero"
             }
           ],
-          "summary": "这是一个关于\"终端用户如何把语言模型当作黑盒（我们只能控制输入什么、以及对输出做什么）来提升其性能\"的故事。从最简单的做法，一路到提升模型性能的复杂变通方案。"
+          "summary": "这是一个关于\"终端用户如何把语言模型当作黑盒（我们只能控制输入什么、以及对输出做什么）来提升其性能\"的故事。从最简单的做法，一路到提升模型性能的复杂变通方案。",
+          "cover": "./images/harness-the-era-enterprises-were-built-for/01.webp"
         },
         {
           "title": "Anthropic 的工程师说 \"干掉 Markdown\"，他真正想表达的是什么。",
           "path": "/ai-insights/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant",
           "file": "/docs/ai-insights/2026-05/19/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant.md",
           "publishedAt": "2026-05-19",
-          "tags": [],
+          "tags": [
+            "Technology",
+            "Programming",
+            "Artificial Intelligence"
+          ],
           "contributors": [
             {
               "role": "author",
               "name": "Yanli Liu"
             }
           ],
-          "summary": "上周，Claude Code 的工程负责人告诉开发者们：别再输出 Markdown 了。整个互联网炸了。"
+          "summary": "上周，Claude Code 的工程负责人告诉开发者们：别再输出 Markdown 了。整个互联网炸了。",
+          "cover": "./images/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant/01.jpg"
         },
         {
           "title": "为一团中等规模的混乱编写架构文档",
           "path": "/ai-insights/documenting-architecture-of-a-mid-size-chaos",
           "file": "/docs/ai-insights/2026-05/19/documenting-architecture-of-a-mid-size-chaos.md",
           "publishedAt": "2026-05-19",
-          "tags": [],
+          "tags": [
+            "Artificial Intelligence"
+          ],
           "contributors": [
             {
               "role": "author",
               "name": "Ondřej Popelka"
             }
           ],
-          "summary": "写软件架构文档很可怕。尤其是在一家没有架构师角色或部门的中型公司。光是想一想公司信息系统的架构，看起来就如此\"多余\"和\"拖我们后腿\"。然而中型公司一次又一次最终陷入重复的系统、重复的数据，以及一团混乱。"
+          "summary": "写软件架构文档很可怕。尤其是在一家没有架构师角色或部门的中型公司。光是想一想公司信息系统的架构，看起来就如此\"多余\"和\"拖我们后腿\"。然而中型公司一次又一次最终陷入重复的系统、重复的数据，以及一团混乱。",
+          "cover": "./images/documenting-architecture-of-a-mid-size-chaos/01.webp"
         },
         {
           "title": "为墨尔本一家紧急护理诊所预测每日就诊量",
           "path": "/ai-insights/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic",
           "file": "/docs/ai-insights/2026-05/19/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic.md",
           "publishedAt": "2026-05-19",
-          "tags": [],
+          "tags": [
+            "Artificial Intelligence"
+          ],
           "contributors": [
             {
               "role": "author",
               "name": "Herman Wandabwa"
             }
           ],
-          "summary": "经营一家走入式紧急护理诊所有一个反复出现的运营头痛：要决定某一天该排多少临床医生。如果排得太少，候诊室就可能堵塞，患者会流向最近的急诊科 (ED)。反过来，你又得为不需要的医生工时买单，反之亦然。大多数诊所基于去年的数字、直觉和一点猜测来估算就诊人数，特别是在流感季前后。…"
+          "summary": "经营一家走入式紧急护理诊所有一个反复出现的运营头痛：要决定某一天该排多少临床医生。如果排得太少，候诊室就可能堵塞，患者会流向最近的急诊科 (ED)。反过来，你又得为不需要的医生工时买单，反之亦然。大多数诊所基于去年的数字、直觉和一点猜测来估算就诊人数，特别是在流感季前后。…",
+          "cover": "./images/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic/01.webp"
         },
         {
           "title": "两支团队，一次转向：AI 如何重塑我们的产品设计流程",
           "path": "/ai-insights/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process",
           "file": "/docs/ai-insights/2026-05/19/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process.md",
           "publishedAt": "2026-05-19",
-          "tags": [],
+          "tags": [
+            "Artificial Intelligence"
+          ],
           "contributors": [
             {
               "role": "author",
               "name": "DoorDash Design Team"
             }
           ],
-          "summary": "随着 AI 在\"造一切\"上越来越强，设计师工作里哪一部分变得更重要，哪一部分变得不那么重要？过去一年，DoorDash 的两支团队一直在探索这一概念。在本文中，Qixing 将把两个案例研究串起来，讲讲产品开发流程是如何转变的、观察到了哪些新模式、做了哪些实验、又有哪些问题尚未解决。"
+          "summary": "随着 AI 在\"造一切\"上越来越强，设计师工作里哪一部分变得更重要，哪一部分变得不那么重要？过去一年，DoorDash 的两支团队一直在探索这一概念。在本文中，Qixing 将把两个案例研究串起来，讲讲产品开发流程是如何转变的、观察到了哪些新模式、做了哪些实验、又有哪些问题尚未解决。",
+          "cover": "./images/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process/01.webp"
         }
       ]
     }
