@@ -5,9 +5,17 @@
 
 ### 6.6.1生成训练数据
 
-```
-importtorch# 确保CUDA可用device = torch.device("cuda"iftorch.cuda.is_available()else"cpu")# 生成数据inputs = torch.rand(100,3)# 随机生成shape为(100,3)的tensor，里边每个元素的值都是0-1之间weights = torch.tensor([[1.1], [2.2], [3.3]])#预设的权重bias = torch.tensor(4.4)#预设的biastargets = inputs @ weights + bias +0.1*torch.randn(100,1)#增加一些误差，模拟真实情况
+```python
+import torch
 
+# 确保CUDA可用
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# 生成数据
+inputs = torch.rand(100, 3) # 随机生成shape为(100,3)的tensor，里边每个元素的值都是0-1之间
+weights = torch.tensor([[1.1], [2.2], [3.3]]) #预设的权重
+bias = torch.tensor(4.4) #预设的bias
+targets = inputs @ weights + bias + 0.1*torch.randn(100, 1) #增加一些误差，模拟真实情况
 ```
 
 上边的代码首先随机生成100条数据，每条数据都有3个feature。具体值是随机产生的0-1之间的值。接着通过我们人为设定的weight和bias，对随机生成的inputs经过线性变化，再加上一些小的随机误差。生成对应的targets作为label值。
@@ -15,31 +23,42 @@ importtorch# 确保CUDA可用device = torch.device("cuda"iftorch.cuda.is_availab
 
 ### 6.6.2初始化线性回归的参数
 
-```
+```python
 # 初始化参数时直接放在CUDA上，并启用梯度追踪
 w = torch.rand((3, 1), requires_grad=True, device=device)
 b = torch.rand((1,), requires_grad=True, device=device)
-
 ```
 
 用随机值初始化线性回归模型的参数。
 
 ### 6.6.3进行训练
 
-```
-# 将数据移至相同设备inputs = inputs.to(device)
-targets = targets.to(device)#设置超参数epoch =10000lr =0.003foriinrange(epoch):
-outputs = inputs @ w + b
-loss = torch.mean(torch.square(outputs - targets))
-print("loss:", loss.item())
+```python
+# 将数据移至相同设备
+inputs = inputs.to(device)
+targets = targets.to(device)
 
-loss.backward()withtorch.no_grad():#下边的计算不需要跟踪梯度w -= lr * w.grad
-b -= lr * b.grad# 清零梯度w.grad.zero_()
-b.grad.zero_()
+#设置超参数
+epoch = 10000
+lr = 0.003
+
+for i in range(epoch):
+    outputs = inputs @ w + b
+    loss = torch.mean(torch.square(outputs - targets))
+    print("loss:", loss.item())
+
+    loss.backward()
+
+    with torch.no_grad(): #下边的计算不需要跟踪梯度
+        w -= lr * w.grad
+        b -= lr * b.grad
+
+    # 清零梯度
+    w.grad.zero_()
+    b.grad.zero_()
 
 print("训练后的权重 w:", w)
 print("训练后的偏置 b:", b)
-
 ```
 
 上边的代码，首先必须将inputs和targets也移动到和参数同样的设备上，不同设备上的tensor是无法进行计算的。
@@ -51,10 +70,9 @@ print("训练后的偏置 b:", b)
 
 ```
 训练后的权重 w: tensor([[1.1198],
-[2.1980],
-[3.2416]], device='cuda:0', requires_grad=True)
+        [2.1980],
+        [3.2416]], device='cuda:0', requires_grad=True)
 训练后的偏置 b: tensor([4.4238], device='cuda:0', requires_grad=True)
-
 ```
 
 可以看到和我们预设的参数值是非常接近的。

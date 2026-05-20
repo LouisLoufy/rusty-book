@@ -1,8 +1,6 @@
 import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import AnnotationSystem from './AnnotationSystem';
 import BookWorkspaceLayout from './BookWorkspaceLayout';
-import { AnnotationProvider } from '../../contexts/AnnotationContext';
 import { PageTitleProvider } from '../../contexts/PageTitleContext';
 import { MetaProvider } from '../../contexts/MetaContext';
 import { useCategoryNavigation } from '../../hooks/useCategoryNavigation';
@@ -55,25 +53,22 @@ const DocsLayoutInner = ({ meta, shellMeta = null, children }) => {
       sidebarOpen={sidebarOpen}
       onMenuToggle={toggleSidebar}
       onSidebarClose={closeSidebar}
-      afterMain={<AnnotationSystem />}
     >
       {children}
     </BookWorkspaceLayout>
   );
 };
 
-// Main component with provider
+// Main component with providers
 const DocsLayout = ({ meta, shellMeta = null, children }) => {
   return (
-    <AnnotationProvider>
-      <PageTitleProvider meta={meta}>
-        <MetaProvider meta={meta}>
-          <DocsLayoutInner meta={meta} shellMeta={shellMeta}>
-            {children}
-          </DocsLayoutInner>
-        </MetaProvider>
-      </PageTitleProvider>
-    </AnnotationProvider>
+    <PageTitleProvider meta={meta}>
+      <MetaProvider meta={meta}>
+        <DocsLayoutInner meta={meta} shellMeta={shellMeta}>
+          {children}
+        </DocsLayoutInner>
+      </MetaProvider>
+    </PageTitleProvider>
   );
 };
 

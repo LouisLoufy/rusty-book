@@ -32,10 +32,14 @@ forward方法：
 
 逻辑回归模型的实现代码如下：
 
-```
-classLogisticRegressionModel(nn.Module):def__init__(self, input_dim):super().__init__()
-self.linear = nn.Linear(input_dim,1)# nn.Linear也继承自nn.Module，输入为input_dim,输出一个值defforward(self, x):returntorch.sigmoid(self.linear(x))# Logistic Regression 输出概率
+```python
+class LogisticRegressionModel(nn.Module):
+    def __init__(self, input_dim):
+        super().__init__()
+        self.linear = nn.Linear(input_dim, 1)  # nn.Linear也继承自nn.Module，输入为input_dim,输出一个值
 
+    def forward(self, x):
+        return torch.sigmoid(self.linear(x))  # Logistic Regression 输出概率
 ```
 
 其中`nn.Linear`是定义一个线性回归模型。它传入两个参数，第一个是输入特征的个数。第二个是输出特征的个数，你可能奇怪线性回归输出的个数不就是1吗，为什么还可以是其他值？实际上这里的`nn.Linear`是一个线性层。它可以一次性定义多个线性回归，所以可以有多个输出，当我们设置输出值为1时，那么就是我们之前讲的线性回归了。关于`nn.Linear`的更多知识我们会在讲神经网络时谈及。

@@ -18,9 +18,8 @@ $$
 
 PyTorch里一般在定义优化器时，可以同步设置weight decay。并指定$\lambda$的值。示例代码如下：
 
-```
+```python
 optimizer = optim.SGD(model.parameters(), lr=0.1, weight_decay=1e-4)
-
 ```
 
 ### 9.6.3 权重衰减和L2正则的关系

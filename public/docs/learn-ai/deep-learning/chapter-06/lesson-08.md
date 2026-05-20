@@ -9,17 +9,13 @@ $$
 time=2*lights+0.01*distance+5
 $$
 
-timelightsdistance
-
-1921000
-
-3132000
-
-142500
-
-151800
-
-4343000
+| time | lights | distance |
+| --- | --- | --- |
+| 19 | 2 | 1000 |
+| 31 | 3 | 2000 |
+| 14 | 2 | 500 |
+| 15 | 1 | 800 |
+| 43 | 4 | 3000 |
 
 这里的time是用lights和distance，严格按照上边给定参数的线性模型生成的。没有添加误差。
 
@@ -27,28 +23,31 @@ timelightsdistance
 
 ### 6.8.2用梯度下降训练
 
-```
-importtorch
+```python
+import torch
 
-device = torch.device("cuda"iftorch.cuda.is_available()else"cpu")
-inputs = torch.tensor([[2,1000], [3,2000], [2,500], [1,800], [4,3000]], dtype=torch.float, device=device)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+inputs = torch.tensor([[2, 1000], [3, 2000], [2, 500], [1, 800], [4, 3000]], dtype=torch.float, device=device)
 labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)
 
-w = torch.ones(2,1, requires_grad=True, device=device)
+w = torch.ones(2, 1, requires_grad=True, device=device)
 b = torch.ones(1, requires_grad=True, device=device)
 
-epoch =200lr =0.0000001foriinrange(epoch):
-outputs = inputs @ w + b
-loss = torch.mean(torch.square(outputs - labels))
-print("loss", loss.item())
-loss.backward()
-print("w.grad", w.grad.tolist())withtorch.no_grad():
-w -= w.grad * lr
-b -= b.grad * lr
+epoch = 200
+lr = 0.0000001
 
-w.grad.zero_()
-b.grad.zero_()
+for i in range(epoch):
+    outputs = inputs @ w + b
+    loss = torch.mean(torch.square(outputs - labels))
+    print("loss", loss.item())
+    loss.backward()
+    print("w.grad", w.grad.tolist())
+    with torch.no_grad():
+        w -= w.grad * lr
+        b -= b.grad * lr
 
+    w.grad.zero_()
+    b.grad.zero_()
 ```
 
 通过上边的代码，可以训练一个线性回归模型，你可以尝试调整学习率lr，你会发现这个lr必须设置的很小。如果设置稍大，模型训练过程就会不收敛，loss值会快速增大，直到超过float的表示范围。而且loss值降到7左右，就很难再下降了。我们造的数据是严格按照线性方程构造的，理论上loss应该可以降到非常接近0的。但为什么loss值不能下降到0呢？
@@ -57,7 +56,6 @@ b.grad.zero_()
 ```
 loss 2898583.75
 w.grad [[8600.0], [5876040.0]]
-
 ```
 
 可以发现对于lights权重$w_0$的梯度值为8600，对于distance权重$w_1$的梯度值为5876040。$w_1$的梯度大概是$w_0$梯度的1000倍。
@@ -76,28 +74,34 @@ w.grad [[8600.0], [5876040.0]]
 对于bias而言，它的系数为1，相当于它的输入feature大小永远都是1。那么我们就把其他feature都调整到1左右。最简单的做法，就是让输入feature都除以这个feature的最大值，这样所有feature的取值都是0到1之间了。
 我们试一下这样是否可以改进训练的稳定性：
 
-```
-importtorch
+```python
+import torch
 
-device = torch.device("cuda"iftorch.cuda.is_available()else"cpu")
-inputs = torch.tensor([[2,1000], [3,2000], [2,500], [1,800], [4,3000]], dtype=torch.float, device=device)
-labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)#进行归一化inputs = inputs / torch.tensor([4,3000], device=device)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+inputs = torch.tensor([[2, 1000], [3, 2000], [2, 500], [1, 800], [4, 3000]], dtype=torch.float, device=device)
+labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)
 
-w = torch.ones(2,1, requires_grad=True, device=device)
+#进行归一化
+inputs = inputs / torch.tensor([4, 3000], device=device)
+
+w = torch.ones(2, 1, requires_grad=True, device=device)
 b = torch.ones(1, requires_grad=True, device=device)
 
-epoch =1000lr =0.5foriinrange(epoch):
-outputs = inputs @ w + b
-loss = torch.mean(torch.square(outputs - labels))
-print("loss", loss.item())
-loss.backward()
-print("w.grad", w.grad.tolist())withtorch.no_grad():
-w -= w.grad * lr
-b -= b.grad * lr
+epoch = 1000
+lr = 0.5
 
-w.grad.zero_()
-b.grad.zero_()
+for i in range(epoch):
+    outputs = inputs @ w + b
+    loss = torch.mean(torch.square(outputs - labels))
+    print("loss", loss.item())
+    loss.backward()
+    print("w.grad", w.grad.tolist())
+    with torch.no_grad():
+        w -= w.grad * lr
+        b -= b.grad * lr
 
+    w.grad.zero_()
+    b.grad.zero_()
 ```
 
 通过上边代码的调整，我们就可以给lr设置一个较大的值了，并且经过1000次迭代后，loss值就非常接近于0了。
@@ -106,29 +110,37 @@ b.grad.zero_()
 
 实际上在深度学习里，更常用的是对特征进行标准化处理。也就是对每个feature减去自己的均值，再除以自己的标准差。这样就把这个feature转化为均值为0，标准差为1的分布了。在归一化操作里，是对每个feature除以这个feature所有样本中绝对值最大的值。只有这一个值决定缩放大小。但这个值有可能是个异常值。相比之下标准化处理会考虑所有样本的分布情况，避免缩放受异常值的影响，训练起来会更稳定。
 
-```
-importtorch
+```python
+import torch
 
-device = torch.device("cuda"iftorch.cuda.is_available()else"cpu")
-inputs = torch.tensor([[2,1000], [3,2000], [2,500], [1,800], [4,3000]], dtype=torch.float, device=device)
-labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)#计算特征的均值和标准差mean = inputs.mean(dim=0)
-std = inputs.std(dim=0)#对特征进行标准化inputs_norm = (inputs-mean)/std
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+inputs = torch.tensor([[2, 1000], [3, 2000], [2, 500], [1, 800], [4, 3000]], dtype=torch.float, device=device)
+labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)
 
-w = torch.ones(2,1, requires_grad=True, device=device)
+#计算特征的均值和标准差
+mean = inputs.mean(dim=0)
+std = inputs.std(dim=0)
+#对特征进行标准化
+inputs_norm = (inputs-mean)/std
+
+w = torch.ones(2, 1, requires_grad=True, device=device)
 b = torch.ones(1, requires_grad=True, device=device)
 
-epoch =1000lr =0.5foriinrange(epoch):
-outputs = inputs_norm @ w + b
-loss = torch.mean(torch.square(outputs - labels))
-print("loss", loss.item())
-loss.backward()
-print("w.grad", w.grad.tolist())withtorch.no_grad():
-w -= w.grad * lr
-b -= b.grad * lr
+epoch = 1000
+lr = 0.5
 
-w.grad.zero_()
-b.grad.zero_()
+for i in range(epoch):
+    outputs = inputs_norm @ w + b
+    loss = torch.mean(torch.square(outputs - labels))
+    print("loss", loss.item())
+    loss.backward()
+    print("w.grad", w.grad.tolist())
+    with torch.no_grad():
+        w -= w.grad * lr
+        b -= b.grad * lr
 
+    w.grad.zero_()
+    b.grad.zero_()
 ```
 
 可以看到，训练也是非常稳定，loss值也非常接近0。
@@ -137,29 +149,46 @@ b.grad.zero_()
 
 有一点要特别注意，假如你在训练时对数据做了归一化，那么你一定要记录你做归一化时的参数。在对数据进行预测时，首先需要先对feature用同样的参数进行归一化，然后再带入模型，得到预测值。
 
-```
-importtorch
+```python
+import torch
 
-device = torch.device("cuda"iftorch.cuda.is_available()else"cpu")
-inputs = torch.tensor([[2,1000], [3,2000], [2,500], [1,800], [4,3000]], dtype=torch.float, device=device)
-labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)#计算每个特征的均值和标准差mean = inputs.mean(dim=0)
-std = inputs.std(dim=0)#对特征进行标准化inputs = (inputs-mean)/std
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+inputs = torch.tensor([[2, 1000], [3, 2000], [2, 500], [1, 800], [4, 3000]], dtype=torch.float, device=device)
+labels = torch.tensor([[19], [31], [14], [15], [43]], dtype=torch.float, device=device)
 
-w = torch.ones(2,1, requires_grad=True, device=device)
+#计算每个特征的均值和标准差
+mean = inputs.mean(dim=0)
+std = inputs.std(dim=0)
+#对特征进行标准化
+inputs = (inputs-mean)/std
+
+w = torch.ones(2, 1, requires_grad=True, device=device)
 b = torch.ones(1, requires_grad=True, device=device)
 
-epoch =2000lr =0.1foriinrange(epoch):
-outputs = inputs @ w + b
-loss = torch.mean(torch.square(outputs - labels))
-print("loss", loss.item())
-loss.backward()
-print("w.grad", w.grad.tolist())withtorch.no_grad():
-w -= w.grad * lr
-b -= b.grad * lr
+epoch = 2000
+lr = 0.1
 
-w.grad.zero_()
-b.grad.zero_()# 对新采集的数据进行预测new_input = torch.tensor([[3,2500]],dtype=torch.float,device=device)# 对于新的数据进行预测时，同样要进行标准化new_input = (new_input-mean)/std# 预测predict = new_input @ w + b# 打印预测结果print("Predict:",predict.tolist()[0][0])
+for i in range(epoch):
+    outputs = inputs @ w + b
+    loss = torch.mean(torch.square(outputs - labels))
+    print("loss", loss.item())
+    loss.backward()
+    print("w.grad", w.grad.tolist())
+    with torch.no_grad():
+        w -= w.grad * lr
+        b -= b.grad * lr
 
+    w.grad.zero_()
+    b.grad.zero_()
+
+# 对新采集的数据进行预测
+new_input = torch.tensor([[3,2500]],dtype=torch.float,device=device)
+# 对于新的数据进行预测时，同样要进行标准化
+new_input = (new_input-mean)/std
+# 预测
+predict = new_input @ w + b
+# 打印预测结果
+print("Predict:",predict.tolist()[0][0])
 ```
 
 ### 6.8.6 为什么归一化不会影响模型

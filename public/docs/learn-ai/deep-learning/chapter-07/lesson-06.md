@@ -20,11 +20,10 @@
 
 在二分类问题中，我们有两个类别：正类（Positive）和负类（Negative）。根据模型对每个样本的预测值和label值之间的关系，每个预测结果可以落在四个格子中的一个。然后对每个格子中的样本计数。
 
-真实正类（Positive）真实负类（Negative）
-
-预测正类True Positive(TP)False Positive(FP)
-
-预测负类False Negative(FN)True Negative(TN)
+|   | 真实正类（Positive） | 真实负类（Negative） |
+| --- | --- | --- |
+| 预测正类 | True Positive(TP) | False Positive(FP) |
+| 预测负类 | False Negative(FN) | True Negative(TN) |
 
 **TP：**模型正确地将正样本预测为正类的数量。
 

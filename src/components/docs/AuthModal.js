@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { HiX, HiCheckCircle, HiExclamationCircle } from 'react-icons/hi';
-import { useAnnotationContext } from '../../contexts/AnnotationContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 import './AuthModal.css';
 
 const AuthModal = ({ isOpen, onClose }) => {
-  const { login } = useAnnotationContext();
+  const { login } = useAuthContext();
   const [token, setToken] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
-  const [migrated, setMigrated] = useState(false);
 
   if (!isOpen) return null;
 
@@ -25,13 +24,11 @@ const AuthModal = ({ isOpen, onClose }) => {
 
     if (result.success) {
       setSuccess(true);
-      setMigrated(result.migrated);
       setTimeout(() => {
         onClose();
         setToken('');
         setSuccess(false);
-        setMigrated(false);
-      }, 2000);
+      }, 1500);
     } else {
       setError(result.error || '连接失败，请检查你的 Token 是否正确。');
     }
@@ -45,8 +42,6 @@ const AuthModal = ({ isOpen, onClose }) => {
       setSuccess(false);
     }
   };
-
-  if (!isOpen) return null;
 
   return ReactDOM.createPortal(
     <div className="auth-modal-backdrop" onClick={handleClose}>
@@ -67,9 +62,6 @@ const AuthModal = ({ isOpen, onClose }) => {
             <div className="auth-modal-success">
               <HiCheckCircle className="auth-modal-success-icon" />
               <h3>连接成功！</h3>
-              {migrated && (
-                <p>你本地的标注数据已经同步到 GitHub。</p>
-              )}
             </div>
           ) : (
             <>
@@ -80,16 +72,13 @@ const AuthModal = ({ isOpen, onClose }) => {
                   </svg>
                 </div>
 
-                <h3>为什么要连接 GitHub？</h3>
+                <h3>连接 GitHub 账号</h3>
                 <ul className="auth-modal-benefits">
                   <li>
-                    <strong>安全存储：</strong> 标注内容保存到你的 GitHub 账号
+                    <strong>身份标识：</strong> 在站点中显示你的 GitHub 头像与用户名
                   </li>
                   <li>
-                    <strong>多端同步：</strong> 可在不同设备和浏览器中访问
-                  </li>
-                  <li>
-                    <strong>参与评论：</strong> 登录后可在文章底部发表评论
+                    <strong>多端一致：</strong> 在不同设备和浏览器中保持登录状态
                   </li>
                 </ul>
               </div>
@@ -108,7 +97,7 @@ const AuthModal = ({ isOpen, onClose }) => {
                     required
                   />
                   <div className="auth-modal-hint">
-                    该 Token 只需要开启 <code>gist</code> 权限。
+                    该 Token 仅用于读取你的账号信息，无需勾选任何权限。
                   </div>
                 </div>
 
@@ -121,7 +110,7 @@ const AuthModal = ({ isOpen, onClose }) => {
 
                 <div className="auth-modal-help">
                   <a
-                    href="https://github.com/settings/tokens/new?description=BeatAI%20Annotations&scopes=gist"
+                    href="https://github.com/settings/tokens/new?description=BeatAI%20Login"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="auth-modal-help-link"
@@ -131,7 +120,7 @@ const AuthModal = ({ isOpen, onClose }) => {
                   <div className="auth-modal-help-steps">
                     <ol>
                       <li>点击上方链接打开 GitHub</li>
-                      <li>确认勾选了 <strong>gist</strong> 权限(默认会勾选)</li>
+                      <li>无需勾选任何权限</li>
                       <li>点击页面底部的“Generate token”</li>
                       <li>复制生成的 Token 并粘贴到上方输入框</li>
                     </ol>

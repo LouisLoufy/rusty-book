@@ -6,19 +6,14 @@ BLEU（Bilingual Evaluation Understudy）是机器翻译中最常用的自动评
 
 BLEU指标的取值范围为[0,1]之间，值越大代表机器翻译与参考译文越相似，表明翻译效果越好。
 
-BLEU得分模型表现
-
-0-0.1差，基本不可读
-
-0.1-0.2可表达大体意思，有时会有错误
-
-0.2-0.3基本流畅可用，有一定错误或者不自然
-
-0.3-0.4很流畅，但不完美
-
-0.4-0.5很好，接近人工翻译
-
-0.5-1.0非常好（罕见）
+| BLEU得分 | 模型表现 |
+| --- | --- |
+| 0-0.1 | 差，基本不可读 |
+| 0.1-0.2 | 可表达大体意思，有时会有错误 |
+| 0.2-0.3 | 基本流畅可用，有一定错误或者不自然 |
+| 0.3-0.4 | 很流畅，但不完美 |
+| 0.4-0.5 | 很好，接近人工翻译 |
+| 0.5-1.0 | 非常好（罕见） |
 
 ### 14.2.1 BLEU原理
 
@@ -38,18 +33,37 @@ BLEU的大致原理是：
 
 首先安装依赖库：
 
-```
+```bash
 pip install sacrebleu
-
 ```
 
 BLEU score对于一个机器翻译出来的句子，可以有多个参考的翻译。这是因为一个意思可以有多种不同的表达方式。如果想要BLEU值准确，就应该提供各种可能得参考翻译。但在我们这个demo的数据里，每个翻译只有一个参考答案。具体调用BLEU的代码：
 
-```
-importsacrebleu# 单个参考译文列表references = ["今天天气很好。","我喜欢在雨天散步。","今天要早点下班。"]# 模型生成的候选翻译hypotheses = ["今日天气不错。","下雨的时候我喜欢散步。","今天下班要早些。"]# sacrebleu 需要 references 是 list[list[str]]# 即使只有一个参考，也要是内层 listreferences = [references]# 变成：[[ref1, ref2, ref3]]# 计算 BLEUbleu = sacrebleu.corpus_bleu(hypotheses, references, tokenize='zh')
+```python
+import sacrebleu
+
+# 单个参考译文列表
+references = [
+    "今天天气很好。",
+    "我喜欢在雨天散步。",
+    "今天要早点下班。"
+]
+
+# 模型生成的候选翻译
+hypotheses = [
+    "今日天气不错。",
+    "下雨的时候我喜欢散步。",
+    "今天下班要早些。"
+]
+
+# sacrebleu 需要 references 是 list[list[str]]
+# 即使只有一个参考，也要是内层 list
+references = [references]  # 变成：[[ref1, ref2, ref3]]
+
+# 计算 BLEU
+bleu = sacrebleu.corpus_bleu(hypotheses, references, tokenize='zh')
 
 print(f"BLEU score: {bleu.score:.2f}")
-
 ```
 
 运行后，可以看到，BLEU得分为16.31，注意这里输出的是百分比，对应实际BLEU值为0.1631。需要注意一点，在调用`sacrebleu.corpus_bleu`时，需要设置正确的分词方式，我们这里是对中文进行分词，需要设置`tokenize='zh'`。sacrebleu库里对中文的分词是单个字认为是一个token。
@@ -67,11 +81,10 @@ print(f"BLEU score: {bleu.score:.2f}")
 假设参考翻译$T_r$为“今天天气很好”，模型翻译$T_m$为：“今天今天今天”
 都按照单个字为一个token来拆解，则$T_m$里有两个不同的token：“今”、“天”。这两个token也都出现在$T_r$的token序列里。我们是否就可以定义$p_1=1$呢？当然不行，这个翻译明显是个很差的翻译。BLEU的具体做法如下：
 
-token$count(T_m,token)$$min(count(T_m,token),count(T_r,token))$
-
-今31
-
-天32
+| token | $count(T_m,token)$ | $min(count(T_m,token),count(T_r,token))$ |
+| --- | --- | --- |
+| 今 | 3 | 1 |
+| 天 | 3 | 2 |
 
 上表中第二列统计了对于某个token在$T_m$中出现的个数，把这个值叫做$count$。上表中第三列统计了对于某个token在$T_m,T_r$中出现较小的那个count值，把这个值叫做$clip\_count$。
 
@@ -89,15 +102,12 @@ $$
 
 则$T_m$中2个不同的连续token序列为“今天”、“天今”、“天不”、“不错”
 
-token$count(T_m,token)$$min(count(T_m,token),count(T_r,token))$
-
-今天21
-
-天今10
-
-天不10
-
-不错11
+| token | $count(T_m,token)$ | $min(count(T_m,token),count(T_r,token))$ |
+| --- | --- | --- |
+| 今天 | 2 | 1 |
+| 天今 | 1 | 0 |
+| 天不 | 1 | 0 |
+| 不错 | 1 | 1 |
 
 $$
 p_1 = \frac{\sum clip\_count}{\sum count}=2/5 =0.4

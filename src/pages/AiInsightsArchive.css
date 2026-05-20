@@ -340,6 +340,11 @@
     align-items: flex-start;
   }
 
+  /* 移动端隐藏卡片/列表视图切换 */
+  .archive-view-toggle {
+    display: none;
+  }
+
   .archive-card {
     flex-direction: column;
     padding: 1rem 1.1rem;

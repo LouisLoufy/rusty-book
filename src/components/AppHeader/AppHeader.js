@@ -3,8 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
-import AuthStatus from '../docs/AuthStatus';
 import ReadingModeToggleButton from '../docs/ReadingModeToggleButton';
+import AuthStatus from '../docs/AuthStatus';
 import './AppHeader.css';
 
 /**
@@ -78,12 +78,12 @@ const AppHeader = ({
     <header className="app-header glass-morphism">
       <div className="app-header-content">
         {/* Desktop brand text */}
-        <Link to="/square" className="app-logo desktop-only">
+        <Link to="/ai-insights" className="app-logo desktop-only">
           <span className="logo-text">BeatAI</span>
         </Link>
 
         {/* Mobile brand text */}
-        <Link to="/square" className="app-logo-mobile mobile-only">
+        <Link to="/ai-insights" className="app-logo-mobile mobile-only">
           <span className="logo-text">BeatAI</span>
         </Link>
 

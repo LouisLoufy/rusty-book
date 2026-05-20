@@ -84,10 +84,30 @@ $$
 
 ### 15.4.4 PyTorch实现位置编码
 
-```
-classPositionalEncoding(nn.Module):def__init__(self, d_model: int, seq_len: int, dropout: float)->None:super().__init__()
-self.d_model = d_model
-self.seq_len = seq_len
-self.dropout = nn.Dropout(dropout)# 创建一个空的tensorpe = torch.zeros(seq_len, d_model)# (seq_len, d_model)# 创建一个位置向量position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1)# 计算分母div_term = torch.pow(10000.0, -torch.arange(0, d_model,2, dtype=torch.float) / d_model)# (d_model / 2)# 偶数位调用sinpe[:,0::2] = torch.sin(position * div_term)# 奇数为调用cospe[:,1::2] = torch.cos(position * div_term)# 增加batch维度pe = pe.unsqueeze(0)# (1, seq_len, d_model)# 注册位置编码为一个buffer，这个tensor不会参与训练，但是会随同模型一起被保存或者迁移到GPU。self.register_buffer('pe', pe)defforward(self, x):x = x + (self.pe[:, :x.shape[1], :]).requires_grad_(False)returnself.dropout(x)
+```python
+class PositionalEncoding(nn.Module):
 
+    def __init__(self, d_model: int, seq_len: int, dropout: float) -> None:
+        super().__init__()
+        self.d_model = d_model
+        self.seq_len = seq_len
+        self.dropout = nn.Dropout(dropout)
+        # 创建一个空的tensor
+        pe = torch.zeros(seq_len, d_model)  # (seq_len, d_model)
+        # 创建一个位置向量
+        position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1)  
+        # 计算分母
+        div_term = torch.pow(10000.0, -torch.arange(0, d_model, 2, dtype=torch.float) / d_model)  # (d_model / 2)
+        # 偶数位调用sin
+        pe[:, 0::2] = torch.sin(position * div_term) 
+        # 奇数为调用cos
+        pe[:, 1::2] = torch.cos(position * div_term) 
+        # 增加batch维度
+        pe = pe.unsqueeze(0)  # (1, seq_len, d_model)
+        # 注册位置编码为一个buffer，这个tensor不会参与训练，但是会随同模型一起被保存或者迁移到GPU。
+        self.register_buffer('pe', pe)
+
+    def forward(self, x):
+        x = x + (self.pe[:, :x.shape[1], :]).requires_grad_(False) 
+        return self.dropout(x)
 ```

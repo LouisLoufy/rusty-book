@@ -36,6 +36,7 @@ import {
 } from './markdownRenderers';
 import { usePageTitle } from '../../contexts/PageTitleContext';
 import { useMeta } from '../../contexts/MetaContext';
+import { useHistory } from '../../contexts/HistoryContext';
 import { useTag } from '../../contexts/TagContext';
 import { useMarkdownSource } from '../../hooks/useMarkdownSource';
 import { useDocShortcuts } from '../../hooks/useDocShortcuts';
@@ -51,6 +52,7 @@ const DocContent = () => {
   const location = useLocation();
   const { setPageTitle, findTitleByPath } = usePageTitle();
   const { meta } = useMeta();
+  const { recordVisit } = useHistory();
   const { findArticleTags } = useTag();
   const articleRef = React.useRef(null);
   const commentsRef = React.useRef(null);
@@ -91,6 +93,34 @@ const DocContent = () => {
     setPageTitle(title);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [docPath, error, frontmatter.title, rawDoc, setPageTitle, titleFromMeta]);
+
+  // 仅记录真正的文章页（meta 中的叶子条目），并带上所属上级分类。
+  useEffect(() => {
+    if (error || !rawDoc || docMetaEntry?.type !== 'item') {
+      return;
+    }
+
+    const articleTitle = titleFromMeta || frontmatter.title;
+    if (!articleTitle) {
+      return;
+    }
+
+    recordVisit({
+      path: location.pathname,
+      title: articleTitle,
+      categoryId: docMetaEntry.category?.id || null,
+      category: docMetaEntry.category?.title || null,
+      section: docMetaEntry.section?.title || null
+    });
+  }, [
+    error,
+    rawDoc,
+    docMetaEntry,
+    titleFromMeta,
+    frontmatter.title,
+    location.pathname,
+    recordVisit
+  ]);
 
   const headings = useRenderedHeadings(articleRef, content, {
     enabled: Boolean(content)

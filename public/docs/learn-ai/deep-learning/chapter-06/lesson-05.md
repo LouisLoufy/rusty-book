@@ -55,24 +55,26 @@ $$
 
 我们在PyTorch里完成上边这个简单的例子。
 
-```
-importtorch
+```python
+import torch
 
-x = torch.tensor(1.0, requires_grad=True)#指定需要计算梯度y = torch.tensor(1.0, requires_grad=True)#指定需要计算梯度v =3*x+4*y
+x = torch.tensor(1.0, requires_grad=True) #指定需要计算梯度
+y = torch.tensor(1.0, requires_grad=True) #指定需要计算梯度
+v = 3*x+4*y
 u = torch.square(v)
 z = torch.log(u)
 
-z.backward()#反向传播求梯度print("x grad:", x.grad)
-print("y grad:", y.grad)
+z.backward() #反向传播求梯度
 
+print("x grad:", x.grad)
+print("y grad:", y.grad)
 ```
 
 结果为：
 
-```
+```bash
 x grad: tensor(0.8571)
 y grad: tensor(1.1429)
-
 ```
 
 仔细分析PyTorch的代码可以发现，我们定义了x，y需要计算梯度，然后定义了计算的流程。PyTorch内部会自动帮我们构建和维护计算图。我们只要调用结果z的反向传播方法，PyTorch内部会根据计算图反向传播，计算梯度。最终打印出的x和y在（1,1）点的梯度和我们手动计算的梯度值是完全一致的。

@@ -4,10 +4,10 @@
 
 ### 14.4.1 人工测评
 
-```
+```python
 import torch
 import sentencepiece as spm
-from translator import Seq2Seq, Encoder, Decoder, Attention
+from translator import Seq2Seq, Encoder, Decoder, Attention 
 
 # ---------------------#
 # 1. Load Tokenizers
@@ -44,45 +44,44 @@ model.eval()
 # 3. Translation Function (Greedy)
 # ---------------------#
 def translate_sentence(sentence, max_len=100):
-# Tokenize and convert to IDs
-tokens = [BOS_ID] + sp_en.encode(sentence, out_type=int) + [EOS_ID]
-src_tensor = torch.LongTensor(tokens).unsqueeze(1).to(DEVICE)  # [src_len, 1]
-src_len = [len(tokens)]
+    # Tokenize and convert to IDs
+    tokens = [BOS_ID] + sp_en.encode(sentence, out_type=int) + [EOS_ID]
+    src_tensor = torch.LongTensor(tokens).unsqueeze(1).to(DEVICE)  # [src_len, 1]
+    src_len = [len(tokens)]
 
-# 调用Encoder
-with torch.no_grad():
-encoder_outputs, hidden, cell = encoder(src_tensor, src_len)
+    # 调用Encoder
+    with torch.no_grad():
+        encoder_outputs, hidden, cell = encoder(src_tensor, src_len)
 
-# 第一个输入token，序列起始token：<bos>
-trg_indices = [BOS_ID]
-# 逐个token，循环调用Decoder。
-for _ in range(max_len):
-# 最新生成的token作为输入
-trg_tensor = torch.LongTensor([trg_indices[-1]]).to(DEVICE)
-with torch.no_grad():
-output, hidden, cell, _ = decoder(trg_tensor, hidden, cell, encoder_outputs,
-(src_tensor != PAD_ID).permute(1, 0))
-# 取预测概率最大的token作为输出
-pred_token = output.argmax(1).item()
-trg_indices.append(pred_token)
-if pred_token == EOS_ID:
-break
+    # 第一个输入token，序列起始token：<bos>
+    trg_indices = [BOS_ID]
+    # 逐个token，循环调用Decoder。
+    for _ in range(max_len):
+        # 最新生成的token作为输入
+        trg_tensor = torch.LongTensor([trg_indices[-1]]).to(DEVICE)
+        with torch.no_grad():
+            output, hidden, cell, _ = decoder(trg_tensor, hidden, cell, encoder_outputs,
+                                               (src_tensor != PAD_ID).permute(1, 0))
+        # 取预测概率最大的token作为输出
+        pred_token = output.argmax(1).item()
+        trg_indices.append(pred_token)
+        if pred_token == EOS_ID:
+            break
 
-# 将token id解码为文字 (跳过<bos>和<eos>)
-translated = sp_cn.decode(trg_indices[1:-1])
-return translated
+    # 将token id解码为文字 (跳过<bos>和<eos>)
+    translated = sp_cn.decode(trg_indices[1:-1])
+    return translated
 
 # ---------------------#
 # 4. Interactive Test
 # ---------------------#
 if __name__ == '__main__':
-while True:
-src_sent = input("Enter English sentence (or 'quit' to exit): ")
-if src_sent.lower() in ['quit', 'exit']:
-break
-translation = translate_sentence(src_sent)
-print(f"Chinese Translation: {translation}\n")
-
+    while True:
+        src_sent = input("Enter English sentence (or 'quit' to exit): ")
+        if src_sent.lower() in ['quit', 'exit']:
+            break
+        translation = translate_sentence(src_sent)
+        print(f"Chinese Translation: {translation}\n")
 ```
 
 你可以通过上边的代码[inference.py](https://github.com/RethinkFun/DeepLearning/blob/master/chapter14/inference.py)进行测试，它依赖[translator.py](https://github.com/RethinkFun/DeepLearning/blob/master/chapter14/translator.py)。
@@ -95,15 +94,15 @@ print(f"Chinese Translation: {translation}\n")
 
 通过运行[BLEU_socre.py](https://github.com/RethinkFun/DeepLearning/blob/master/chapter14/BLEU_score.py)，它依赖[inference.py](https://github.com/RethinkFun/DeepLearning/blob/master/chapter14/inference.py)。运行后将显示你训练模型的BLEU值。
 
-```
+```python
 import sacrebleu
 from inference import translate_sentence
 # 读取验证集的英文原文和中文参考
 with open('data/en2cn/valid_en.txt', 'r', encoding='utf-8') as f:
-src_sentences = [line.strip() for line in f.readlines()]
+    src_sentences = [line.strip() for line in f.readlines()]
 
 with open('data/en2cn/valid_zh.txt', 'r', encoding='utf-8') as f:
-ref_sentences = [line.strip() for line in f.readlines()]
+    ref_sentences = [line.strip() for line in f.readlines()]
 
 # 检查长度是否匹配
 assert len(src_sentences) == len(ref_sentences), "源语言和参考翻译句子数不匹配"
@@ -111,17 +110,16 @@ assert len(src_sentences) == len(ref_sentences), "源语言和参考翻译句子
 # 用模型生成翻译
 hypotheses = []
 for i, src in enumerate(src_sentences):
-print(f"Translating {i+1}/{len(src_sentences)}...")
-translation = translate_sentence(src)
-print(ref_sentences[i], translation)
-hypotheses.append(translation.strip())
+    print(f"Translating {i+1}/{len(src_sentences)}...")
+    translation = translate_sentence(src)
+    print(ref_sentences[i], translation)
+    hypotheses.append(translation.strip())
 
 # 计算 BLEU
 bleu = sacrebleu.corpus_bleu(hypotheses, [ref_sentences], tokenize='zh')
 
 print("\n========== BLEU Evaluation Result ==========")
 print(f"BLEU Score: {bleu.score:.2f}")
-
 ```
 
 ### 14.4.3 下一步改进

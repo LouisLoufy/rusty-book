@@ -1,29 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { HiLogout, HiUser, HiAnnotation, HiSparkles } from 'react-icons/hi';
-import { useAnnotationContext } from '../../contexts/AnnotationContext';
-import { useNavigate } from 'react-router-dom';
+import { HiLogout, HiUser, HiSparkles, HiClock } from 'react-icons/hi';
+import { useAuthContext } from '../../contexts/AuthContext';
 import AuthModal from './AuthModal';
 import HiddenTipsModal from './HiddenTipsModal';
+import HistoryModal from './HistoryModal';
 import './AuthStatus.css';
 
 const AuthStatus = () => {
-  const {
-    isAuthenticated,
-    username,
-    avatarUrl,
-    allAnnotations,
-    logout
-  } = useAnnotationContext();
+  const { isAuthenticated, username, avatarUrl, logout } = useAuthContext();
 
-  const navigate = useNavigate();
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showUserPanel, setShowUserPanel] = useState(false);
   const [showTipsModal, setShowTipsModal] = useState(false);
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
   const panelRef = useRef(null);
   const buttonRef = useRef(null);
-
-  // Calculate total notes count
-  const totalNotesCount = Object.values(allAnnotations).flat().length;
 
   // Close panel when clicking outside
   useEffect(() => {
@@ -114,19 +105,15 @@ const AuthStatus = () => {
 
             <div className="auth-status-user-panel-divider"></div>
 
-            {/* My Notes Button */}
             <button
               className="auth-status-user-panel-btn"
               onClick={() => {
-                navigate('/my-notes');
+                setShowHistoryModal(true);
                 setShowUserPanel(false);
               }}
             >
-              <HiAnnotation />
-              <span>My Notes</span>
-              {totalNotesCount > 0 && (
-                <span className="auth-status-user-panel-badge">{totalNotesCount}</span>
-              )}
+              <HiClock />
+              <span>浏览历史</span>
             </button>
 
             <button
@@ -158,6 +145,10 @@ const AuthStatus = () => {
       <HiddenTipsModal
         isOpen={showTipsModal}
         onClose={() => setShowTipsModal(false)}
+      />
+      <HistoryModal
+        isOpen={showHistoryModal}
+        onClose={() => setShowHistoryModal(false)}
       />
     </>
   );

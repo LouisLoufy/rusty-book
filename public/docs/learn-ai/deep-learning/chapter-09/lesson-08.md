@@ -61,35 +61,43 @@ $$
 
 PyTorch里有定义好的BatchNorm的层，我们需要把它添加在线性变化和激活函数之间就可以了。它需要传入线性变化输出的神经元的个数。具体代码如下：
 
-```
-importtorch.nnasnnclassNeuralNetwork(nn.Module):def__init__(self):super().__init__()
-self.model = nn.Sequential(
-nn.Linear(28*28,128, bias=False),
-nn.BatchNorm1d(128),
-nn.ReLU(),
+```python
+import torch.nn as nn
 
-nn.Linear(128,128, bias=False),
-nn.BatchNorm1d(128),
-nn.ReLU(),
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.model = nn.Sequential(
+            nn.Linear(28 * 28, 128, bias=False),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
 
-nn.Linear(128,128, bias=False),
-nn.BatchNorm1d(128),
-nn.ReLU(),
+            nn.Linear(128, 128, bias=False),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
 
-nn.Linear(128,64, bias=False),
-nn.BatchNorm1d(64),
-nn.ReLU(),
+            nn.Linear(128, 128, bias=False),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
 
-nn.Linear(64,10)
-)defforward(self, x):returnself.model(x)
+            nn.Linear(128, 64, bias=False),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
 
+            nn.Linear(64, 10)
+        )
+
+    def forward(self, x):
+        return self.model(x)
 ```
 
 训练时和推理时的Batch Normalization的操作是不一样的。所以也要记得调用`model.train()`和`model.eval()`来切换模型的状态。
 
-```
-model.train()## 在这里训练你的模型。model.eval()## 在这里利用模型进行预测。
-
+```python
+model.train()
+## 在这里训练你的模型。
+model.eval()
+## 在这里利用模型进行预测。
 ```
 
 ---

@@ -18,39 +18,34 @@ Anaconda 是一个非常流行的 Python 开发平台，它的核心功能是提
 
 conda 默认有一个环境，叫做base。我们需要创建一个自己的开发环境，创建环境的命令格式如下：
 
-```
+```bash
 conda create --name 环境名称 python=3.9
-
 ```
 
 你可以通过上边的命令创建一个新的开发环境，并指定环境名称和python版本。比如我要创建一个名叫做pytorch的环境，那么我的命令就为
 
-```
+```bash
 conda create --name pytorch python=3.9
-
 ```
 
 删除一个环境的命令为：
 
-```
+```bash
 conda remove --name 环境名称 --all
-
 ```
 
 列出所有环境的命令为：
 
-```
+```bash
 conda env list
-
 ```
 
 ### 6.2.3 切换到你创建的环境
 
 进入**Anaconda Prompt**，你默认的环境是base，需要通过命令切换到你新创建的环境中去。
 
-```
+```bash
 conda activate 环境名称
-
 ```
 
 比如，以我新创建的环境PyTorch为例：
@@ -71,9 +66,8 @@ conda activate 环境名称
 
 进入之前版本页面后，我们找到我们想要安装的PyTorch版本，比如V2.4.0，我们寻找pip安装命令模块，并选择**CPU Only**下的安装命令，并复制，然后在Anaconda Prompt里输入我们复制的pip 安装命令。
 
-```
+```bash
 pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cpu
-
 ```
 
 ### 6.2.5 安装VS Code
@@ -121,10 +115,9 @@ VS Code 是一个开源的集成开发环境。你可以在[这个页面](https:
 
 我们输入：
 
-```
-importtorch
+```python
+import torch
 print(torch.__version__)
-
 ```
 
 ![0620.png](../imgs/0620.png)

@@ -12,7 +12,7 @@ const execFileAsync = promisify(execFile);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
-const extractScriptPath = path.join(repoRoot, '.claude', 'skills', 'extract-article', 'scripts', 'extract_html.py');
+const extractScriptPath = path.join(repoRoot, '.claude', 'skills_bak', 'extract-article', 'scripts', 'extract_html.py');
 const deepLearningRoot = path.join(repoRoot, 'public', 'docs', 'learn-ai', 'deep-learning');
 const metaPath = path.join(deepLearningRoot, '_meta.json');
 const defaultSummaryPath = path.join(os.homedir(), 'Downloads', 'test-book', 'SUMMARY.md');
@@ -71,10 +71,13 @@ function parseSummaryEntries(summaryContent) {
 }
 
 function flattenMetaItems(meta) {
-  return meta.sections.flatMap((section) => section.items.map((item) => ({
-    title: item.title,
-    file: item.file
-  })));
+  return meta.sections
+    .flatMap((section) => section.items)
+    .filter((item) => !item.file.endsWith('/AFTER.md'))
+    .map((item) => ({
+      title: item.title,
+      file: item.file
+    }));
 }
 
 function encodeUrlPath(markdownPath) {
@@ -103,8 +106,16 @@ function replaceImageUrls(markdown, targetFilePath) {
   });
 }
 
+function normalizeLocalPaths(markdown) {
+  return markdown.replace(/E:\\[^"'\n]*/g, (match) => {
+    const prefix = 'E:\\电子书\\RethinkFun深度学习\\';
+    const rel = match.startsWith(prefix) ? match.slice(prefix.length) : match;
+    return './' + rel.replace(/\\/g, '/');
+  });
+}
+
 function cleanExtractedMarkdown(markdown, targetFilePath) {
-  return replaceImageUrls(markdown, targetFilePath)
+  return normalizeLocalPaths(replaceImageUrls(markdown, targetFilePath))
     .replace(/\n{3,}/g, '\n\n')
     .trim() + '\n';
 }

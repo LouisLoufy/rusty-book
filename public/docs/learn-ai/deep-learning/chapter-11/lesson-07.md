@@ -52,103 +52,178 @@
 
 只更换分类头：
 
-```
-fromtorchvisionimportmodels
+```python
+from torchvision import models
 
-model = models.resnet18(pretrained=True)# 加载 ImageNet 预训练权重forparaminmodel.parameters():
-param.requires_grad =False# 冻结所有层in_features = model.fc.in_features
-model.fc = nn.Linear(in_features,1)# 新生成一个二分类头
+model = models.resnet18(pretrained=True)  # 加载 ImageNet 预训练权重
+for param in model.parameters():
+    param.requires_grad = False  # 冻结所有层
 
+in_features = model.fc.in_features
+model.fc = nn.Linear(in_features, 1)  # 新生成一个二分类头
 ```
 
 更换分类头同时解冻第四阶段的参数：
 
-```
-model = models.resnet18(pretrained=True)# 加载 ImageNet 预训练权重forparaminmodel.parameters():
-param.requires_grad =False# 冻结所有层# 解冻第四阶段的参数（最后一个残差模块）forparaminmodel.layer4.parameters():
-param.requires_grad =Truein_features = model.fc.in_features
-model.fc = nn.Linear(in_features,1)# 二分类
+```python
+    model = models.resnet18(pretrained=True)  # 加载 ImageNet 预训练权重
+    for param in model.parameters():
+        param.requires_grad = False  # 冻结所有层
 
+    # 解冻第四阶段的参数（最后一个残差模块）
+    for param in model.layer4.parameters():
+        param.requires_grad = True
+
+    in_features = model.fc.in_features
+    model.fc = nn.Linear(in_features, 1)  # 二分类
 ```
 
 你可以用上边的代码去重新训练我们之前的猫狗分类模型，利用强大的ResNet和迁移学习，模型精度可以大幅提升。下边是利用迁移学习进行猫狗分类的代码：
 
-```
-importtorchvision.modelsfromtorch.utils.dataimportDataset, DataLoaderfromPILimportImageimportrandomimporttorchfromtorchvisionimporttransforms, modelsimporttorch.nnasnnimportos
+```python
+import torchvision.models
+from torch.utils.data import Dataset, DataLoader
+from PIL import Image
+import random
+import torch
+from torchvision import transforms, models
+import torch.nn as nn
+import os
 
-torchvision.models.resnet18()defverify_images(image_folder):classes = ["Cat","Dog"]
-class_to_idx = {"Cat":0,"Dog":1}
-samples = []forcls_nameinclasses:
-cls_dir = os.path.join(image_folder, cls_name)forfnameinos.listdir(cls_dir):ifnotfname.lower().endswith(('.jpg','.jpeg','.png')):continuepath = os.path.join(cls_dir, fname)try:withImage.open(path)asimg:
-img.verify()
-samples.append((path, class_to_idx[cls_name]))exceptException:
-print(f"Warning: Skipping corrupted image {path}")returnsamplesclassImageDataset(Dataset):def__init__(self, samples, transform=None):self.samples = samples
-self.transform = transformdef__len__(self):returnlen(self.samples)def__getitem__(self, idx):path, label = self.samples[idx]withImage.open(path)asimg:
-img = img.convert('RGB')ifself.transform:
-img = self.transform(img)returnimg, labeldefevaluate(model, test_dataloader):model.eval()
-val_correct =0val_total =0withtorch.no_grad():forinputs, labelsintest_dataloader:
-inputs = inputs.to(DEVICE)
-labels = labels.float().unsqueeze(1).to(DEVICE)
+torchvision.models.resnet18()
 
-outputs = torch.sigmoid(model(inputs))
-preds = (outputs >0.5).float()
-val_correct += (preds == labels).sum().item()
-val_total += labels.size(0)
+def verify_images(image_folder):
+    classes = ["Cat", "Dog"]
+    class_to_idx = {"Cat": 0, "Dog": 1}
+    samples = []
+    for cls_name in classes:
+        cls_dir = os.path.join(image_folder, cls_name)
+        for fname in os.listdir(cls_dir):
+            if not fname.lower().endswith(('.jpg', '.jpeg', '.png')):
+                continue
+            path = os.path.join(cls_dir, fname)
+            try:
+                with Image.open(path) as img:
+                    img.verify()
+                samples.append((path, class_to_idx[cls_name]))
+            except Exception:
+                print(f"Warning: Skipping corrupted image {path}")
+    return samples
 
-val_acc = val_correct / val_totalreturnval_accif__name__ =="__main__":
-DATA_DIR =r"E:\电子书\RethinkFun深度学习\data\PetImages"BATCH_SIZE =64IMG_SIZE =128EPOCHS =15LR =0.001PRINT_STEP =100DEVICE = torch.device("cuda"iftorch.cuda.is_available()else"cpu")
+class ImageDataset(Dataset):
+    def __init__(self, samples, transform=None):
+        self.samples = samples
+        self.transform = transform
 
-all_samples = verify_images(DATA_DIR)
-random.seed(42)
-random.shuffle(all_samples)
-train_size = int(len(all_samples) *0.8)
-train_samples = all_samples[:train_size]
-valid_samples = all_samples[train_size:]
+    def __len__(self):
+        return len(self.samples)
 
-train_transform = transforms.Compose([
-transforms.Resize((150,150)),
-transforms.RandomCrop(size=(IMG_SIZE, IMG_SIZE)),
-transforms.RandomHorizontalFlip(p=0.5),
-transforms.ColorJitter(
-brightness=0.2,
-contrast=0.2,# saturation=0.2,# hue=0.1),#transforms.RandomRotation(degrees=30),transforms.ToTensor(),
-transforms.Normalize([0.485,0.456,0.406], [0.229,0.224,0.225])
-])
+    def __getitem__(self, idx):
+        path, label = self.samples[idx]
+        with Image.open(path) as img:
+            img = img.convert('RGB')
+            if self.transform:
+                img = self.transform(img)
+        return img, label
 
-valid_transform = transforms.Compose([
-transforms.Resize((IMG_SIZE, IMG_SIZE)),
-transforms.ToTensor(),
-transforms.Normalize([0.485,0.456,0.406], [0.229,0.224,0.225])
-])
+def evaluate(model, test_dataloader):
+    model.eval()
+    val_correct = 0
+    val_total = 0
 
-train_dataset = ImageDataset(train_samples, train_transform)
-valid_dataset = ImageDataset(valid_samples, valid_transform)
+    with torch.no_grad():
+        for inputs, labels in test_dataloader:
+            inputs = inputs.to(DEVICE)
+            labels = labels.float().unsqueeze(1).to(DEVICE)
 
-train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
-valid_dataloader = DataLoader(valid_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=4)
-model = models.resnet18(pretrained=True)# 加载 ImageNet 预训练权重forparaminmodel.parameters():
-param.requires_grad =False# 冻结所有层# 解冻第四阶段的参数（最后一个残差模块）forparaminmodel.layer4.parameters():
-param.requires_grad =Truein_features = model.fc.in_features
-model.fc = nn.Linear(in_features,1)# 二分类model = model.to(DEVICE)
+            outputs = torch.sigmoid(model(inputs))
+            preds = (outputs > 0.5).float()
+            val_correct += (preds == labels).sum().item()
+            val_total += labels.size(0)
 
-criterion = nn.BCELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=LR)forepochinrange(EPOCHS):
-print(f"\nEpoch {epoch + 1}/{EPOCHS}")
-model.train()
-running_loss =0.0forstep, (inputs, labels)inenumerate(train_dataloader):
-inputs = inputs.to(DEVICE)
-labels = labels.float().unsqueeze(1).to(DEVICE)
+    val_acc = val_correct / val_total
+    return val_acc
 
-optimizer.zero_grad()
-outputs = torch.sigmoid(model(inputs))
-loss = criterion(outputs, labels)
-loss.backward()
-optimizer.step()
+if __name__ == "__main__":
+    DATA_DIR = r"./data/PetImages"
+    BATCH_SIZE = 64
+    IMG_SIZE = 128
+    EPOCHS = 15
+    LR = 0.001
+    PRINT_STEP = 100
 
-running_loss += loss.item()if(step +1) % PRINT_STEP ==0:
-avg_loss = running_loss / PRINT_STEP
-print(f"  Step [{step + 1}] - Loss: {avg_loss:.4f}")
-running_loss =0.0val_acc = evaluate(model, valid_dataloader)
-print(f"Validation Accuracy after epoch {epoch + 1}: {val_acc:.4f}")
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    all_samples = verify_images(DATA_DIR)
+    random.seed(42)
+    random.shuffle(all_samples)
+    train_size = int(len(all_samples) * 0.8)
+    train_samples = all_samples[:train_size]
+    valid_samples = all_samples[train_size:]
+
+    train_transform = transforms.Compose([
+        transforms.Resize((150, 150)),
+        transforms.RandomCrop(size=(IMG_SIZE, IMG_SIZE)),
+        transforms.RandomHorizontalFlip(p=0.5),
+        transforms.ColorJitter(
+            brightness=0.2,
+            contrast=0.2,
+            # saturation=0.2,
+            # hue=0.1
+        ),
+        #transforms.RandomRotation(degrees=30),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+
+    valid_transform = transforms.Compose([
+        transforms.Resize((IMG_SIZE, IMG_SIZE)),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+
+    train_dataset = ImageDataset(train_samples, train_transform)
+    valid_dataset = ImageDataset(valid_samples, valid_transform)
+
+    train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
+    valid_dataloader = DataLoader(valid_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=4)
+    model = models.resnet18(pretrained=True)  # 加载 ImageNet 预训练权重
+    for param in model.parameters():
+        param.requires_grad = False  # 冻结所有层
+
+    # 解冻第四阶段的参数（最后一个残差模块）
+    for param in model.layer4.parameters():
+        param.requires_grad = True
+
+    in_features = model.fc.in_features
+    model.fc = nn.Linear(in_features, 1)  # 二分类
+    model = model.to(DEVICE)
+
+    criterion = nn.BCELoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=LR)
+
+    for epoch in range(EPOCHS):
+        print(f"\nEpoch {epoch + 1}/{EPOCHS}")
+        model.train()
+        running_loss = 0.0
+
+        for step, (inputs, labels) in enumerate(train_dataloader):
+            inputs = inputs.to(DEVICE)
+            labels = labels.float().unsqueeze(1).to(DEVICE)
+
+            optimizer.zero_grad()
+            outputs = torch.sigmoid(model(inputs))
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            running_loss += loss.item()
+
+            if (step + 1) % PRINT_STEP == 0:
+                avg_loss = running_loss / PRINT_STEP
+                print(f"  Step [{step + 1}] - Loss: {avg_loss:.4f}")
+                running_loss = 0.0
+
+        val_acc = evaluate(model, valid_dataloader)
+        print(f"Validation Accuracy after epoch {epoch + 1}: {val_acc:.4f}")
 ```

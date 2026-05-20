@@ -725,6 +725,18 @@
           "file": "/docs/learn-ai/deep-learning/chapter-18/lesson-04.md"
         }
       ]
+    },
+    {
+      "title": "结语",
+      "path": "/learn-ai/deep-learning/AFTER",
+      "file": "/docs/learn-ai/deep-learning/AFTER.md",
+      "items": [
+        {
+          "title": "旅程的终点，也是新的起点",
+          "path": "/learn-ai/deep-learning/AFTER",
+          "file": "/docs/learn-ai/deep-learning/AFTER.md"
+        }
+      ]
     }
   ]
 }
