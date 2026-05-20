@@ -11,7 +11,6 @@ import { useDocsMeta } from '../hooks/useDocsMeta';
 import { buildKnowledgeSpaces } from '../utils/knowledgeSpaces';
 import './AiInsightsArchive.css';
 
-const TAG_MIN_COUNT = 2;
 const VIEW_STORAGE_KEY = 'aiInsightsView';
 const DEFAULT_VIEW = 'card';
 
@@ -62,7 +61,6 @@ function buildTagList(articles) {
     }
   }
   return [...counts.entries()]
-    .filter(([, count]) => count >= TAG_MIN_COUNT)
     .map(([tag, count]) => ({ tag, count }))
     .sort((a, b) => {
       if (b.count !== a.count) return b.count - a.count;
