@@ -5,25 +5,25 @@
 ### 2026-05-20
 
 - [智能体 AI 安全模式](https://beatai.org/ai-insights/agentic-ai-security-patterns?mode=read)  
-  智能体 AI 系统的关键特征在于其自主性与推理能力，这让它们能够把复杂任务分解为更小的可执行任务，进而编排这些任务的执行，并在需要时对执行过程进行监控、反思、适配 / 自我纠错。鉴于此，
+  智能体 AI 系统的关键特征是自主性和推理能力。凭借这两点，它们能把复杂任务拆解成更小的可执行任务，再编排这些任务的执行，并在需要时监控、反思、适配乃至自我纠错。正因如此，
 - [超越代码生成：让 AI 覆盖完整的数据科学工作流](https://beatai.org/ai-insights/beyond-code-generation-ai-for-the-full-data-science-workflow?mode=read)  
-  最近，我一直感到一种持续的 AI FOMO。每天，我都会看到人们分享 AI 技巧、他们构建的新智能体和技能，以及凭感觉编出来的应用。我越来越意识到，快速适应 AI 正在成为今天作为一名数据科学家保持竞争力的一项必备要求。
+  最近我一直被一种挥之不去的 AI FOMO 笼罩。每天都能看到有人分享 AI 技巧、晒出自己造的新智能体和技能，还有各种凭感觉写出来的应用。我越来越意识到，对今天的数据科学家来说，快速适应 AI 已经成了保持竞争力的硬性要求。
 - [仅解码器 Transformer：生成式 LLM 的主力架构](https://beatai.org/ai-insights/decoder-only-transformers-the-workhorse-of-generative-llms?mode=read)  
-  当下 AI 研究的步伐令人瞠目。跟上最新的发表成果是一件难事，即便是这个领域的专家也会感觉自己未能把握住这个不断演化的前沿的那些更细微的细节。…
+  当下 AI 研究的步伐令人瞠目。跟上最新的论文很难，连领域内的专家都会觉得自己没能掌握这个不断演化的前沿里那些更细微的细节。LLM 领域尤其如此，有影响力的研究层出不穷：新的基础模型（如 Gemma \[15\] 和 OLMo \[12\]）、更好的对齐技术（DPO \[32\]、PPO \[33\]、REINFORCE \[34\] 之争），还有 模型合并 这类相对冷门的话题。…
 - [读懂 DeepSeek-V4 之前，先把基础打牢](https://beatai.org/ai-insights/deepseek-v4-and-before-getting-the-foundations-right?mode=read)  
   2025 年 1 月，DeepSeek-R1 发布，同时开源了蒸馏版的「32B 与 70B 模型，性能与 OpenAI-o1-mini 相当」。接下来那一周，几家 AI 巨头的股价应声暴跌。
-- [从原型到预测：用随机森林实时分类 NBA 球员](https://beatai.org/ai-insights/from-archetypes-to-predictions-using-random-forest-to-classify-nba-players-in-real-time?mode=read)  
-  如果你读过我上一篇文章，你就知道我用 K-Means 聚类来论证：传统的 NBA 位置基本上已经过时了。数据找到了五种自然的球员原型，它们与某人被登记为后卫还是前锋毫无关系。看到这一点很酷，但它在桌面上留下了一个相当明显的后续问题：好吧，那现在怎么办？如果一位球队管理层的分析师想知道某个球员属于哪种原型，难道他们每次都得重新跑一遍整个聚类流程？那不现实
-- [AI 如何记忆，又为何遗忘：第 1 部分。上下文问题](https://beatai.org/ai-insights/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem?mode=read)  
-  AI 编程。我打算假设你在此时此刻至少已经试过了。你大概用过像 Claude 或 Cursor 这样的工具，试过不同的模型，甚至可能用 Anthropic 或 OpenAI API 构建过你自己的东西。当你不得不为超额使用的 token 付费时，你可能哭过一小会儿，而“agents”这个词到现在已经能让你脑动脉瘤了。如果你完全不知道我在这里说什么，请把你星球的坐标发给我，那里一定非常宁静。
-- [我们能如何更好地对葡萄酒品质进行分类？](https://beatai.org/ai-insights/how-do-we-classify-wine-quality?mode=read)  
-  用于评定葡萄酒品质的度量体系在经验丰富的评审之间往往并不一致。专家给出的分数可能因各自的评价而出现显著差异，然而，一旦葡萄酒已经装瓶、待售，葡萄酒本身就再也无法因这些评价的结果而改变或受到影响。这类结果浪费了时间与资源，而它在这个行业里几乎每天都在发生。
-- [我造了一座证据工厂，因为"相信我，agent 没问题"不是一种治理策略](https://beatai.org/ai-insights/ive-built-an-evidence-factory-because-trust-me-the-agent-is-fine-is-not-a-governance-strategy?mode=read)  
-  我现在写关于企业 agent 化的东西已经够多了，多到能填满一本小小的、令人不舒服的书，而在我的想象里，这本书摆在一位 AI 架构师的桌上，让他们质疑自己的职业选择。我写过流程选择。35% 的自动化天花板。Agentic 架构模式。治理哲学。还有大规模运行一座 AI 工厂的经济学。我用一种好为人师的方式把这一切都讲了个遍，也看着足够多的它们失败过，因而挣得了发表观点的权利。
-- [Anthropic 新推出的金融 Agent 有何不同](https://beatai.org/ai-insights/what-makes-anthropics-new-finance-agent-different?mode=read)  
-  5 月 5 日，Anthropic 为金融服务业开源了 10 个 agent 模板。媒体报道的是那笔与 Blackstone 和 Goldman Sachs 合作、价值 15 亿美元的华尔街合资项目。Jamie Dimon 告诉记者，Claude 在 20 分钟内为他做出了"一个巨大的仪表盘，配齐了所有支撑材料和所有研究"。
+- [从原型到预测：用随机森林实时归类 NBA 球员](https://beatai.org/ai-insights/from-archetypes-to-predictions-using-random-forest-to-classify-nba-players-in-real-time?mode=read)  
+  读过我上一篇文章的人都知道，我用 K-Means 聚类论证过一个观点：传统的 NBA 位置基本已经过时。数据找出了五种自然的球员原型，它们和一个人被登记成后卫还是前锋毫无关系。这个发现很有意思，但它也留下了一个明摆着的后续问题：好，那现在怎么办？如果一位球队管理层的分析师想知道某个球员属于哪种原型，难道每次都得把整套聚类流程重跑一遍？那不现实
+- [AI 如何记忆，又为何遗忘：第 1 部分，上下文问题](https://beatai.org/ai-insights/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem?mode=read)  
+  AI 编程。我姑且假设你到现在至少试过了。你大概用过 Claude 或 Cursor 这类工具，试过不同的模型，说不定还用 Anthropic 或 OpenAI API 自己搭过东西。被迫为超额的 token 付费时，你可能哭过一小会儿，而“agents”这个词到现在大概一听就让你头疼。如果你完全不知道我在说什么，那请把你星球的坐标发给我——那里一定特别宁静。
+- [怎样才能更好地给葡萄酒品质分类？](https://beatai.org/ai-insights/how-do-we-classify-wine-quality?mode=read)  
+  评定葡萄酒品质的度量标准，在资深评审之间常常对不上号。同一款酒，不同专家给出的分数可能相差悬殊；而酒一旦装瓶待售，就再也无法因评价结果而改变。这种事浪费时间和资源，在行业里几乎每天都在上演。
+- [我建了一座"证据工厂"，因为"相信我，agent 没问题"算不上治理策略](https://beatai.org/ai-insights/ive-built-an-evidence-factory-because-trust-me-the-agent-is-fine-is-not-a-governance-strategy?mode=read)  
+  关于企业 agent 化，我写下的东西已经足够填满一本小书——一本会让翻开它的 AI 架构师怀疑自己职业选择的、令人不太舒服的书。流程选择、35% 的自动化天花板、agentic 架构模式、治理哲学、大规模运行一座 AI 工厂的经济学，我都用一种好为人师的口吻讲了个遍，也亲眼看着足够多的项目失败，因而挣得了发表观点的资格。
+- [Anthropic 新推出的金融 Agent 究竟有何不同](https://beatai.org/ai-insights/what-makes-anthropics-new-finance-agent-different?mode=read)  
+  5 月 5 日，Anthropic 为金融服务业开源了 10 个 agent 模板。媒体报道的焦点是那笔与 Blackstone 和 Goldman Sachs 合作、价值 15 亿美元的华尔街合资项目。Jamie Dimon 对记者说，Claude 在 20 分钟内为他做出了"一个巨大的仪表盘，配齐了所有支撑材料和所有研究"。
 - [当你的 AI 治理模型试图监管一个智能体蜂群](https://beatai.org/ai-insights/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm?mode=read)  
-  我小时候对组合逻辑很感兴趣，是的，这件事在很大程度上解释了我后来变成什么样，也解释了为什么我的小学老师看我的眼神，就像人们看一只学会了开冰箱的狗那样。
+  我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。
 
 ### 2026-05-19
 
