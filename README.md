@@ -2,6 +2,23 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-05-22
+
+- [构建一套 agent harness](https://beatai.org/ai-insights/building-an-agent-harness?mode=read)  
+  Prompt engineering、context engineering，现在轮到 harness engineering。
+- [从零构建 Claude：Anthropic 思考引擎背后的 62 个组件](https://beatai.org/ai-insights/building-claude-from-scratch-62-components-behind-anthropics-thinking-engine?mode=read)  
+  实践中构建 agentic 系统时，AI 模型本身早已不再是瓶颈，真正的瓶颈是它们外面那层 harness。Anthropic 花了两年时间为 Claude 打造那层 harness——也就是那套编排代码：挑选合适的工具，并在宣告成功之前为自己的工作打分。…
+- [深度学习需要矩阵，原因和 Instagram 需要滤镜一样](https://beatai.org/ai-insights/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters?mode=read)  
+  上学的时候，矩阵是我最喜欢的主题。我学得很快，也许你也一样。
+- [在 Netflix 让机器学习人人可用：构建模型生命周期图谱](https://beatai.org/ai-insights/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph?mode=read)  
+  随着 Netflix 不断成长，机器学习持续支撑着我们向会员交付价值、并在业务的多个领域追求卓越的能力。十多年前 Netflix 刚开始投入机器学习时，它主要聚焦于单一领域：个性化推荐。当时 Scala 是行业标准，我们的 ML 团队规模相对较小，优化会员参与度是我们的主要用例。快进到今天，机器学习已经成为 Netflix 业务转型的支柱。我们现在把 ML 应用到各个业务领域，包括：
+- [简明讲清 Diffusion LLM](https://beatai.org/ai-insights/diffusion-llms-explained-simply?mode=read)  
+  基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。
+- [Anthropic 高速增长的阴暗面](https://beatai.org/ai-insights/the-dark-side-of-anthropics-growth?mode=read)  
+  在很多人眼里,Anthropic 是硅谷有史以来最动人的故事。这家公司五年前才成立,如今却有望在今年年底把年化收入做到 1000 亿美元。
+- [用计算机科学概念解读 Claude Code 泄露的 source map](https://beatai.org/ai-insights/using-computer-science-concepts-to-analyze-claude-codes-leaked-source-map?mode=read)  
+  这个故事现在大家都知道了。
+
 ### 2026-05-21
 
 - [代码变便宜了，判断力没有。](https://beatai.org/ai-insights/code-got-cheap-judgement-did-not?mode=read)  
