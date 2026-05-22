@@ -1,0 +1,23 @@
+/* 原文出处 —— 左侧竖线样式，原文链接为纯文本 */
+.article-source-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  margin: 44px 0 8px;
+  padding: 6px 0 6px 16px;
+  border-left: 3px solid var(--accent-primary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.article-source-card-label {
+  font-weight: 600;
+  color: var(--accent-primary);
+  white-space: nowrap;
+}
+
+.article-source-card-url {
+  color: var(--text-secondary);
+  word-break: break-all;
+}

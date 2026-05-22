@@ -18,6 +18,7 @@ import CodePlayground from './CodePlayground';
 import DocArticleHeader from './DocArticleHeader';
 import PaginationNav from './PaginationNav';
 import ArticleTags from './ArticleTags';
+import ArticleSourceCard from './ArticleSourceCard';
 import DocArticleLayout from './DocArticleLayout';
 import GiscusComments from '../comments/GiscusComments';
 import {
@@ -187,6 +188,8 @@ const DocContent = () => {
 
   const pageTitle = buildDocPageTitle(docPath, titleFromMeta, frontmatter.title);
   const pageDescription = buildDocPageDescription(frontmatter.description, pageTitle);
+  // 翻译文章：frontmatter 同时带原文链接和翻译日期。
+  const isTranslatedArticle = Boolean(frontmatter.url && frontmatter.translated);
 
   return (
     <>
@@ -258,6 +261,9 @@ const DocContent = () => {
         >
           {markdownContent}
         </ReactMarkdown>
+        {isTranslatedArticle && (
+          <ArticleSourceCard url={frontmatter.url} />
+        )}
       </DocArticleLayout>
       <Lightbox
         open={lightboxOpen}
