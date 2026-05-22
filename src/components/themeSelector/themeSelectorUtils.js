@@ -56,7 +56,7 @@ export function applyFontWeight(weightId) {
 export function applyFontSize(sizeId) {
   const size = FONT_SIZES.find((item) => item.id === sizeId);
   if (size) {
-    document.documentElement.style.setProperty('--font-size', size.value);
+    document.documentElement.style.setProperty('--user-font-size', size.value);
   }
 }
 
