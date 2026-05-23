@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { RepoCard } from '../common';
 import { normalizeMetaPath } from '../../utils/docsMetaSelectors';
 import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
+import { preloadRouteForPath } from '../../utils/routePrefetch';
 
 function SidebarTitle({ title }) {
   return (
@@ -103,8 +104,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
   const buildLinkTo = (path) =>
     linkSearch ? { pathname: path, search: linkSearch } : path;
 
-  const preloadMenuItemMarkdown = (item) => {
+  const preloadMenuItemAssets = (item) => {
     preloadMarkdownFile(item?.file);
+    preloadRouteForPath(item?.path);
   };
 
   // Recursive component to render nested menu items
@@ -126,9 +128,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
                 className={() =>
                   `sidebar-link sidebar-link-with-children ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`
                 }
-                onMouseEnter={() => preloadMenuItemMarkdown(item)}
-                onFocus={() => preloadMenuItemMarkdown(item)}
-                onTouchStart={() => preloadMenuItemMarkdown(item)}
+                onMouseEnter={() => preloadMenuItemAssets(item)}
+                onFocus={() => preloadMenuItemAssets(item)}
+                onTouchStart={() => preloadMenuItemAssets(item)}
                 onClick={() => handleParentItemClick(item.path)}
               >
                 <SidebarTitle title={item.title} />
@@ -155,9 +157,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
               className={() =>
                 `sidebar-link ${isActive ? 'active' : ''}`
               }
-              onMouseEnter={() => preloadMenuItemMarkdown(item)}
-              onFocus={() => preloadMenuItemMarkdown(item)}
-              onTouchStart={() => preloadMenuItemMarkdown(item)}
+              onMouseEnter={() => preloadMenuItemAssets(item)}
+              onFocus={() => preloadMenuItemAssets(item)}
+              onTouchStart={() => preloadMenuItemAssets(item)}
               onClick={onClose}
             >
               <SidebarTitle title={item.title} />

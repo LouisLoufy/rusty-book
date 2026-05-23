@@ -6,6 +6,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { HistoryProvider } from './contexts/HistoryContext';
 import PageTransitionLoader from './components/PageTransitionLoader';
 import { lazyWithMinLoadTime } from './utils/lazyWithMinLoadTime';
+import { ROUTE_MODULE_LOADERS } from './utils/routeModuleLoaders';
 import {
   rewriteLegacyLearnClaudeCodePath
 } from './utils/learnAiPaths';
@@ -13,16 +14,16 @@ import { APP_ROUTE_PATHS, PAGE_CONFIG, PAGE_IDS } from './utils/pageConfig';
 import { HOME_PATH } from './utils/siteRoutes';
 
 // Lazy-load route components; avoid adding artificial delay to navigation.
-const Home = lazy(() => lazyWithMinLoadTime(() => import('./pages/Home')));
-const Docs = lazy(() => lazyWithMinLoadTime(() => import('./pages/Docs')));
-const TagPage = lazy(() => lazyWithMinLoadTime(() => import('./pages/TagPage')));
-const Square = lazy(() => lazyWithMinLoadTime(() => import('./pages/Square')));
-const LogoShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/LogoShowcase')));
-const LearnAiBook = lazy(() => lazyWithMinLoadTime(() => import('./pages/LearnAiBook')));
-const AITutorials = lazy(() => lazyWithMinLoadTime(() => import('./pages/AITutorials')));
-const AIContinentDemo = lazy(() => lazyWithMinLoadTime(() => import('./pages/AIContinentDemo')));
-const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/MapTextureShowcase')));
-const AiInsightsArchive = lazy(() => lazyWithMinLoadTime(() => import('./pages/AiInsightsArchive')));
+const Home = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.genesisLab]));
+const Docs = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.docs]));
+const TagPage = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.tag]));
+const Square = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.square]));
+const LogoShowcase = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.logoShowcase]));
+const LearnAiBook = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.learnAiBook]));
+const AITutorials = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiTutorials]));
+const AIContinentDemo = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiContinentDemo]));
+const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.mapTextureShowcase]));
+const AiInsightsArchive = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiInsights]));
 
 const ROUTER_FUTURE_FLAGS = Object.freeze({
   v7_startTransition: true,

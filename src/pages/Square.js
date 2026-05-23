@@ -17,6 +17,7 @@ import {
   SQUARE_CONTENT_CARDS,
   SQUARE_TAGS
 } from '../utils/pageConfig';
+import { preloadRouteForPath } from '../utils/routePrefetch';
 import './Square.css';
 
 const SQUARE_CARD_ICONS = {
@@ -89,7 +90,12 @@ const Square = () => {
                       key={card.id}
                       href={getSquareCardPath(card)}
                       className="square-card glass-card"
-                      onMouseEnter={() => setHoveredCard(card.id)}
+                      onMouseEnter={() => {
+                        setHoveredCard(card.id);
+                        preloadRouteForPath(getSquareCardPath(card));
+                      }}
+                      onFocus={() => preloadRouteForPath(getSquareCardPath(card))}
+                      onTouchStart={() => preloadRouteForPath(getSquareCardPath(card))}
                       onMouseLeave={() => setHoveredCard('')}
                     >
                       <div className="card-icon">
@@ -107,7 +113,14 @@ const Square = () => {
               <h2 className="section-title">热门标签</h2>
               <div className="tags-cloud">
                 {SQUARE_TAGS.map((tag) => (
-                  <a key={tag} href={buildTagPath(tag)} className="tag-cloud-item">
+                  <a
+                    key={tag}
+                    href={buildTagPath(tag)}
+                    className="tag-cloud-item"
+                    onMouseEnter={() => preloadRouteForPath(buildTagPath(tag))}
+                    onFocus={() => preloadRouteForPath(buildTagPath(tag))}
+                    onTouchStart={() => preloadRouteForPath(buildTagPath(tag))}
+                  >
                     <span className="tag-hash">#</span>{tag}
                   </a>
                 ))}

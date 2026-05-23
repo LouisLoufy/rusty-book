@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { resolveMarkdownAssetUrl, resolvePublicContentUrl } from '../../utils/markdown';
 import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
+import { preloadRouteForPath } from '../../utils/routePrefetch';
 
 // /ai-insights 列表卡片：展示数据全部来自 _meta.json 的 article 条目
 // （title / summary / cover / path / file）。刻意不 fetch 文章 .md 原文——
@@ -12,14 +13,18 @@ const ArchiveCard = ({ article }) => {
   const cover = article.cover
     ? resolveMarkdownAssetUrl(article.cover, resolvePublicContentUrl(article.file))
     : '';
+  const preloadArticleAssets = () => {
+    preloadMarkdownFile(article.file);
+    preloadRouteForPath(article.path);
+  };
 
   return (
     <Link
       to={{ pathname: article.path, search: '?mode=read' }}
       className="archive-card"
-      onMouseEnter={() => preloadMarkdownFile(article.file)}
-      onFocus={() => preloadMarkdownFile(article.file)}
-      onTouchStart={() => preloadMarkdownFile(article.file)}
+      onMouseEnter={preloadArticleAssets}
+      onFocus={preloadArticleAssets}
+      onTouchStart={preloadArticleAssets}
     >
       {cover && (
         <div className="archive-card-thumb">

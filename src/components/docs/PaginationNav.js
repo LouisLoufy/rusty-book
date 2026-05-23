@@ -3,16 +3,21 @@ import { Link } from 'react-router-dom';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 import { useReadingMode } from '../../contexts/ReadingModeContext';
 import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
+import { preloadRouteForPath } from '../../utils/routePrefetch';
 
 const PaginationNav = ({ prev, next }) => {
   const { isReadingMode, modeSearch } = useReadingMode();
   const prevFile = prev?.file || '';
   const nextFile = next?.file || '';
+  const prevPath = prev?.path || '';
+  const nextPath = next?.path || '';
 
   useEffect(() => {
     preloadMarkdownFile(prevFile);
     preloadMarkdownFile(nextFile);
-  }, [prevFile, nextFile]);
+    preloadRouteForPath(prevPath);
+    preloadRouteForPath(nextPath);
+  }, [prevFile, nextFile, prevPath, nextPath]);
 
   // 如果前后都没有章节，不显示组件
   if (!prev && !next) {
@@ -27,8 +32,9 @@ const PaginationNav = ({ prev, next }) => {
   const buildTo = (path) =>
     isReadingMode && modeSearch ? { pathname: path, search: modeSearch } : path;
 
-  const preloadItemMarkdown = (item) => {
+  const preloadItemAssets = (item) => {
     preloadMarkdownFile(item?.file);
+    preloadRouteForPath(item?.path);
   };
 
   return (
@@ -39,9 +45,9 @@ const PaginationNav = ({ prev, next }) => {
           <Link
             to={buildTo(prev.path)}
             className="pagination-link prev"
-            onMouseEnter={() => preloadItemMarkdown(prev)}
-            onFocus={() => preloadItemMarkdown(prev)}
-            onTouchStart={() => preloadItemMarkdown(prev)}
+            onMouseEnter={() => preloadItemAssets(prev)}
+            onFocus={() => preloadItemAssets(prev)}
+            onTouchStart={() => preloadItemAssets(prev)}
             onClick={handleNavClick}
           >
             <HiArrowLeft className="pagination-icon" />
@@ -62,9 +68,9 @@ const PaginationNav = ({ prev, next }) => {
           <Link
             to={buildTo(next.path)}
             className="pagination-link next"
-            onMouseEnter={() => preloadItemMarkdown(next)}
-            onFocus={() => preloadItemMarkdown(next)}
-            onTouchStart={() => preloadItemMarkdown(next)}
+            onMouseEnter={() => preloadItemAssets(next)}
+            onFocus={() => preloadItemAssets(next)}
+            onTouchStart={() => preloadItemAssets(next)}
             onClick={handleNavClick}
           >
             <div className="pagination-content">

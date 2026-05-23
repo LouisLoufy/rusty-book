@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
+import { preloadRouteForPath } from '../../utils/routePrefetch';
 
 const ArchiveList = ({ groups }) => {
+  const preloadArticleAssets = (article) => {
+    preloadMarkdownFile(article.file);
+    preloadRouteForPath(article.path);
+  };
+
   return (
     <div className="archive-list">
       {groups.map(({ date, articles }) => (
@@ -18,9 +24,9 @@ const ArchiveList = ({ groups }) => {
                 <Link
                   to={{ pathname: article.path, search: '?mode=read' }}
                   className="archive-list-link"
-                  onMouseEnter={() => preloadMarkdownFile(article.file)}
-                  onFocus={() => preloadMarkdownFile(article.file)}
-                  onTouchStart={() => preloadMarkdownFile(article.file)}
+                  onMouseEnter={() => preloadArticleAssets(article)}
+                  onFocus={() => preloadArticleAssets(article)}
+                  onTouchStart={() => preloadArticleAssets(article)}
                 >
                   {article.title}
                 </Link>

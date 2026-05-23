@@ -11,6 +11,7 @@ import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
 import { LEARN_AI_SPACES } from '../utils/learnAiSpaces';
 import { buildKnowledgeSpaces, getAiTutorialSpace } from '../utils/knowledgeSpaces';
 import { PAGE_IDS } from '../utils/pageConfig';
+import { preloadRouteForPath } from '../utils/routePrefetch';
 import './AITutorials.css';
 
 function AITutorialsContent({ categories, spaces }) {
@@ -30,6 +31,9 @@ function AITutorialsContent({ categories, spaces }) {
         DL
       </div>
     );
+  };
+  const preloadTutorialRoute = (space) => {
+    preloadRouteForPath(getLearnAiDefaultPath(space.slug));
   };
 
   return (
@@ -55,7 +59,12 @@ function AITutorialsContent({ categories, spaces }) {
                   key={space.slug}
                   to={getLearnAiDefaultPath(space.slug)}
                   className="ai-tutorial-card glass-card"
-                  onMouseEnter={() => setHoveredSlug(space.slug)}
+                  onMouseEnter={() => {
+                    setHoveredSlug(space.slug);
+                    preloadTutorialRoute(space);
+                  }}
+                  onFocus={() => preloadTutorialRoute(space)}
+                  onTouchStart={() => preloadTutorialRoute(space)}
                   onMouseLeave={() => setHoveredSlug('')}
                 >
                   <div className="ai-tutorial-card-spotlight" aria-hidden="true"></div>
