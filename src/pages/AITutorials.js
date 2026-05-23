@@ -94,7 +94,7 @@ export default function AITutorials() {
 
   return (
     <AITutorialsContent
-      categories={meta.categories || []}
+      categories={meta.categories}
       spaces={buildKnowledgeSpaces(meta)}
     />
   );

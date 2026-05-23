@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { normalizeMetaPath } from '../utils/docsMeta';
+import { forEachDocItem } from '../utils/docsMetaTraversal';
 
 const TagContext = createContext();
 
@@ -19,12 +20,12 @@ export const useTag = () => {
 const buildTagIndex = (meta) => {
   const tagIndex = {};
 
-  const processItem = (item, categoryTitle) => {
-    if (item.tags && Array.isArray(item.tags) && item.tags.length > 0) {
+  forEachDocItem(meta, (item, { category }) => {
+    if (item.tags.length > 0) {
       const articleInfo = {
         title: item.title,
         path: item.path,
-        category: categoryTitle,
+        category: category.title,
         file: item.file
       };
 
@@ -35,32 +36,7 @@ const buildTagIndex = (meta) => {
         tagIndex[tag].push(articleInfo);
       });
     }
-
-    // Process children recursively (for nested structures)
-    if (item.children && Array.isArray(item.children)) {
-      item.children.forEach(child => processItem(child, categoryTitle));
-    }
-
-    // Process items recursively
-    if (item.items && Array.isArray(item.items)) {
-      item.items.forEach(child => processItem(child, categoryTitle));
-    }
-  };
-
-  // Process all categories
-  if (meta && meta.categories) {
-    meta.categories.forEach(category => {
-      const categoryTitle = category.title;
-
-      // Process sections
-      if (category.sections) {
-        category.sections.forEach(section => {
-          // Process section itself (only if it has tags, the recursion will handle items)
-          processItem(section, categoryTitle);
-        });
-      }
-    });
-  }
+  }, { includeSections: true });
 
   return tagIndex;
 };
@@ -113,44 +89,15 @@ const findArticleTags = (meta, path) => {
   let foundTags = null;
   const normalizedPath = normalizeMetaPath(path);
 
-  const searchItem = (item) => {
+  forEachDocItem(meta, (item) => {
     if (normalizeMetaPath(item.path) === normalizedPath) {
-      foundTags = item.tags || [];
-      return true;
+      foundTags = item.tags;
+      return false;
     }
+    return undefined;
+  }, { includeSections: true });
 
-    if (item.items && Array.isArray(item.items)) {
-      for (const child of item.items) {
-        if (searchItem(child)) {
-          return true;
-        }
-      }
-    }
-
-    return false;
-  };
-
-  if (meta && meta.categories) {
-    for (const category of meta.categories) {
-      if (category.sections) {
-        for (const section of category.sections) {
-          if (searchItem(section)) {
-            return foundTags;
-          }
-
-          if (section.items) {
-            for (const item of section.items) {
-              if (searchItem(item)) {
-                return foundTags;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  return [];
+  return foundTags || [];
 };
 
 export const TagProvider = ({ children, meta }) => {

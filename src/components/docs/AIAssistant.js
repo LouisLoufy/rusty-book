@@ -3,6 +3,7 @@ import { HiSparkles, HiX, HiSearch } from 'react-icons/hi';
 import Fuse from 'fuse.js';
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
 import { loadDocsMeta } from '../../utils/docsMeta';
+import { forEachDocItem } from '../../utils/docsMetaTraversal';
 import { SITE_CONFIG } from '../../utils/siteConfig';
 import './AIAssistant.css';
 
@@ -37,30 +38,13 @@ const AIAssistant = () => {
       .then((data) => {
         const searchableContent = [];
 
-        // Handle new categories structure
-        const categories = data.categories || [];
-        categories.forEach(category => {
-          const sections = category.sections || [];
-          sections.forEach(section => {
-            const items = section.items || [];
-
-            // Helper function to recursively add items and their children
-            const addItem = (item, parentSection) => {
-              searchableContent.push({
-                title: item.title,
-                path: item.path,
-                section: parentSection,
-                category: category.title,
-                description: item.description || ''
-              });
-
-              // Add children recursively
-              if (item.children && item.children.length > 0) {
-                item.children.forEach(child => addItem(child, parentSection));
-              }
-            };
-
-            items.forEach(item => addItem(item, section.title));
+        forEachDocItem(data, (item, { category, section }) => {
+          searchableContent.push({
+            title: item.title,
+            path: item.path,
+            section: section.title,
+            category: category.title,
+            description: item.description || ''
           });
         });
 

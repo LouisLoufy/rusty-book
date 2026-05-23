@@ -101,7 +101,7 @@ const TagPage = () => {
 
   return (
     <TagProvider meta={meta}>
-      <TagPageContent categories={meta.categories || []} spaces={buildKnowledgeSpaces(meta)} />
+      <TagPageContent categories={meta.categories} spaces={buildKnowledgeSpaces(meta)} />
     </TagProvider>
   );
 };

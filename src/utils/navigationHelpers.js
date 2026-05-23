@@ -1,4 +1,5 @@
 import { normalizeMetaPath } from './docsMeta';
+import { forEachDocItem } from './docsMetaTraversal';
 
 /**
  * 将嵌套的 _meta.json 结构展平为线性章节列表
@@ -8,29 +9,12 @@ import { normalizeMetaPath } from './docsMeta';
 export function flattenChapters(meta) {
   const chapters = [];
 
-  // 递归函数处理 items 和 children
-  function processItems(items, categoryTitle, sectionTitle) {
-    items.forEach(item => {
-      chapters.push({
-        title: item.title,
-        path: item.path,
-        category: categoryTitle,
-        section: sectionTitle
-      });
-
-      // 递归处理子章节
-      if (item.children && item.children.length > 0) {
-        processItems(item.children, categoryTitle, sectionTitle);
-      }
-    });
-  }
-
-  // 遍历所有分类和分区
-  meta.categories?.forEach(category => {
-    category.sections?.forEach(section => {
-      if (section.items) {
-        processItems(section.items, category.title, section.title);
-      }
+  forEachDocItem(meta, (item, { category, section }) => {
+    chapters.push({
+      title: item.title,
+      path: item.path,
+      category: category.title,
+      section: section.title
     });
   });
 

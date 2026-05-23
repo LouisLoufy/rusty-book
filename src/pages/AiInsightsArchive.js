@@ -33,9 +33,9 @@ function parseTagParam(value) {
 
 function flattenArticles(category) {
   const out = [];
-  for (const section of category?.sections || []) {
-    for (const item of section.items || []) {
-      if (item?.path && item?.publishedAt) out.push(item);
+  for (const section of category.sections) {
+    for (const item of section.items) {
+      if (item.path && item.publishedAt) out.push(item);
     }
   }
   return out;
@@ -57,7 +57,6 @@ function groupByDate(articles) {
 function buildTagList(articles) {
   const counts = new Map();
   for (const a of articles) {
-    if (!Array.isArray(a.tags)) continue;
     for (const tag of a.tags) {
       counts.set(tag, (counts.get(tag) || 0) + 1);
     }
@@ -85,9 +84,7 @@ const ArchiveContent = ({ category, categories, spaces }) => {
 
   const filteredArticles = useMemo(() => {
     if (!selectedTag) return articles;
-    return articles.filter(
-      (a) => Array.isArray(a.tags) && a.tags.includes(selectedTag)
-    );
+    return articles.filter((a) => a.tags.includes(selectedTag));
   }, [articles, selectedTag]);
 
   const groups = useMemo(() => groupByDate(filteredArticles), [filteredArticles]);
@@ -214,7 +211,7 @@ const AiInsightsArchive = () => {
   return (
     <ArchiveContent
       category={category}
-      categories={meta.categories || []}
+      categories={meta.categories}
       spaces={spaces}
     />
   );
