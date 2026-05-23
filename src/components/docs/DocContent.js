@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -7,7 +7,6 @@ import remarkMath from 'remark-math';
 import rehypeRaw from 'rehype-raw';
 import rehypeKatex from 'rehype-katex';
 import rehypeSanitize from 'rehype-sanitize';
-import matter from 'gray-matter';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import CodePlayground from './CodePlayground';
@@ -18,32 +17,22 @@ import ArticleSourceCard from './ArticleSourceCard';
 import DocArticleLayout from './DocArticleLayout';
 import GiscusComments from '../comments/GiscusComments';
 import PageSeo from '../seo/PageSeo';
-import {
-  buildDocPageDescription,
-  buildDocPageTitle,
-  formatContributors,
-  formatDocErrorMessage,
-  formatPublishedDate,
-  stripAiInsightsTitle
-} from './docContentUtils';
+import { formatDocErrorMessage } from './docContentUtils';
 import {
   createMarkdownCodeComponent,
   createDocMarkdownComponents,
   createMarkdownPreComponent,
   sanitizeSchema
 } from './markdownRenderers';
+import { useDocArticleModel } from './useDocArticleModel';
 import { usePageTitle } from '../../contexts/PageTitleContext';
 import { useMeta } from '../../contexts/MetaContext';
 import { useHistory } from '../../contexts/HistoryContext';
 import { useTag } from '../../contexts/TagContext';
-import { useMarkdownSource } from '../../hooks/useMarkdownSource';
 import { useDocShortcuts } from '../../hooks/useDocShortcuts';
 import { useRenderedHeadings } from '../../hooks/useRenderedHeadings';
-import { findMetaEntryByPath } from '../../utils/docsMetaSelectors';
-import { normalizeDocComponentMarkdown, resolvePublicContentUrl } from '../../utils/markdown';
 import { flattenChapters, getAdjacentChapters } from '../../utils/navigationHelpers';
 import { buildDocsTitle } from '../../utils/siteConfig';
-import { AI_INSIGHTS_CATEGORY_ID } from '../../utils/siteRoutes';
 
 const DocContent = () => {
   const location = useLocation();
@@ -57,67 +46,45 @@ const DocContent = () => {
   const [articleTags, setArticleTags] = useState([]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxSlides, setLightboxSlides] = useState([]);
-
-  // Extract the path from URL (now starts from root)
-  const docPath = location.pathname.replace(/^\//, '');
-  const docMetaEntry = useMemo(() => findMetaEntryByPath(meta, location.pathname), [meta, location.pathname]);
-  const isAiInsightsArticle = docMetaEntry?.category?.id === AI_INSIGHTS_CATEGORY_ID;
-  const formattedPublishedDate = formatPublishedDate(docMetaEntry?.item?.publishedAt);
-  const formattedContributors = formatContributors(docMetaEntry?.item?.contributors);
-  const titleFromMeta = docMetaEntry?.item?.title || findTitleByPath(location.pathname);
-  const markdownUrl = useMemo(() => {
-    const fileFromMeta = docMetaEntry?.item?.file;
-    return resolvePublicContentUrl(fileFromMeta || `/docs/${docPath}.md`);
-  }, [docPath, docMetaEntry]);
-  const { text: rawDoc, error } = useMarkdownSource({
-    url: markdownUrl,
-    enabled: Boolean(docPath)
+  const {
+    content,
+    docMetaEntry,
+    docPath,
+    error,
+    formattedContributors,
+    formattedPublishedDate,
+    frontmatter,
+    historyRecord,
+    isAiInsightsArticle,
+    isTranslatedArticle,
+    markdownContent,
+    markdownUrl,
+    pageDescription,
+    pageTitle,
+    rawDoc
+  } = useDocArticleModel({
+    meta,
+    pathname: location.pathname,
+    findTitleByPath
   });
-  const { data: frontmatter, content } = useMemo(() => {
-    if (!rawDoc) {
-      return { data: {}, content: '' };
-    }
-
-    return matter(rawDoc);
-  }, [rawDoc]);
 
   useEffect(() => {
     if (error || !rawDoc) {
       return;
     }
 
-    const title = buildDocPageTitle(docPath, titleFromMeta, frontmatter.title);
-    setPageTitle(title);
+    setPageTitle(pageTitle);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [docPath, error, frontmatter.title, rawDoc, setPageTitle, titleFromMeta]);
+  }, [error, pageTitle, rawDoc, setPageTitle]);
 
   // 仅记录真正的文章页（meta 中的叶子条目），并带上所属上级分类。
   useEffect(() => {
-    if (error || !rawDoc || docMetaEntry?.type !== 'item') {
+    if (!historyRecord) {
       return;
     }
 
-    const articleTitle = titleFromMeta || frontmatter.title;
-    if (!articleTitle) {
-      return;
-    }
-
-    recordVisit({
-      path: location.pathname,
-      title: articleTitle,
-      categoryId: docMetaEntry.category?.id || null,
-      category: docMetaEntry.category?.title || null,
-      section: docMetaEntry.section?.title || null
-    });
-  }, [
-    error,
-    rawDoc,
-    docMetaEntry,
-    titleFromMeta,
-    frontmatter.title,
-    location.pathname,
-    recordVisit
-  ]);
+    recordVisit(historyRecord);
+  }, [historyRecord, recordVisit]);
 
   const headings = useRenderedHeadings(articleRef, content, {
     enabled: Boolean(content)
@@ -136,12 +103,6 @@ const DocContent = () => {
     const tags = docMetaEntry?.item?.tags || findArticleTags(location.pathname);
     setArticleTags(tags);
   }, [meta, location.pathname, findArticleTags, docMetaEntry]);
-
-  const markdownContent = useMemo(() => {
-    return normalizeDocComponentMarkdown(
-      stripAiInsightsTitle(content, isAiInsightsArticle)
-    );
-  }, [content, isAiInsightsArticle]);
 
   useDocShortcuts({
     articleRef,
@@ -181,11 +142,6 @@ const DocContent = () => {
     markdownUrl,
     onImageClick: openImageLightbox
   });
-
-  const pageTitle = buildDocPageTitle(docPath, titleFromMeta, frontmatter.title);
-  const pageDescription = buildDocPageDescription(frontmatter.description, pageTitle);
-  // 翻译文章：frontmatter 同时带原文链接和翻译日期。
-  const isTranslatedArticle = Boolean(frontmatter.url && frontmatter.translated);
 
   return (
     <>
