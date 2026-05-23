@@ -24,6 +24,11 @@ const AIContinentDemo = lazy(() => lazyWithMinLoadTime(() => import('./pages/AIC
 const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(() => import('./pages/MapTextureShowcase')));
 const AiInsightsArchive = lazy(() => lazyWithMinLoadTime(() => import('./pages/AiInsightsArchive')));
 
+const ROUTER_FUTURE_FLAGS = Object.freeze({
+  v7_startTransition: true,
+  v7_relativeSplatPath: true
+});
+
 function LegacyLearnClaudeCodeRedirect() {
   const location = useLocation();
   const nextPath = rewriteLegacyLearnClaudeCodePath(location.pathname);
@@ -37,7 +42,7 @@ function App() {
       <ThemeProvider>
         <AuthProvider>
           <HistoryProvider>
-            <BrowserRouter>
+            <BrowserRouter future={ROUTER_FUTURE_FLAGS}>
               <div className="App dynamic-background">
                 <Suspense fallback={<PageTransitionLoader />}>
                   <Routes>
