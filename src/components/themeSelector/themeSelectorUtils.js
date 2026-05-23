@@ -31,6 +31,46 @@ function getStoredValue(key, options, fallback) {
   return options.some((option) => option.id === savedValue) ? savedValue : fallback;
 }
 
+function getFontStylesheetId(fontId) {
+  return `font-stylesheet-${fontId}`;
+}
+
+function getFontPreconnectId(href) {
+  return `font-preconnect-${href.replace(/[^a-z0-9]/gi, '-')}`;
+}
+
+function ensureFontPreconnect({ href, crossOrigin }) {
+  if (!href || document.getElementById(getFontPreconnectId(href))) {
+    return;
+  }
+
+  const link = document.createElement('link');
+  link.id = getFontPreconnectId(href);
+  link.rel = 'preconnect';
+  link.href = href;
+  if (crossOrigin) {
+    link.crossOrigin = crossOrigin;
+  }
+  link.setAttribute('data-font-loader', 'preconnect');
+  document.head.appendChild(link);
+}
+
+export function ensureFontStylesheet(fontId) {
+  const font = FONTS.find((item) => item.id === fontId);
+  if (!font?.stylesheet || document.getElementById(getFontStylesheetId(font.id))) {
+    return;
+  }
+
+  (font.preconnects || []).forEach(ensureFontPreconnect);
+
+  const link = document.createElement('link');
+  link.id = getFontStylesheetId(font.id);
+  link.rel = 'stylesheet';
+  link.href = font.stylesheet;
+  link.setAttribute('data-font-loader', 'stylesheet');
+  document.head.appendChild(link);
+}
+
 export function setThemeAttribute(themeId) {
   document.documentElement.setAttribute('data-theme', themeId);
 }
@@ -42,6 +82,7 @@ export function getIsDarkMode() {
 export function applyFont(fontId) {
   const font = FONTS.find((item) => item.id === fontId);
   if (font) {
+    ensureFontStylesheet(font.id);
     document.documentElement.style.setProperty('--font-family', font.family);
   }
 }

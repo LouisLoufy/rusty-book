@@ -10,6 +10,7 @@ export default function ThemeOptionSection({
   listClassName,
   options,
   onChange,
+  onPreview,
   title
 }) {
   return (
@@ -21,6 +22,8 @@ export default function ThemeOptionSection({
             key={option.id}
             className={cn(buttonClassName, currentValue === option.id && 'active')}
             onClick={() => onChange(option.id)}
+            onFocus={() => onPreview?.(option)}
+            onMouseEnter={() => onPreview?.(option)}
             style={getButtonStyle ? getButtonStyle(option) : undefined}
           >
             <span className={labelClassName}>{option.name}</span>

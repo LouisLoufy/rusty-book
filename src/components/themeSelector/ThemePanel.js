@@ -5,6 +5,7 @@ import FontSizeControl from './FontSizeControl';
 import ThemeGridSection from './ThemeGridSection';
 import ThemeModeSection from './ThemeModeSection';
 import ThemeOptionSection from './ThemeOptionSection';
+import { ensureFontStylesheet } from './themeSelectorUtils';
 
 export default function ThemePanel({
   currentBackgroundDepth,
@@ -55,6 +56,7 @@ export default function ThemePanel({
         labelClassName="font-option-name"
         listClassName="font-list"
         onChange={onFontChange}
+        onPreview={(font) => ensureFontStylesheet(font.id)}
         options={FONTS}
         title="Font Family"
       />
