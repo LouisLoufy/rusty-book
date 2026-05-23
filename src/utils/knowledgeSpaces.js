@@ -1,5 +1,7 @@
 import {
   findActiveCategoryByPath,
+  findMetaEntryByPath,
+  getFirstNavigableFileForCategory,
   getFirstNavigablePathForCategory
 } from './docsMetaSelectors';
 import { getLearnAiDefaultPath, LEARN_AI_BASE_PATH } from './learnAiPaths';
@@ -25,15 +27,27 @@ export function getLearnAiHubSpace() {
   };
 }
 
+function getDocKnowledgeSpaceEntryFile(category, entryPath) {
+  if (!entryPath) {
+    return getFirstNavigableFileForCategory(category);
+  }
+
+  return findMetaEntryByPath({ categories: [category] }, entryPath)?.item?.file
+    || getFirstNavigableFileForCategory(category);
+}
+
 function buildDocKnowledgeSpace(category) {
   if (!category) {
     return null;
   }
 
+  const entryPath = category.entryPath || getFirstNavigablePathForCategory(category);
+
   return {
     id: category.id,
     title: category.title,
-    entryPath: category.entryPath || getFirstNavigablePathForCategory(category),
+    entryPath,
+    entryFile: getDocKnowledgeSpaceEntryFile(category, entryPath),
     githubRepo: category.githubRepo,
     repoTitle: category.repoTitle,
     kind: 'docs',

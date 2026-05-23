@@ -12,6 +12,8 @@ import {
   getAllTags,
   getArticlesByTag,
   getCategoryArticles,
+  getFirstNavigableFileForCategory,
+  getFirstNavigableItemForCategory,
   getFirstNavigablePathForCategory,
   groupArticlesByCategory,
   groupArticlesByDate
@@ -61,6 +63,8 @@ test('selects doc paths and active entries from normalized meta', () => {
 
   expect(findCategoryById(meta, 'book').title).toBe('Book');
   expect(getFirstNavigablePathForCategory(meta.categories[0])).toBe('/book/parent');
+  expect(getFirstNavigableItemForCategory(meta.categories[0]).title).toBe('Parent');
+  expect(getFirstNavigableFileForCategory(meta.categories[0])).toBe('/docs/book/parent.md');
 
   const paths = collectDocPaths(meta);
   expect(paths.has('/book')).toBe(true);

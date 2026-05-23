@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { resolveMarkdownAssetUrl, resolvePublicContentUrl } from '../../utils/markdown';
+import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
 
 // /ai-insights 列表卡片：展示数据全部来自 _meta.json 的 article 条目
 // （title / summary / cover / path / file）。刻意不 fetch 文章 .md 原文——
@@ -16,6 +17,9 @@ const ArchiveCard = ({ article }) => {
     <Link
       to={{ pathname: article.path, search: '?mode=read' }}
       className="archive-card"
+      onMouseEnter={() => preloadMarkdownFile(article.file)}
+      onFocus={() => preloadMarkdownFile(article.file)}
+      onTouchStart={() => preloadMarkdownFile(article.file)}
     >
       {cover && (
         <div className="archive-card-thumb">

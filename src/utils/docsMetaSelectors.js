@@ -12,20 +12,20 @@ export function normalizeMetaPath(path = '') {
   }
 }
 
-function findFirstPathInItems(items = []) {
+function findFirstItemInItems(items = []) {
   for (const item of items) {
     if (item.path) {
-      return item.path;
+      return item;
     }
 
-    const childPath = findFirstPathInItems(item.children || []);
-    if (childPath) {
-      return childPath;
+    const childItem = findFirstItemInItems(item.children || []);
+    if (childItem) {
+      return childItem;
     }
 
-    const nestedItemPath = findFirstPathInItems(item.items || []);
-    if (nestedItemPath) {
-      return nestedItemPath;
+    const nestedItem = findFirstItemInItems(item.items || []);
+    if (nestedItem) {
+      return nestedItem;
     }
   }
 
@@ -52,11 +52,16 @@ export function findCategoryById(meta, categoryId) {
 }
 
 export function getFirstNavigablePathForSection(section) {
+  const item = getFirstNavigableItemForSection(section);
+  return item?.path || section?.path || null;
+}
+
+export function getFirstNavigableItemForSection(section) {
   if (!section) {
     return null;
   }
 
-  return findFirstPathInItems(section.items || []) || section.path || null;
+  return findFirstItemInItems(section.items || []);
 }
 
 export function getFirstNavigablePathForCategory(category) {
@@ -65,6 +70,25 @@ export function getFirstNavigablePathForCategory(category) {
   }
 
   return getFirstNavigablePathForSection(category.sections?.[0]);
+}
+
+export function getFirstNavigableItemForCategory(category) {
+  if (!category) {
+    return null;
+  }
+
+  for (const section of category.sections || []) {
+    const item = getFirstNavigableItemForSection(section);
+    if (item) {
+      return item;
+    }
+  }
+
+  return null;
+}
+
+export function getFirstNavigableFileForCategory(category) {
+  return getFirstNavigableItemForCategory(category)?.file || '';
 }
 
 export function getDefaultDocsPath(meta) {

@@ -61,12 +61,14 @@ test('derives adjacent chapters and article tags from meta', () => {
     prev: {
       title: 'Second',
       path: '/book/second',
+      file: '',
       category: 'Book',
       section: 'Intro'
     },
     next: {
       title: 'Third',
       path: '/book/third',
+      file: '',
       category: 'Book',
       section: 'Intro'
     }

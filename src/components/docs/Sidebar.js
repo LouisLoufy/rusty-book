@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { RepoCard } from '../common';
 import { normalizeMetaPath } from '../../utils/docsMetaSelectors';
+import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
 
 function SidebarTitle({ title }) {
   return (
@@ -102,6 +103,10 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
   const buildLinkTo = (path) =>
     linkSearch ? { pathname: path, search: linkSearch } : path;
 
+  const preloadMenuItemMarkdown = (item) => {
+    preloadMarkdownFile(item?.file);
+  };
+
   // Recursive component to render nested menu items
   const renderMenuItem = (item, level = 1) => {
     const hasChildren = item.children && item.children.length > 0;
@@ -121,6 +126,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
                 className={() =>
                   `sidebar-link sidebar-link-with-children ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`
                 }
+                onMouseEnter={() => preloadMenuItemMarkdown(item)}
+                onFocus={() => preloadMenuItemMarkdown(item)}
+                onTouchStart={() => preloadMenuItemMarkdown(item)}
                 onClick={() => handleParentItemClick(item.path)}
               >
                 <SidebarTitle title={item.title} />
@@ -147,6 +155,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
               className={() =>
                 `sidebar-link ${isActive ? 'active' : ''}`
               }
+              onMouseEnter={() => preloadMenuItemMarkdown(item)}
+              onFocus={() => preloadMenuItemMarkdown(item)}
+              onTouchStart={() => preloadMenuItemMarkdown(item)}
               onClick={onClose}
             >
               <SidebarTitle title={item.title} />

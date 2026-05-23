@@ -6,6 +6,7 @@ import PageSeo from '../components/seo/PageSeo';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import { buildKnowledgeSpaces } from '../utils/knowledgeSpaces';
+import { preloadMarkdownFile } from '../utils/markdownPrefetch';
 import { buildDocsTitle } from '../utils/siteConfig';
 import { HOME_PATH } from '../utils/siteRoutes';
 import './TagPage.css';
@@ -71,6 +72,9 @@ const TagPageContent = ({ categories, spaces }) => {
                         key={index}
                         to={article.path}
                         className="tag-article-item"
+                        onMouseEnter={() => preloadMarkdownFile(article.file)}
+                        onFocus={() => preloadMarkdownFile(article.file)}
+                        onTouchStart={() => preloadMarkdownFile(article.file)}
                       >
                         <span className="tag-article-arrow">→</span>
                         <span className="tag-article-title">{article.title}</span>

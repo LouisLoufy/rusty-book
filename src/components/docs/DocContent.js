@@ -55,6 +55,7 @@ const DocContent = () => {
     historyRecord,
     isAiInsightsArticle,
     isTranslatedArticle,
+    loading,
     markdownContent,
     markdownUrl,
     pageDescription,
@@ -198,13 +199,17 @@ const DocContent = () => {
             ) : null}
           />
         )}
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm, remarkCjkFriendly, remarkMath]}
-          rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema], rehypeKatex]}
-          components={markdownComponents}
-        >
-          {markdownContent}
-        </ReactMarkdown>
+        {loading && !rawDoc ? (
+          <div className="doc-loading" aria-live="polite">正在加载文章...</div>
+        ) : (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkCjkFriendly, remarkMath]}
+            rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema], rehypeKatex]}
+            components={markdownComponents}
+          >
+            {markdownContent}
+          </ReactMarkdown>
+        )}
         {isTranslatedArticle && (
           <ArticleSourceCard url={frontmatter.url} />
         )}

@@ -13,6 +13,7 @@ export function flattenChapters(meta) {
     chapters.push({
       title: item.title,
       path: item.path,
+      file: item.file,
       category: category.title,
       section: section.title
     });

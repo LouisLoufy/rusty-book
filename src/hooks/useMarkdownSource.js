@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchText } from '../utils/http';
+import {
+  getCachedMarkdownSource,
+  loadMarkdownSource
+} from '../utils/markdownSourceCache';
 
 export function useMarkdownSource({ url = '', inlineContent = '', enabled = true } = {}) {
   const [text, setText] = useState('');
@@ -21,19 +24,30 @@ export function useMarkdownSource({ url = '', inlineContent = '', enabled = true
       return undefined;
     }
 
-    const controller = new AbortController();
+    const cachedText = getCachedMarkdownSource(url);
+    if (typeof cachedText !== 'undefined') {
+      setText(cachedText);
+      setLoading(false);
+      setError(null);
+      return undefined;
+    }
 
+    let cancelled = false;
     setText('');
     setLoading(true);
     setError(null);
 
-    fetchText(url, { signal: controller.signal })
+    loadMarkdownSource(url)
       .then((value) => {
+        if (cancelled) {
+          return;
+        }
+
         setText(value);
         setLoading(false);
       })
       .catch((err) => {
-        if (err.name === 'AbortError') {
+        if (cancelled) {
           return;
         }
 
@@ -42,7 +56,9 @@ export function useMarkdownSource({ url = '', inlineContent = '', enabled = true
         setError(err);
       });
 
-    return () => controller.abort();
+    return () => {
+      cancelled = true;
+    };
   }, [enabled, inlineContent, url]);
 
   return { text, loading, error };

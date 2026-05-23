@@ -5,6 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
 import ReadingModeToggleButton from '../docs/ReadingModeToggleButton';
 import AuthStatus from '../docs/AuthStatus';
+import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
 import { SITE_CONFIG } from '../../utils/siteConfig';
 import { HOME_PATH } from '../../utils/siteRoutes';
 
@@ -75,6 +76,10 @@ const AppHeader = ({
     setMobileDropdownOpen(false);
   };
 
+  const preloadSpaceMarkdown = (space) => {
+    preloadMarkdownFile(space?.entryFile);
+  };
+
   return (
     <header className="app-header glass-morphism">
       <div className="app-header-content">
@@ -112,6 +117,9 @@ const AppHeader = ({
                       key={space.id}
                       type="button"
                       className={`mobile-category-item ${visibleActiveSpace?.id === space.id ? 'active' : ''}`}
+                      onMouseEnter={() => preloadSpaceMarkdown(space)}
+                      onFocus={() => preloadSpaceMarkdown(space)}
+                      onTouchStart={() => preloadSpaceMarkdown(space)}
                       onClick={() => handleMobileSpaceClick(space)}
                     >
                       {space.title}
@@ -144,6 +152,9 @@ const AppHeader = ({
             <button
               key={space.id}
               className={`category-tab ${visibleActiveSpace?.id === space.id ? 'active' : ''}`}
+              onMouseEnter={() => preloadSpaceMarkdown(space)}
+              onFocus={() => preloadSpaceMarkdown(space)}
+              onTouchStart={() => preloadSpaceMarkdown(space)}
               onClick={() => onSpaceClick(space)}
             >
               <span className="category-title">{space.title}</span>
