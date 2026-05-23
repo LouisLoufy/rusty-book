@@ -1,24 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkCjkFriendly from 'remark-cjk-friendly';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 import DocArticleHeader from '../docs/DocArticleHeader';
 import DocArticleLayout from '../docs/DocArticleLayout';
+import DocMarkdownRenderer from '../docs/DocMarkdownRenderer';
 import PaginationNav from '../docs/PaginationNav';
 import { cn } from '../../utils/classNames';
 import { useDocShortcuts } from '../../hooks/useDocShortcuts';
 import { useMarkdownSource } from '../../hooks/useMarkdownSource';
 import { useRenderedHeadings } from '../../hooks/useRenderedHeadings';
 import { normalizeDocComponentMarkdown, resolvePublicContentUrl } from '../../utils/markdown';
-import {
-  createMarkdownCodeComponent,
-  createDocMarkdownComponents,
-  createMarkdownPreComponent,
-  sanitizeSchema
-} from '../docs/markdownRenderers';
+import { hasMarkdownMath } from '../../utils/markdownMath';
 import {
   ANNOTATIONS,
   LEARNING_PATH,
@@ -68,6 +59,10 @@ function VersionPage() {
   const headings = useRenderedHeadings(articleTopRef, markdownContent, {
     enabled: Boolean(doc) && activeTab === 'learn'
   });
+  const markdownHasMath = useMemo(
+    () => hasMarkdownMath(markdownContent),
+    [markdownContent]
+  );
 
   useDocShortcuts({
     articleRef: articleTopRef,
@@ -91,13 +86,6 @@ function VersionPage() {
     return null;
   }
 
-  const CodeComponent = createMarkdownCodeComponent();
-  const PreComponent = createMarkdownPreComponent();
-  const markdownComponents = createDocMarkdownComponents({
-    codeComponent: CodeComponent,
-    preComponent: PreComponent,
-    includeH1: false
-  });
   const pageTitle = safeSessionLabel(version);
 
   return (
@@ -168,13 +156,9 @@ function VersionPage() {
 
       <div className="lcc-tab-panel">
         {activeTab === 'learn' && (
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm, remarkCjkFriendly]}
-            rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
-            components={markdownComponents}
-          >
+          <DocMarkdownRenderer enableMath={markdownHasMath} includeH1={false}>
             {markdownContent}
-          </ReactMarkdown>
+          </DocMarkdownRenderer>
         )}
         {activeTab === 'simulate' && <AgentLoopSimulator version={version} />}
         {activeTab === 'code' && (

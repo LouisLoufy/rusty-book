@@ -5,8 +5,6 @@ import './animations.css';
 import './prism-custom.css';
 
 import 'prismjs/themes/prism-tomorrow.css';
-import 'katex/dist/katex.min.css';
-import 'yet-another-react-lightbox/styles.css';
 
 import '../components/PageTransitionLoader.css';
 import '../components/AppHeader/AppHeader.css';
@@ -22,7 +20,6 @@ import '../components/docs/DocsLayout.css';
 import '../components/docs/Sidebar.css';
 import '../components/docs/ReadingModeToggleButton.css';
 import '../components/docs/DocContent.css';
-import '../components/docs/CodePlayground.css';
 import '../components/docs/PaginationNav.css';
 import '../components/docs/ArticleTags.css';
 import '../components/docs/ArticleSourceCard.css';

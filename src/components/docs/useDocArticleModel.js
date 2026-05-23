@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import matter from 'gray-matter';
 import { useMarkdownSource } from '../../hooks/useMarkdownSource';
 import { findMetaEntryByPath } from '../../utils/docsMetaSelectors';
+import { parseMarkdownFrontmatter } from '../../utils/markdownFrontmatter';
 import { normalizeDocComponentMarkdown, resolvePublicContentUrl } from '../../utils/markdown';
 import { AI_INSIGHTS_CATEGORY_ID } from '../../utils/siteRoutes';
 import {
@@ -40,7 +40,7 @@ export function useDocArticleModel({ meta, pathname = '', findTitleByPath = () =
       return { data: {}, content: '' };
     }
 
-    return matter(rawDoc);
+    return parseMarkdownFrontmatter(rawDoc);
   }, [rawDoc]);
   const pageTitle = useMemo(
     () => buildDocPageTitle(docPath, titleFromMeta, frontmatter.title),

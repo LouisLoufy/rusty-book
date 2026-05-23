@@ -1,29 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkCjkFriendly from 'remark-cjk-friendly';
-import remarkMath from 'remark-math';
-import rehypeRaw from 'rehype-raw';
-import rehypeKatex from 'rehype-katex';
-import rehypeSanitize from 'rehype-sanitize';
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import CodePlayground from './CodePlayground';
 import DocArticleHeader from './DocArticleHeader';
 import PaginationNav from './PaginationNav';
 import ArticleTags from './ArticleTags';
 import ArticleSourceCard from './ArticleSourceCard';
 import DocArticleLayout from './DocArticleLayout';
+import DocMarkdownRenderer from './DocMarkdownRenderer';
 import GiscusComments from '../comments/GiscusComments';
 import PageSeo from '../seo/PageSeo';
 import { formatDocErrorMessage } from './docContentUtils';
-import {
-  createMarkdownCodeComponent,
-  createDocMarkdownComponents,
-  createMarkdownPreComponent,
-  sanitizeSchema
-} from './markdownRenderers';
 import { useDocArticleModel } from './useDocArticleModel';
 import { useDocArticleNavigation } from './useDocArticleNavigation';
 import { usePageTitle } from '../../contexts/PageTitleContext';
@@ -32,7 +17,10 @@ import { useHistory } from '../../contexts/HistoryContext';
 import { useTag } from '../../contexts/TagContext';
 import { useDocShortcuts } from '../../hooks/useDocShortcuts';
 import { useRenderedHeadings } from '../../hooks/useRenderedHeadings';
+import { hasMarkdownMath } from '../../utils/markdownMath';
 import { buildDocsTitle } from '../../utils/siteConfig';
+
+const DocImageLightbox = React.lazy(() => import('./DocImageLightbox'));
 
 const DocContent = () => {
   const location = useLocation();
@@ -88,6 +76,10 @@ const DocContent = () => {
   const headings = useRenderedHeadings(articleRef, content, {
     enabled: Boolean(content)
   });
+  const markdownHasMath = React.useMemo(
+    () => hasMarkdownMath(markdownContent),
+    [markdownContent]
+  );
 
   const { adjacentChapters, articleTags } = useDocArticleNavigation({
     meta,
@@ -121,19 +113,6 @@ const DocContent = () => {
       </div>
     );
   }
-
-  const CodeComponent = createMarkdownCodeComponent({
-    playgroundRenderer: ({ code, language }) => (
-      <CodePlayground initialCode={code} language={language} />
-    )
-  });
-  const PreComponent = createMarkdownPreComponent();
-  const markdownComponents = createDocMarkdownComponents({
-    codeComponent: CodeComponent,
-    preComponent: PreComponent,
-    markdownUrl,
-    onImageClick: openImageLightbox
-  });
 
   return (
     <>
@@ -202,33 +181,28 @@ const DocContent = () => {
         {loading && !rawDoc ? (
           <div className="doc-loading" aria-live="polite">正在加载文章...</div>
         ) : (
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm, remarkCjkFriendly, remarkMath]}
-            rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema], rehypeKatex]}
-            components={markdownComponents}
+          <DocMarkdownRenderer
+            enableMath={markdownHasMath}
+            enablePlayground
+            markdownUrl={markdownUrl}
+            onImageClick={openImageLightbox}
           >
             {markdownContent}
-          </ReactMarkdown>
+          </DocMarkdownRenderer>
         )}
         {isTranslatedArticle && (
           <ArticleSourceCard url={frontmatter.url} />
         )}
       </DocArticleLayout>
-      <Lightbox
-        open={lightboxOpen}
-        close={() => setLightboxOpen(false)}
-        slides={lightboxSlides}
-        plugins={[Zoom]}
-        render={{
-          buttonPrev: () => null,
-          buttonNext: () => null
-        }}
-        zoom={{
-          maxZoomPixelRatio: 3,
-          zoomInMultiplier: 1.8,
-          scrollToZoom: true
-        }}
-      />
+      {lightboxOpen ? (
+        <React.Suspense fallback={null}>
+          <DocImageLightbox
+            open={lightboxOpen}
+            close={() => setLightboxOpen(false)}
+            slides={lightboxSlides}
+          />
+        </React.Suspense>
+      ) : null}
     </>
   );
 };

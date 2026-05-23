@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Editor from 'react-simple-code-editor';
 import Prism from '../../utils/prism';
 import { HiPlay, HiRefresh, HiShare } from 'react-icons/hi';
+import './CodePlayground.css';
 
 const CodePlayground = ({ initialCode = '', language = 'javascript' }) => {
   const [code, setCode] = useState(initialCode);
