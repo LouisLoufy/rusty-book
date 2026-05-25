@@ -17,7 +17,7 @@ import {
   groupArticlesByDate,
   normalizeMetaPath
 } from '../../utils/docsMetaSelectors';
-import { normalizeDocComponentMarkdown, resolvePublicContentUrl } from '../../utils/markdown';
+import { resolvePublicContentUrl } from '../../utils/markdown';
 import { flattenChapters, getAdjacentChapters } from '../../utils/navigationHelpers';
 import { AI_INSIGHTS_CATEGORY_ID } from '../../utils/siteRoutes';
 
@@ -105,7 +105,7 @@ export function buildNormalizedArticleMarkdown(content, { isAiInsightsArticle = 
     ? stripTitle(content, isAiInsightsArticle)
     : content;
 
-  return normalizeDocComponentMarkdown(articleContent);
+  return articleContent || '';
 }
 
 export function buildDocArticleHistoryRecord({

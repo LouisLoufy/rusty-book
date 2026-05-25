@@ -6,6 +6,7 @@ import ArticleTags from './ArticleTags';
 import ArticleSourceCard from './ArticleSourceCard';
 import DocArticleLayout from './DocArticleLayout';
 import DocMarkdownRenderer from './DocMarkdownRenderer';
+import MdxRenderer from './MdxRenderer';
 import GiscusComments from '../comments/GiscusComments';
 import PageSeo from '../seo/PageSeo';
 import { formatDocErrorMessage } from './docContentUtils';
@@ -183,6 +184,13 @@ const DocContent = () => {
         )}
         {loading && !rawDoc ? (
           <div className="doc-loading" aria-live="polite">正在加载文章...</div>
+        ) : docMetaEntry?.item?.file?.endsWith('.mdx') ? (
+          <MdxRenderer
+            source={markdownContent}
+            markdownUrl={markdownUrl}
+            onImageClick={openImageLightbox}
+            enablePlayground
+          />
         ) : (
           <DocMarkdownRenderer
             enableMath={markdownHasMath}

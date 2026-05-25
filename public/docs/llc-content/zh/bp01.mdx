@@ -796,7 +796,7 @@ CLAUDE.md 支持通过 `@` 语法导入其他文件：
 └── api-conventions.md     # API 设计决策
 ```
 
-> <project> 由 git 仓库根路径决定——同一 repo 的子目录共享同一个 memory 目录；非 git 项目按工作目录区分。
+> `<project>` 由 git 仓库根路径决定——同一 repo 的子目录共享同一个 memory 目录；非 git 项目按工作目录区分。
 
 - Claude 在会话中自动记录有用信息
 - MEMORY.md的前 200 行在每次会话启动时注入系统提示；其余 topic 文件（如debugging.md）不自动加载，Claude 按需读取

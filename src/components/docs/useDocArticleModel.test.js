@@ -48,8 +48,6 @@ test('builds a doc article view model from meta, markdown, and frontmatter', () 
       '---',
       '# Meta Title',
       '',
-      '<doc-component />',
-      '',
       'Body'
     ].join('\n'),
     loading: false,
@@ -79,7 +77,7 @@ test('builds a doc article view model from meta, markdown, and frontmatter', () 
     link: 'https://example.com/ada'
   }]);
   expect(result.current.markdownContent).not.toContain('# Meta Title');
-  expect(result.current.markdownContent).toContain('<doc-component>\n</doc-component>');
+  expect(result.current.markdownContent).toContain('Body');
   expect(result.current.historyRecord).toEqual({
     path: '/ai-insights/meta-title',
     title: 'Meta Title',

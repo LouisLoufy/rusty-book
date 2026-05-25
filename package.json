@@ -5,6 +5,7 @@
   "homepage": "https://beatai.org",
   "dependencies": {
     "@docsearch/react": "^4.6.0",
+    "@mdx-js/mdx": "^3.1.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
