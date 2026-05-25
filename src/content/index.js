@@ -82,7 +82,10 @@ export function getCollectionByPathname(pathname = '') {
   return COLLECTIONS.find((collection) => collection.basePath === pathname) || null;
 }
 
-// Project TOP_NAV into renderable items: { id, label, href }.
+// Project TOP_NAV into renderable items: { id, label, href, matchPath }.
+// `href` is the click target (may include the book's defaultEntry for books);
+// `matchPath` is the URL prefix used for active-state matching (the book's
+// basePath, so any chapter under the book lights up the same nav entry).
 // Returns null entries (and the consumer should filter) only if the reference
 // points at an unknown book/collection id.
 export function getTopNavItems() {
@@ -91,15 +94,30 @@ export function getTopNavItems() {
       if (entry.kind === 'book') {
         const book = getBookById(entry.id);
         if (!book) return null;
-        return { id: book.id, label: book.title, href: getBookDefaultUrl(book) };
+        return {
+          id: book.id,
+          label: book.title,
+          href: getBookDefaultUrl(book),
+          matchPath: getBookBasePath(book)
+        };
       }
       if (entry.kind === 'collection') {
         const collection = getCollectionById(entry.id);
         if (!collection) return null;
-        return { id: collection.id, label: collection.title, href: collection.basePath };
+        return {
+          id: collection.id,
+          label: collection.title,
+          href: collection.basePath,
+          matchPath: collection.basePath
+        };
       }
       // 'route' | 'external'
-      return { id: `route:${entry.href}`, label: entry.label, href: entry.href };
+      return {
+        id: `route:${entry.href}`,
+        label: entry.label,
+        href: entry.href,
+        matchPath: entry.href
+      };
     })
     .filter(Boolean);
 }
@@ -107,8 +125,8 @@ export function getTopNavItems() {
 export function getActiveTopNavItem(pathname = '') {
   const items = getTopNavItems();
   return items
-    .filter((item) => pathname === item.href || pathname.startsWith(`${item.href}/`))
-    .sort((a, b) => b.href.length - a.href.length)[0] || null;
+    .filter((item) => pathname === item.matchPath || pathname.startsWith(`${item.matchPath}/`))
+    .sort((a, b) => b.matchPath.length - a.matchPath.length)[0] || null;
 }
 
 // Project SQUARE_CARDS into renderable items: { icon, href, title, description }.
