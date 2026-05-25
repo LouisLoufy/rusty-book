@@ -1,9 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { getBookById, getCollectionOfBook } from './content';
-import { getLccVersionPath } from './components/learnClaudeCode/versionUtils';
-import { SITE_CONFIG } from './utils/siteConfig';
-import { buildLccSidebarMeta } from './components/learnClaudeCode/sidebarMeta';
 
 jest.mock('./utils/lazyWithMinLoadTime', () => ({
   lazyWithMinLoadTime: (importFunc) => importFunc()
@@ -98,24 +94,4 @@ test('renders ai tutorials page with learn-ai card', async () => {
   render(<App />);
   expect(await screen.findByRole('heading', { name: 'Learn Claude Code' })).toBeInTheDocument();
   expect(await screen.findByRole('heading', { name: '深度学习指南' })).toBeInTheDocument();
-});
-
-test('maps best-practices chapter to unified learn-claude-code path', () => {
-  expect(getLccVersionPath('bp01')).toBe('/learn-ai/learn-claude-code/bp01');
-});
-
-test('renders best-practices as a separate sidebar section', () => {
-  const book = getBookById('learn-claude-code');
-  const collection = getCollectionOfBook(book.id);
-  const sidebarMeta = buildLccSidebarMeta(book, collection);
-  expect(sidebarMeta.sections.map((section) => section.title)).toEqual([
-    '从零手搓 Claude Code',
-    '最佳实践'
-  ]);
-  expect(sidebarMeta.bookPath).toEqual({
-    parentTitle: 'AI 学习教程',
-    currentTitle: 'Learn Claude Code'
-  });
-  expect(sidebarMeta.sections[1].items[0].title).toBe('BP01 Claude Code 最佳实践指南');
-  expect(sidebarMeta.sections[1].items[0].path).toBe('/learn-ai/learn-claude-code/bp01');
 });

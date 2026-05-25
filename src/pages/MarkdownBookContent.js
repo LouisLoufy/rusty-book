@@ -4,7 +4,7 @@ import DocContent from '../components/docs/DocContent';
 import DocsLayout from '../components/docs/DocsLayout';
 import PageTransitionLoader from '../components/PageTransitionLoader';
 import PageSeo from '../components/seo/PageSeo';
-import { NotFoundState } from '../components/learnClaudeCode/NotFoundState';
+import { NotFoundState } from '../components/docs/NotFoundState';
 import { TagProvider } from '../contexts/TagContext';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import {
