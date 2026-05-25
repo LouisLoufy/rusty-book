@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
@@ -9,22 +9,23 @@ import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
 import { preloadRouteForPath } from '../../utils/routePrefetch';
 import { SITE_CONFIG } from '../../utils/siteConfig';
 import { HOME_PATH } from '../../utils/siteRoutes';
+import { TOP_NAV_ITEMS, getActiveTopNavItem } from '../../utils/topNav';
 
 /**
  * 应用统一 Header 组件
  *
+ * 顶部导航来自独立的 TOP_NAV_ITEMS 配置（src/utils/topNav.js），跟 doc-category 注册解耦。
+ * spaces / activeSpace 仍可传入：当某个 nav 项的 id 在 spaces 里能匹配到，会顺带启用
+ * GitHub 图标与资源 preload；匹配不到的条目（例如嵌套在 hub 下的书）则优雅降级。
+ *
  * @param {Object} props
- * @param {Array} props.spaces - 顶部知识空间导航数据（可选）
- * @param {Object} props.activeSpace - 当前激活的知识空间（可选）
- * @param {Function} props.onSpaceClick - 知识空间点击回调（可选）
+ * @param {Array} props.spaces - 知识空间数据，用作 GitHub 图标/preload 的元数据来源（可选）
  * @param {boolean} props.sidebarOpen - 侧边栏打开状态（可选）
  * @param {Function} props.onMenuToggle - 菜单切换回调（可选）
  * @param {boolean} props.showReadingModeToggle - 是否显示阅读模式按钮（可选）
  */
 const AppHeader = ({
   spaces = [],
-  activeSpace = null,
-  onSpaceClick = null,
   sidebarOpen = false,
   onMenuToggle = null,
   showReadingModeToggle = false
@@ -32,9 +33,19 @@ const AppHeader = ({
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const mobileDropdownRef = useRef(null);
   const location = useLocation();
-  const navSpaces = spaces.filter((space) => space?.id !== 'learn-ai' && space?.kind !== 'learn-ai');
-  const visibleActiveSpace = navSpaces.find((space) => space.id === activeSpace?.id) || null;
-  const showSpaceNav = navSpaces.length > 0 && onSpaceClick;
+
+  const spaceById = useMemo(() => {
+    const map = new Map();
+    spaces.forEach((space) => {
+      if (space?.id) {
+        map.set(space.id, space);
+      }
+    });
+    return map;
+  }, [spaces]);
+
+  const activeNavItem = getActiveTopNavItem(location.pathname);
+  const activeSpaceEnrichment = activeNavItem ? spaceById.get(activeNavItem.id) : null;
 
   useEffect(() => {
     setMobileDropdownOpen(false);
@@ -72,14 +83,12 @@ const AppHeader = ({
     };
   }, [mobileDropdownOpen]);
 
-  const handleMobileSpaceClick = (space) => {
-    onSpaceClick(space);
-    setMobileDropdownOpen(false);
-  };
-
-  const preloadSpaceAssets = (space) => {
-    preloadMarkdownFile(space?.entryFile);
-    preloadRouteForPath(space?.entryPath);
+  const preloadNavItem = (item) => {
+    preloadRouteForPath(item.href);
+    const space = spaceById.get(item.id);
+    if (space?.entryFile) {
+      preloadMarkdownFile(space.entryFile);
+    }
   };
 
   return (
@@ -96,84 +105,83 @@ const AppHeader = ({
         </Link>
 
         {/* Mobile Category Dropdown */}
-        {showSpaceNav ? (
-          <div className="mobile-category-wrapper mobile-only">
-            <div
-              ref={mobileDropdownRef}
-              className={`mobile-category-dropdown ${mobileDropdownOpen ? 'open' : ''}`}
+        <div className="mobile-category-wrapper mobile-only">
+          <div
+            ref={mobileDropdownRef}
+            className={`mobile-category-dropdown ${mobileDropdownOpen ? 'open' : ''}`}
+          >
+            <button
+              type="button"
+              className="mobile-category-toggle"
+              aria-expanded={mobileDropdownOpen}
+              aria-haspopup="menu"
+              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
             >
-              <button
-                type="button"
-                className="mobile-category-toggle"
-                aria-expanded={mobileDropdownOpen}
-                aria-haspopup="menu"
-                onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-              >
-                <span>{visibleActiveSpace?.title || SITE_CONFIG.labels.selectBook}</span>
-                <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
-              </button>
-              {mobileDropdownOpen && (
-                <div className="mobile-category-menu" role="menu">
-                  {navSpaces.map((space) => (
-                    <button
-                      key={space.id}
-                      type="button"
-                      className={`mobile-category-item ${visibleActiveSpace?.id === space.id ? 'active' : ''}`}
-                      onMouseEnter={() => preloadSpaceAssets(space)}
-                      onFocus={() => preloadSpaceAssets(space)}
-                      onTouchStart={() => preloadSpaceAssets(space)}
-                      onClick={() => handleMobileSpaceClick(space)}
-                    >
-                      {space.title}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            {/* GitHub icon next to the dropdown */}
-            {visibleActiveSpace?.githubRepo && (
-              <a
-                href={visibleActiveSpace.githubRepo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="github-link-mobile"
-                title={`访问 ${visibleActiveSpace.title} 的 GitHub 仓库`}
-              >
-                <FaGithub />
-              </a>
+              <span>{activeNavItem?.label || SITE_CONFIG.labels.selectBook}</span>
+              <HiChevronDown className={`dropdown-icon ${mobileDropdownOpen ? 'open' : ''}`} />
+            </button>
+            {mobileDropdownOpen && (
+              <div className="mobile-category-menu" role="menu">
+                {TOP_NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.id}
+                    to={item.href}
+                    role="menuitem"
+                    className={`mobile-category-item ${activeNavItem?.id === item.id ? 'active' : ''}`}
+                    onMouseEnter={() => preloadNavItem(item)}
+                    onFocus={() => preloadNavItem(item)}
+                    onTouchStart={() => preloadNavItem(item)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             )}
           </div>
-        ) : (
-          /* 在没有分类导航的页面，添加占位空间 */
-          <div className="mobile-spacer mobile-only"></div>
-        )}
+          {/* GitHub icon next to the dropdown */}
+          {activeSpaceEnrichment?.githubRepo && (
+            <a
+              href={activeSpaceEnrichment.githubRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-link-mobile"
+              title={`访问 ${activeNavItem.label} 的 GitHub 仓库`}
+            >
+              <FaGithub />
+            </a>
+          )}
+        </div>
 
         {/* Desktop Category Navigation */}
         <nav className="category-nav desktop-only">
-          {showSpaceNav && navSpaces.map((space) => (
-            <button
-              key={space.id}
-              className={`category-tab ${visibleActiveSpace?.id === space.id ? 'active' : ''}`}
-              onMouseEnter={() => preloadSpaceAssets(space)}
-              onFocus={() => preloadSpaceAssets(space)}
-              onTouchStart={() => preloadSpaceAssets(space)}
-              onClick={() => onSpaceClick(space)}
-            >
-              <span className="category-title">{space.title}</span>
-              {visibleActiveSpace?.id === space.id && space.githubRepo && (
-                <a
-                  href={space.githubRepo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="github-link-inline"
-                  title={`访问 ${space.title} 的 GitHub 仓库`}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FaGithub />
-                </a>
-              )}
-            </button>
-          ))}
+          {TOP_NAV_ITEMS.map((item) => {
+            const enrichment = spaceById.get(item.id);
+            const isActive = activeNavItem?.id === item.id;
+            return (
+              <Link
+                key={item.id}
+                to={item.href}
+                className={`category-tab ${isActive ? 'active' : ''}`}
+                onMouseEnter={() => preloadNavItem(item)}
+                onFocus={() => preloadNavItem(item)}
+                onTouchStart={() => preloadNavItem(item)}
+              >
+                <span className="category-title">{item.label}</span>
+                {isActive && enrichment?.githubRepo && (
+                  <a
+                    href={enrichment.githubRepo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-link-inline"
+                    title={`访问 ${item.label} 的 GitHub 仓库`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Actions */}

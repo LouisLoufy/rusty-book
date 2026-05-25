@@ -51,8 +51,8 @@ export const PAGE_CONFIG = Object.freeze({
   [PAGE_IDS.aiTutorials]: {
     id: PAGE_IDS.aiTutorials,
     path: LEARN_AI_BASE_PATH,
-    title: 'AI学习教程',
-    description: `集中浏览 ${SITE_CONFIG.brandName} 收录的 AI学习教程，目前包含 Learn Claude Code，可直达书籍正文。`
+    title: 'AI 学习教程',
+    description: `集中浏览 ${SITE_CONFIG.brandName} 收录的 AI 学习教程，目前包含 Learn Claude Code，可直达书籍正文。`
   },
   [PAGE_IDS.learnAiBook]: {
     id: PAGE_IDS.learnAiBook,

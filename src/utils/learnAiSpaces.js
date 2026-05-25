@@ -39,6 +39,20 @@ export const LEARN_AI_SPACES = [
     cardLabel: '新收录',
     cardMeta: '18 个章节',
     cardCta: '开始学习'
+  },
+  {
+    id: 'agent-harness',
+    slug: 'agent-harness',
+    title: 'Agent Harness',
+    bookTitle: 'Agent Harness',
+    contentSource: 'docs',
+    docsMetaFile: '/docs/learn-ai/agent-harness/_meta.json',
+    docsCategoryId: 'learn-ai/agent-harness',
+    defaultPath: '/learn-ai/agent-harness/chapter-01/lesson-01',
+    description: 'Agent Harness 实战手册：拆解 Claude Code / Cursor 等代理产品背后那层「壳」是怎么调度模型、工具、上下文与权限的。',
+    cardLabel: '新收录',
+    cardMeta: '1 篇示例文章',
+    cardCta: '开始阅读'
   }
 ];
 

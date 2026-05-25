@@ -92,7 +92,7 @@ test('renders square page entry content', async () => {
   window.history.pushState({}, '', '/square');
   render(<App />);
   expect(await screen.findByText('探索内容')).toBeInTheDocument();
-  expect(await screen.findByText('AI学习教程')).toBeInTheDocument();
+  expect(await screen.findByText('AI 学习教程')).toBeInTheDocument();
 });
 
 test('renders ai tutorials page with learn-ai card', async () => {
@@ -113,7 +113,7 @@ test('renders best-practices as a separate sidebar section', () => {
     '最佳实践'
   ]);
   expect(sidebarMeta.bookPath).toEqual({
-    parentTitle: 'AI学习教程',
+    parentTitle: 'AI 学习教程',
     currentTitle: 'Learn Claude Code'
   });
   expect(sidebarMeta.sections[1].items[0].title).toBe('BP01 Claude Code 最佳实践指南');

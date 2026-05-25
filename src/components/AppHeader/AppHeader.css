@@ -115,6 +115,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
 }
 
 .category-link {
@@ -375,6 +376,7 @@
   border-bottom: 1px solid var(--border-primary);
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .mobile-category-item::before {
