@@ -1,15 +1,20 @@
 import React from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { NotFoundState } from '../components/learnClaudeCode/NotFoundState';
-import { getLearnAiSpace } from '../utils/learnAiSpaces';
+import { getTutorialHubByPathname } from '../utils/tutorialHubs';
 import LearnAiDocsBook from './LearnAiDocsBook';
 import LearnClaudeCode from './LearnClaudeCode';
 
-function LearnAiBook() {
+function TutorialBook() {
   const { space: spaceSlug } = useParams();
   const location = useLocation();
-  const currentSpace = getLearnAiSpace(spaceSlug);
+  const hub = getTutorialHubByPathname(location.pathname);
 
+  if (!hub) {
+    return <NotFoundState label={location.pathname} />;
+  }
+
+  const currentSpace = hub.getSpace(spaceSlug);
   if (!currentSpace) {
     return <NotFoundState label={spaceSlug || location.pathname} />;
   }
@@ -18,7 +23,11 @@ function LearnAiBook() {
     return <LearnAiDocsBook />;
   }
 
-  return <LearnClaudeCode />;
+  if (hub.allowsLccContentSource && currentSpace.contentSource === 'lcc') {
+    return <LearnClaudeCode />;
+  }
+
+  return <NotFoundState label={spaceSlug || location.pathname} />;
 }
 
-export default LearnAiBook;
+export default TutorialBook;

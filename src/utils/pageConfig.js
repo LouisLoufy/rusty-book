@@ -4,13 +4,17 @@ import {
 } from './learnAiPaths';
 import { SITE_CONFIG } from './siteConfig';
 
+// Tutorial hubs (/learn-ai, /mba, etc.) are registered in src/utils/tutorialHubs.js
+// — their routes/titles/paths come from that registry, not from PAGE_CONFIG.
+// PAGE_IDS.tutorialsHubPage / tutorialBook are *chunk* identifiers for the
+// shared React components those hubs render through.
 export const PAGE_IDS = Object.freeze({
   docs: 'docs',
   genesisLab: 'genesisLab',
   square: 'square',
   aiInsights: 'aiInsights',
-  aiTutorials: 'aiTutorials',
-  learnAiBook: 'learnAiBook',
+  tutorialsHubPage: 'tutorialsHubPage',
+  tutorialBook: 'tutorialBook',
   learnClaudeCode: 'learnClaudeCode',
   tag: 'tag',
   aiContinentDemo: 'aiContinentDemo',
@@ -47,16 +51,6 @@ export const PAGE_CONFIG = Object.freeze({
     categoryId: SITE_CONFIG.routes.aiInsightsCategoryId,
     title: 'AI 前沿学习',
     description: `${SITE_CONFIG.brandName} AI 前沿学习档案，集中浏览 AI 领域最新动态、技术分享与深度解析。`
-  },
-  [PAGE_IDS.aiTutorials]: {
-    id: PAGE_IDS.aiTutorials,
-    path: LEARN_AI_BASE_PATH,
-    title: 'AI 学习教程',
-    description: `集中浏览 ${SITE_CONFIG.brandName} 收录的 AI 学习教程，目前包含 Learn Claude Code，可直达书籍正文。`
-  },
-  [PAGE_IDS.learnAiBook]: {
-    id: PAGE_IDS.learnAiBook,
-    path: `${LEARN_AI_BASE_PATH}/:space/*`
   },
   [PAGE_IDS.learnClaudeCode]: {
     id: PAGE_IDS.learnClaudeCode,
@@ -98,7 +92,6 @@ export const PAGE_CONFIG = Object.freeze({
 export const APP_ROUTE_PATHS = Object.freeze({
   root: '/',
   tags: PAGE_CONFIG[PAGE_IDS.tag].path,
-  learnAiBook: PAGE_CONFIG[PAGE_IDS.learnAiBook].path,
   legacyLearnClaudeCode: PAGE_CONFIG[PAGE_IDS.learnClaudeCode].legacyPath,
   catchAll: '/*'
 });

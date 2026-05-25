@@ -11,14 +11,13 @@ import {
   buildLearnAiDocsMeta,
   buildLearnAiDocsRouteValidationModel
 } from '../domain/docs';
-import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
-import { getLearnAiSpace } from '../utils/learnAiSpaces';
-import { PAGE_CONFIG, PAGE_IDS } from '../utils/pageConfig';
+import { getTutorialHubByPathname } from '../utils/tutorialHubs';
 
 function LearnAiDocsBook() {
   const { space: spaceSlug } = useParams();
   const location = useLocation();
-  const currentSpace = getLearnAiSpace(spaceSlug);
+  const hub = getTutorialHubByPathname(location.pathname);
+  const currentSpace = hub?.getSpace(spaceSlug) || null;
   const {
     meta: rootMeta,
     loading: rootLoading,
@@ -33,15 +32,15 @@ function LearnAiDocsBook() {
   const tutorialMeta = useMemo(() => buildLearnAiDocsMeta({
     spaceMeta,
     currentSpace,
-    parentTitle: PAGE_CONFIG[PAGE_IDS.aiTutorials].title
-  }), [currentSpace, spaceMeta]);
+    parentTitle: hub?.title || ''
+  }), [currentSpace, hub, spaceMeta]);
   const routeValidation = useMemo(() => buildLearnAiDocsRouteValidationModel(
     tutorialMeta,
     location.pathname,
-    `/learn-ai/${spaceSlug || ''}`
-  ), [location.pathname, spaceSlug, tutorialMeta]);
+    `${hub?.basePath || ''}/${spaceSlug || ''}`
+  ), [hub, location.pathname, spaceSlug, tutorialMeta]);
 
-  if (!currentSpace || currentSpace.contentSource !== 'docs') {
+  if (!hub || !currentSpace || currentSpace.contentSource !== 'docs') {
     return <NotFoundState label={spaceSlug || location.pathname} />;
   }
 
@@ -67,7 +66,7 @@ function LearnAiDocsBook() {
       <TagProvider meta={tutorialMeta}>
         <DocsLayout meta={tutorialMeta} shellMeta={rootMeta}>
           <Routes>
-            <Route index element={<Navigate to={getLearnAiDefaultPath(currentSpace.slug)} replace />} />
+            <Route index element={<Navigate to={hub.getDefaultPath(currentSpace.slug)} replace />} />
             <Route path="*" element={<DocContent />} />
           </Routes>
         </DocsLayout>

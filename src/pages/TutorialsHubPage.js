@@ -7,42 +7,42 @@ import { ReadingModeProvider } from '../contexts/ReadingModeContext';
 import { useCategoryNavigation } from '../hooks/useCategoryNavigation';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import { useReadingModeSearchParam } from '../hooks/useReadingModeSearchParam';
-import {
-  buildKnowledgeNavigationModel,
-  getAiTutorialNavigationSpace
-} from '../domain/docs';
-import { getLearnAiDefaultPath } from '../utils/learnAiPaths';
-import { LEARN_AI_SPACES } from '../utils/learnAiSpaces';
-import { PAGE_IDS } from '../utils/pageConfig';
+import { buildKnowledgeNavigationModel } from '../domain/docs';
 import { preloadRouteForPath } from '../utils/routePrefetch';
 import './AITutorials.css';
 
-function AITutorialsContent({ categories, spaces }) {
+function HubContent({ hub, categories, spaces }) {
   const handleCategoryClick = useCategoryNavigation();
   const [hoveredSlug, setHoveredSlug] = useState('');
   const readingMode = useReadingModeSearchParam();
   const { isReadingMode } = readingMode;
-  const activeSpace = useMemo(() => getAiTutorialNavigationSpace(), []);
+  const activeSpace = useMemo(() => ({
+    id: hub.id,
+    title: hub.title,
+    entryPath: hub.basePath,
+    kind: 'tutorial-hub'
+  }), [hub]);
 
   const renderCardIcon = (space) => {
     if (space.slug === 'learn-claude-code') {
       return <LearnClaudeCodeIcon size={88} animated={hoveredSlug === space.slug} />;
     }
-
     return (
       <div className="ai-tutorial-card-icon-text" aria-hidden="true">
         DL
       </div>
     );
   };
+
+  const resolveDefaultPath = (space) => hub.getDefaultPath(space.slug);
   const preloadTutorialRoute = (space) => {
-    preloadRouteForPath(getLearnAiDefaultPath(space.slug));
+    preloadRouteForPath(resolveDefaultPath(space));
   };
 
   return (
     <ReadingModeProvider value={readingMode}>
       <>
-        <PageSeo pageId={PAGE_IDS.aiTutorials} />
+        <PageSeo title={hub.title} description={hub.description} />
 
         <PageShell
           rootClassName={`ai-tutorials-page ${isReadingMode ? 'reading-mode' : ''}`.trim()}
@@ -56,11 +56,11 @@ function AITutorialsContent({ categories, spaces }) {
           showReadingModeToggle
         >
           <div className="ai-tutorials-container">
-            <section className="ai-tutorials-grid" aria-label="AI tutorial books">
-              {LEARN_AI_SPACES.map((space) => (
+            <section className="ai-tutorials-grid" aria-label={`${hub.title} books`}>
+              {hub.spaces.map((space) => (
                 <Link
                   key={space.slug}
-                  to={getLearnAiDefaultPath(space.slug)}
+                  to={resolveDefaultPath(space)}
                   className="ai-tutorial-card glass-card"
                   onMouseEnter={() => {
                     setHoveredSlug(space.slug);
@@ -93,7 +93,7 @@ function AITutorialsContent({ categories, spaces }) {
   );
 }
 
-export default function AITutorials() {
+export default function TutorialsHubPage({ hub }) {
   const { meta, loading, error } = useDocsMeta();
 
   if (loading) {
@@ -106,10 +106,5 @@ export default function AITutorials() {
 
   const { categories, spaces } = buildKnowledgeNavigationModel(meta);
 
-  return (
-    <AITutorialsContent
-      categories={categories}
-      spaces={spaces}
-    />
-  );
+  return <HubContent hub={hub} categories={categories} spaces={spaces} />;
 }

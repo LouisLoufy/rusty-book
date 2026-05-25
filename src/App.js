@@ -11,6 +11,7 @@ import {
   rewriteLegacyLearnClaudeCodePath
 } from './utils/learnAiPaths';
 import { APP_ROUTE_PATHS, PAGE_CONFIG, PAGE_IDS } from './utils/pageConfig';
+import { TUTORIAL_HUBS } from './utils/tutorialHubs';
 import { HOME_PATH } from './utils/siteRoutes';
 
 // Lazy-load route components; avoid adding artificial delay to navigation.
@@ -19,8 +20,8 @@ const Docs = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.docs])
 const TagPage = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.tag]));
 const Square = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.square]));
 const LogoShowcase = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.logoShowcase]));
-const LearnAiBook = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.learnAiBook]));
-const AITutorials = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiTutorials]));
+const TutorialsHubPage = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.tutorialsHubPage]));
+const TutorialBook = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.tutorialBook]));
 const AIContinentDemo = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiContinentDemo]));
 const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.mapTextureShowcase]));
 const AiInsightsArchive = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiInsights]));
@@ -54,9 +55,11 @@ function App() {
                     <Route path={PAGE_CONFIG[PAGE_IDS.aiContinentDemo].path} element={<AIContinentDemo />} />
                     <Route path={PAGE_CONFIG[PAGE_IDS.mapTextureShowcase].path} element={<MapTextureShowcase />} />
                     <Route path={PAGE_CONFIG[PAGE_IDS.logoShowcase].path} element={<LogoShowcase />} />
-                    <Route path={PAGE_CONFIG[PAGE_IDS.aiTutorials].path} element={<AITutorials />} />
                     <Route path={APP_ROUTE_PATHS.legacyLearnClaudeCode} element={<LegacyLearnClaudeCodeRedirect />} />
-                    <Route path={APP_ROUTE_PATHS.learnAiBook} element={<LearnAiBook />} />
+                    {TUTORIAL_HUBS.flatMap((hub) => [
+                      <Route key={`${hub.id}-hub`} path={hub.basePath} element={<TutorialsHubPage hub={hub} />} />,
+                      <Route key={`${hub.id}-book`} path={`${hub.basePath}/:space/*`} element={<TutorialBook />} />
+                    ])}
                     <Route path={APP_ROUTE_PATHS.tags} element={<TagPage />} />
                     <Route path={PAGE_CONFIG[PAGE_IDS.aiInsights].path} element={<AiInsightsArchive />} />
                     <Route path={APP_ROUTE_PATHS.catchAll} element={<Docs />} />

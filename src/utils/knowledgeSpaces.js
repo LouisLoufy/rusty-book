@@ -5,14 +5,15 @@ import {
   getFirstNavigablePathForCategory
 } from './docsMetaSelectors';
 import { getLearnAiDefaultPath, LEARN_AI_BASE_PATH } from './learnAiPaths';
-import { PAGE_CONFIG, PAGE_IDS } from './pageConfig';
+import { getTutorialHub, getTutorialHubByPathname } from './tutorialHubs';
 
 export const AI_TUTORIALS_PATH = LEARN_AI_BASE_PATH;
 
 export function getAiTutorialSpace() {
+  const hub = getTutorialHub('learn-ai');
   return {
     id: 'ai-tutorials',
-    title: PAGE_CONFIG[PAGE_IDS.aiTutorials].title,
+    title: hub?.title || 'AI 学习教程',
     entryPath: AI_TUTORIALS_PATH,
     kind: 'tutorial-hub'
   };
@@ -64,12 +65,18 @@ export function buildKnowledgeSpaces(meta) {
 }
 
 export function findActiveKnowledgeSpace(meta, path) {
-  if (
-    path.startsWith(AI_TUTORIALS_PATH) ||
-    path.startsWith(LEARN_AI_BASE_PATH) ||
-    path.startsWith('/learn-claude-code/')
-  ) {
+  if (path.startsWith('/learn-claude-code/')) {
     return getAiTutorialSpace();
+  }
+
+  const hub = getTutorialHubByPathname(path);
+  if (hub) {
+    return {
+      id: hub.id,
+      title: hub.title,
+      entryPath: hub.basePath,
+      kind: 'tutorial-hub'
+    };
   }
 
   const activeCategory = findActiveCategoryByPath(meta, path);

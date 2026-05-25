@@ -1,10 +1,10 @@
 import {
-  LEARN_AI_BASE_PATH,
   LEGACY_LEARN_CLAUDE_CODE_BASE_PATH
 } from './learnAiPaths';
 import { PAGE_CONFIG, PAGE_IDS } from './pageConfig';
 import { AI_INSIGHTS_PATH, HOME_PATH } from './siteRoutes';
 import { ROUTE_MODULE_LOADERS } from './routeModuleLoaders';
+import { getTutorialHubByPathname } from './tutorialHubs';
 
 const routeModulePreloadCache = new Map();
 
@@ -63,15 +63,13 @@ export function getRouteIdForPath(target) {
     return PAGE_IDS.tag;
   }
 
-  if (pathname === LEARN_AI_BASE_PATH) {
-    return PAGE_IDS.aiTutorials;
+  const hub = getTutorialHubByPathname(pathname);
+  if (hub) {
+    return pathname === hub.basePath ? PAGE_IDS.tutorialsHubPage : PAGE_IDS.tutorialBook;
   }
 
-  if (
-    pathname.startsWith(`${LEARN_AI_BASE_PATH}/`) ||
-    pathname.startsWith(`${LEGACY_LEARN_CLAUDE_CODE_BASE_PATH}/`)
-  ) {
-    return PAGE_IDS.learnAiBook;
+  if (pathname.startsWith(`${LEGACY_LEARN_CLAUDE_CODE_BASE_PATH}/`)) {
+    return PAGE_IDS.tutorialBook;
   }
 
   return pathname.startsWith('/') ? PAGE_IDS.docs : null;
