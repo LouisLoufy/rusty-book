@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useSteppedVisualization } from "../hooks/useSteppedVisualization";
-import { StepControls } from "./shared/step-controls";
+import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
+import { StepControls } from "./_shared/StepControls";
 
 interface MessageBlock {
   id: string;

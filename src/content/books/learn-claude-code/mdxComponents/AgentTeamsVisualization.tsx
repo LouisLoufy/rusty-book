@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useSteppedVisualization } from "../hooks/useSteppedVisualization";
-import { StepControls } from "./shared/step-controls";
-import { useSvgPalette } from "../hooks/useDarkMode";
+import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
+import { StepControls } from "./_shared/StepControls";
+import { useSvgPalette } from "./_shared/useDarkMode";
 
 // -- Layout constants --
 const SVG_W = 560;

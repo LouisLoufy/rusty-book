@@ -1,7 +1,7 @@
 "use client";
 
 import { Play, Pause, SkipBack, SkipForward, RotateCcw } from "lucide-react";
-import "./step-controls.css";
+import "./StepControls.css";
 
 function cn(...classes: Array<string | undefined | null | false>) {
   return classes.filter(Boolean).join(" ");

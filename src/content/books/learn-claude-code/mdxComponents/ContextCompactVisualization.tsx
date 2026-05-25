@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSteppedVisualization } from "../hooks/useSteppedVisualization";
-import { StepControls } from "./shared/step-controls";
+import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
+import { StepControls } from "./_shared/StepControls";
 
 type BlockType = "user" | "assistant" | "tool_result";
 

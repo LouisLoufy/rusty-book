@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useSteppedVisualization } from "../hooks/useSteppedVisualization";
-import { StepControls } from "./shared/step-controls";
-import { useSvgPalette } from "../hooks/useDarkMode";
+import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
+import { StepControls } from "./_shared/StepControls";
+import { useSvgPalette } from "./_shared/useDarkMode";
 
 // -- FSM states and their layout positions (diamond: idle top, poll right, claim bottom, work left) --
 type Phase = "idle" | "poll" | "claim" | "work";

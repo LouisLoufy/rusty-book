@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useSteppedVisualization } from "../hooks/useSteppedVisualization";
-import { StepControls } from "./shared/step-controls";
+import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
+import { StepControls } from "./_shared/StepControls";
 
 type TaskStatus = "pending" | "in_progress" | "completed";
 

@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useSteppedVisualization } from "../hooks/useSteppedVisualization";
-import { StepControls } from "./shared/step-controls";
-import { useDarkMode, useSvgPalette } from "../hooks/useDarkMode";
+import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
+import { StepControls } from "./_shared/StepControls";
+import { useDarkMode, useSvgPalette } from "./_shared/useDarkMode";
 
 interface StepInfo {
   title: string;
