@@ -221,7 +221,7 @@ function FSMArrow({ from, to, active, inactiveStroke }: { from: Phase; to: Phase
   );
 }
 
-export default function AutonomousAgents({ title }: { title?: string }) {
+export default function AutonomousAgentsVisualization({ title }: { title?: string }) {
   const vis = useSteppedVisualization({ totalSteps: STEPS.length, autoPlayInterval: 2500 });
   const step = vis.currentStep;
   const palette = useSvgPalette();
@@ -234,7 +234,7 @@ export default function AutonomousAgents({ title }: { title?: string }) {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "Autonomous Agent Cycle"}
+        {title || "自主 Agent 循环"}
       </h2>
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900 min-h-[500px]">
         <div className="flex flex-col lg:flex-row gap-4">

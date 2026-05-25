@@ -218,7 +218,7 @@ function NagGauge({ value, max, firing }: { value: number; max: number; firing: 
 
 // -- Main component --
 
-export default function TodoWrite({ title }: { title?: string }) {
+export default function TodoWriteVisualization({ title }: { title?: string }) {
   const {
     currentStep,
     totalSteps,
@@ -241,7 +241,7 @@ export default function TodoWrite({ title }: { title?: string }) {
   return (
     <section className="min-h-[500px] space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "TodoWrite Nag System"}
+        {title || "TodoWrite 提醒系统"}
       </h2>
 
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">

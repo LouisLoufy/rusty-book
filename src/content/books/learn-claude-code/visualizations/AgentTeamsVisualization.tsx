@@ -131,7 +131,7 @@ function TraceLine({ from, to, strokeColor }: { from: string; to: string; stroke
   );
 }
 
-export default function AgentTeams({ title }: { title?: string }) {
+export default function AgentTeamsVisualization({ title }: { title?: string }) {
   const vis = useSteppedVisualization({ totalSteps: STEPS.length, autoPlayInterval: 2500 });
   const step = vis.currentStep;
   const palette = useSvgPalette();
@@ -139,7 +139,7 @@ export default function AgentTeams({ title }: { title?: string }) {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "Agent Team Mailboxes"}
+        {title || "Agent 团队邮箱"}
       </h2>
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900 min-h-[500px]">
         <div className="flex flex-col lg:flex-row gap-4">

@@ -182,7 +182,7 @@ function ActivationBar({
   );
 }
 
-export default function TeamProtocols({ title }: { title?: string }) {
+export default function TeamProtocolsVisualization({ title }: { title?: string }) {
   const [protocol, setProtocol] = useState<Protocol>("shutdown");
 
   const totalSteps = protocol === "shutdown" ? SHUTDOWN_STEPS.length : PLAN_STEPS.length;
@@ -203,7 +203,7 @@ export default function TeamProtocols({ title }: { title?: string }) {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "FSM Team Protocols"}
+        {title || "FSM 团队协议"}
       </h2>
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900 min-h-[500px]">
         {/* Protocol toggle */}

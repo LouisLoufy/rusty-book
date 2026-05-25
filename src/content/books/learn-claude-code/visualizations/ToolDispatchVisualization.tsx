@@ -92,7 +92,7 @@ function getCardX(index: number): number {
   return startX + index * (CARD_W + CARD_GAP) + CARD_W / 2;
 }
 
-export default function ToolDispatch({ title }: { title?: string }) {
+export default function ToolDispatchVisualization({ title }: { title?: string }) {
   const {
     currentStep,
     totalSteps,
@@ -112,7 +112,7 @@ export default function ToolDispatch({ title }: { title?: string }) {
   return (
     <section className="min-h-[500px] space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "Tool Dispatch Map"}
+        {title || "工具分发映射"}
       </h2>
 
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">

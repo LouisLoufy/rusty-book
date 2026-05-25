@@ -135,7 +135,7 @@ function edgePath(fromId: string, toId: string): string {
 
 // -- Component --
 
-export default function AgentLoop({ title }: { title?: string }) {
+export default function AgentLoopVisualization({ title }: { title?: string }) {
   const {
     currentStep,
     totalSteps,
@@ -163,7 +163,7 @@ export default function AgentLoop({ title }: { title?: string }) {
   return (
     <section className="min-h-[500px] space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "The Agent While-Loop"}
+        {title || "Agent While 循环"}
       </h2>
 
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">

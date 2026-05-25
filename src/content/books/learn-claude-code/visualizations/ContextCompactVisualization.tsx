@@ -193,7 +193,7 @@ const STEPS = [
   },
 ];
 
-export default function ContextCompact({ title }: { title?: string }) {
+export default function ContextCompactVisualization({ title }: { title?: string }) {
   const {
     currentStep,
     totalSteps,
@@ -218,7 +218,7 @@ export default function ContextCompact({ title }: { title?: string }) {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "Three-Layer Context Compression"}
+        {title || "三层上下文压缩"}
       </h2>
 
       <div

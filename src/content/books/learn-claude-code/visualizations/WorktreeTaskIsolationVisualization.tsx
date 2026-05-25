@@ -155,14 +155,14 @@ function worktreeClass(state: WorktreeRow["state"]): string {
   return "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900";
 }
 
-export default function WorktreeTaskIsolation({ title }: { title?: string }) {
+export default function WorktreeTaskIsolationVisualization({ title }: { title?: string }) {
   const vis = useSteppedVisualization({ totalSteps: STEPS.length, autoPlayInterval: 2600 });
   const step = STEPS[vis.currentStep];
 
   return (
     <section className="min-h-[500px] space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "Worktree Task Isolation"}
+        {title || "Worktree 任务隔离"}
       </h2>
 
       <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">

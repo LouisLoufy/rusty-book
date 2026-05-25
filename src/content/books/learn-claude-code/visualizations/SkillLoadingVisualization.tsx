@@ -94,7 +94,7 @@ const STEPS = [
   },
 ];
 
-export default function SkillLoading({ title }: { title?: string }) {
+export default function SkillLoadingVisualization({ title }: { title?: string }) {
   const {
     currentStep,
     totalSteps,
@@ -114,7 +114,7 @@ export default function SkillLoading({ title }: { title?: string }) {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-        {title || "On-Demand Skill Loading"}
+        {title || "按需技能加载"}
       </h2>
 
       <div
