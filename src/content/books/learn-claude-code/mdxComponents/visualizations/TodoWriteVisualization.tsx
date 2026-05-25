@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useSteppedVisualization } from "./_shared/useSteppedVisualization";
-import { StepControls } from "./_shared/StepControls";
+import { useSteppedVisualization } from "../_shared/useSteppedVisualization";
+import { StepControls } from "../_shared/StepControls";
 
 // -- Task definitions --
 
