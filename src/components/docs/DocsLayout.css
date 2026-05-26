@@ -11,7 +11,7 @@
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 205px 1fr;
   gap: 16px;
   padding: 0 0 0 24px;
   position: relative;
@@ -22,7 +22,7 @@
   min-width: 0;
   padding: 12px 0;
   position: relative;
-  max-width: 1400px;
+  max-width: 1600px;
   width: 100%;
 }
 
@@ -39,7 +39,7 @@
 
 @media (max-width: 1200px) {
   .docs-container {
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: 24px;
   }
 }

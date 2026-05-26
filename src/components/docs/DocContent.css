@@ -16,7 +16,7 @@
   width: 100%;
   line-height: 1.8;
   position: relative;
-  padding: 24px 282px 30px 22px;
+  padding: 24px 247px 30px 22px;
 }
 
 .doc-content.reading-mode {
@@ -29,7 +29,7 @@
 .doc-content::before {
   content: '';
   position: absolute;
-  inset: 0 256px 0 0;
+  inset: 0 223px 0 0;
   border: 1px solid var(--border-primary);
   border-radius: 24px;
   background: var(--bg-secondary);
