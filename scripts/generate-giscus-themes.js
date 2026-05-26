@@ -9,14 +9,9 @@ const outputDir = path.join(repoRoot, 'public/giscus-themes');
 const THEMES = [
   { id: 'classic-mono', light: ['#1a1a1a', '#1a1a1a'], dark: ['#d4d4d4', '#d4d4d4'] },
   { id: 'classic-blue', light: ['#3b82f6', '#3b82f6'], dark: ['#60a5fa', '#60a5fa'] },
-  { id: 'purple-pink', light: ['#8b5cf6', '#ec4899'], dark: ['#a78bfa', '#f472b6'] },
   { id: 'blue-green', light: ['#3b82f6', '#10b981'], dark: ['#60a5fa', '#34d399'] },
   { id: 'orange-red', light: ['#f97316', '#ef4444'], dark: ['#fb923c', '#f87171'] },
   { id: 'aurora', light: ['#8b5cf6', '#10b981'], dark: ['#a78bfa', '#34d399'] },
-  { id: 'northern-lights', light: ['#1e3a8a', '#7c3aed'], dark: ['#1e40af', '#a78bfa'] },
-  { id: 'desert-dune', light: ['#92400e', '#38bdf8'], dark: ['#a16207', '#7dd3fc'] },
-  { id: 'coral-reef', light: ['#0e7490', '#2dd4bf'], dark: ['#0891b2', '#5eead4'] },
-  { id: 'autumn-forest', light: ['#065f46', '#dc2626'], dark: ['#047857', '#f87171'] },
   { id: 'sailor-moon', light: ['#ff69b4', '#ff1493'], dark: ['#ff69b4', '#ff1493'] }
 ];
 

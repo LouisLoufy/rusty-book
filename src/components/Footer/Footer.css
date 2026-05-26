@@ -1,15 +1,9 @@
 .site-footer {
   width: 100%;
   background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.1);
   padding: 12px 0;
   position: relative;
   z-index: 95;
-}
-
-[data-theme-mode="dark"] .site-footer {
-  border-top-color: rgba(255, 255, 255, 0.05);
 }
 
 .footer-container {
@@ -33,10 +27,7 @@
 .footer-logo {
   font-size: 18px;
   font-weight: 700;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-primary);
   white-space: nowrap;
 }
 

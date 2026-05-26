@@ -16,7 +16,7 @@
   // Ensure both attributes are set correctly
   // Default to 'light' mode if not set (better for first-time users)
   const themeMode = localStorage.getItem('theme-mode') || 'light';
-  const gradientTheme = localStorage.getItem('docs-theme') || 'purple-pink';
+  const gradientTheme = localStorage.getItem('docs-theme') || 'kindle-paper';
 
   // Set attributes on document element BEFORE React loads
   document.documentElement.setAttribute('data-theme-mode', themeMode);

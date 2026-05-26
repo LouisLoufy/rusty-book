@@ -8,21 +8,6 @@ export const DEFAULT_BACKGROUND_DEPTH_ID = 'soft';
 
 export const THEMES = [
   {
-    id: 'classic-mono',
-    name: 'Classic Mono',
-    gradient: '#1a1a1a',
-    gradientDark: '#d4d4d4',
-    colors: ['#1a1a1a'],
-    isSolid: true
-  },
-  {
-    id: 'ink-paper',
-    name: 'Ink Paper',
-    gradient: 'linear-gradient(135deg, #f4efe3 0%, #d8cdbd 52%, #39433a 100%)',
-    gradientDark: 'linear-gradient(135deg, #181511 0%, #3a332b 52%, #d9d0c0 100%)',
-    colors: ['#f4efe3', '#d8cdbd', '#39433a']
-  },
-  {
     id: 'kindle-paper',
     name: 'Kindle Paper',
     gradient: 'linear-gradient(135deg, #f2f1ed 0%, #d8d7d1 58%, #3a3a37 100%)',
@@ -36,13 +21,6 @@ export const THEMES = [
     gradientDark: '#60a5fa',
     colors: ['#3b82f6'],
     isSolid: true
-  },
-  {
-    id: 'purple-pink',
-    name: 'Purple Pink',
-    gradient: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
-    gradientDark: 'linear-gradient(135deg, #a78bfa 0%, #f472b6 100%)',
-    colors: ['#8b5cf6', '#ec4899']
   },
   {
     id: 'blue-green',
@@ -64,34 +42,6 @@ export const THEMES = [
     gradient: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #10b981 100%)',
     gradientDark: 'linear-gradient(135deg, #a78bfa 0%, #22d3ee 50%, #34d399 100%)',
     colors: ['#8b5cf6', '#06b6d4', '#10b981']
-  },
-  {
-    id: 'northern-lights',
-    name: 'Northern Lights',
-    gradient: 'linear-gradient(135deg, #1e3a8a 0%, #10b981 50%, #7c3aed 100%)',
-    gradientDark: 'linear-gradient(135deg, #1e40af 0%, #34d399 50%, #a78bfa 100%)',
-    colors: ['#1e3a8a', '#10b981', '#7c3aed']
-  },
-  {
-    id: 'desert-dune',
-    name: 'Desert Dune',
-    gradient: 'linear-gradient(135deg, #92400e 0%, #f59e0b 50%, #38bdf8 100%)',
-    gradientDark: 'linear-gradient(135deg, #a16207 0%, #fbbf24 50%, #7dd3fc 100%)',
-    colors: ['#92400e', '#f59e0b', '#38bdf8']
-  },
-  {
-    id: 'coral-reef',
-    name: 'Coral Reef',
-    gradient: 'linear-gradient(135deg, #0e7490 0%, #fb7185 50%, #2dd4bf 100%)',
-    gradientDark: 'linear-gradient(135deg, #0891b2 0%, #fda4af 50%, #5eead4 100%)',
-    colors: ['#0e7490', '#fb7185', '#2dd4bf']
-  },
-  {
-    id: 'autumn-forest',
-    name: 'Autumn Forest',
-    gradient: 'linear-gradient(135deg, #065f46 0%, #f59e0b 50%, #dc2626 100%)',
-    gradientDark: 'linear-gradient(135deg, #047857 0%, #fbbf24 50%, #f87171 100%)',
-    colors: ['#065f46', '#f59e0b', '#dc2626']
   },
   {
     id: 'sailor-moon',
