@@ -38,7 +38,6 @@ export default function CollectionPage({ collection }) {
         <PageShell
           rootClassName={`ai-tutorials-page ${isReadingMode ? 'reading-mode' : ''}`.trim()}
           hideHeader={isReadingMode}
-          showReadingModeToggle
         >
           <div className="ai-tutorials-container">
             <section className="ai-tutorials-grid" aria-label={`${collection.title} books`}>

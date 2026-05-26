@@ -58,21 +58,10 @@
 .sidebar-section-title {
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.sidebar-section-title .sidebar-title-text {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .sidebar-title-with-badge {
@@ -249,13 +238,6 @@
   background: var(--card-bg);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-}
-
-:root[data-theme="kindle-paper"] .sidebar-section-title,
-:root[data-theme="kindle-paper"] .sidebar-section-title .sidebar-title-text {
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  color: var(--text-primary);
 }
 
 :root[data-theme="kindle-paper"] .sidebar-global-new-badge {

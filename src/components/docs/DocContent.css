@@ -106,21 +106,9 @@
   font-size: var(--doc-h1-size);
   font-weight: 800;
   line-height: 1.2;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
   margin: 0 0 28px 0;
   letter-spacing: -0.02em;
-}
-
-/* Paper themes opt out of the gradient title — the one deliberate
-   per-theme heading rule (their palette has no display gradient). */
-:root[data-theme="ink-paper"] .doc-h1,
-:root[data-theme="kindle-paper"] .doc-h1 {
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  color: var(--text-primary);
 }
 
 .doc-article-meta {

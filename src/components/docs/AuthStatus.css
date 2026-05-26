@@ -177,20 +177,7 @@
 }
 
 .auth-status-btn-signin {
-  background: var(--card-bg);
-  color: var(--text-primary);
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 10px;
-  border: 1px solid var(--border-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 14px;
+  display: none;
 }
 
 .auth-status-btn-signin:hover {

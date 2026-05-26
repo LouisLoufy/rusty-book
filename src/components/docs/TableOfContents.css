@@ -18,22 +18,6 @@
   background: transparent;
 }
 
-/* 左侧进度指示器 */
-.toc::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 45px;
-  bottom: 12px;
-  width: 2px;
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      var(--accent-start) 20%,
-      var(--accent-end) 80%,
-      transparent 100%);
-  opacity: 0.3;
-}
-
 .toc-header {
   margin-bottom: 12px;
   position: relative;
@@ -148,32 +132,6 @@
   font-weight: 600;
   border-left-color: var(--accent-start);
   background: rgba(139, 92, 246, 0.03);
-  border-left-width: 3px;
-  padding-left: 15px;
-}
-
-/* 活跃项的脉冲效果 */
-.toc-item.active .toc-link::before {
-  content: '';
-  position: absolute;
-  left: -3px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--accent-gradient);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 var(--glow-color);
-  }
-
-  50% {
-    box-shadow: 0 0 8px 2px var(--glow-color);
-  }
 }
 
 /* 层级缩进 - 更有层次感 */
@@ -280,15 +238,6 @@
   opacity: 0.3;
 }
 
-:root[data-theme="kindle-paper"] .toc::before {
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      color-mix(in srgb, var(--border-primary) 92%, transparent) 20%,
-      color-mix(in srgb, var(--border-primary) 92%, transparent) 80%,
-      transparent 100%);
-  opacity: 0.9;
-}
-
 :root[data-theme="kindle-paper"] .toc-title {
   opacity: 0.72;
 }
@@ -316,11 +265,6 @@
   color: var(--text-primary);
   border-left-color: var(--text-tertiary);
   background: color-mix(in srgb, var(--card-bg) 88%, var(--bg-tertiary));
-}
-
-:root[data-theme="kindle-paper"] .toc-item.active .toc-link::before {
-  background: var(--text-tertiary);
-  animation: none;
 }
 
 :root[data-theme="kindle-paper"] .toc-level-2::after {
