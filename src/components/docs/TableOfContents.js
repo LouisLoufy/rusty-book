@@ -137,9 +137,6 @@ const TableOfContents = ({ headings }) => {
 
   return (
     <nav className="toc" aria-label="Table of contents">
-      <div className="toc-header">
-        <h4 className="toc-title">On This Page</h4>
-      </div>
       <ul className="toc-list" ref={tocListRef}>
         {headings.map(({ id, uniqueKey, text, level }) => (
           <li
