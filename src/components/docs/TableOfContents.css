@@ -103,7 +103,6 @@
 .toc-item.active .toc-link {
   color: var(--accent-start);
   font-weight: 600;
-  background: rgba(139, 92, 246, 0.03);
 }
 
 /* 层级缩进 - 更有层次感 */
@@ -223,7 +222,6 @@
 
 :root[data-theme="kindle-paper"] .toc-item.active .toc-link {
   color: var(--text-primary);
-  background: color-mix(in srgb, var(--card-bg) 88%, var(--bg-tertiary));
 }
 
 :root[data-theme="kindle-paper"] .toc-level-2::after {
