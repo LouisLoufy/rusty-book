@@ -1,0 +1,8 @@
+{
+  "repos": {
+    "primary": { "owner": "beatai-org", "name": "beatai-assets" }
+  },
+  "routes": [
+    { "match": "/docs/", "repo": "primary" }
+  ]
+}
