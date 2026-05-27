@@ -1,8 +1,8 @@
 // 共享转码工具：把 PNG/GIF 用 cwebp / gif2webp 转成 WebP，并把 .md 中的图片引用改写为 .webp。
 //
 // 消费者：
-//   - scripts/optimize-ai-insights-images.mjs（一次性回收旧图）
 //   - .claude/skills/material-pipeline/scripts/compress-images.js（每日 pipeline 在 translate 后压缩）
+//   - .claude/skills/material-pipeline/scripts/publish.js（封面缩略图 makeThumbnail / thumbRefPath）
 //
 // 设计原则：纯函数 + 显式参数；不读 env 路径、不打 process.exit、不假设 CLI 形态。
 // 调用方决定 root / md 范围 / 是否 dry-run / 失败处理；本模块只做转码和返回数据。
