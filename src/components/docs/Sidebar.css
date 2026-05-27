@@ -128,7 +128,8 @@
   justify-content: space-between;
   gap: 10px;
   padding: 10px 14px;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: 10px;
@@ -141,7 +142,6 @@
 /* Expandable link styling - now using NavLink instead of div */
 .sidebar-link-with-children {
   background: transparent;
-  font-weight: 500;
   position: relative;
 }
 
@@ -157,7 +157,6 @@
 .sidebar-link-with-children.active {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.08);
-  font-weight: 600;
 }
 
 .sidebar-link-with-children.active .sidebar-title-text {
@@ -208,13 +207,12 @@
 }
 
 .sidebar-link:hover::before {
-  transform: scaleY(0.5);
+  transform: scaleY(1);
 }
 
 .sidebar-link.active {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.08);
-  font-weight: 600;
 }
 
 .sidebar-link.active .sidebar-title-text {
