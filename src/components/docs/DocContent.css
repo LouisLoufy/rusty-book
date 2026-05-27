@@ -443,13 +443,35 @@
 }
 
 /* HTML element styles for markdown content */
+/* The <img> is wrapped in .doc-image-frame (see markdownRenderers.js) so the
+   placeholder slot always has a full-width reserved area; the <img> itself
+   keeps its natural size and won't be stretched when smaller than the column. */
+.doc-image-frame {
+  display: block;
+  width: 100%;
+  margin: 24px auto;
+  text-align: center;
+  border-radius: 8px;
+  min-height: 120px;
+  background-color: var(--card-bg-hover);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='40'><text x='50%' y='50%' text-anchor='middle' dy='.35em' fill='%23999' font-family='sans-serif' font-size='14'>图片加载中</text></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.doc-image-frame.is-loaded {
+  min-height: 0;
+  background-color: transparent;
+  background-image: none;
+}
+
 .doc-content img {
   max-width: 100%;
   height: auto;
   border: 1px solid var(--border-secondary);
   border-radius: 8px;
-  margin: 24px auto;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   box-shadow: var(--shadow-md);
   cursor: zoom-in;
 }

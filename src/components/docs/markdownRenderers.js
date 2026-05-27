@@ -217,13 +217,22 @@ export function createDocMarkdownComponents({
         });
       };
 
+      const markFrameLoaded = (img) => {
+        if (img && img.complete && img.naturalHeight > 0) {
+          img.parentElement?.classList.add('is-loaded');
+        }
+      };
       return (
-        <img
-          {...props}
-          src={resolvedSrc}
-          alt={alt || ''}
-          onClick={handleClick}
-        />
+        <span className="doc-image-frame">
+          <img
+            {...props}
+            src={resolvedSrc}
+            alt={alt || ''}
+            ref={markFrameLoaded}
+            onLoad={(event) => event.currentTarget.parentElement?.classList.add('is-loaded')}
+            onClick={handleClick}
+          />
+        </span>
       );
     },
     blockquote({ node, ...props }) {
