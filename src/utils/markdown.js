@@ -1,5 +1,4 @@
 import React from 'react';
-import { rewriteContentAssetToCdn } from './contentAssetCdn';
 
 export function slugifyHeading(text) {
   return encodeURIComponent(
@@ -58,14 +57,13 @@ export function resolveMarkdownAssetUrl(assetPath, markdownUrl) {
 
 export function resolveContentAssetUrl(assetPath, baseUrl) {
   if (!assetPath || !isRelativeContentPath(assetPath) || !baseUrl) {
-    return rewriteContentAssetToCdn(assetPath) || assetPath;
+    return assetPath;
   }
 
   const baseOrigin = typeof window !== 'undefined' ? window.location.origin : 'https://example.com';
 
   try {
-    const absoluteUrl = new URL(assetPath, new URL(baseUrl, baseOrigin)).toString();
-    return rewriteContentAssetToCdn(absoluteUrl) || absoluteUrl;
+    return new URL(assetPath, new URL(baseUrl, baseOrigin)).toString();
   } catch (error) {
     return assetPath;
   }

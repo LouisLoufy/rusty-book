@@ -2,14 +2,14 @@
 
 ### 3.9.1 定积分的由来
 
-![图片1](../imgs/0315.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0315.png)
 
 假如你开着一辆车，以80千米每小时的速度匀速前进，开了1个小时，那么你行驶的路程是多少？
 答案是：
 
 $80\times1=80$千米
 
-![图片2](../imgs/0316.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0316.png)
 
 一直以相同速度行驶，实在无聊。前15分钟你以40千米每小时行驶，接下来15分钟以60千米每小时行驶，接下来15分钟以100千米每小时行驶，最后15分钟以80千米每小时行驶，那总共行驶的路程是多少？
 
@@ -19,7 +19,7 @@ $0.25\times40+0.25\times60+0.25\times80+0.25\times100=70$千米
 
 更现实的情况是，你行驶了一个小时，但是行驶的速度一直在变化，那该怎么计算呢？
 
-![图片3](../imgs/0317.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0317.png)
 
 还是利用微积分里的重要思想，以直代曲。把这一个小时划分成无数个时间片段，每个时间片段里选取任一时刻的速度作为这个时间片段的平均速度。然后用时段平均速度乘以时段时间，就代表这个时段行驶的路程。最终把所有时段行驶路程加起来就是总共行驶的路程。可以想象，时间片段划分的越小，这个估算越准确，当所有划分的时间片段里最大的时间片段都趋于0时，就可以得到真实的行驶路程了。
 
@@ -63,7 +63,7 @@ $$
 
 ### 3.9.3 定积分的计算
 
-![图片4](../imgs/0318.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0318.png)
 
 假设汽车的行驶速度y(km/h)满足方程$y=x^2$,x为小时。那么问汽车在第2小时到第4小时之间行驶过的路程怎么算？
 

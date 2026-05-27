@@ -118,4 +118,4 @@ Llama3.2使开源大模型生态具备了处理图像、图表和视觉语言交
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

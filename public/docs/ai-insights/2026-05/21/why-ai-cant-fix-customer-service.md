@@ -7,14 +7,14 @@ tags:
   - Artificial Intelligence
   - Technology
 summary: 客户服务是企业版的道歉，可企业看不到这一点。它在大多数时候还高度情绪化，这一点企业多少能看到，却很难做得有效。正是这两件事，构成了 AI 工具——无论是 LLM 还是生成式 AI——至今没能真正取代客户服务、也许永远做不到的根源。
-cover: ./images/why-ai-cant-fix-customer-service/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/why-ai-cant-fix-customer-service/01.webp
 ---
 
 # 为什么 AI 修不好客户服务
 
 ## 客户服务是一种道歉形式，而品牌方一直没真正理解这一点。它还高度情绪化，而机器没有情绪。
 
-![](./images/why-ai-cant-fix-customer-service/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/why-ai-cant-fix-customer-service/01.webp)
 *图片来源：Petr Macháček，发布于 Unsplash*
 
 客户服务是企业版的道歉，可企业看不到这一点。它在大多数时候还高度情绪化，这一点企业多少能看到，却很难做得有效。正是这两件事，构成了 AI 工具——无论是 LLM 还是生成式 AI——至今没能真正取代客户服务、也许永远做不到的根源。

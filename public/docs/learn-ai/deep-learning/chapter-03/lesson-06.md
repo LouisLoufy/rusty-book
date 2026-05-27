@@ -74,7 +74,7 @@ $$
 
 ### 3.6.3 偏导数的几何意义
 
-![0311.png](../imgs/0311.png)
+![0311.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0311.png)
 
 根据上图可以看出，多元函数的偏导数也和一元函数的导数一样，都是表示切线斜率。
 

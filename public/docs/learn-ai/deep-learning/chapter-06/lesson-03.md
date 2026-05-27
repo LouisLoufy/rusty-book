@@ -16,7 +16,7 @@ Anaconda 是一个非常流行的 Python 开发平台，它的核心功能是提
 
 ### 6.3.2 在Anaconda中创建一个环境
 
-![0601.png](../imgs/0601.png)
+![0601.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0601.png)
 
 运行完成后在开始菜单中搜索并打开**Anaconda Prompt**
 
@@ -54,7 +54,7 @@ conda activate 环境名称
 
 比如，以我新创建的环境PyTorch为例：
 
-![0602.png](../imgs/0602.png)
+![0602.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0602.png)
 
 切换后，你可以看到括号里的环境名发生变化。
 
@@ -68,17 +68,17 @@ nvidia-smi
 
 比如我这个机器上是3090显卡，它当前驱动支持的最高CUDA版本为12.6
 
-![0606.png](../imgs/0606.png)
+![0606.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0606.png)
 
 ### 6.3.5 安装PyTorch
 
 可以到[这个地址](https://pytorch.org/get-started/locally/)查看pytorch的安装命令。
 
-![0603.png](../imgs/0603.png)
+![0603.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0603.png)
 
 在这个界面上你可以通过配置生成安装最新PyTorch的命令，但是一般我们都会安装之前稳定版本，所以我们点击上图中的“install previous versions of PyTorch”链接。
 
-![0621.png](../imgs/0621.png)
+![0621.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0621.png)
 
 进入之前版本页面后，我们找到我们想要安装的PyTorch版本，比如V2.4.0，我们寻找pip安装命令模块，并选择对应CUDA版本下的安装命令，这里注意，选择的CUDA版本不能大于上边我们确认的硬件驱动支持的最高版本。如果这里支持的CUDA版本都大于你显卡驱动支持的最高CUDA版本，说明你的显卡驱动太旧了，你可以安装最新的显卡驱动。
 
@@ -97,39 +97,39 @@ VS Code 是一个开源的集成开发环境。你可以在[这个页面](https:
 
 **安装中文语言插件**
 
-![0613.png](../imgs/0613.png)
+![0613.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0613.png)
 
 第一步点击插件按钮。
 第二步在搜索框搜索“chinese”。
 第三步安装插件。
 
-![0614.png](../imgs/0614.png)
+![0614.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0614.png)
 
 安装完成后，VS Code的右下角会弹出一个对话框，改变软件语言，并重启。点击并重启VS Code。
 
 **安装Python语言插件**再次进入后，我们用同样的方式来安装PyTorch语言的编译插件。
 
-![0615.png](../imgs/0615.png)
+![0615.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0615.png)
 
 我们搜索“python”，然后点击安装。安装成功后不需要重启。
 
 **配置Python环境**
 
-![0616.png](../imgs/0616.png)
+![0616.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0616.png)
 
 首先我们点击VS Code右下角的PyThon环境配置按钮。
 
-![0617.png](../imgs/0617.png)
+![0617.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0617.png)
 
 然后选择我们之前在Anaconda里配置好的pytorch环境。
 
 ### 6.3.7 验证环境
 
-![0618.png](../imgs/0618.png)
+![0618.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0618.png)
 
 我们在VS Code里切换到资源管理器窗口，选择一个文件夹作为项目路径。
 
-![0619.png](../imgs/0619.png)
+![0619.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0619.png)
 
 然后新建一个Python文件，比如“test.py”。
 
@@ -140,6 +140,6 @@ import torch
 print(torch.cuda.is_available())
 ```
 
-![0622.png](../imgs/0622.png)
+![0622.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0622.png)
 
 点击VS Code 上代表运行的小三角，执行代码。执行后，输出为True，表明PyTorch可以调用我们的GPU，VS Code也配置成功了。

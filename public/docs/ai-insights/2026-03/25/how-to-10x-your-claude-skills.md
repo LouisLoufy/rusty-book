@@ -1,10 +1,10 @@
 ---
 title: "如何把 Claude Skills 的效果提升 10 倍：用 Karpathy 的 autoresearch 方法自动打磨"
 summary: Claude Skills 很可能有 30% 的时候在失效，而且这种失效甚至不会被注意到。
-cover: ./images/how-to-10x-your-claude-skills/cover.jpg
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/how-to-10x-your-claude-skills/cover.jpg
 ---
 
-![autoresearch 主图](./images/how-to-10x-your-claude-skills/cover.jpg)
+![autoresearch 主图](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/how-to-10x-your-claude-skills/cover.jpg)
 
 Claude Skills 很可能有 30% 的时候在失效，而且这种失效甚至不会被注意到。
 
@@ -27,7 +27,7 @@ Andrej Karpathy，OpenAI 联合创始人、Tesla 前 AI 负责人，也是 “vi
 
 这个想法很简单：与其手工去把某样东西一点点改好，不如让 AI agent 自己在一个循环里替你完成这件事。
 
-![Karpathy 的 autoresearch 仓库截图](./images/how-to-10x-your-claude-skills/inline.jpg)
+![Karpathy 的 autoresearch 仓库截图](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/how-to-10x-your-claude-skills/inline.jpg)
 
 它先尝试一个很小的改动。检查结果有没有变好。变好了就保留，没变好就丢掉。
 

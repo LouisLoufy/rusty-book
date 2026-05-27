@@ -6,7 +6,7 @@
 
 如果一个物体受到力的作用，并在力的方向上发生了一段位移，我们就说这个力对物体做了功。功是物理学中表示力对位移的累积的物理量。功是标量，没有方向的概念。
 
-![0211.png](../imgs/0211.png)
+![0211.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0211.png)
 
 上图中里的力**f**和位移**s**都是向量，它们都既有大小，又有方向，并且它们两个的方向并不相同。这时，计算功时，需要考虑将**f**投影到**s**上，得到**f'**，然后用**f'**的模长乘以**s**的模长就是功，用公式表示如下：
 
@@ -50,7 +50,7 @@ $$
 (\lambda a) \cdot b=a \cdot ( \lambda b)= \lambda (a \cdot b)
 $$
 
-![0212.png](../imgs/0212.png)
+![0212.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0212.png)
 
 根据上边这张图，可以帮助你理解。对于$a \cdot b$的结果等于**a**的模长乘以**b**的模长再乘以cosθ。当**b**变为原来的 λ倍后，它的模长变为原来的 λ倍，而**a**的模长和cosθ都不变，所以$a \cdot (\lambda b) = \lambda (a \cdot b) = (\lambda a) \cdot b$
 
@@ -60,7 +60,7 @@ $$
 (a+b) \cdot c=a \cdot c + b\cdot c
 $$
 
-![0213.png](../imgs/0213.png)
+![0213.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0213.png)
 
 上边的图可以帮助你理解，对于**a+b**与**c**的点乘，等于**a+b**在**c**上的投影长度，乘以**c**的长度。而**a+b**在**c**上的投影的长度就等于**a**在**c**上投影的长度加上**b**在**c**上投影的长度。而**a**在**c**上投影的长度乘以**c**的长度就是**a**与**c**的点乘，对于**b**也同理。所以上式成立。
 

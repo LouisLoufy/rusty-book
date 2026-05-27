@@ -8,7 +8,7 @@
 
 对于如下函数用数学语言如何定义在自变量趋于正无穷大时它的极限：
 
-![0301.png](../imgs/0301.png)
+![0301.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0301.png)
 
 $$
 f(x)=\frac{1}{x}
@@ -32,7 +32,7 @@ $$
 
 ### 3.1.3函数趋于一点时的极限
 
-![0302.png](../imgs/0302.png)
+![0302.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0302.png)
 
 还是以上边讨论的函数$f(x)=x^2$为例，但是我们规定x的定义域$x \in R ;x\ne 2$。当x趋于2时，$f(x)$的极限是怎么定义呢？
 

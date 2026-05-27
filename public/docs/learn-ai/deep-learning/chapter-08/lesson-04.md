@@ -4,7 +4,7 @@
 
 ### 8.4.1引入非线性
 
-![图片1](../imgs/0813.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0813.png)
 
 以上边1个隐藏层，一个输出层的简单神经网络为例，如果没有激活函数，只进行线性回归。那么第一个隐藏层输出为：
 
@@ -44,7 +44,7 @@ $$
 
 函数图像为：
 
-![图片2](../imgs/0814.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0814.png)
 
 它可以将x映射到0到1之间。这样有一个好处是0-1自然映射到概率值范围。它非常适合作为二分类问题的神经网络的最后一层唯一神经元的激活函数。
 
@@ -60,7 +60,7 @@ $$
 
 函数图像为：
 
-![图片3](../imgs/0815.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0815.png)
 
 可以看到tanh函数的值域是-1到1之间。
 
@@ -75,7 +75,7 @@ $$
 也就是说，当输入当x>0 时，输出为 x；当输入 x≤0 时，输出为 0。
 它的函数图像为：
 
-![图片4](../imgs/0816.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0816.png)
 
 为什么ReLU会成为深度学习里默认的激活函数呢？后边我们会详细介绍。
 
@@ -97,4 +97,4 @@ $$
 
 其中$\alpha$一般取小于1的数，比如0.1。这样当x取负值是也会有一个微小的梯度，可以更新参数。它的函数图像为：
 
-![图片5](../imgs/0820.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0820.png)

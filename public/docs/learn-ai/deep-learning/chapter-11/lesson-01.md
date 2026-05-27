@@ -2,13 +2,13 @@
 
 在深度学习的发展史上，LeNet（又称LeNet-5）是一个里程碑式的模型。
 
-![1036.png](../imgs/1036.png)
+![1036.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1036.png)
 
 它由深度学习先驱Yann LeCun等人于1998年提出，被公认为第一个成功应用的卷积神经网络。尽管在LeNet之前已有类似卷积结构的研究，但LeNet首次将卷积、池化和反向传播结合，为现代计算机视觉奠定了基础。
 
 ### 11.1.1 网络结构
 
-![1037.png](../imgs/1037.png)
+![1037.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1037.png)
 
 Input: 1×32×32 图像（如手写数字）
 

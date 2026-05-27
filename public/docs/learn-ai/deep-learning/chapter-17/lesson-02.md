@@ -12,11 +12,11 @@ $$
 
 将向量$v$与旋转矩阵$R(\theta)$相乘后，结果为$(cos\theta,sin\theta)$。
 
-![1703.png](../imgs/1703.png)
+![1703.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1703.png)
 
 同理，对于位于y轴上的向量$v=(0,1)$，逆时针旋转$\theta$后，得到向量$v'=(-sin\theta,cos\theta)$。$v'$同样等于$v$与旋转矩阵$R(\theta)$相乘的结果。
 
-![1704.png](../imgs/1704.png)
+![1704.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1704.png)
 
 向量（1,0）和向量（0,1）是二维坐标系中的标准基向量。当这两个基向量通过旋转矩阵$R(\theta)$逆时针旋转$\theta$角度时，则等于整个坐标系随之旋转了$\theta$角度。
 
@@ -78,7 +78,7 @@ $$
 
 如下图所示，m代表token的位置，比如一个token在序列里第一个，m就为0。F代表sin()和cos()的系数。在这个公式里，系数最大的是第一个二维子空间，系数为1。系数最大，则波长最短。同理，系数最小的是最后一个二维子空间，系数接近1/10000。系数最小，波长最长。
 
-![1705.png](../imgs/1705.png)
+![1705.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1705.png)
 
 给予不同的二维子空间不同的旋转频率，是因为sin()和cos()都是周期函数。可以通过时钟来理解，频率最快的是秒针，它精准，但是每过一分钟就重复一次。频率最慢的是时针，它频率慢，但不容易重复。秒针，分针和时针一起组合来构成时间。
 

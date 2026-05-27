@@ -18,13 +18,13 @@ $$
 
 其中A就是$f'(x_0)$
 
-![0310.png](../imgs/0310.png)
+![0310.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0310.png)
 
 其几何意义就是用某点处的切线代替某点处的曲线。
 
 ### 3.7.2 多元函数微分
 
-![0312.png](../imgs/0312.png)
+![0312.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0312.png)
 
 对于多元函数而言，以二元函数$z=f(x,y)$为例，在点$(x_0,y_0)$处的微分叫做**全微分**，思想也是以直代曲，用该点处的切平面代替该点附近的曲面。
 
@@ -58,7 +58,7 @@ $$
 
 平面上的任何一个点与$(x_0,y_0,z_0)$构成的向量可以表示为$(x-x_0,y-y_0,z-z_0)$, 这个向量与[A,B,-1]的点乘为0，则证明两根线夹角的cos值为0，也就是说平面上的任何一根线都与向量[A,B,-1]的夹角为90°，所以[A,B,-1]为平面的法向量。
 
-![0311.png](../imgs/0311.png)
+![0311.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0311.png)
 
 两条直线就可以确定一个平面，之前我们在求偏导数时，实际上已经找到两个切线，他们分别是经过$(x_0,y_0,z_0)$点，与x轴平行的切线，和与y轴平行的切线。
 

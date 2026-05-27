@@ -8,14 +8,14 @@ tags:
   - Technology
   - Machine Learning
 summary: 在很多人眼里,Anthropic 是硅谷有史以来最动人的故事。这家公司五年前才成立,如今却有望在今年年底把年化收入做到 1000 亿美元。
-cover: ./images/the-dark-side-of-anthropics-growth/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/01.webp
 ---
 
 # Anthropic 高速增长的阴暗面
 
 ## 它最新一轮融资,揭示了 AI 的经济学真相
 
-![](./images/the-dark-side-of-anthropics-growth/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/01.webp)
 *图片来源：作者*
 
 在很多人眼里,**Anthropic 是硅谷有史以来最动人的故事**。这家公司五年前才成立,如今却有望在今年年底把年化收入做到 1000 亿美元。
@@ -40,7 +40,7 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 然而到了今年 3 月,它们基本上已经达成了这个目标,ARR 达到 300 亿美元(也就是说,最后一个月的销售额为 25 亿美元)。
 
-![](./images/the-dark-side-of-anthropics-growth/02.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/02.jpg)
 *图片来源*
 
 > 事实上,**今天这个数字被认为已经达到约 450 亿美元的年化 ARR**,意味着最近一个月的收入为 37.5 亿美元。
@@ -53,12 +53,12 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 当时,**Anthropic 的收入明显少于 OpenAI**。不过,这也揭示出一个重要差异:**据称 Anthropic 的效率远高于 OpenAI**。
 
-![](./images/the-dark-side-of-anthropics-growth/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/03.webp)
 *图片来源：The Information*
 
 而且,关键在于,**它们预计未来几年的算力支出会明显低于 OpenAI**。差距还不是一点点,而是累计数千亿美元的量级。
 
-![](./images/the-dark-side-of-anthropics-growth/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/04.webp)
 *图片来源*
 
 有相当长一段时间,情况看起来是这样:OpenAI 像疯了一样烧钱,而 Anthropic 则节俭得多、更聚焦、效率也更高。
@@ -67,7 +67,7 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 而且不只是盈利,**它们还预计自己将实现现金流为正**,意思是即便算上巨额资本支出之后,它们仍然能赚到钱。
 
-![](./images/the-dark-side-of-anthropics-growth/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/05.webp)
 *图片来源*
 
 要做到这一点,唯一的可能性是:Anthropic 在 2027 年赚得太多,多到足以完全抵消当年的资本投资;要么干脆全年停止在硬件上的再投资,仿佛它已经拥有了所需的全部算力。
@@ -86,7 +86,7 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 有意思的是,Anthropic 的采购狂潮如此凶猛,仅用 **17 天** 锁定的算力,就几乎相当于 OpenAI 花了 **18 个月** 才拿下的量:
 
-![](./images/the-dark-side-of-anthropics-growth/06.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/06.jpg)
 *图片来源*
 
 **这 13.5 GW 可能意味着总计 6750 亿美元的资本支出**,涵盖了所有成本(硬件、电力、建设和人力)。当然,Anthropic 不必独自承担全部账单,**但作为付款方,它的名字出现在其中很大一部分上。**
@@ -97,12 +97,12 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 但最有意思的是,数据显示 OpenAI 和 Anthropic 在这幅图景中占据了相当突出的位置,**这意味着它们的支出承诺已经彻底爆炸式增长**。
 
-![](./images/the-dark-side-of-anthropics-growth/07.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/07.webp)
 *图片来源：作者*
 
 而如果再把 Oracle——超大规模云厂商阵营的最新成员——也加进来,**这两家实验室在这些公司命运中所扮演的角色就更加显眼了**(尽管 Oracle 目前与 Anthropic 没有任何交易)。
 
-![](./images/the-dark-side-of-anthropics-growth/08.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/08.webp)
 *图片来源：作者,数据来自 TheInformation*
 
 需要说明的是,**这 2.1 万亿美元的预期收入承诺,仅仅来自这四家公司**;它还不包括像 Anthropic 与 SpaceX 这样的交易——后者估计每年 50 亿到 60 亿美元,**也就是说,Anthropic 实际的支出预期,在上面那张图里并没有被完整算进去。**
@@ -161,7 +161,7 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 这就引出了著名的吞吐量 vs. 交互性曲线,比如下面这张。它基本上告诉你:**你想要的交互性越高**(每个用户每秒拿到的 token 越多),**每块 GPU 产出的 token 就越少**。而 LLM 是按 token 计费的,**这意味着收入更少**。
 
-![](./images/the-dark-side-of-anthropics-growth/09.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/09.webp)
 *图片来源：SemiAnalysis*
 
 由于 AI 模型已经高度同质化——也就是说,如果你的响应慢,客户就会流失——**大多数推理服务商都运行在曲线的低端**,以确保良好的用户体验,哪怕这意味着收入更少。
@@ -190,7 +190,7 @@ cover: ./images/the-dark-side-of-anthropics-growth/01.webp
 
 **问题在于,面对更稠密的工作负载**(也就是训练,或者推理的 prefill 阶段),**Cerebras 几乎立刻就失去了吸引力**(而且 Cerebras 是高度定制化的硬件,所以制造成本非常高)。
 
-![](./images/the-dark-side-of-anthropics-growth/10.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/10.webp)
 *图片来源：SemiAnalysis*
 
 那么,*如果不存在一种通吃的方案,我们该怎么办?*

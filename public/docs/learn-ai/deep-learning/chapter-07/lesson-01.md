@@ -21,7 +21,7 @@
 
 将上边的数据绘制散点图如下：
 
-![图片1](../imgs/0702.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0702.png)
 
 我们需要训练一个模型，根据气温来预测小明是否出门。回想我们之前学过的线性回归模型，感觉用在这里不合适。因为这里Label的取值只有两个，非0即1，是个分类问题。如果用简单的一元一次线性方程，它预测的Label会一直变化，突破[0,1]的范围，所以是不能拟合这个图像的。
 
@@ -32,7 +32,7 @@ sigmoid(x)=\frac{1}{1+e^{-x}}
 $$
 将这个函数的曲线绘制出来，如下：
 
-![图片2](../imgs/0703.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0703.png)
 
 可以看到Sigmoid函数有很好的特性，它的输出值区间为[0,1]，而且只有x取值在0附近时，函数值有明显的变化，其他区间都很非常接近0或者1。
 
@@ -60,7 +60,7 @@ $$
 
 函数曲线变为：
 
-![图片3](../imgs/0704.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0704.png)
 
 可以发现函数曲线沿着x轴方向拉伸了。
 
@@ -72,7 +72,7 @@ $$
 
 函数曲线变为：
 
-![图片4](../imgs/0705.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0705.png)
 
 可以发现函数曲线沿着x轴方向压缩了。这样更能拟合我们之前的点了。
 
@@ -80,7 +80,7 @@ $$
 
 ### 7.1.3复习时间与是否挂科
 
-![图片5](../imgs/0701.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0701.png)
 
 再看一个例子，考试前，大家都在为考试进行紧张的复习，你统计了大家的复习时长和最终是否挂科。数据如下：
 
@@ -97,7 +97,7 @@ $$
 
 绘制上边数据的图像如下：
 
-![图片6](../imgs/0706.png)
+![图片6](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0706.png)
 
 首先我们发现，这些数据点是左高右低，也就是x取值较小的部分，Label值为1，x取值较大的部分，Label值为0。这和Sigmoid左低右高刚好的相反的。不过没关系，我们已经给Sigmoid函数增加了参数w。我们可以让w为负值来解决这个问题。比如让w为-2：
 
@@ -107,7 +107,7 @@ $$
 
 对应的函数曲线如下：
 
-![图片7](../imgs/0707.png)
+![图片7](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0707.png)
 
 ### 7.1.4给Sigmoid函数增加平移参数
 
@@ -125,7 +125,7 @@ $$
 
 拟合曲线为：
 
-![图片8](../imgs/0708.png)
+![图片8](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0708.png)
 
 可以发现对Sigmoid函数增加w和b参数就可以很好的拟合这些点了。后边我们会训练模型，让模型自己找到合适的w和b的值。
 

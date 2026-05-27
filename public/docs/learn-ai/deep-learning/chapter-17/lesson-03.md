@@ -33,7 +33,7 @@ Llama 2 共发布三个参数规模的版本：
 
 ### 17.3.3 全流程训练体系
 
-![1706.png](../imgs/1706.png)
+![1706.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1706.png)
 
 Llama 2 的训练流程如上图所示，可分为以下阶段：
 
@@ -66,7 +66,7 @@ Llama 2 的训练流程如上图所示，可分为以下阶段：
 >
 > 在基于注意力计算的大模型在进行生成时，每次生成一个token，然后将这个token加入到输入序列里，再生成下一个token。这样导致序列前边的token会被重复多次送入大模型进行计算。又因为mask机制限制了每个token只能看到自己前面的token。所以每个token再次被送入大模型，它在每一层计算出来的q,k,v向量都是不变的。又因为在计算后边token时，只用到前边token的k,v向量。所以每次可以将新生成token的k,v向量缓存下来，避免下次生成时的重复计算。这个缓存就叫做KV-Cache。
 
-![1707.png](../imgs/1707.png)
+![1707.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1707.png)
 
 在传统的多头注意力机制中，每个 token 的特征对应生成相等数量的key、query和value头部，如上图(a)所示的八个。在这种设置中，每个query都与其他 token 的相应位置的key以及与自身相应位置的key进行注意力计算。然后根据注意力权重对value向量进行加权求和。
 
@@ -84,7 +84,7 @@ GQA在llama2里只应用在最大的模型Llama70B里。其中8个query共享一
 
 ### 17.3.5 表现与发展潜力
 
-![1708.png](../imgs/1708.png)
+![1708.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1708.png)
 
 尽管 Llama 2 已使用高达**2 万亿 token**的训练数据，但模型的性能表现仍显示出持续优化的空间。如上图所示，训练困惑度（Perplexity）在 token 增加后仍持续下降，Meta 也据此在下一代 LLaMA 3 中进一步加大了数据规模。
 

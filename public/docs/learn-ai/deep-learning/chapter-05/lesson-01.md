@@ -2,7 +2,7 @@
 
 ### 5.1.1 预测冰激凌销量
 
-![图片1](../imgs/0501.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0501.png)
 
 夏日里，烈日炎炎，你在路边售卖冰淇淋。你根据经验发现，气温越高，销量越好。于是你想是否能根据天气预报明天的气温，准确预测明天冰激凌的销量呢？
 
@@ -20,15 +20,15 @@
 
 将这些点绘制出来，形成一个散点图。
 
-![图片2](../imgs/0502.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0502.png)
 
 通过观察，我们可以发现，这些点连起来非常接近一条直线。我们可以手动画一条直线来拟合这些点。那如何来确定这条直线呢？总体原则是让这些观测到的点离拟合的直线尽可能的近。为了简单，我们让这条直线经过原点，这样直线的方程就可以用$y=wx$来表示，其中w表示斜率。
 
-![图片3](../imgs/0503.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0503.png)
 
 有了这条直线，我们就可以进行预测了， 如果天气预报明天气温为15℃，那么我们就可以看在我们拟合的这条直线上，x取15，对应的y值为65。那么我们就可以预测明天的销量为65了。
 
-![图片4](../imgs/0504.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0504.png)
 
 ### 5.1.2 通过数学方法拟合
 
@@ -72,7 +72,7 @@ $$
 
 绘制上边关于w的图像为：
 
-![图片5](../imgs/0505.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0505.png)
 
 其中y轴是loss值，x轴是直线斜率w的值。我们只需要取loss最低时对应的w就可以得到我们期望的拟合直线了。但是因为x轴和y轴数值都非常大，我们很难通过观测得到最低点的值。
 
@@ -101,7 +101,7 @@ $\hat{y}=4.25x$。
 
 #### 为什么叫做回归？
 
-![图片6](../imgs/0506.png)
+![图片6](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0506.png)
 
 在机器学习里的算法分为监督学习算法，无监督学习算法，强化学习算法。
 

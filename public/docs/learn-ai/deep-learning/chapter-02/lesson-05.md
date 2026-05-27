@@ -4,13 +4,13 @@
 
 我们从一个物理概念来引入向量的叉乘。那就是**力矩**。
 
-![0214.png](../imgs/0214.png)
+![0214.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0214.png)
 
 比如上图中，木棍的一端O固定，你要施加一个力来让这个木棍旋转，是A点更容易还是B点更容易呢？有生活经验的你肯定会选择B点。以同样大的力气，沿$f_1$方向让木棍旋转更容易还是沿$f_2$方向让木棍旋转更容易呢？相信你会选择沿$f_1$方向。
 
 物理中描述这种**“更容易旋转”**的物理量就叫做力矩。力矩与3个因素相关。
 
-![0215.png](../imgs/0215.png)
+![0215.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0215.png)
 
 **力臂的大小**力臂的大小就是旋转点O到力的作用点P之间的长度。相同条件下，力臂越长，力矩越大。旋转越容易。
 
@@ -34,7 +34,7 @@ $$
 
 **叉乘的方向**力矩是一个向量，它不光有大小，还有方向。因为力矩描述的是使物体旋转的容易程度。但是旋转有可能是顺指针方向，也有可能是逆时针方向。叉乘也是一个向量，有自己的方向。怎么确定这个方向呢？这就要用的右手法则了。
 
-![0216.png](../imgs/0216.png)
+![0216.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0216.png)
 
 ### 2.5.3 叉乘的计算法则
 
@@ -102,7 +102,7 @@ $$
 k \times k = 0
 $$
 
-![0217.png](../imgs/0217.png)
+![0217.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0217.png)
 
 另外，根据叉乘的定义，叉乘的结果为向量，结果向量模长为原始两个向量模长的乘积再乘以它们之间夹角的sin值。方向按照右手法则来确定，垂直于原始两个向量构成的平面。
 

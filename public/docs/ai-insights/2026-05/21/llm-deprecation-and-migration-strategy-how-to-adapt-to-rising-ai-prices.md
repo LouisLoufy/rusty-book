@@ -6,7 +6,7 @@ translated: 2026-05-21
 tags:
   - LLM
 summary: 模型退役是 AI 市场的一种结构性现实，不是罕见的运维事件。OpenAI（GPT）、Anthropic（Claude）、Google（Gemini）以及其他 LLM 供应商，会频繁弃用某些特定的 API 版本，转而推出更新的模型。
-cover: ./images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp
 ---
 
 # LLM 弃用与迁移策略：如何应对不断上涨的 AI 价格
@@ -65,7 +65,7 @@ cover: ./images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai
 
 从个人经验看，大约 80% 的迁移投入都花在测试，以及基于质量检查去打磨 prompt 上。而且和传统软件系统不同，LLM 是非确定性的。你不能依赖二元的输入-输出比对。两个有效答案在措辞上可能不同，但都可以接受，这让自动化变得复杂。
 
-![](./images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp)
 *图 1。迁移投入构成。作者绘图*
 
 ### 3. 业务风险
@@ -114,7 +114,7 @@ cover: ./images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai
 
 **检索 ➡ 过滤 ➡ 摘要 ➡ 翻译**
 
-![](./images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/02.webp)
 *图 2。任务分解流水线。作者绘图*
 
 LLM API 是按 token 计费的，不是按调用次数。拆分任务不会显著改变总的 token 用量，但能让你在子任务上使用更简单、更便宜的模型。如果你拿一个繁重的任务——比如查找相关文章、过滤、摘要、翻译——把它拆成四个独立的 API 请求，你的总 token 数大体保持不变。然而，由于你可以把更简单的过滤和翻译步骤路由到小得多的模型上，你单位 token 的整体成本就会大幅下降。

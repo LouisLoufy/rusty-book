@@ -4,7 +4,7 @@
 
 ### 15.4.1 绝对位置编码
 
-![1506.png](../imgs/1506.png)
+![1506.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1506.png)
 
 我们能想到的最简单的编码方式，那就是绝对位置编码了，比如上图，对每个token设计一个和word embedding一样维度的position embedding。
 对于“我爱吃苹果”这句话由4个token构成，它们position embedding的后三位分别为“001”、“010”、“011”、“100”。编码后将word embedding和position embedding按位相加。这样就给每个token的embedding里增加了位置信息。
@@ -19,7 +19,7 @@
 
 ### 15.4.3 Sin函数位置编码
 
-![1507.png](../imgs/1507.png)
+![1507.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1507.png)
 
 通过上图可以看到，sin函数是个周期函数。通过给输入x增加一个系数，可以调节波长，波长越长，函数值随x变化越慢。这样我们就可以用sin函数作为位置编码函数。位置编码的低维度用波长短的sin函数，这样值的变化快。高维度用波长长的sin函数，这样值的变化慢。
 
@@ -38,7 +38,7 @@ $$
 
 对于一个512维的位置编码，我们可以如下定义：
 
-![1508.png](../imgs/1508.png)
+![1508.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1508.png)
 
 上图中每个token的位置编码都在sin函数里的$w_i$前乘以自己的位置序号，“我”是第一个token，乘以1。“爱”是第二个token，乘以2。依次类推。
 
@@ -50,7 +50,7 @@ $$
 
 但实际上Transformer里是用sin和cos函数交替来进行编码的。如下图所示：
 
-![1509.png](../imgs/1509.png)
+![1509.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1509.png)
 
 上图中偶数位置用sin函数系数用$w_{2i}$表示，奇数位置用cos函数，系数用$w_{2i+1}$表示。
 

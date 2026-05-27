@@ -14,11 +14,11 @@
 
 假设有下边这样一个一元函数$y=f(x)$，它的函数图像如下：
 
-![图片1](../imgs/0510.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0510.png)
 
 目标是找到能让$f(x)$最小的$x$。首先随机设置$x$的初始值，比如点$x_0=4$：
 
-![图片2](../imgs/0511.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0511.png)
 
 然后我们求出导数$f'(x_0)$，通过观察图像可以看到在$x_0$点，$f'(x_0)$是大于0的。根据导数的定义，导数大于0，表明当x在$x_0$处增大时，也就是向右变化时，$f(x)$是增大的；x在$x_0$处减小时，也就是向左变化时，$f(x)$是减小的。
 
@@ -30,13 +30,13 @@
 
 有一个简单的做法，就是步长就取导数值的大小。又因为上边说移动方向要和导数方向相反。所以最直接的做法就是给$x_0$加上负的导数值。比如上图中$f'(x_0)=1;x_0=4$，那么接下来就给$x_0$加上-1。$x_0$就从4移动到了3。可以看到它离全局最小点更近了。
 
-![图片3](../imgs/0512.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0512.png)
 
 可以看到，在$x_0=3$时，$f'(x_0)$的值大概为0.7，比$x_0=4$时的导数值小，从图像观察不难发现，随着$x_0$不断接近全局最低点，曲线也变的平缓，导数值变小。这时我们接着对$x_0$加上负的导数值，更新$x_0$为2.3。
 
 根据上边的步骤，我们不断更新$x_0$的值，而且随着$x_0$不断接近全局最低点，曲线也变的平缓，导数值变小，每次步长也变小，这有利于我们在全局最低点附近进行精细调整。最终到达全局最低点。
 
-![图片4](../imgs/0513.gif)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0513.gif)
 
 **学习率**
 
@@ -52,11 +52,11 @@
 
 实际情况中，我们都是要优化多个参数。当我们需要优化的参数从一个变为两个时。假设我们要优化参数w和b。以w作为x轴，b作为y轴，loss函数作为z轴。绘制的图像为：
 
-![图片5](../imgs/0515.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0515.png)
 
 我们的目标是找到loss最小时的w和b。
 
-![图片6](../imgs/0514.png)
+![图片6](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0514.png)
 
 你可以想象你是一个登山者，被困在一个云雾缭绕的大山里。你想尽快下山，但看不清远处的路。你会怎么选择眼前的路呢？梯度下降的做法是选择沿最陡峭的路向下走一段，然后再观察，再选择最陡峭的路向下。
 
@@ -72,7 +72,7 @@ $$
 
 这样不断迭代，最终得到loss最小时的w和b。
 
-![图片7](../imgs/0516.gif)
+![图片7](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0516.gif)
 
 ### 5.3.3 梯度下降算法的几个要素
 
@@ -110,7 +110,7 @@ $$
 
 #### 鞍点
 
-![图片8](../imgs/0517.png)
+![图片8](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0517.png)
 
 向上图中的点，就称为鞍点，之所以叫做鞍点，因为它像马鞍。沿AB方向鞍点处于最小值，沿CD方向鞍点处于最大值。但是因为实际训练模型时，参数个数非常多，基本不可能在某一点让每个维度不是最大值就是最小值。所以你不用担心训练过程最终会收敛到鞍点。
 

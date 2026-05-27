@@ -31,17 +31,17 @@ $$
 
 首先我们看一下sigmoid函数的原函数（蓝色）和导函数（红色）：
 
-![sigmoid](../imgs/0818.png)
+![sigmoid](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0818.png)
 
 可以看到在输入为0时，simgoid的导数取最大值，即使最大值，也只有0.25。如果神经网络中某一层后边还有很多层，在计算该层参数的梯度时，就会连乘很多sigmoid的导数值，取值范围为（0-0.25），这将导致梯度消失，无法正常更新参数。所以sigmoid函数不适合作为作为隐藏层的激活函数，只适合作为二分类函数最后输出层的激活函数。将最后一层的logits映射到0-1之间，刚好表示结果是正例的概率。
 
 接着我们看一下tanh函数的图像：
 
-![tanh](../imgs/0819.png)
+![tanh](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0819.png)
 
 通过看图，我们发现tanh函数的输出有正有负，而且它的导函数取值范围为0-1，也比sigmoid函数要好。但是你会发现当tanh的输入小于-4或者大于4时，梯度就非常接近0了，所以在训练时要非常小心，确保让tanh函数的输入不能偏离0太远。
 
-![RELU](../imgs/0839.png)
+![RELU](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0839.png)
 
 对于ReLU函数而言，只要输入大于0，它的导数值恒等于1，输入小于0，导数值为0，神经元处于抑制状态。所以ReLU更适合用在深度神经网络里。几乎成为深度神经网络默认的激活函数。
 

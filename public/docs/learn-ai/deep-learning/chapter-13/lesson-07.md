@@ -14,7 +14,7 @@
 
 翻译问题需要用到我们之前介绍的Encoder-Decoder的模式，如下图所示：
 
-![1338.png](../imgs/1338.png)
+![1338.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1338.png)
 
 在Encoder阶段，读入所有的英文token，最后只有一个隐状态传递给Decoder。Decoder阶段，第一个时间步的输入有两个：分别是代表序列开始的`<bos>`token，和Encoder传递来的隐状态。输出为中文的第一个token，和Decoder第一个时间步的隐状态。然后把输出的第一个中文token的embedding作为下一个时间步的token输入，外加上一时间步的隐状态，输出第二个中文token。依次类推，直到某个时间步Decoder输出的token为序列结束符`<eos>`。
 
@@ -49,7 +49,7 @@ $$
 
 在翻译过程中，对于不同的时间步，需要关注的点，注意力权重是不一样的。在Decoder不同时间步，对Encoder中不同英文token输出的隐状态的注意力是不同的。具体注意力权重的值是通过一个简单的神经网络来计算的。我们通过下边这个例子来详细解释。
 
-![1339.png](../imgs/1339.png)
+![1339.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1339.png)
 
 假设Encoder输入3个英文token，分别为$x_0,x_1,x_2$。初始隐状态为$h_0$，三个时间步对应的隐状态分别为$h_1,h_2,h_3$。将$h_3$作为解码器的隐状态输入，为了区分，Decoder的隐状态用s表示。所以$h_3=s_0$。Decoder每一步生成的中文token，作为下一时间步的输入。并且中间产生隐状态$s_1,s_2,s_3$。这个图里边是没有增加注意力机制的Encoder-Decoder RNN，这里我们只是定义了符号，接下来我们看如何计算注意力权值。
 
@@ -63,7 +63,7 @@ $$
 
 Decoder第二个时间步的注意力向量为$att_1$，它也需要计算当前时间步对$h_1,h_2,h_3$的注意力权重值$\alpha_1,\alpha_2,\alpha_3$。做法和上一个时间步一样，将$s_1$分别和$h_1,h_2,h_3$进行拼接，得到3个输入向量，然后这3个输入向量分别经过全连接神经网络，得到3个logits值，再对这3个logits值应用softmax，就得到第二个时间步对$h_1,h_2,h_3$的注意力权重：$\alpha_1,\alpha_2,\alpha_3$了。
 
-![1340.png](../imgs/1340.png)
+![1340.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1340.png)
 
 带注意机制的Decoder部分，每个时间步不光有隐状态输入，还有注意力向量和上一步输出token的embedding进行拼接的向量作为输入。
 
@@ -77,4 +77,4 @@ Decoder第二个时间步的注意力向量为$att_1$，它也需要计算当前
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

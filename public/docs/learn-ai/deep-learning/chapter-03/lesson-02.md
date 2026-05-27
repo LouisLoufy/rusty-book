@@ -2,7 +2,7 @@
 
 ### 3.2.1 芝诺的飞矢不动论
 
-![图片1](../imgs/0303.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0303.png)
 
 古希腊哲学家芝诺有一个著名的悖论，他设想了一个情景：
 
@@ -19,7 +19,7 @@
 
 ### 3.2.2 汽车的瞬时速度
 
-![图片2](../imgs/0304.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0304.png)
 
 如果你还在困惑芝诺的飞矢不动论，那么你想想汽车仪表盘上都有汽车的瞬时速度，这是如何获取的呢？我们知道平均速度怎么算，那就是从$t_0$时刻开始，经过一段时间$\triangle t$，行驶了路程$\triangle s$。假设某时刻$t$汽车的总里程为$S(t)$那么平均速度就为：
 
@@ -35,21 +35,21 @@ $v_{t_0}=\lim_{\triangle t \to 0} \frac{\triangle s}{\triangle t}=\lim_{\triangl
 
 **什么是切线呢？**
 
-![图片3](../imgs/0305.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0305.png)
 
 你可能会画出函数在某一点的切线，那到底如何确定函数在某一点的切线呢？你可能会说一条直线，和函数只有一个交点，这个直线就是这个交点的切线。但是我们知道，两点才能确定一条直线。一个点怎么可以确定一条直线呢？
 你可能会说你给不出确定的定义，但是你直觉知道怎么画出一个切线。那么，你知道函数$f(x)=x^3$在（0,0）点的切线是什么吗？
 
-![图片4](../imgs/0306.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0306.png)
 
 答案是函数$f(x)=x^3$在（0,0）点的切线就是x轴。
 下边我们给出切线的严格定义。
 
-![图片5](../imgs/0307.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0307.png)
 
 在上图中，如果我们要求a点的切线可以先在曲线上找出另外一点b。然后由a,b两点构成一个直线，然后沿着曲线，移动b，让b无限接近a，但是不和a重合，得到的那条直线就是a点的切线。
 
-![图片6](../imgs/0308.png)
+![图片6](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0308.png)
 
 有了切线的定义，那如何求a点切线的斜率呢？对于由a，b两点构成直线的斜率计算是：
 
@@ -100,7 +100,7 @@ $$
 y=|x|
 $$
 
-![图片7](../imgs/0309.png)
+![图片7](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0309.png)
 
 在$x=0$处不可导。
 
@@ -126,9 +126,9 @@ $$
 
 ### 3.2.6 导数与极值的关系
 
-![图片8](../imgs/0319.png)
+![图片8](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0319.png)
 
-![图片9](../imgs/0320.png)
+![图片9](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0320.png)
 
 因为如果函数在某点可导，则它在该点的导数，就是该点的切线斜率。通过观察上边两幅图，不难理解当$f(x)$在$x_0$处取得极值，且函数在$x_0$可导，则必有$f'(x_0)=0$。
 

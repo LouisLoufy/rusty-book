@@ -10,7 +10,7 @@
 
 ### 9.8.2 具体实现
 
-![0906.png](../imgs/0906.png)
+![0906.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0906.png)
 
 对于上边的网络结构，输入层有2个feature，第一个层有2个神经元。对于第一层的这两个神经元，在经过激活前，有两个z值，$z_1^1,z_2^1$，经过激活后，也有两个a值$a_1^1,a_2^1$。
 批量归一化可以对激活前的z值进行归一化，也可以对激活后的a值进行归一化。一般情况下我们是对激活前的z值进行归一化。
@@ -106,4 +106,4 @@ model.eval()
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

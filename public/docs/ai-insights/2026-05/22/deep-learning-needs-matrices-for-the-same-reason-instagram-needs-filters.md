@@ -7,7 +7,7 @@ tags:
   - Machine Learning
   - Technology
 summary: 上学的时候，矩阵是我最喜欢的主题。我学得很快，也许你也一样。
-cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp
 ---
 
 # 深度学习需要矩阵，原因和 Instagram 需要滤镜一样
@@ -16,7 +16,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 ## 一份关于权重矩阵、维度变化、层坍缩、激活函数，以及 W 为何从一开始就不是零的精确指南
 
-![深度学习需要矩阵，原因和 Instagram 需要滤镜一样](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp)
+![深度学习需要矩阵，原因和 Instagram 需要滤镜一样](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp)
 *一位讲师在白板上用矩阵和 Instagram 滤镜的类比，讲解 torch.matmul(x, W) 到底做了什么。*
 
 在这篇文章里，我们将了解矩阵是如何改变数据的、为什么加法或缩放这类简单操作还不够，以及这些如何引出了神经网络内部的特征变换。
@@ -52,7 +52,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 正如这张图所示，滤镜从这样一个理念出发：变换的是数值，而不是物体。
 
-![一张图展示原始像素向量进入一个"滤镜/矩阵"模块，产出一个变换后的向量，旁边一张小坐标图显示这种变化。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/02.webp)
+![一张图展示原始像素向量进入一个"滤镜/矩阵"模块，产出一个变换后的向量，旁边一张小坐标图显示这种变化。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/02.webp)
 *一个滤镜充当矩阵变换：一个向量进去，一个新向量出来。*
 
 现在来看单个像素。
@@ -82,7 +82,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 矩阵中的每个值，都表明某个输入对某个输出的影响有多大。
 
-![](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/03.webp)
 
 矩阵变换会改变坐标轴的含义。在 `W` 之前，坐标轴是原始测量值。经过 `W` 之后，它们变成了模型认为有用的、学到的组合。那些原本藏在单个特征里的模式，在这些组合中变得可见了。
 
@@ -96,14 +96,14 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 看看下面这张图。绿点代表喜欢这首歌的用户，红点代表不喜欢的用户。
 
-![一张二维散点图，x 轴是科技兴趣，y 轴是游戏兴趣，绿点和红点散布开来，没有清晰的分界。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/04.webp)
+![一张二维散点图，x 轴是科技兴趣，y 轴是游戏兴趣，绿点和红点散布开来，没有清晰的分界。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/04.webp)
 *用户散点图，喜欢某首歌和不喜欢的人之间没有清晰的分隔。*
 
 每个人都有两个分数：科技兴趣和游戏兴趣。
 
 这些点散布的方式让分隔变得不清不楚。
 
-![同一张散点图上画了三条线——竖线、横线和斜线——每一条都无法把绿点和红点分开。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/05.webp)
+![同一张散点图上画了三条线——竖线、横线和斜线——每一条都无法把绿点和红点分开。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/05.webp)
 *用竖线、横线和斜线尝试分隔数据，全部以失败告终。*
 
 试着只用科技这一个维度。
@@ -126,18 +126,18 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 试试那些更简单的选项。看着它们失败。
 
-![演唱会照片的两个版本——原图和更亮的版本——以及显示每个通道增加了相同数值的像素值。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/06.webp)
+![演唱会照片的两个版本——原图和更亮的版本——以及显示每个通道增加了相同数值的像素值。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/06.webp)
 
 正如图中所示，加上一个常数会让每个像素的亮度都增加 50，整张图像以一种均匀的方式变亮。舞台灯光变亮了，黑暗的背景也变亮了。所有东西都平移了相同的量，所以明暗之间的对比保持不变。
 
-![散点图展示原始点和平移后的点，所有点朝同一方向移动了相同的量。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/07.webp)
+![散点图展示原始点和平移后的点，所有点朝同一方向移动了相同的量。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/07.webp)
 *用户散点图，喜欢某首歌和不喜欢的人之间没有清晰的分隔。*
 
 现在让我们从图像转到现实世界的数据。沿用我们之前讨论过的那个例子。
 
 如果你加上一个常数，每个点都会平移相同的量。整张地图移动了，但相对位置保持不变。没有任何东西变得更容易分隔。
 
-![](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/08.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/08.webp)
 *加上常数后数据点发生均匀平移。*
 
 正如上图所示，每个点都一起移动，保留了距离和结构。这证实了简单的加法解决不了分隔问题。
@@ -150,20 +150,20 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 相对距离：不变
 
-![](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/09.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/09.webp)
 
 现在来看缩放。
 
 把每个像素值乘以 1.5，图像会变得更亮、更饱和。这种变化是均匀的，所以像素之间的关系保持不变。
 
-![一张演唱会图像在像素值相乘前后的对比，色条展示了成比例的缩放。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/10.webp)
+![一张演唱会图像在像素值相乘前后的对比，色条展示了成比例的缩放。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/10.webp)
 *均匀缩放像素值会增加强度，但保持结构完好无损。*
 
 同样的道理也适用于现实世界的数据。正如上图所示，如果你乘以单独一个数，所有东西都会均匀地拉伸或收缩。距离变了，但结构丝毫未变。
 
 在这两种情况下，数据仍然以同样的方式纠缠在一起。这些操作没有创造出任何新东西——它们只是移动或缩放了已经存在的东西。
 
-![缩放后的散点图，展示点散开了，但类别之间仍然重叠。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/11.webp)
+![缩放后的散点图，展示点散开了，但类别之间仍然重叠。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/11.webp)
 
 你需要的是一种能够*组合*特征的操作。
 
@@ -213,19 +213,19 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 场景本身不变。变的只是它的数值表示。
 
-![一张二维图，x 轴是科技兴趣，y 轴是游戏兴趣，绿点和红点散布开来，没有清晰的分界。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/12.webp)
+![一张二维图，x 轴是科技兴趣，y 轴是游戏兴趣，绿点和红点散布开来，没有清晰的分界。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/12.webp)
 *原始分布*
 
 `W` 对你的数据做的是同样的事。取决于它的权重，它能产生四种不同的效果。在实践中，一个训练好的 `W` 会把它们全部融合在一起，但把它们拆开来看，能让这套机制更容易理解。
 
 *拉伸——调高重要内容的音量*
 
-![演唱会图像的前后对比，演示高光增强，让明亮区域更显眼。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/13.webp)
+![演唱会图像的前后对比，演示高光增强，让明亮区域更显眼。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/13.webp)
 *高光调整的类比，展示对重要区域有针对性的增强。*
 
 想想给照片提高对比度。亮的区域更亮，暗的区域保持暗，于是差异变得更明显。
 
-![散点图中绿点和红点沿某一条轴被拉得更开，组与组之间的距离增大了。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/14.webp)
+![散点图中绿点和红点沿某一条轴被拉得更开，组与组之间的距离增大了。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/14.webp)
 *拉伸效果：增大重要特征之间的分隔。*
 
 正如上图所示，图上发生的是同样的事。点沿着某一个方向散得更开，让微小的差异更容易看清。
@@ -238,12 +238,12 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 现在来看相反的情况。降低对比度或纹理，差异就开始淡去。
 
-![上方：图像纹理滑块降低细节；下方：散点图经过旋转，呈现出一个更清晰的分隔方向。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/15.webp)
+![上方：图像纹理滑块降低细节；下方：散点图经过旋转，呈现出一个更清晰的分隔方向。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/15.webp)
 *纹理调整的类比与旋转后的数据视图。*
 
 用数据的话来说，模型在给那个特征降权，于是沿着它的差异对结果几乎没有影响。
 
-![散点图中点沿某一条轴坍缩到一起，方差减小了。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/16.webp)
+![散点图中点沿某一条轴坍缩到一起，方差减小了。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/16.webp)
 *压缩效果：削弱不重要特征的影响力。*
 
 正如图中所示，点沿着某个方向相互靠拢，把变化压缩了。
@@ -252,7 +252,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 旋转——换一个更好的角度看同一份数据
 
-![散点图中原本沿对角线分布的簇，在变换后被对齐成竖直方向。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/17.webp)
+![散点图中原本沿对角线分布的簇，在变换后被对齐成竖直方向。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/17.webp)
 *旋转把对角线模式对齐成一条可分隔的坐标轴。*
 
 正如上图所示，旋转数据能让一个复杂的模式与一条简单的边界对齐。
@@ -263,7 +263,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 混合特征——创造从不存在过的坐标轴
 
-![](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/18.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/18.webp)
 *用矩阵的维度把输入特征映射为输出特征。*
 
 这一件是没有任何简单滑块能复制的。Spotify 有两个测量值：科技兴趣和游戏兴趣。单独哪一个都预测不了对歌曲的偏好，但两者都高的用户往往会喜欢它。这个信号是存在的，可它在原始空间里没有一条坐标轴。
@@ -274,7 +274,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 神经网络中的每一层都应用一个变换，把数据重塑到一个模式更容易分隔的空间里。
 
-![](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/19.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/19.webp)
 
 在前面的例子里，三个输入特征变成了两个，这由 `W` 的形状决定。矩阵 `W` 把输入特征映射为新的特征。
 
@@ -282,7 +282,7 @@ cover: ./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs
 
 在 PyTorch 里，这就是 `nn.Linear(3, 2)`。这两个数字是 `in_features` 和 `out_features`，分别对应 `W` 的行和列。
 
-![一张表格展示 3→2、512→64、768→10 之类的映射示例，以及对应的矩阵形状和 PyTorch 层。](./images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/20.webp)
+![一张表格展示 3→2、512→64、768→10 之类的映射示例，以及对应的矩阵形状和 PyTorch 层。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/20.webp)
 *用矩阵的维度把输入特征映射为输出特征。*
 
 正如上图所示，矩阵的行数和列数直接决定了输入特征如何被变换成新的特征。

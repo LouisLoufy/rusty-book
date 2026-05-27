@@ -32,7 +32,7 @@
 
 语言模型生成时每次都取最大概率的token，这是贪婪策略。这可能是大家最容易想到的一种策略。你可能认为这可以生成语言模型认为概率最大的文本序列，但实际情况并非如此。因为我们的目的是生成整个输出序列的联合概率最大，而不是每一步最大。
 
-![1213.png](../imgs/1213.png)
+![1213.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1213.png)
 
 如果按照贪心算法，那么大模型输出为“我喜欢吃饭”。因为在每一步都选取当前步概率最大的token进行输出。但实际上，通过计算可以发现“我喜欢学习”的联合概率更高。
 
@@ -40,7 +40,7 @@
 
 如何让大模型生成时可以找到这种整个序列概率最大的输出呢？贪心算法的问题是每一步都只选择概率最大的token，而丢弃了其他潜在序列概率最大的token。Beam Search，假如设置Beam为2，它会一直保留2个目前概率最大的序列，最终输出概率最大的那个序列。以下图为例，如果Beam为2，在第一个步，会保留“我喜欢吃”和“我喜欢学”两个序列，概率分别为0.32和0.28。接下来两个序列都会预测自己接下来的token，并计算联合概率。
 
-![1214.png](../imgs/1214.png)
+![1214.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1214.png)
 
 可以发现“我喜欢吃饭”的序列概率为0.128，“我喜欢学习”的序列概率为0.196。它们两个是第二步概率最大的两个序列。Beam Search会保留这两个序列，分别为它们生成下一个token。如果设置最大生成token数为2，也就是第二步就要输出。那此时输出的就是概率最大的序列：“我喜欢学习”。
 
@@ -56,7 +56,7 @@
 
 **Temperature**控制语言模型生成随机性的还有一个重要的参数是温度值（Temperature）。当设置了温度值t后，大模型输出的logits会首先除以温度值。然后再进行后续的采样。温度值对softmax()最后生成的概率值的影响，如下图所示：
 
-![1215.png](../imgs/1215.png)
+![1215.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1215.png)
 
 可以看到温度值t取0.5时，最后每个token之间的概率差别较大。当t取2时，最后每个token之间的概率差别较小。也就是温度值越小，模型生成的序列越确定，温度值越大，模型生成的序列越不确定。
 
@@ -66,4 +66,4 @@
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

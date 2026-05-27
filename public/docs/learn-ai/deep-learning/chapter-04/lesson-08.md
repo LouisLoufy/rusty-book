@@ -24,7 +24,7 @@ $L(a)=a^8(1-a)^2$(式4-5)
 
 注意这里抽到黑球的概率a为变量。a作为自变量，抽到8次黑球，2次白球事件的概率作为因变量。上式中的函数L(a)就是似然函数，我们可以绘制出这个函数的曲线。
 
-![0421.png](../imgs/0421.png)
+![0421.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0421.png)
 
 因为a为概率，它的取值只能在0到1之间。所以上图我们只取了a在0到1之间似然函数的图像。
 
@@ -44,7 +44,7 @@ $$
 ln(L(a))=ln(a^8(1-a)^2)=8lna+2ln(1-a)
 $$
 
-![0422.png](../imgs/0422.png)
+![0422.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0422.png)
 
 上图是$8lna+2ln(1-a)$的函数曲线，我们可以发现对原来的似然函数取对数，对数似然函数取得极值时的自变量并没有改变，还是0.8。但是对数似然函数是加法计算，更容易进行计算。
 我们知道，函数如果可导，则取极值时，导数为0。我们用上式对a求导，并让其等于0，来解出a。
@@ -105,4 +105,4 @@ $$
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

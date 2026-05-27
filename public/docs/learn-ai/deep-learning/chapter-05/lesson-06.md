@@ -4,7 +4,7 @@
 
 ### 5.6.1一个非线性的例子
 
-![图片1](../imgs/0518.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0518.png)
 
 如果把上图看做feature是x，label是y，那么确实不能用一个直线来拟合x和y之间的关系。通过观察图像，我们知道这个图像符合一元二次函数的图像。也就是说要拟合这个曲线，我们的假设函数应该是如下形式：
 
@@ -23,7 +23,7 @@ $$
 
 可以看到假设函数又变成了线性表达式。其中$w_0,w_1,w_2$是我们要优化的参数。$x_1,x_2$是特征，只不过$x_2=x_1^2$。
 
-![图片2](../imgs/0519.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0519.png)
 
 通过优化，我们可以得到$w_0,w_1,w_2$的值：
 
@@ -39,7 +39,7 @@ $$
 
 下边我们看个例子，比如对于y=sin(x)的曲线，也可以通过构造x的高次项，转化为一个线性问题。
 
-![图片3](../imgs/0520.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0520.png)
 
 上图中黑色的曲线是sin(x)。
 红色的项是通过泰勒公式展开的x的多项式：

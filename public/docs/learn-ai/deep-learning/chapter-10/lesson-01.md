@@ -6,14 +6,14 @@
 
 假设我们想判断一张图片里是否有猫。
 
-![1001.png](../imgs/1001.png)
+![1001.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1001.png)
 
 **输入特征多**
 
 图片是由像素构成，现在的手机拍摄的相片都有几千万像素。黑白图片每个像素只有一个灰度值。彩色图片每个像素有（R,G,B）三个值，分别代表红、绿、蓝。
 如果一个图片长宽为1000x1000个像素的彩色图片，如果我们构造一个神经网络来处理这个图片，它的输入特征有300万个，如果隐藏层为1000个神经元，输出层为1个神经元，那么这个网络将有30亿个参数，以Float32来存储，模型大小为12GB。这么大的模型推理一次的运算代价是非常大的。
 
-![1071.png](../imgs/1071.png)
+![1071.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1071.png)
 
 **局部性**
 
@@ -35,8 +35,8 @@
 
 那现实中步兵是如何探雷的呢？
 
-![1002.png](../imgs/1002.png)
+![1002.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1002.png)
 
 假设雷区是一个6x6的区域，而探雷器能探测的区域为3x3，那么步兵会用探雷器在整个雷区做从上到下，从左到右的扫描，来检查每一个3x3的区域是否有地雷。
 
-![1003.gif](../imgs/1003.gif)
+![1003.gif](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1003.gif)

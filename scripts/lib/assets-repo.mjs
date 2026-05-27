@@ -1,14 +1,14 @@
-// Shared helper for publishing files into one of the configured
-// beatai-assets repos and keeping src/config/assetsPin.json in lock-step.
+// Helper for pushing files to the beatai-assets repo and baking
+// jsDelivr URLs into freshly-published markdown.
 //
 // Used by:
 //   - .claude/skills/material-pipeline/scripts/publish.js (per-publish)
-//   - scripts/migrate-images-to-assets-repo.mjs (one-shot backfills)
 //
-// Config:
-//   - src/config/assetsRepos.json defines { repos, routes }; route.match is a
-//     /docs/<prefix>, route.repo is a key into repos
-//   - src/config/assetsPin.json maps repoKey → commit SHA (or null)
+// All site markdown stores absolute jsDelivr URLs directly — there is no
+// runtime rewriter. Publish.js calls publishToAssetsRepo() to push images,
+// gets back the new SHA, then calls bakeMdImagesToCdn() to rewrite the
+// staged markdown's relative image refs into self-contained jsDelivr URLs
+// pinned at that SHA before copying the md into the main repo.
 
 import fs from 'fs-extra';
 import os from 'os';
@@ -18,38 +18,20 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
-// All routable assets live under /docs/. Kept in sync with the runtime
-// rewriter at src/utils/contentAssetCdn.js.
-export const ASSETS_ROOT = '/docs/';
+// Single assets repo. To add another, refactor this constant into a
+// resolver keyed by some routing rule (e.g. book name) and thread the
+// key through publishToAssetsRepo + bakeMdImagesToCdn.
+export const PRIMARY_REPO = { owner: 'beatai-org', name: 'beatai-assets' };
 
-const CONFIG_PATH = path.join(REPO_ROOT, 'src/config/assetsRepos.json');
-const PIN_PATH = path.join(REPO_ROOT, 'src/config/assetsPin.json');
+const CDN_BASE = `https://cdn.jsdelivr.net/gh/${PRIMARY_REPO.owner}/${PRIMARY_REPO.name}`;
 const CACHE_ROOT = path.join(os.homedir(), '.cache', 'beatai-assets');
+const IMAGE_EXT_RE = /\.(png|jpe?g|gif|webp|svg|avif|bmp|ico)$/i;
 
-let assetsReposCache = null;
-
-export function getAssetsRepos() {
-  if (assetsReposCache) return assetsReposCache;
-  assetsReposCache = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
-  return assetsReposCache;
-}
-
-export function routeForDocsPath(docsPath) {
-  const cfg = getAssetsRepos();
-  for (const route of cfg.routes || []) {
-    if (route.match && docsPath.startsWith(route.match)) return route;
-  }
-  return null;
-}
-
-export function repoConfig(repoKey) {
-  const cfg = getAssetsRepos();
-  const repo = cfg.repos?.[repoKey];
-  if (!repo) throw new Error(`Unknown assets repo key: ${repoKey}`);
-  return repo;
-}
+// Body markdown: ![alt](./relpath) or ![alt](../relpath)
+const BODY_IMG_RE = /(!\[[^\]]*\]\()(\.{1,2}\/[^)\s]+)(\))/g;
+// Frontmatter: cover: ./relpath  (optionally quoted)
+const FRONTMATTER_COVER_RE = /^(cover:\s*)("?)(\.{1,2}\/[^"\s]+)("?)$/m;
 
 function git(args, opts = {}) {
   execFileSync('git', args, { stdio: 'inherit', ...opts });
@@ -72,13 +54,12 @@ function gitCapture(args, opts = {}) {
   }).trim();
 }
 
-// Get a ready-to-use working tree for the given repo. First call clones into a
-// stable cache dir; subsequent calls fetch + hard-reset to origin/main so the
-// caller starts from latest upstream. Empty remotes get an orphan main branch.
-export function getRepoWorkdir(repoKey) {
-  const repo = repoConfig(repoKey);
-  const remote = `https://github.com/${repo.owner}/${repo.name}.git`;
-  const workdir = path.join(CACHE_ROOT, `${repo.owner}__${repo.name}`);
+// Get a ready-to-use working tree. First call clones into a stable cache
+// dir; subsequent calls fetch + hard-reset to origin/main so the caller
+// starts from latest upstream. Empty remotes get an orphan main branch.
+export function getRepoWorkdir() {
+  const remote = `https://github.com/${PRIMARY_REPO.owner}/${PRIMARY_REPO.name}.git`;
+  const workdir = path.join(CACHE_ROOT, `${PRIMARY_REPO.owner}__${PRIMARY_REPO.name}`);
 
   if (!fs.existsSync(path.join(workdir, '.git'))) {
     fs.ensureDirSync(CACHE_ROOT);
@@ -93,7 +74,6 @@ export function getRepoWorkdir(repoKey) {
     return workdir;
   }
 
-  // Existing clone — reset to latest origin/main, drop any stale staging
   if (gitTry(['-C', workdir, 'fetch', 'origin', 'main'])) {
     git(['-C', workdir, 'reset', '--hard', 'origin/main']);
     git(['-C', workdir, 'clean', '-fdx']);
@@ -101,16 +81,16 @@ export function getRepoWorkdir(repoKey) {
   return workdir;
 }
 
-// Stage files into the repo workdir at their target paths (relative to repo
-// root), commit, push, and return the resulting HEAD SHA. If staging produces
-// no diff the existing HEAD is returned unchanged.
+// Stage files in the repo workdir at their target paths (relative to repo
+// root), commit, push, and return the resulting HEAD SHA. If staging
+// produces no diff the existing HEAD is returned unchanged.
 //
 // stageList: [{ srcAbs: '/.../foo.webp', destInRepo: 'ai-insights/2026-.../foo.webp' }]
-export function publishToAssetsRepo(repoKey, stageList, commitMessage) {
+export function publishToAssetsRepo(stageList, commitMessage) {
   if (!Array.isArray(stageList) || stageList.length === 0) {
     throw new Error('publishToAssetsRepo: stageList is empty');
   }
-  const workdir = getRepoWorkdir(repoKey);
+  const workdir = getRepoWorkdir();
 
   for (const { srcAbs, destInRepo } of stageList) {
     if (!srcAbs || !destInRepo) {
@@ -132,17 +112,7 @@ export function publishToAssetsRepo(repoKey, stageList, commitMessage) {
   return gitCapture(['-C', workdir, 'rev-parse', 'HEAD']);
 }
 
-export function readPin() {
-  return JSON.parse(fs.readFileSync(PIN_PATH, 'utf8'));
-}
-
-export function writePin(repoKey, sha) {
-  const pin = readPin();
-  pin[repoKey] = sha;
-  fs.writeFileSync(PIN_PATH, JSON.stringify(pin, null, 2) + '\n');
-}
-
-// Walk a directory and yield every file (recursive). Returns absolute paths.
+// Walk a directory and yield every file (recursive). Absolute paths.
 export function walkFiles(dir) {
   const out = [];
   if (!fs.existsSync(dir)) return out;
@@ -154,4 +124,31 @@ export function walkFiles(dir) {
     }
   })(dir);
   return out;
+}
+
+// Convert a relative image ref into its jsDelivr URL pinned at `sha`,
+// based on where the md WILL live in the main repo and the publicDocs root.
+// Returns null if the relative path resolves outside publicDocsRoot or to a
+// non-image extension (caller should fall back to leaving the ref untouched).
+export function cdnUrlFromRelPath(relPath, virtualMdPath, publicDocsRoot, sha) {
+  const imgAbs = path.resolve(path.dirname(virtualMdPath), relPath);
+  if (!imgAbs.startsWith(publicDocsRoot + path.sep)) return null;
+  if (!IMAGE_EXT_RE.test(imgAbs)) return null;
+  const relFromDocs = path.relative(publicDocsRoot, imgAbs).split(path.sep).join('/');
+  return `${CDN_BASE}@${sha}/${relFromDocs}`;
+}
+
+// Rewrite every relative image ref (body + frontmatter cover) in `content`
+// to its jsDelivr URL. virtualMdPath = where the md is going to live in the
+// main repo (so relative paths resolve correctly). Returns the new content.
+export function bakeMdImagesToCdn(content, virtualMdPath, publicDocsRoot, sha) {
+  content = content.replace(BODY_IMG_RE, (match, prefix, relPath, suffix) => {
+    const url = cdnUrlFromRelPath(relPath, virtualMdPath, publicDocsRoot, sha);
+    return url ? `${prefix}${url}${suffix}` : match;
+  });
+  content = content.replace(FRONTMATTER_COVER_RE, (match, prefix, q1, relPath, q2) => {
+    const url = cdnUrlFromRelPath(relPath, virtualMdPath, publicDocsRoot, sha);
+    return url ? `${prefix}${q1}${url}${q2}` : match;
+  });
+  return content;
 }

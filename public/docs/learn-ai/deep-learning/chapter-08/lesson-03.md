@@ -4,14 +4,14 @@
 
 ### 8.3.1 一个例子
 
-![图片1](../imgs/0807.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0807.png)
 
 对上图这样一个3层的神经网络。我们关注第一层的第一个神经元的计算。其中$x_1,x_2,x_3,x_4$是一个样本的4个特征值，也就是输入层的输入。
 其中$w_{1,1}^1$表示一个权重值。上标1，表示这是第一层的参数。下标(1,1)，第一个1表示这是针对第一个输入的权重。第二个1表示这是第一层的第1个神经元。所以$w_{1,1}^1$表示第一层的第一个神经元对第一个输入的权重参数。
 
 类似的对于$w_{1,3}^2$，就表示第2层的第3个神经元对第1个输入的权重参数。如下图所示：
 
-![图片2](../imgs/0810.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0810.png)
 
 我们回到第一层第一个神经元的线性回归计算，暂时不考虑偏置和激活函数。则它的计算式为：
 
@@ -20,7 +20,7 @@ z_1^1=[x_1,x_2,x_3,x_4]\begin{bmatrix}w_{1,1}^1\\w_{2,1}^1\\w_{3,1}^1\\w_{4,1}^1
 $$
 其中$z_1^1$表示线性回归的结果，上标1表示第1层，下标1表示第一个神经元。
 
-![图片3](../imgs/0808.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0808.png)
 
 同理，我们可以得到：
 
@@ -28,7 +28,7 @@ $$
 z_2^1=[x_1,x_2,x_3,x_4]\begin{bmatrix}w_{1,2}^1\\w_{2,2}^1\\w_{3,2}^1\\w_{4,2}^1\end{bmatrix}
 $$
 
-![图片4](../imgs/0809.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0809.png)
 
 $$
 z_3^1=[x_1,x_2,x_3,x_4]\begin{bmatrix}w_{1,3}^1\\w_{2,3}^1\\w_{3,3}^1\\w_{4,3}^1\end{bmatrix}

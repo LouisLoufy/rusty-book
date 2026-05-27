@@ -99,7 +99,7 @@ tensorboard --logdir=C:/projects/lr/runs/
 
 然后你可以在浏览器里输入[http://localhost:6006](http://localhost:6006)来打开TensorBoard，查看loss曲线了。
 
-![图片1](../imgs/0610.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0610.png)
 
 这是一个非常理想的loss曲线，前边一段训练过程loss快速下降，到后边loss逐渐变化很小，证明已经收敛。整个训练过程loss变化也很平稳，因为整个曲线很平滑。
 
@@ -115,4 +115,4 @@ tensorboard --logdir=C:/projects/lr/runs/
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

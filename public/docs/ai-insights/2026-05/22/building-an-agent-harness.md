@@ -4,7 +4,7 @@ author: Heeki Park
 url: https://heeki.medium.com/building-an-agent-harness-31942331d605
 translated: 2026-05-22
 summary: Prompt engineering、context engineering，现在轮到 harness engineering。
-cover: ./images/building-an-agent-harness/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/01.webp
 ---
 
 # 构建一套 agent harness
@@ -27,7 +27,7 @@ AWS 刚刚为 AgentCore [推出](https://aws.amazon.com/blogs/machine-learning/g
 
 在我介绍 Loom 的[那篇文章](https://heeki.medium.com/introducing-loom-an-agent-platform-66e7db019cdb)里，我列出了客户挑战 #4：软件部署需要严格的测试，对 AI 生成的代码尤其如此。正因如此，我使用了一个预先写好的 agent，它本质上是借助 feature flag 来开启与 memory、工具和其他 agent 的集成。这样就能走标准的代码扫描流程，也避免了为不受信任的代码执行专门搭一个隔离环境的需要。
 
-![](./images/building-an-agent-harness/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/01.webp)
 *通过配置注入完成的预写式 agent 构建*
 
 为做到这一点，我注入了一个 `AGENT_CONFIG_JSON` 环境变量，其载荷如下：
@@ -136,7 +136,7 @@ if config.integrations.memory.enabled:
 
 那这要怎么实现？部署时的配置充当默认设置，而运行时配置则允许用户用自己的选择去覆盖这些默认值。
 
-![](./images/building-an-agent-harness/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/02.webp)
 *默认的部署配置与用于覆盖的运行时配置*
 
 invoke 载荷中包含了在运行时覆盖模型、以及添加 connector（工具或其他 agent）的选项。这部分通过 `InvokeRequest` 类[来定义](https://github.com/heeki/loom/blob/bd0234ae69983429fa4734c7383880522c4ac41b/backend/app/routers/invocations.py#L46)。
@@ -161,12 +161,12 @@ invoke 载荷中包含了在运行时覆盖模型、以及添加 connector（工
 
 举个例子，我可以为某个特定 agent 配置一组允许使用的模型，终端用户就从这组里挑选。
 
-![](./images/building-an-agent-harness/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/03.webp)
 *管理员视图：为终端用户选定允许使用的模型*
 
 接着终端用户就能去选他偏好的模型。
 
-![](./images/building-an-agent-harness/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/04.webp)
 *终端用户视图：选择偏好的模型*
 
 如果用户选了另一个模型，那这个选择就会随 invoke 请求一起传过去。agent 随后[会用](https://github.com/heeki/loom/blob/bd0234ae69983429fa4734c7383880522c4ac41b/agents/strands_agent/src/handler.py#L173)被选中的那个模型。
@@ -175,7 +175,7 @@ invoke 载荷中包含了在运行时覆盖模型、以及添加 connector（工
 
 在运行时更新模型相当容易，因为那只是 agent 里多处理一个参数而已。但在运行时添加新工具有个曲折之处，需要额外当心。
 
-![](./images/building-an-agent-harness/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/05.webp)
 *运行时 connector 启用视图*
 
 在我那篇介绍性文章里，我列出了客户挑战 #6：身份传播需要在层层委派的 actor 链中得到管理。我提出过一个简化方案——刻意把架构约束在单跳（single hop）以内。这也是当今许多 agent 用户界面采用的做法：用户可以按需启用某个连接。
@@ -188,7 +188,7 @@ invoke 载荷中包含了在运行时覆盖模型、以及添加 connector（工
 
 在上面那张示例截图里，我用 exa.ai/mcp 注册了一个账号并创建了一个 API key，免费档每月给 1000 次请求。对基础原型开发来说够用了。虽然我可以在管理员层级配置 MCP server，但这样做实际上会把那个 API key 设给每一个启用该 connector 的用户。在某些场景下，这没问题。在另一些场景下，按用户区分 API key 才说得通。
 
-![](./images/building-an-agent-harness/06.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/06.webp)
 *MCP connector 的按用户 API key*
 
 我选了后一条路。所以当用户启用 connector 时，会弹出一个对话框，要求用户输入个人 API key。这个个人 key 随后会在向 MCP server 发请求时被用上。

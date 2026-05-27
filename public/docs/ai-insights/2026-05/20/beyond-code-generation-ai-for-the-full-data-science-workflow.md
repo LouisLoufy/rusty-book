@@ -6,7 +6,7 @@ translated: 2026-05-20
 tags:
   - Artificial Intelligence
 summary: 最近我一直被一种挥之不去的 AI FOMO 笼罩。每天都能看到有人分享 AI 技巧、晒出自己造的新智能体和技能，还有各种凭感觉写出来的应用。我越来越意识到，对今天的数据科学家来说，快速适应 AI 已经成了保持竞争力的硬性要求。
-cover: ./images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp
 ---
 
 # 超越代码生成：让 AI 覆盖完整的数据科学工作流
@@ -19,7 +19,7 @@ cover: ./images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.
 
 为了把这个想法落到实处，我用自己的 Apple Health 数据在一个真实项目上试了一把。
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp)
 *作者用 ChatGPT 生成的图片*
 
 ## 一个简单的例子——Apple Health 分析
@@ -37,7 +37,7 @@ cover: ./images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.
 1.  **原始的 Apple Health 导出数据**：1.85GB 的 XML，已上传到我的 Google Drive。
 2.  六年前放在我 [GitHub 仓库](https://github.com/yudong-94/Apple-Watch-Data-Exploration)里的**示例代码，用于把原始导出数据解析成结构化数据集**，不过这些代码可能已经过时了。
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/02.webp)
 *作者拍摄的原始 XML 数据截图*
 
 ### 没有 AI 的工作流
@@ -67,11 +67,11 @@ cover: ./images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.
 
 请注意，这份报告出于我的数据隐私考虑做了脱敏处理。
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/03.webp)
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/04.webp)
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/05.webp)
 *Codex 生成的报告（数字出于数据隐私考虑做了调整，作者截图）*
 
 ## 我实际是怎么做的
@@ -86,34 +86,34 @@ cover: ./images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.
 
 它并不总是一次就成功，但坚持下去是有用的 :) 我让它配置 BigQuery MCP 时，它在连接成功前至少失败了 10 次。不过每一次，它都给了我清晰的说明，告诉我怎么测试、哪些信息有助于排查问题。
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/06.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/06.webp)
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/07.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/07.webp)
 *作者拍摄的 Codex MCP 设置截图*
 
 ### 2\. 用 Plan Mode 制定计划
 
 设置好 MCP 之后，我转向了实际的项目。对于一个涉及多个数据源、工具和问题的复杂项目，我通常会先用 Plan Mode 来敲定实现步骤。在 Claude Code 和 Codex 里，都可以用 `/plan` 启用 Plan Mode。它的工作方式是这样的：你勾勒出任务和大致的计划，模型则提出澄清性的问题，再给你一份更详细的实现计划供你审阅和细化。在下面的截图里，可以看到我用它做的第一轮迭代。
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/08.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/08.webp)
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/09.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/09.webp)
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/10.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/10.webp)
 *作者拍摄的 Plan Mode 截图*
 
 ### 3\. 执行与迭代
 
 在我点下「Yes, implement this plan」之后，Codex 就按步骤自行执行起来。它干了 13 分钟，生成了下面这第一份分析。它在不同工具之间切换得很快，但因为在 BigQuery MCP 上又遇到了更多问题，它把分析放在了本地做。再经过一轮排查，它终于能正常上传数据集并在 BigQuery 中运行查询了。
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/11.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/11.webp)
 *作者拍摄的第一份分析输出截图*
 
 不过，第一遍的输出还是偏浅，于是我用追问引导它深入下去。比如，我的 Google Drive 里存着过去旅行的机票和行程计划，我让它找出这些文件，分析我在旅途中的活动模式。它成功定位了那些文件，提取出我的旅行天数，并完成了分析。
 
 经过几轮迭代之后，它在 30 分钟内生成了一份全面得多的报告，就是我开头分享的那份。你可以在[这里](https://github.com/yudong-94/apple-health-analysis-with-codex)找到它的代码。这大概是这次练习中最重要的一课：**AI 跑得很快，但深度仍然来自迭代和更好的问题。**
 
-![](./images/beyond-code-generation-ai-for-the-full-data-science-workflow/12.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/12.webp)
 *Codex 定位我过去的旅行日期（作者截图）*
 
 ## 给数据科学家的几点要点

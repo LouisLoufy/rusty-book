@@ -62,25 +62,25 @@
 
 以第二个句子“我叫李宁”为例，目标是识别人名，所以对于每个token的输出是一个三分类（B-N：名字的开头，I-N：名字的后续，O：其他）。NER的输入Token序列长度和输出序列长度一样。
 
-![1301.png](../imgs/1301.png)
+![1301.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1301.png)
 
 RNN对于第一个token，输入是它的embedding，经过两层，一个隐藏层（3个神经元）。一个是输出层，输出层有3个神经元，对应NER的三分类。这看起来和普通的神经网络没有区别。
 
 RNN需要能为序列保留记忆，这样后边的token才可能判断自己是人名还是公司名。怎么保存记忆呢？RNN把隐藏层的输出作为记忆保存，如下图：
 
-![1302.png](../imgs/1302.png)
+![1302.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1302.png)
 
 接下来我们看RNN如何处理第二个token，它将当前RNN的记忆与第二个token的embedding进行拼接作为输入，这样第二个token就有了上下文信息了。同时RNN在处理第二个token时会更新RNN网络的记忆，以便后用。特别需要注意的是：第一步和第二步**RNN的参数是共享的**，如下图所示：
 
-![1303.png](../imgs/1303.png)
+![1303.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1303.png)
 
 第三步和第二步一样，拼接RNN的记忆和当前token的embedding，传入RNN，并用隐藏层的输出更新RNN的记忆。
 
-![1304.png](../imgs/1304.png)
+![1304.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1304.png)
 
 细心的你可能发现处理第一个token时，没有记忆怎么办？答案是即使是第一步，我们会用同维度的全零记忆向量表示当前RNN没有记忆。这样就保证了所有步网络结构和处理逻辑的统一。
 
-![1305.png](../imgs/1305.png)
+![1305.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1305.png)
 
 下边我们用公式详细定义一下RNN的计算：
 
@@ -113,7 +113,7 @@ $$
 
 ### 13.1.3 循环层和普通层
 
-![1316.png](../imgs/1316.png)
+![1316.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1316.png)
 
 通过上图，我们观察RNN中的计算图，发现RNN中的循环实际上只发生在第一层，它是RNN的关键，是循环实际发生的地方，所以我们可以叫它**循环层**。每一个时间步对循环层的梯度更新会通过计算图递归调用到前边所有时间步的循环层。循环层的网络参数会被更新多次。
 

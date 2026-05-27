@@ -8,7 +8,7 @@ $$
 y=wx+b
 $$
 
-![图片1](../imgs/0507.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0507.png)
 
 通过给w和b设置不同的值，可以生成不同的直线。
 
@@ -62,7 +62,7 @@ $$
 
 w为x轴，b为y轴，loss为z轴，绘制图像如下：
 
-![图片2](../imgs/0508.gif)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0508.gif)
 
 通过观察图像可知，loss有最小值，根据之前学习偏导数的知识可知在loss取最小值时，loss对w和对b的偏导数都为0。所以，我们用loss分别对w和b求偏导，并让偏导数等于0。联立方程，从而求出loss最小值时w和b的取值。
 
@@ -90,6 +90,6 @@ $$
 
 最终拟合训练数据的直线就为：
 
-![图片3](../imgs/0509.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0509.png)
 
 可以看到这个直线不通过原点，它更加拟合这些点。通过计算，所有点的累积误差平方和为309.21。而上一节没有偏置的线性回归，累积误差平方和为565.625。可以看到，通过加入偏置后的线性回归模型误差减小了不少。

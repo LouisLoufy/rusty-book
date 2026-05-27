@@ -106,8 +106,8 @@ $$
 
 在x等于1附近，x发生微小变化时，y的变化可以用$\mathrm{d}y = 2 \mathrm{d}x$这个线性变化来近似。
 
-![0323.png](../imgs/0323.png)
+![0323.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0323.png)
 
 同样的$y=x^2$在x等于2附近，x发生微小变化时，y的变化可以用$\mathrm{d}y = 4 \mathrm{d}x$这个线性变化来近似。
 
-![0324.png](../imgs/0324.png)
+![0324.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0324.png)

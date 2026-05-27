@@ -6,14 +6,14 @@ translated: 2026-05-21
 tags:
   - AI Agent
 summary: 过去几个月里，我写了几篇关于 agent harness 的文章，也写了为什么所有人似乎都聚焦于它。一句话总结就是：它是新的前沿。没错，大家仍在模型这条战线上厮杀（比如 DeepSeek 刚发布了 v4，OpenAI 发布了 GPT-5.5，Anthropic 拿 Mythos 把所有人吓得不轻），但真正的战斗将发生在 harness 上。
-cover: ./images/own-your-harness/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/own-your-harness/01.webp
 ---
 
 # 拥有你自己的 Harness
 
 ## Claude Code 和 OpenClaw 中的 compaction，揭示了关于 agent 基础设施的什么
 
-![](./images/own-your-harness/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/own-your-harness/01.webp)
 *图片来源：Nano Banana 2*
 
 *免责声明：这篇文章可能相当技术化，即便它并不展示代码。如果这是你读起来不太舒服的内容，那就只读开头和结尾。要点都在那两处。*
@@ -28,7 +28,7 @@ OpenAI 已经超越了模型本身，正在构建一套完整的 agent 系统。
 
 我也被问过好几次了：harness 能复杂到哪去？它不就是模型之上的某个软件层吗？重要的部分是模型，其他一切都只是花架子。连 Anthropic 自己都这么说过。打造了 Claude Code 的 Boris Cherny，在 2025 年 5 月的 Latent Space 播客上把它称为"对模型尽可能薄的一层包装"，还补了一句"所有的秘方都在模型里"。既然这样，那我们干脆从别人那买一个 harness，了事就好。我们不想把资源捆绑在一个属于商品、又只是模型之上薄薄一层包装的东西上。
 
-![](./images/own-your-harness/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/own-your-harness/02.webp)
 *由 ChatGPT 生成*
 
 我认为很多人仍然没有理解 harness 能有多复杂，也没有理解不同策略之间的差异有多重要。这是构建真正强大的 agent 和构建只会依赖模型能力的平庸 agent 之间的区别。别误会我的意思，我不是说模型不重要。我想说的是，harness 将成为那个决定性的差异点。正如 Shangru 在另一篇文章里贴切地说的，模型是引擎，但 harness 是车辆。两者都重要，但除非你有海量的钱，否则你拥有不了自己的模型，所以你应该努力去拥有自己的 harness。否则你就只是个乘客。

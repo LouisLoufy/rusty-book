@@ -2,7 +2,7 @@
 
 回想你第一次学骑自行车的经历：想必经历过不少磕碰，花费了不少时间才掌握平衡。但你会发现，一旦学会了骑自行车，再去学骑电动车就容易多了。这种学习速度的显著提升，正是你在不知不觉中运用了**迁移学习**的原理。
 
-![1101.png](../imgs/1101.png)
+![1101.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1101.png)
 
 ### 11.7.1 什么是迁移学习
 
@@ -14,7 +14,7 @@
 
 假设我们已经在ImageNet的海量数据上训练了一个ResNet模型来完成1000类图像分类任务。现在，我们需要为一家面包店开发一个面包种类识别的视觉模型。这时，迁移学习就能大显身手：
 
-![1102.png](../imgs/1102.png)
+![1102.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1102.png)
 
 - **加载预训练模型**：获取已在ImageNet上训练好的ResNet模型及其权重。
 

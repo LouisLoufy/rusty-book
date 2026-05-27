@@ -9,18 +9,18 @@ tags:
   - Programming
   - Machine Learning
 summary: 基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。
-cover: ./images/diffusion-llms-explained-simply/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/01.webp
 ---
 
 # 简明讲清 Diffusion LLM
 
-![](./images/diffusion-llms-explained-simply/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/01.webp)
 
 ## 一份温和而又全面的 Diffusion LLM 入门介绍。
 
 基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。
 
-![](./images/diffusion-llms-explained-simply/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/02.webp)
 *自回归 LLM 中的顺序文本生成*
 
 这让它们慢得让人难受（*对一名计算机工程师来说，提升执行速度是他们最疯狂的梦想之一！*）。
@@ -33,7 +33,7 @@ cover: ./images/diffusion-llms-explained-simply/01.webp
 
 对于上面展示的提示词（`*The cat*`），在生成的第一步，模型会产出一个概率分布，并[选出概率最高的那个 token](https://www.intoai.pub/i/176405190/1-greedy-decoding)，如下图所示。
 
-![](./images/diffusion-llms-explained-simply/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/03.webp)
 *LLM 把下一个 token 选为下一个 token 概率分布中概率最大的那个（贪婪解码）*
 
 被选中的 token 随后会被加进原始提示词，整个过程不断重复，直到 LLM 完成它的输出生成。
@@ -55,7 +55,7 @@ cover: ./images/diffusion-llms-explained-simply/01.webp
 
 一旦扩散模型完成训练，它就能从纯噪声中生成新的图像样本。
 
-![](./images/diffusion-llms-explained-simply/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/04.webp)
 *图片出自作者的书《AI In 100 Images》*
 
 虽然 Diffusion 常用于图像生成模型，但它也正越来越多地被应用到语言模型上。
@@ -68,12 +68,12 @@ cover: ./images/diffusion-llms-explained-simply/01.webp
 
 -   把 token（离散的）转换成 token embedding（连续的），然后对它们做扩散。
 
-![](./images/diffusion-llms-explained-simply/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/05.webp)
 *来源*
 
 -   用一个 Encoder 把 token（离散的）转换成紧凑的 embedding（连续的），并在这个潜在空间（latent space）里做扩散，而不是在原始的 token embedding 上做。
 
-![](./images/diffusion-llms-explained-simply/06.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/06.webp)
 *来源*
 
 -   按照一个在每个时间步都变化的概率，给一些 token 打上掩码（用 `[MASK]` token 替换它们）。这是 token 加噪的一种替代做法。这个方法被 [**LLaDA**](https://arxiv.org/abs/2502.09992) 所采用——它是最成功的基于扩散的语言模型之一，我们将在下一节里深入讨论它。
@@ -86,12 +86,12 @@ cover: ./images/diffusion-llms-explained-simply/01.webp
 
 LLaDA 8B 在[反向诗句补全任务](https://arxiv.org/abs/2309.12288v4)上还击败了 GPT-4o，这意味着它更擅长续写那些以倒序写成的诗——这很可能是因为它在本质上是非顺序的。
 
-![](./images/diffusion-llms-explained-simply/07.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/07.webp)
 *来源*
 
 LLaDA 所采取的方法，开启了一个有着真实世界应用的 Diffusion LLM 时代，并催生了像 [Mercury](https://arxiv.org/abs/2506.17298) 这样的专有模型。
 
-![](./images/diffusion-llms-explained-simply/08.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/08.webp)
 *来源*
 
 ## 深入理解 LLaDA
@@ -127,7 +127,7 @@ LLaDA 对 token 概率分布的建模，用到了：
 
 来看看下面这张图，它展示了模型在一个训练文本序列上接受训练的过程。
 
-![](./images/diffusion-llms-explained-simply/09.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/09.webp)
 *LLaDA 从单个训练文本序列中学习*
 
 ### 理解反向解掩码过程 / 推理
@@ -165,19 +165,19 @@ LLaDA 对 token 概率分布的建模，用到了：
 
 ### 生成步骤 1
 
-![](./images/diffusion-llms-explained-simply/10.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/10.webp)
 
 ### 生成步骤 2
 
-![](./images/diffusion-llms-explained-simply/11.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/11.webp)
 
 ### 生成步骤 3
 
-![](./images/diffusion-llms-explained-simply/12.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/12.webp)
 
 ### 生成步骤 4
 
-![](./images/diffusion-llms-explained-simply/13.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/13.webp)
 
 ## 延伸阅读
 

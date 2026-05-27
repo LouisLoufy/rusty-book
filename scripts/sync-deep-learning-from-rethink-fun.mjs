@@ -3,7 +3,7 @@
 import fs from 'fs/promises';
 import os from 'os';
 import path from 'path';
-import { execFile } from 'child_process';
+import { execFile, execSync } from 'child_process';
 import { promisify } from 'util';
 import { fileURLToPath } from 'url';
 
@@ -96,13 +96,15 @@ function buildSourceUrl(markdownPath) {
   return `${siteBaseUrl}/${encodeUrlPath(markdownPath)}`;
 }
 
-function replaceImageUrls(markdown, targetFilePath) {
+// Rewrite upstream rethink.fun image refs to jsDelivr URLs pointing at
+// beatai-assets. Images must already exist in beatai-assets at
+// learn-ai/deep-learning/imgs/<filename> — this script does NOT download
+// new images. If upstream adds new image files, they need to be pushed to
+// beatai-assets before sync, or the rewritten URLs will 404 on jsDelivr.
+function replaceImageUrls(markdown, assetsRepoSha) {
+  const cdnBase = `https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@${assetsRepoSha}/learn-ai/deep-learning/imgs`;
   return markdown.replace(/!\[([^\]]*)\]\((https?:\/\/(?:www\.)?rethink\.fun\/imgs\/([^)\s]+))\)/g, (_, alt, _url, filename) => {
-    const relativePath = path.posix.relative(
-      path.posix.dirname(targetFilePath),
-      path.posix.join('/docs/learn-ai/deep-learning/imgs', filename)
-    );
-    return `![${alt}](${relativePath})`;
+    return `![${alt}](${cdnBase}/${filename})`;
   });
 }
 
@@ -114,8 +116,8 @@ function normalizeLocalPaths(markdown) {
   });
 }
 
-function cleanExtractedMarkdown(markdown, targetFilePath) {
-  return normalizeLocalPaths(replaceImageUrls(markdown, targetFilePath))
+function cleanExtractedMarkdown(markdown, assetsRepoSha) {
+  return normalizeLocalPaths(replaceImageUrls(markdown, assetsRepoSha))
     .replace(/\n{3,}/g, '\n\n')
     .trim() + '\n';
 }
@@ -144,6 +146,22 @@ async function fetchPageMarkdown(url) {
   }
 }
 
+// Query the current HEAD SHA of beatai-assets main branch so synced md
+// pins images to that immutable commit (matches the publish pipeline's
+// behavior). Pinning to @main directly would risk a 12h jsDelivr cache
+// stale window if a sync follows soon after an upstream image change.
+function getCurrentAssetsRepoSha() {
+  const out = execSync(
+    'git ls-remote https://github.com/beatai-org/beatai-assets.git refs/heads/main',
+    { encoding: 'utf8' }
+  ).trim();
+  const sha = out.split(/\s+/)[0];
+  if (!/^[0-9a-f]{40}$/.test(sha)) {
+    throw new Error(`Could not parse SHA from ls-remote output: ${out}`);
+  }
+  return sha;
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const summaryPath = path.resolve(args.summary || defaultSummaryPath);
@@ -158,6 +176,9 @@ async function main() {
     throw new Error(`Entry count mismatch: summary=${summaryEntries.length}, meta=${metaItems.length}`);
   }
 
+  const assetsRepoSha = getCurrentAssetsRepoSha();
+  console.log(`beatai-assets HEAD = ${assetsRepoSha.slice(0, 12)} — synced md will pin images to this SHA.`);
+
   const endExclusive = limit > 0 ? Math.min(offset + limit, metaItems.length) : metaItems.length;
 
   for (let index = offset; index < endExclusive; index += 1) {
@@ -170,7 +191,7 @@ async function main() {
 
     const sourceUrl = buildSourceUrl(summaryEntry.sourcePath);
     const extractedMarkdown = await fetchPageMarkdown(sourceUrl);
-    const cleanedMarkdown = cleanExtractedMarkdown(extractedMarkdown, metaItem.file);
+    const cleanedMarkdown = cleanExtractedMarkdown(extractedMarkdown, assetsRepoSha);
     const absoluteTargetPath = path.join(repoRoot, 'public', metaItem.file.replace(/^\//, ''));
 
     await fs.writeFile(absoluteTargetPath, cleanedMarkdown, 'utf8');

@@ -2,17 +2,17 @@
 
 ### 3.8.1 方向导数
 
-![图片1](../imgs/0311.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0311.png)
 
 之前我们学过偏导数，我们再来回忆一下，函数$z=f(x,y)$在$(x_0,y_0)$点可以分别对x和y求偏导。对x求偏导时，保持y不变，$y=y_0$，只考虑x变化时，对z的影响。对y求偏导时，保持x不变，$x=x_0$，只考虑y变化时，对z的影响。
 
 但现实情况是自变量在点$(x_0,y_0)$处不光可以沿着平行于x轴（x的偏导），或者沿着平行于y轴（y的偏导）变化，它是可以沿着各个方向进行运动变化的，我们想要研究当自变量沿着不同方向进行变化时，因变量的变化率，这就是方向导数需要研究的内容。
 
-![图片2](../imgs/0313.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0313.png)
 
 在$(x_0,y_0)$点用一个单位方向向量$e_u$来表示自变量变化的方向，因为$e_u$的模长为1，它与x轴夹角为α，与y轴夹角为β。以$(x_0,y_0)$作为新坐标系的原点，可以用向量[cosα,cosβ]来表示这个单位方向向量。
 
-![图片3](../imgs/0314.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0314.png)
 
 下边我们给出函数$z=f(x,y)$在$(x_0,y_0)$点，沿单位方向向量$e_u$的方向导数的定义：
 
@@ -60,11 +60,11 @@ $$
 
 ### 3.8.3 等高线
 
-![图片4](../imgs/0321.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0321.png)
 
 等高线是地形图上一种用来表示相同海拔点连成的曲线。它通过将具有相同高度的地面点连接在一起，展示地形的高低起伏和地势形态。从而可以用二维图展示三维信息。
 
-![图片5](../imgs/0322.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0322.png)
 
 如果用等高线来表示一个函数z=f(x,y)。x,y 坐标轴构成水平面，z轴表示高度。则在某一点$(x_0,y_0)$上的梯度方向，就垂直于该点所在的等高线，并指向函数值增高的方向。因为这个方向就是在该点让函数值增加最快的方向。
 

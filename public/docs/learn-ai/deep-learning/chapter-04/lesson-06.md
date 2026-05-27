@@ -10,7 +10,7 @@ $$
 P(A|B)
 $$
 
-![图片1](../imgs/0410.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0410.png)
 
 以上图为例，样本空间S，我们想要知道在事件B发生的情况下，A发生的概率。那怎么求呢？通过观察图可以知道，就等于A交B的面积（概率）除以B的面积（概率）。
 
@@ -74,7 +74,7 @@ $$
 
 比如投掷骰子得到偶数和得到奇数的事件。或者投掷骰子小于3和大于等于3的事件。都是一个完备事件组。
 
-![图片2](../imgs/0411.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0411.png)
 
 假设样本空间为S，$B_1,B_2,B_3$为S的一个完备事件组，则：
 

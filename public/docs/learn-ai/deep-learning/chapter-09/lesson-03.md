@@ -4,7 +4,7 @@
 
 ### 9.3.1梯度下降的问题
 
-![0902.png](../imgs/0902.png)
+![0902.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0902.png)
 
 如上图中有两个需要优化的参数，横轴的w和纵轴的b。图中的椭圆是损失函数的等高线。黄色的点为初始化的w，b的位置。然后逐步计算loss函数对w和b的偏导数，生成梯度值。按照梯度的反方向更新参数。有一个问题是，神经网络的参数很多，训练时，有的参数的梯度值很大，有的很小。在接近最优点时会产生震荡，如上图所示，沿纵轴b参数的方向产生了震荡。这样训练下去永远到达不了最优点。
 
@@ -26,7 +26,7 @@
 
 一句话来说动量梯度下降的作用就是**抑制震荡，惯性加速**。
 
-![0903.png](../imgs/0903.png)
+![0903.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0903.png)
 
 ### 9.3.3动量梯度的更新过程
 

@@ -4,13 +4,13 @@
 
 ### 15.5.1 整体架构
 
-![1510.png](../imgs/1510.png)
+![1510.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1510.png)
 
 上图来自Transformer的论文，它整体上分为左右两部分。左半部分是编码器Encoder部分，右边部分是解码器Decoder部分。
 
 ### 15.5.2 编码器
 
-![1511.png](../imgs/1511.png)
+![1511.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1511.png)
 
 我们首先来看编码器部分。对于将英文翻译为中文的这个序列到序列问题。编码器部分输入的是一个batch的token id列表，还有这个batch token 列表对应的mask，mask用来标志哪些token是填充的`<pad>`token。`<pad>`token在进行注意力计算时将被忽略。
 
@@ -98,11 +98,11 @@ class Encoder(nn.Module):
 
 ### 15.5.5 解码器
 
-![1510.png](../imgs/1510.png)
+![1510.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1510.png)
 
 以英文翻译中文任务为例，解码器的作用就是参考编码器的输出，以及自身已经翻译的内容，生成下一个中文token。
 
-![1512.png](../imgs/1512.png)
+![1512.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1512.png)
 
 解码器的输入包含两个部分：
 
@@ -114,7 +114,7 @@ class Encoder(nn.Module):
 
 对于上图中中文token序列：`<bos>`| 我 | 爱 | 吃 | 苹果，一共有5个token，我们可以构造一个下三角矩阵：
 
-![1513.png](../imgs/1513.png)
+![1513.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1513.png)
 
 Mask矩阵每行表示当前token可以看到的token，1代表可以看到，0代表看不到。
 
@@ -209,4 +209,4 @@ class Decoder(nn.Module):
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

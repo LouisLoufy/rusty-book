@@ -4,7 +4,7 @@
 
 这种需要对图片上每个像素都赋予语义信息的任务叫做语义分割（semantic segmentation）。
 
-![1065.png](../imgs/1065.png)
+![1065.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1065.png)
 
 这一节我们就来了解一下语义分割的基本原理。
 
@@ -18,7 +18,7 @@
 
 我们之前讲过的卷积操作，如果不加Padding，卷积核不为1×1，那么经过卷积操作，特征图的高和宽总是会变小。而转置卷积是一种特殊的卷积操作，它可以放大特征图的高和宽。
 
-![1066.png](../imgs/1066.png)
+![1066.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1066.png)
 
 上图是一个转置卷积的计算过程。输入是2×2的特征图，转置卷积核的形状为3×3。进行转置计算时，步长为1。
 
@@ -34,13 +34,13 @@
 
 如果步长为2，则计算过程如下图：
 
-![1067.png](../imgs/1067.png)
+![1067.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1067.png)
 
 同样，转置卷积的卷积核参数是在训练过程中学到的。通过学习，它知道如何上采样能保持图像的语义信息。
 
 ### 11.9.3 U-Net原理
 
-![1068.png](../imgs/1068.png)
+![1068.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1068.png)
 
 U-Net的网络结构图如上图所示，因为其像字母U，而命名为U-Net。
 U-Net 的网络主要分为两个部分：

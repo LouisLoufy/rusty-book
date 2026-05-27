@@ -8,7 +8,7 @@
 
 下载后的文件是`archive.zip`,解压后，在`PetImages`文件夹下，你会看到两个子文件夹。一个`Cat`，一个`Dog`。这两个文件夹内存放着猫和狗的图片。
 
-![1028.png](../imgs/1028.png)
+![1028.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1028.png)
 
 ### 10.7.2 数据准备
 
@@ -351,4 +351,4 @@ if __name__ == "__main__":
 
 扫码请作者喝一杯咖啡来分享你的喜悦吧!
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

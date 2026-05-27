@@ -4,7 +4,7 @@
 
 ### 4.2.1 乘法原理
 
-![图片1](../imgs/0402.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0402.png)
 
 假如你要从西安经由南京去深圳。从西安到南京有2个航班可以选择，从南京到深圳有3个航班可以选择。那么你的行程有几种可能？如果你完全平等的选择每个航段的航班，那么每种行程的概率为多大？
 

@@ -4,14 +4,14 @@ author: Jes Fink-Jensen
 url: https://generativeai.pub/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python-1437f21e781d
 translated: 2026-05-26
 summary: 这篇文章里，我会演示如何给本地的 LLM agent 装上一个真正的网页浏览器。读完之后，agent 就能拿到一个问题、上网搜一篇相关页面、在隐身浏览器里打开它、读它的内容，并基于它真正看到的东西作答。
-cover: ./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.thumb.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.thumb.webp
 ---
 
 # 用 250 行 Python 造一个本地的浏览网页 LLM agent
 
 ## *把 Camofox-browser、MCP 与 Ollama 串到一起——加上服务端的结构化抽取，以及"搜索 + 浏览"的组合。*
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.webp)
 
 这篇文章里，我会演示如何给本地的 LLM agent 装上一个真正的网页浏览器。读完之后，agent 就能拿到一个问题、上网搜一篇相关页面、在隐身浏览器里打开它、读它的内容，并基于它真正看到的东西作答。
 
@@ -161,7 +161,7 @@ docker compose logs -f
 
 我们可以在 Docker Desktop 看到 SearXNG 和 Camofox 都在运行：
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/02.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/02.jpg)
 *图片来源：Windows 上 Docker Desktop 的截图，显示 SearXNG 和 Camofox 都在运行。*
 
 确认两个服务都能应答：
@@ -173,29 +173,29 @@ curl "http://localhost:8090/search?q=ollama&format=json"
 
 第一条返回一个小的 JSON 健康对象。
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/03.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/03.jpg)
 *图片来源：Windows 命令行下 JSON 健康对象的截图。*
 
 第二条返回一个 JSON 搜索结果。
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/04.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/04.jpg)
 *图片来源：Windows 命令行下 SearXNG 的 JSON 响应前 10 行的截图。*
 
 如果 SearXNG 返回的是 HTML 而不是 JSON，说明 settings 的 bind-mount 没生效，检查一下 `./searxng/settings.yml` 是否存在。
 
 为了感受一下 camofox 返回的内容，本阶段附带了一个小探测脚本 `test_camofox.py`，它会在 `example.com` 打开一个标签页、抓取可访问性快照、打印出来。`example.com` 的快照看起来是这样：
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/05.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/05.jpg)
 *图片来源：Windows 命令行下运行 test_camofox.py 的截图。*
 
 整篇文章都建立在这种格式之上，所以值得花点时间理解它。它是一棵类 YAML 的可访问性树。标题带着自己的层级，段落带着文本，链接同时带着 label 和目标 URL。`[e1]` 是一个元素引用，camofox 给每个可交互元素分配的稳定句柄。本文不会用到这些 ref，但如果你以后扩展浏览器服务器去点击或输入，就用它们。对我们来说关键是这种表达很紧凑：`example.com` 整页在这里是 237 个字符，对应大约 1300 个字符的原始 HTML。
 
 还有个 `test_camofox_multi.py`，会在一组真实站点上跑同样的探测。我跑的时候，它干净地抓到了 8 个站，其中包括一个 Cloudflare 防护的页面——这种页面对裸 HTTP 客户端来说通常会被拦下来。所以 camofox 的隐身部分确实在干活。
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/06.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/06.jpg)
 *图片来源：Windows 命令行下运行 test_camofox_multi.py 的前 20 行截图。*
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/07.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/07.jpg)
 *图片来源：Windows 命令行下运行 test_camofox_multi.py 的最后几行截图。*
 
 两个服务都跑起来了，下面就有东西可以包了。来写 MCP 服务器。
@@ -331,7 +331,7 @@ def fetch(url: str, user_id: str = "") -> str:
 python inspect_any.py mcp_browser_02.main
 ```
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/08.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/08.jpg)
 *图片来源：Windows 命令行下用 inspect_any.py 调 Camofox 浏览器 MCP 的截图。*
 
 实际调用 `fetch`：
@@ -342,7 +342,7 @@ python inspect_any.py mcp_browser_02.main fetch --kv url=https://example.com
 
 应该会打印出 Stage 1 里看到的同一份 `example.com` 快照，只不过这次是经过 MCP 一层返回的。所以服务器跑通了。下面把它接到 agent 上。
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/09.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/09.jpg)
 *图片来源：Windows 命令行下用 inspect_any.py 调 Camofox 浏览器 MCP 加上 URL 的截图。*
 
 ## Stage 3：把浏览器服务器接到 agent
@@ -458,7 +458,7 @@ mcp-agent-stage3
  Read https://example.com and tell me what it says.
 ```
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/10.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/10.jpg)
 *图片来源：开启 DEBUG 日志后运行 mcp-agent-stage3 的截图。*
 
 模型调用了 `fetch`，拿到快照，做了概括。它跑通了，是个不大但令人满足的瞬间——因为 agent 现在是在读活的网页，而不是在背训练数据。它还做不到的，是自己找页面。你得把 URL 递给它。下一步就来修这件事。
@@ -515,7 +515,7 @@ mcp-agent-stage4
 
 下面是一次真实运行。我问的是 Ollama Python 库的最新版本，这正是模型从训练里不可能知道的东西，因为它在 cutoff 之后。把日志级别设到 `DEBUG`，可以看到整条流水线发生：
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/11.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/11.jpg)
 *图片来源：开启 DEBUG 日志后运行 mcp-agent-stage4 的截图。*
 
 模型搜索，看见结果里有 GitHub releases 页面，抓下来，从页面里读到版本号和日期，带着引用作答。要注意它给出的日期不对，因为 agent 没法访问当前日期。但版本号是对的。
@@ -524,7 +524,7 @@ mcp-agent-stage4
 
 这种组合在更难的问题上也撑得住。当我问 "*who is the current CEO of Anthropic and when did they join?*" 时，模型搜索，找到对应的 Wikipedia 文章，抓下来，从页面里作答。每次流水线都一样：搜索、挑选、抓取、作答。
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/12.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/12.jpg)
 *图片来源：又一张开启 DEBUG 日志后运行 mcp-agent-stage4 的截图。*
 
 至此，agent 已经能自己找页面、读页面了。最后一个阶段，加上另一种从页面里取信息的方式。
@@ -636,7 +636,7 @@ Extract the title, summary, developer, initial release date, license, and major 
 
 结果是：
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/13.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/13.jpg)
 *图片来源：开启 DEBUG 日志后运行 mcp-agent-stage5 的截图。*
 
 模型选了 `extract` 而不是 `fetch`，根据我给的字段列表构造了一个 JSON Schema，拿回了一条干净的结构化记录，包括以正经数组形式给出的版本列表。schema 的形状不再是问题，因为抽取是模型做的，不是受约束的服务端解析器做的。
@@ -649,7 +649,7 @@ Extract the title, summary, developer, initial release date, license, and major 
 
 所以这是同一个工具，指向比利时西佛兰德省一个约 3600 人的市镇 Vleteren 的 Wikipedia 文章：
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/14.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/14.jpg)
 *图片来源：又一张开启 DEBUG 日志后运行 mcp-agent-stage5 的截图。*
 
 没有任何 9B 模型的权重里会塞着一个 3600 人小镇的镇长名字。所以当 "Stephan Mourisse" 准确无误地回来、加上准确的邮政编码和面积，唯一的解释是：模型读到了 `extract` 抓回来的那一页。你可以打开那篇 Wikipedia 文章逐条核对。这是我能给出的最干净的证据，说明 agent 是在真实页面上立足、而不是在凭记忆瞎编。
@@ -699,10 +699,10 @@ Extract the title, summary, developer, initial release date, license, and major 
 -   [Ollama](https://ollama.com/) 与 [Ollama Python library](https://github.com/ollama/ollama-python)
 -   [本系列第 3 部分，那一部分搭起了本文复用的 SearXNG 搜索服务器](https://medium.com/generative-ai/build-your-own-local-web-search-agent-in-220-lines-of-python-a4eac8bdf5ec)
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/15.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/15.webp)
 
 这篇文章发布在 [Generative AI](https://generativeai.pub/) 上。欢迎在 [LinkedIn](https://www.linkedin.com/company/generative-ai-publication) 上关注我们，并关注 [Zeniteq](https://www.zeniteq.com/) 以追踪最新的 AI 内容。
 
 订阅我们的[newsletter](https://www.generativeaipub.com/) 和 [YouTube](https://www.youtube.com/@generativeaipub) 频道，及时获取最新的 generative AI 新闻与更新。一起塑造 AI 的未来！
 
-![](./images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/16.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/16.webp)

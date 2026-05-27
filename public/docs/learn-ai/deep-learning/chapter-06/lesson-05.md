@@ -24,7 +24,7 @@ $$
 
 上边3个式子彼此关联，形成一个计算图：
 
-![图片1](../imgs/0609.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0609.png)
 
 接下来利用链式求导法则，对x求偏导数：
 $$

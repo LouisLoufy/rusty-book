@@ -2,7 +2,7 @@
 
 ### 6.8.1一个例子
 
-![图片1](../imgs/0611.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0611.png)
 
 假设我们构造了如下的数据，这个数据是关于对外卖送餐时间的数据。对于送餐时间（分钟）。影响因素有两个，一个是路上红绿灯的数量，一个是饭店距你的距离（米）。构造数据时，我们假设：
 $$

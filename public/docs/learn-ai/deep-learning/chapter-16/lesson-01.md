@@ -26,7 +26,7 @@ GPT-1 的论文《Improving Language Understanding by Generative Pre-Training》
 
 ### 16.1.2 模型架构
 
-![1601.png](../imgs/1601.png)
+![1601.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1601.png)
 
 GPT-1 采用的是 Transformer 的**Decoder-only**架构，也就是说它省略了原始 Transformer 的编码器部分，进而也移除了与编码器相关的交叉注意力机制。
 
@@ -63,7 +63,7 @@ GPT-1 采用的是 Transformer 的**Decoder-only**架构，也就是说它省略
 
 预训练完成后，OpenAI 采用极简的方式对 GPT-1 进行微调来适配不同下游任务，只需在文本中加入特殊 token。把组合好的序列输入预训练好的GPT-1。并拿出最后一个Token对应的输出向量， 然后接上一个简单的线性层来完成不同的任务。
 
-![1602.png](../imgs/1602.png)
+![1602.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1602.png)
 
 #### 文本分类任务
 

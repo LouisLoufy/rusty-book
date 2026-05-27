@@ -14,7 +14,7 @@
 
 ### 11.2.2 网络架构
 
-![1038.png](../imgs/1038.png)
+![1038.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1038.png)
 
 可以看到上图分为上下两部分，这是因为它当时使用了两块GPU来进行并行计算，两个GPU只在特定层进行通讯。
 

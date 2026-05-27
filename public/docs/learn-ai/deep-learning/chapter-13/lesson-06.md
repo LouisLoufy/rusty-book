@@ -2,7 +2,7 @@
 
 之前我们讲的不论是RNN，GRU，LSTM,它们都只有一层循环层，一层普通层。
 
-![1335.png](../imgs/1335.png)
+![1335.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1335.png)
 
 我们再来复习一下对于一个循环层，一个普通层的RNN来说，对于时间步t，隐状态$h_t$就是将上一时间步的隐状态与当前时间步的输入拼接，通过循环层的线性变化，以tanh激活作为输出。
 
@@ -29,7 +29,7 @@ $$
 
 ### 13.6.1 增加更多的循环层
 
-![1336.png](../imgs/1336.png)
+![1336.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1336.png)
 
 上图中我们增加了第二个循环层，用上标表示层数。比如$h_1^2$表示的是第二个循环层在第一个时间步输出的隐状态。对于第二个循环层来说，和第一个循环层是完全一样的，只不过第一个循环层当前时间步的输入是$x_t$，而第二个循环层当前时间步的输入是第一个循环层在当前时间步输出的隐状态。
 
@@ -47,7 +47,7 @@ $$
 
 ### 13.6.2 增加更多的普通层
 
-![1337.png](../imgs/1337.png)
+![1337.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1337.png)
 
 增加更多的普通层，就是增加普通的全连接神经网络，除了最后一个普通层会根据具体任务选择激活函数，其他的普通层一般以ReLU作为激活函数。具体细节我们就不再讨论了。
 

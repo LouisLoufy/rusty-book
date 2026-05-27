@@ -4,7 +4,7 @@
 
 首先我们看一下高尔顿钉板。
 
-![图片1](../imgs/0413.gif)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0413.gif)
 
 很多钢珠从钉板上方中间下落，经过钉板上的钉子的阻挡，随机弹开，最终落下到一个个竖槽里。结果形成一个钟形曲线。这个曲线就是**正态分布**的曲线。正态分布的英文是Normal Distribution，可能翻译为常态分布更合适。为什么它是常态分布呢？因为在自然界和人类社会里，这种分布实在太常见了。
 下边这些随机变量都符合正态分布：
@@ -17,11 +17,11 @@
 
 - 深度学习里模型的误差
 
-![图片2](../imgs/0414.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0414.png)
 
 正态分布也叫高斯分布，因为他在研究天文学中的测量误差时首次系统地研究了这种分布。正态分布在科研工作中非常有用，以至于为了纪念高斯和他发现的正态分布，曾经将正态分布印在了德国10马克钱币上。
 
-![图片3](../imgs/0415.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0415.png)
 
 正态分布的概率密度函数如上图所示。符合正态分布的随机变量的结果有68%的概率分布在距离均值左右一倍标准差的范围内，95%的概率分布在距离均值左右2倍标准差的范围内，99.7%的概率分布在距离均值左右3倍标准差范围内。
 
@@ -31,7 +31,7 @@
 
 首先我们先大致分析一下为什么从高尔顿钉板落下的钢珠符合正态分布，也就是最终落到中间格子的钢珠多，落到两边的钢珠少。
 
-![图片4](../imgs/0416.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0416.png)
 
 假设钉板有4层，每个钢珠碰到每个钉子有0.5的概率向左，记作-1，有0.5的概率向右，记作+1，则落入最右侧格子的情况只有一种，就是碰到每一个钉子都向右加1，最终结果为4。只有一种排列情况。
 
@@ -47,21 +47,21 @@
 
 [中心极限定理在线实验](https://onlinestatbook.com/stat_sim/sampling_dist/index.html)
 
-![图片5](../imgs/0417.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0417.png)
 
 程序的配置项如上图所示。
 
 我们先选择手动绘制一个非常不规则的分布，然后每次实验采样2个样本，计算这两个样本的均值，看看这些均值服从什么分布。我们实验10万次，并绘制由每次实验2个样本产生的均值的分布。
 
-![图片6](../imgs/0418.png)
+![图片6](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0418.png)
 
 可以看到，虽然均值的分布中间高，两边低，但是仍不是一个完美的正态分布，我们可以提高每次实验采样的次数，从2提升到5。
 
-![图片7](../imgs/0419.png)
+![图片7](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0419.png)
 
 改进了不少，我们继续将每次采样的次数提升到20。
 
-![图片8](../imgs/0420.png)
+![图片8](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0420.png)
 
 这次我们得到了一个完美的正态分布曲线。
 

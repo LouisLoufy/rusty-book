@@ -8,14 +8,14 @@ tags:
   - Technology
   - Programming
 summary: 5 月 5 日，Anthropic 为金融服务业开源了 10 个 agent 模板。媒体报道的焦点是那笔与 Blackstone 和 Goldman Sachs 合作、价值 15 亿美元的华尔街合资项目。Jamie Dimon 对记者说，Claude 在 20 分钟内为他做出了"一个巨大的仪表盘，配齐了所有支撑材料和所有研究"。
-cover: ./images/what-makes-anthropics-new-finance-agent-different/01.jpg
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/01.jpg
 ---
 
 # Anthropic 新推出的金融 Agent 究竟有何不同
 
 ## 我克隆了华尔街正在热议的那 10 个模板。有四个模式格外突出——还有一个缺口，距 AI Act 生效只剩 88 天。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/01.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/01.jpg)
 *图片来源：micheile henderson，发布于 Unsplash*
 
 [免费阅读本文](https://medium.com/generative-ai/what-makes-anthropics-new-finance-agent-different-4439fd7e3cc2?sk=c7e7522e11475bc3fa4b7ab5c655238a)
@@ -54,7 +54,7 @@ system:
 
 这对受监管行业为什么重要？因为可审计性。当合规部门问"agent 到底遵循了什么指令"时，你只需指向一个由 git 版本管理的 markdown 文件。没有运行时 prompt 拼装，没有动态 system prompt 注入，也不会有"嗯，这得看当时跑的是哪个版本"。**这个 prompt 就是仓库里一个带 commit hash 的文件。**
 
-![](./images/what-makes-anthropics-new-finance-agent-different/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/02.webp)
 *模式 1：一个 system prompt 文件同时服务于 Cowork 插件和托管式 Agent API——作者绘图*
 
 **模式 2：写权限持有者隔离。**
@@ -73,7 +73,7 @@ KYC Screener 把这一点落到了实处。它有三个 subagent：
 
 通用 agent 框架不会强制执行这一点。在 LangChain 或 CrewAI 里，链条上的每个 agent 通常拥有相同的权限，任何一个环节一旦被攻破，就能写到任何地方去。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/03.webp)
 *模式 2：只有一个 subagent 持有 Write——用 YAML 编码的职责分离——作者绘图*
 
 **模式 3：经 schema 校验的信任边界。**
@@ -107,7 +107,7 @@ output_schema:
 
 大多数 agent 框架在 agent 之间传递的是原始字符串，上游某份文档里的一次 prompt injection，就足以劫持整个工作流。而这套架构，从结构上让那种情况不可能发生。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/04.webp)
 *模式 3：schema 校验充当抵御 prompt injection 的防火墙——作者绘图*
 
 **模式 4：把护栏写成 system prompt 契约。**
@@ -122,7 +122,7 @@ output_schema:
 
 诚实的告诫：**这些只是给 LLM 的指令，不是硬性强制。**模型仍然可能产出一个读起来像决定的建议。这个模式指对了方向，但合规团队会想要比一条 markdown 护栏更强的东西。这一点我们稍后再谈。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/05.webp)
 *模式 4：每个 agent 的输出都被暂存以待人工审阅，从不自动执行——作者绘图*
 
 这套架构很有意思。但你来这里，是为了交付点什么东西。有三条路径，取决于你想要多大的控制权。
@@ -162,7 +162,7 @@ scripts/deploy-managed-agent.sh kyc-screener
 
 这个模式适合夜间批量运行、月末处理，或者任何一种"让分析师审阅每一步都无法规模化"的工作流。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/06.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/06.webp)
 *三条部署路径：Cowork 插件、CLI 和托管式 Agent API——作者绘图*
 
 **把它变成你自己的。**
@@ -188,7 +188,7 @@ scripts/deploy-managed-agent.sh kyc-screener
 
 这些是一名资深分析师的知识，被编码了下来。它们以 markdown 文件的形式存在于 `vertical-plugins/` 里，由一个同步脚本（`sync-agent-skills.py`）引入到每个需要它们的 agent 中。**改一次源头，处处传播。**
 
-![](./images/what-makes-anthropics-new-finance-agent-different/07.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/07.webp)
 *Skill 不是 10 个词的 prompt——它们是 650 行被编码的制度化方法论——作者绘图*
 
 **数据层在设计上就受治理。**
@@ -197,7 +197,7 @@ scripts/deploy-managed-agent.sh kyc-screener
 
 数据访问遵循和架构其余部分一样的权限模型。orchestrator 以只读方式连接。处理不受信任文档的 subagent，得到的是零 MCP 访问权限。解析护照扫描件的 doc-reader 查不了制裁数据库；查询制裁名单的 rules-engine 写不了文件。每一层只看到它需要的东西。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/08.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/08.webp)
 *数据访问遵循权限模型：每一层只看到它需要的东西——作者绘图*
 
 **那些空的 hook 讲了一个故事。**
@@ -222,7 +222,7 @@ scripts/deploy-managed-agent.sh kyc-screener
 
 **取决于用途：**Market Researcher。机构层面的行业分析没问题；对个人借款人做风险画像就不行。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/09.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/09.webp)
 *AI Act 风险分类：同一个模板可能是高风险，也可能不是，完全取决于用途——作者绘图*
 
 同一个模板究竟算不算高风险，完全取决于它被指向了谁。一个为 M&A 路演运行 DCF 的 Model Builder，是机构层面的分析。同一个 Model Builder 拿去给消费者的信用度打分，就会触发[七项高风险要求](https://artificialintelligenceact.eu/article/9/)，涵盖风险管理、数据治理、技术文档、日志记录、透明度、人工监督和准确性。
@@ -245,7 +245,7 @@ scripts/deploy-managed-agent.sh kyc-screener
 4.  **透明度端点。**该法案赋予受高风险 AI 决策影响的个人，获得[清晰且有意义的解释](https://artificialintelligenceact.eu/article/86/)的权利。当一次 KYC 筛查影响到某个人时，他可以索要推理链条。经 schema 校验的 subagent 输出（doc-reader 的 JSON、rules-engine 的结果）给了你原始素材，你只需要把它暴露出来。
 5.  **准确性声明。**该法案要求公布准确性指标——假阳性/假阴性率、跨人口群体的表现、置信区间。不是含糊的基准，而是你愿意背书的具体数字。这些会成为有约束力的陈述。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/10.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/10.webp)
 *80% 架构，20% 文档缺口——你的团队来填补其余部分——作者绘图*
 
 **还有一个至今无人解答的缺口。**
@@ -266,7 +266,7 @@ scripts/deploy-managed-agent.sh kyc-screener
 
 **为受监管行业构建你自己的 agent 框架？**研究写权限持有者模式和经 schema 校验的边界。这些模式可以迁移到医疗、保险、法律——任何一个"不受信任输入遇上重大决策"的领域。这个仓库是 Apache 2.0 许可的，拿走有用的部分。
 
-![](./images/what-makes-anthropics-new-finance-agent-different/11.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/11.webp)
 *周一该做什么——你的下一步取决于你在部署什么、在哪里部署——作者绘图*
 
 **还有一件事，所有人无论如何都该做：**在你和 Anthropic 的合同里加上一条 [GPAI 文档条款](https://artificialintelligenceact.eu/chapter/5/)。Anthropic 在 2025 年 7 月签署了欧盟 GPAI 行为准则（GPAI Code of Practice），他们被要求提供关于底层模型的技术文档摘要。你需要那份文档，才能为你自己的部署满足第 11 条和第 15 条。确保你的供应商协议把它写进去。
@@ -292,10 +292,10 @@ scripts/deploy-managed-agent.sh kyc-screener
 1.  送上一些 Medium 的爱 💕（鼓掌、评论和高亮），你的支持对我意义重大。👏
 2.  在 Medium 上[关注我](https://medium.com/@yanli.liu/about)并订阅，获取我的最新文章🫶
 
-![](./images/what-makes-anthropics-new-finance-agent-different/12.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/12.webp)
 
 本文发布于 [Generative AI](https://generativeai.pub/)。在 [LinkedIn](https://www.linkedin.com/company/generative-ai-publication) 上与我们联系，并关注 [Zeniteq](https://www.zeniteq.com/)，紧跟最新的 AI 故事。
 
 订阅我们的[新闻通讯](https://www.generativeaipub.com/)和 [YouTube](https://www.youtube.com/@generativeaipub) 频道，获取关于生成式 AI 的最新消息与更新。让我们一起塑造 AI 的未来！
 
-![](./images/what-makes-anthropics-new-finance-agent-different/13.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/13.webp)

@@ -2,7 +2,7 @@
 
 ### 8.1.1顾客选购苹果预测
 
-![图片1](../imgs/0801.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0801.png)
 
 针对一个苹果，我们收集了以下特征，利用这些特征，我们希望预测用户购买并品尝这个苹果后是否满意。
 
@@ -43,7 +43,7 @@
 
 最终，我们根据外观，口感，实惠的三个逻辑回归的输出值，再构建一个逻辑回归模型，判断用户是否对这个苹果满意。最终的系统由以下4个逻辑回归模型构成。
 
-![图片2](../imgs/0802.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0802.png)
 
 ### 8.1.2问题与改进
 
@@ -65,7 +65,7 @@
 
 - 训练时，给模型只提供原始的特征，和最终顾客是否满意的label。虽然整个系统由多个逻辑回归构成，但训练时当做一个完整的模型。
 
-![图片3](../imgs/0803.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0803.png)
 
 ### 8.1.3神经网络
 

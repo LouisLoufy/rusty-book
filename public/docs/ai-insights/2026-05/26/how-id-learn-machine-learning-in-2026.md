@@ -6,14 +6,14 @@ translated: 2026-05-26
 tags:
   - Machine Learning
 summary: 我现在是 Twitch 的资深 Applied Scientist，已经做了七年的生产级 ML 系统部署。如果让我在 2026 年的今天从零重来一次，我几乎不会按当初的任何方式去走。
-cover: ./images/how-id-learn-machine-learning-in-2026/01.thumb.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/how-id-learn-machine-learning-in-2026/01.thumb.webp
 ---
 
 # 假如 2026 年从头学机器学习，我会怎么做
 
 ## 如果让我重来一次
 
-![](./images/how-id-learn-machine-learning-in-2026/01.jpg)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/how-id-learn-machine-learning-in-2026/01.jpg)
 *图片来源：Aron Visuals，来自 Unsplash*
 
 我现在是 Twitch 的资深 Applied Scientist，已经做了七年的生产级 ML 系统部署。**如果让我在 2026 年的今天从零重来一次，我几乎不会按当初的任何方式去走**。

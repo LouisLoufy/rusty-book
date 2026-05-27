@@ -6,7 +6,7 @@ translated: 2026-05-22
 tags:
   - Machine Learning
 summary: 随着 Netflix 不断成长，机器学习持续支撑着 Netflix 向会员交付价值、在多个业务领域追求卓越。十多年前 Netflix 刚开始投入机器学习时，主要聚焦单一领域：个性化推荐。当时 Scala 是行业标准，ML 团队规模相对较小，优化会员参与度是主要用例。快进到今天，机器学习已成为 Netflix 业务转型的支柱。如今 ML 已应用到各个业务领域，包括：
-cover: ./images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp
 ---
 
 # 在 Netflix 让机器学习人人可用：构建模型生命周期图谱
@@ -81,7 +81,7 @@ Netflix 的 ML 生态系统从数十个来源产生元数据：
 
 可以用一个具体例子来概括这些概念：
 
-![](./images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp)
 
 这种基于 URI 的寻址方案至关重要——让任何服务都能用一个字符串引用任何 ML 资产，而 MDS 能把该引用解析回丰富、连通的元数据。
 
@@ -319,7 +319,7 @@ query {
 
 ## 实现探索，而不只是搜索
 
-![](./images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/02.webp)
 
 有了模型生命周期图谱，工作方式就从实体搜索转向了实体探索。发现不只是找到一个模型，更在于遍历各种关系：
 

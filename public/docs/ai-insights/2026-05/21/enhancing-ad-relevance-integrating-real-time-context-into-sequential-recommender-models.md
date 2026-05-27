@@ -4,7 +4,7 @@ author: Pinterest Engineering
 url: https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e
 translated: 2026-05-21
 summary: 在此前的一篇文章 Ads Candidate Generation using Behavioral Sequence Modeling（原文）中，我们介绍过一个候选生成器（CG）。它用一个基于 Transformer 的双塔模型，借助用户的站外转化历史——这是一个很强的信号——来预测用户未来会与哪些广告主、哪些具体商品发生交互。…
-cover: ./images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp
 ---
 
 # 提升广告相关性：把实时上下文融入序列推荐模型
@@ -27,7 +27,7 @@ Huiqin Xin | Machine Learning Engineer II, Ads Vertical Modeling；Lakshmi Manoh
 
 架构上最核心的改动，是把一个 **context 层**直接集成进双塔模型的 query 塔里。
 
-![](./images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp)
 *图 1. 上下文序列双塔模型架构*
 
 如上图所示，模型现在会把原 Transformer 编码器的输出（代表历史序列信息）与新 context 层的输出拼接在一起。这个合并后的表示再被送入最终的多层感知机（MLP），从而得到最终的用户 embedding。
@@ -40,7 +40,7 @@ Huiqin Xin | Machine Learning Engineer II, Ads Vertical Modeling；Lakshmi Manoh
 
 由于实时上下文只在服务时才能拿到，我们必须让模型在离线训练阶段就有能力从这个信号中学习。解决办法是使用**合成增强数据**。
 
-![](./images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/02.webp)
 *图 2. 用合成增强数据训练模型*
 
 在模型训练过程中，我们人为地把一份从*正样本标签*（即转化事件）派生出来的伪上下文信息，注入到输入序列里。例如，通过投影正样本物品的*兴趣类目*特征，我们鼓励模型去检索那些在语义上与该用户会话所关联的*上下文*相关的物品。训练时，context 层会使用很高的 dropout 率，以确保模型仍然依赖用户的历史事件序列（也就是 Transformer 的输出）。
@@ -65,7 +65,7 @@ Huiqin Xin | Machine Learning Engineer II, Ads Vertical Modeling；Lakshmi Manoh
 
 为了评估引入上下文特征对模型召回广告候选"存活率"的影响，我们做了一次离线评估。我们用 Related Pins 上真实流量广告数据的日志特征，生成模型输出 embedding，并计算 Recall@K——这个指标衡量的是在 top-K 检索结果中找到的正样本物品所占的比例。这里，把那些熬过排序漏斗、最终送达用户的候选视为正样本物品。这个新模型表现出显著提升，与生产模型相比，Recall@K 提升了 3 到 10 倍。
 
-![](./images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/03.webp)
 *表 1. 生产模型与上下文模型的 Recall@K*
 
 ## 存活率与相关性

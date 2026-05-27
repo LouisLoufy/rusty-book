@@ -10,7 +10,7 @@ $$
 
 我们再来复习一下逻辑回归的函数曲线：
 
-![0713](../imgs/0713.png)
+![0713](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0713.png)
 
 Sigmoid这个激活函数的作用可以将大于0的数快速映射到接近1，小于0的数快速映射到接近0。
 
@@ -26,7 +26,7 @@ $$
 
 多元逻辑回归中，多元线性回归部分，将多个Feature通过对应的参数w以及b进行线性变化，让正例的多元线性变化结果大于0，让负例的多元线性变化结果小于0。最后同样由Sigmoid函数将线性回归的结果映射到0和1之间。
 
-![0714](../imgs/0714.png)
+![0714](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0714.png)
 
 比如上图是小明是否出门与气温（x轴）和PM2.5（y轴）的关系图。就可以构造一个二元逻辑回归来建模。输入由两个特征气温和PM2.5的值，预测出门为1，不出门为0。
 它的假设函数就为：
@@ -41,7 +41,7 @@ $$
 
 逻辑回归内部是一个线性回归，然后通过Sigmoid函数，线性回归大于0的结果，映射到1，小于0的结果映射到0。线性回归只能是一条直线。我们之前举的例子里，逻辑回归的决策边界都是直线。那么逻辑回归的决策边界只能是直线吗？
 
-![0715](../imgs/0715.png)
+![0715](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0715.png)
 
 比如像上图中，输入特征有2个，分别用x轴和y轴表示，同样是进行二分类。但是它的决策边界不是直线。逻辑回归可以解决这样的问题吗？答案是肯定的。
 
@@ -65,11 +65,11 @@ $$
 
 所以逻辑回归里线性方程就表示一个半径为2的圆，当图上的点在圆的内部，线性方程的取值就小于0，被Sigmoid函数映射到0附近。当图上的点在圆的外部，线性方程的取值就大于0，被Sigmoid函数映射到1附近。
 
-![0716](../imgs/0716.png)
+![0716](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0716.png)
 
 如果你增加更多的高次项，理论上逻辑回归的决策边界可以是任意曲线。
 
-![0717](../imgs/0717.png)
+![0717](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0717.png)
 
 ### 7.3.4逻辑回归只能解决二分类问题吗
 

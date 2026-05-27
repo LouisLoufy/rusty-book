@@ -4,7 +4,7 @@
 
 ### 8.8.1 MNIST数据集
 
-![MNIST](../imgs/0822.png)
+![MNIST](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0822.png)
 
 上边展示的是MNIST（Modified National Institute of Standards and Technology）数据集，它是机器学习和图像识别领域中最经典、最常用的数据集之一，主要用于手写数字识别任务。
 
@@ -333,4 +333,4 @@ with torch.no_grad():
 
 如果你学懂了这一节，扫码请作者喝一杯咖啡来分享你的喜悦。
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

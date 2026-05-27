@@ -6,12 +6,12 @@ translated: 2026-05-20
 tags:
   - LLM
 summary: AI 编程。我姑且假设你到现在至少试过了。你大概用过 Claude 或 Cursor 这类工具，试过不同的模型，说不定还用 Anthropic 或 OpenAI API 自己搭过东西。被迫为超额的 token 付费时，你可能哭过一小会儿，而“agents”这个词到现在大概一听就让你头疼。如果你完全不知道我在说什么，那请把你星球的坐标发给我——那里一定特别宁静。
-cover: ./images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/01.webp
 ---
 
 # AI 如何记忆，又为何遗忘：第 1 部分，上下文问题
 
-![](./images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/01.webp)
 
 AI 编程。我姑且假设你到现在至少试过了。你大概用过 Claude 或 Cursor 这类工具，试过不同的模型，说不定还用 Anthropic 或 OpenAI API 自己搭过东西。被迫为超额的 token 付费时，你可能哭过一小会儿，而“agents”这个词到现在大概一听就让你头疼。如果你完全不知道我在说什么，那请把你星球的坐标发给我——那里一定特别宁静。
 
@@ -35,7 +35,7 @@ AI 编程。我姑且假设你到现在至少试过了。你大概用过 Claude 
 
 或者，对编程模型来说，我们挤压的是整个 GitHub。
 
-![](./images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/02.webp)
 
 好吧，如果你想要那些方便去谷歌查事实的无聊术语：训练期间，模型处理整个互联网、Github 或者随便它训练用的什么东西，并通过处理这些数据学到“权重”（也就是一堆数字）。然后，你的输入文本被切成 token（即文本块），转换成“向量 (vectors)”和“嵌入 (embeddings)”，送进预训练好的模型。模型再用所谓的“注意力机制 (attention mechanism)”，尝试根据输入预测对输出来说什么最重要，并一次一个地生成新 token（即文本块）。
 
@@ -48,7 +48,7 @@ const outputText = transformWithInternetData(inputText);
 
 其中“**token**”是处理 LLM 时最重要的概念之一。因为“token”就是钱从我们银行账户里被抽干的方式。所有输入和输出文本都用 token 来计量，也就是 LLM 接收、并基于已有数据进行预测的文本块。你对 LLM 说一句“Hi, how are you?”，它一回答，美元计价器就开始转了。
 
-![](./images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/03.webp)
 
 不同的模型、不同的语言，会给出不同的 token 组合，但思路对所有人都一样。外面有大量可视化工具，比如[这里有一个](https://platform.openai.com/tokenizer)是给 OpenAI 用的。
 
@@ -58,7 +58,7 @@ const outputText = transformWithInternetData(inputText);
 
 简单！你只要随时间把整段对话保留并累积下来，每次提问时一并发过去就行。
 
-![](./images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/04.webp)
 
 当然，每个新问题都会把之前对话里的所有 token 累积进来。这就是我们所说的“Context”（上下文），它的最大尺寸（以 token 计）叫做[“Context window”（上下文窗口）](https://www.ibm.com/think/topics/context-window)。简单说，它就是 LLM 在任一时刻所知道、并“记得”的信息。
 
@@ -74,7 +74,7 @@ const outputText = transformWithInternetData(inputText);
 
 当你聊起自己最爱的食物时，这条信息被存到了某个地方，比如一个数据库，甚至你电脑上的一个文本文件。然后你开始一段新对话时，第一个聊天里的那条信息，就被字面意义地追加到你提的问题上，再发给 AI。
 
-![](./images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/05.webp)
 
 从代码视角看，它就只是这个：
 

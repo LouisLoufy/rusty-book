@@ -105,7 +105,7 @@ $$
 
 ### 4.1.5 概率论三大公理
 
-![图片1](../imgs/0401.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0401.png)
 
 概率论的三大公理是概率的基本定义，由俄国数学家柯尔莫哥洛夫（Andrey Kolmogorov）在1933年提出，构成了现代概率论的数学基础。它们基于集合论，用来严格定义概率的性质。这三大公理是：
 

@@ -8,7 +8,7 @@ $$
 \mathbf{i} =\begin{bmatrix}1 \\0 \end{bmatrix}\qquad \mathbf{j} =\begin{bmatrix}0 \\1\end{bmatrix}
 $$
 
-![图片1](../imgs/0204.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0204.png)
 
 这两个向量分别沿x轴长度为1，沿y轴长度为1，互相垂直。
 
@@ -18,7 +18,7 @@ $$
 \mathbf{a} =\begin{bmatrix}3 \\2 \end{bmatrix}
 $$
 
-![图片2](../imgs/0205.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0205.png)
 
 它可以看做是对**i**向量缩放3倍，对**j**向量缩放2倍，然后加和组成的向量。
 
@@ -32,7 +32,7 @@ $$
 \mathbf{a} =\begin{bmatrix}2 \\1 \end{bmatrix}\qquad \mathbf{b} =\begin{bmatrix}-1 \\1\end{bmatrix}
 $$
 
-![图片3](../imgs/0206.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0206.png)
 
 通过观察，不难发现，通过对**a**和**b**的缩放和加和，也是可以到达二维平面的任意一个点的。
 
@@ -46,7 +46,7 @@ $$
 \mathbf{a} =\begin{bmatrix}2 \\2 \end{bmatrix}\qquad \mathbf{b} =\begin{bmatrix}1 \\1\end{bmatrix}
 $$
 
-![图片4](../imgs/0207.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0207.png)
 
 它们两个向量在同一个直线上，它们两个任意线性组合，也就是通过数乘缩放和向量相加，所能生成的向量还在这条直线上。也就是这两个向量张成的空间就是这条直线。此时，这两个向量就不能构成一个基。因为他们**线性相关**。
 
@@ -76,23 +76,23 @@ $$
 \mathbf{x} =\begin{bmatrix}2 \\8 \\7\end{bmatrix}
 $$
 
-![图片5](../imgs/0203.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0203.png)
 
 三维空间里的3个向量可以张成的空间有哪些呢？
 
-![0201.gif](../imgs/0201.gif)
+![0201.gif](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0201.gif)
 
 最大可能是张成整个三维空间。
 
-![0202.gif](../imgs/0202.gif)
+![0202.gif](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0202.gif)
 
 其次，如果三个向量里的其中一个可以通过另外两个线性组合得到，也就是位于另外两个向量张成平面里，那么它们三个向量张成的空间就是一个面。
 
-![0203.gif](../imgs/0203.gif)
+![0203.gif](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0203.gif)
 
 还有一种情况，就是三个向量里的两个向量，都可以通过第三个向量经过缩放得到，也就是两个向量都处于第三个向量张成的线上，那么它们三个向量张成的空间就是一条直线。
 
-![0218.png](../imgs/0218.png)
+![0218.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0218.png)
 
 最后一种情况，就是三个向量都是0向量，也就是向量的各个分量都是0，那么它们张成的空间就是一个点，零点。
 

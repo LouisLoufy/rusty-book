@@ -6,7 +6,7 @@
 
 对于一个4x4的特征图，池化窗口大小（或者称为池化核大小）为2x2，步长为2，它会在每个池化窗口内取当前特征图的最大值，作为输出，生成输出特征图。具体过程如下图：
 
-![1022.gif](../imgs/1022.gif)
+![1022.gif](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1022.gif)
 
 可以看到最大池化操作非常简单，就是取池化窗口内最大值作为输出特征。
 

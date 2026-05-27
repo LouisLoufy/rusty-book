@@ -7,12 +7,12 @@ tags:
   - Artificial Intelligence
   - AI Agent
 summary: 我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。
-cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp
 ---
 
 # 当你的 AI 治理模型试图监管一个智能体蜂群
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp)
 
 我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。
 
@@ -28,7 +28,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 而我一看到它，伙计，那些练习纸又回来了。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/02.webp)
 
 一个由智能体组件构成的市场，每个组件都能被其他任何组件连接、编排或扩展——这种市场的问题在于，它差不多已经开始像一个组合系统了。而在这里，元素之间可能的交互数量，是按核反应那样的方式在增长的。
 
@@ -36,7 +36,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 这就是我想谈的。因为我不认为这个行业已经充分认清自己造出了什么——而我说这话，是作为一个正在其中搞建设、并觉得它既迷人又在结构上有点吓人的人。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/03.webp)
 
 ## 当智能体开始制造更多智能体时会发生什么
 
@@ -50,7 +50,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 它们暴露出的，是软件系统演化方式上的一种结构性转变。而这种转变带来的后果，行业还没有足够认真地对待。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/04.webp)
 
 这些后果里有三个让我夜不能寐——或者说，如果我是那种会让企业架构方面的忧虑打断睡眠的人，它们就会让我夜不能寐，而我绝对不是那种人。
 
@@ -78,25 +78,25 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 如果你以为这类动态系统还要过很久才能打进主流市场，我要说：一年之内，第一批面向目标、自组织的系统就会出现。我手上正有两个项目，终极目标都是这个——等这些系统进入生产，世界会怎样改变。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/05.webp)
 
 ## 第一个情景：一场没人预料到的合规违规
 
 传统治理假设，是一个人类基于对后续之事的某种个人问责，去批准一个决定。智能体根本不做这些。它只是用手头的选项为自己的目标函数做优化†。如果最便宜的 API 路由恰好把数据送过一个违反数据驻留政策的第三方服务，智能体并不知道，也不在乎——因为知道和在乎本来就不在目标函数里。结果是一场没有意图的合规违规，而且决定附近压根没有人类。试试看怎么向一位审计师解释这个——他受训的那个世界里，总有某个人对某件事负责。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/06.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/06.webp)
 
 ## 第二个情景：一条无法重建的审计轨迹
 
 经典的审计思维假设流程是线性的：输入到处理再到输出，步骤被记录，路径可重建。可一个智能体工作流根本不是这个样子。智能体 A 委派给 B。B 并行调用 C 和 D。D 超时后重试了三次。C 在执行中途根据延迟切换了工具。A 根据 B 报告的内容重写了自己的计划。你最后得到的，是一张横跨多个系统的局部决策的分布式图，每个节点都嵌着概率性推理。这张图讲的故事，不是任何单独一个人设计出来的，也不是任何单独一个人事后能完全重建的。以我的经验，监管机构对自己重建不出来的故事并不感兴趣。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/07.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/07.webp)
 
 ## 所有权问题
 
 企业的问责结构假设：一个团队拥有一个系统，一个系统产出一个结果，而一个结果有一个负责方。可一个定价决定，如果是由横跨三个平台、两个供应商的五个相互交互的智能体做出的——其中一个供应商贡献了一次模型推理，三个下游智能体把它当成了基本事实——那它在那种意义上就没有一个负责方。它有的是一张贡献者的分布式图，每个人都拥有其中一块，没有人拥有整体。这个你根本就没法治理，因为责任被分散得太彻底，以至于实际上消失了——对于一个本该创造问责的东西来说，这真是个相当了不起的结果。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/08.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/08.webp)
 
 ## 然后还有基础设施崩溃
 
@@ -106,7 +106,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 每一个存在的智能体，都通过推理在消耗算力。这意味着 token 被烧掉、GPU 发烫运转、数据中心被拉到极限，而我们将不得不礼貌地央求电网在用电高峰别崩溃。令人不安的是：智能体的组合式增长，意味着算力需求也组合式增长，可算力基础设施并不会组合式扩展。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/09.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/09.webp)
 
 于是你有了一个没人写进商业论证的错配。智能体需求呈指数级增长。算力供给呈线性增长，最好的情况也只是阶梯式增长。这制造出一个压力系统，而在压力之下，总得有什么东西让步。智能体开始竞争 GPU 周期、内存带宽、API 配额和延迟预算‡。这意味着你以为是自动化的那个系统，变成了一个稀缺条件下的资源分配问题。而稀缺条件下的资源分配，是一种早就有名字的东西——它叫市场。市场有自己的动态，无论你有没有为它做设计，这些动态都会涌现。
 
@@ -114,7 +114,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 想一想这个，就一秒钟。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/10.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/10.webp)
 
 † *还记得回形针优化问题吗？回形针问题是 Nick Bostrom 提出的一个思想实验，它展示了当你给一个 AI 一个没有边界的目标时会发生什么。你叫系统去最大化回形针产量，它就照办，哪怕代价是原材料、基础设施或人类。想了解更多就维基百科一下吧。*
 
@@ -128,7 +128,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 资源争用是另一个动态，它最清楚地揭示出结构上到底在发生什么。当智能体竞争算力、带宽和 API 访问时，总得有什么东西来决定：哪个智能体运行、哪个等待、哪个被降级、哪个实际上被杀掉。你要是偏好工程化的说法，可以管这叫编排，但它的机制就是一个市场——配有优先级排序行为、对低优先级智能体的资源饥饿，以及从成本和紧迫性信号、而非明确设计中涌现出来的隐式竞价动态。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/11.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/11.webp)
 
 市场机制从来没被嵌进架构里，可它还是出现了——因为市场就是多个行为主体在约束下争夺稀缺资源时所发生的事，而这个描述如今适用于你的生产基础设施。
 
@@ -138,7 +138,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 复杂系统一旦行为反常，我们的本能就是加更多日志、更多遥测、更多监控。但问题在于：在一个演化速度快过你分析其输出速度的系统里，更多数据并不能可靠地换来更多理解。信噪比崩溃，遥测量超过了人类能处理的极限，于是你陷入这样一种境地——技术上你观测着一切，实践中却没能及时理解任何足以据此行动的东西。这是一个非常昂贵版本的无知。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/12.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/12.webp)
 
 我们的治理模型会失败，因为它们是为稳定情形和人类意图设计的，如今却被拿去应对不稳定性、组合式交互和目标驱动的行为。
 
@@ -162,7 +162,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 但难道我们就真的什么都做不了，没法在这片混乱里造出一点点秩序？
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/13.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/13.webp)
 
 ## 嗯，能，一个模型，因为当然得有一个模型
 
@@ -184,7 +184,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 蜂群失败时，失败的方式就像一群人失败的方式，而要把它叫停，比把它启动起来要难得多。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/14.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/14.webp)
 
 随着智能体组合的这场爆炸，我们不只是在大规模地搞自动化。相反，我们正在创造一种环境：需求超出基础设施，智能体为资源而竞争，系统演化到了直接控制之外。在这样一种环境里，治理就从"控制行为"变成了"遏制后果"。
 
@@ -192,7 +192,7 @@ cover: ./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm
 
 我认为我们正站在一个拐点上，而有意思的是，房间里几乎没人算过接下来会发生什么。
 
-![](./images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/15.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/15.webp)
 
 而且没错，我意识到，我认识到这一点之后的第一本能，就是开始勾勒一个框架。
 

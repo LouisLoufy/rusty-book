@@ -8,7 +8,7 @@
 
 ### 8.6.1网络结构
 
-![神经网络图](../imgs/0821.png)
+![神经网络图](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0821.png)
 
 我们以上边这个图里展示的神经网络为例，输入feature维度为2，2个隐藏层，每层的神经元为2个，输出层有3个神经元来支持3分类任务。
 
@@ -479,4 +479,4 @@ $$
 
 如果你学懂了这一节，扫码请作者喝一杯咖啡来分享你的喜悦。
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

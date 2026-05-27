@@ -184,7 +184,7 @@ class TranslationDataset(Dataset):
 
 我们同时定义了一个`collate_fn`方法，它是对batch数据来进行额外处理的。它的作用是把一个batch里的英文token序列或者中文token序列都补成同样长度，batch长度以batch里最长的序列为准，其他序列后边以`<pad>`token来填充。这么做的原因是我们想把一个batch的数据作为一个tensor传入模型进行训练，但是tensor要求内部数据形状必须一致，所以我们用`<pad>`token填充短的序列。如下图所示：
 
-![1341.png](../imgs/1341.png)
+![1341.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1341.png)
 
 因为我们把读取数据和编码过程都放在了Dataset的初始化方法里，所以加载数据需要一些时间。
 

@@ -4,7 +4,7 @@
 
 ### 8.5.1对网络结构进行修改
 
-![图片1](../imgs/0811.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0811.png)
 
 假如我们的神经网络需要进行三分类，那么我们可以设置输出层的神经元个数为3个。并且希望每个输出神经元可以输出一个类别的概率，表明这个样本属于这个类别的概率。
 
@@ -46,7 +46,7 @@ $$
 
 然后我们看一下softmax函数的优势：
 
-![图片2](../imgs/0812.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0812.png)
 
 上边是$y=e^x$的函数图形，可以看到不论x取值是多少，经过$e^x$之后，输出值都是大于0的。解决了我们之前说的取值有正有负的问题。保证了输出概率值都为正，且在0-1之间。
 

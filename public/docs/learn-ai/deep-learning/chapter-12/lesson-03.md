@@ -49,26 +49,26 @@
 
 算法初始化时，首先给每个单词后边加上`</w>`表示这是一个单词结束的位置。然后按照字母对每个单词进行切分，将切分后的字母和`</w>`放入词典：
 
-![1203.png](../imgs/1203.png)
+![1203.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1203.png)
 
 接下来对所有相邻token进行统计，找出出现最多的两个token组合，将它们合并为一个新的token，放入词典。同时记录合并规则。如果同时有多个token对出现次数一样且都是最大，则任选一对进行合并。这一步被合并的是i和g，它们一共出现了9次。同时，i与g的合并规则也被记录下来。
 
-![1204.png](../imgs/1204.png)
+![1204.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1204.png)
 
 经过第一次合并后，ig被作为一个token，然后统计所有单词里相邻token出现最多的组合。e和r的组合出现了最多次，所以这次将e和r进行合并，并记录合并规则。
 
-![1205.png](../imgs/1205.png)
+![1205.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1205.png)
 
 第三次合并将er和`</w>`进行合并。
 
-![1206.png](../imgs/1206.png)
+![1206.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1206.png)
 
 第四次合并将hi和g进行合并。
 
-![1207.png](../imgs/1207.png)
+![1207.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1207.png)
 
 第五次合并将hig和h进行合并。经过五次合并后，词典内的token数量达到了预设的15个，所以停止合并。此时，算法产生了一个词典，同时有一组合并规则。
 
-![1208.png](../imgs/1208.png)
+![1208.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1208.png)
 
 有了通过BPE算法生成的词典和合并规则，对于一句话的分词过程为先将单词按字符拆分，再应用合并规则进行token合并，最终返回token在字典里的序号。这就完成了对句子的分词。比如，如果输入higher lower，则分词完的结果为[14,12,8,9,7,12]。

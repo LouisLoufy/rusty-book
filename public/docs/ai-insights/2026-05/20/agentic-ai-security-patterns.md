@@ -4,7 +4,7 @@ author: Debmalya Biswas
 url: https://ai.gopubby.com/agentic-ai-security-patterns-ad4ff80b9351
 translated: 2026-05-20
 summary: 智能体 AI 系统的关键特征是自主性和推理能力。凭借这两点，它们能把复杂任务拆解成更小的可执行任务，再编排这些任务的执行，并在需要时监控、反思、适配乃至自我纠错。正因如此，
-cover: ./images/agentic-ai-security-patterns/01.webp
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/01.webp
 ---
 
 # 智能体 AI 安全模式
@@ -24,7 +24,7 @@ cover: ./images/agentic-ai-security-patterns/01.webp
 -   到它们在智能体平台上的**安全且可扩展的**实现
 -   再到这些智能体的治理与维护。
 
-![](./images/agentic-ai-security-patterns/01.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/01.webp)
 *图 1：聚焦安全模式的智能体 AI 生命周期（作者绘图）*
 
 智能体化过程中要牢记几条原则：
@@ -56,7 +56,7 @@ cover: ./images/agentic-ai-security-patterns/01.webp
 -   共享**记忆**管理：在智能体之间共享数据与上下文；
 -   **治理**层：包括可解释性、隐私、安全、安全性护栏等。
 
-![](./images/agentic-ai-security-patterns/02.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/02.webp)
 *图 2：智能体 AI 平台参考架构（作者绘图）*
 
 给定一个用户任务，智能体 AI 平台的目标是识别并组合出一个（或一组）能执行该任务的智能体。因此我们需要的第一个组件是**推理**模块，它负责把任务分解为子任务，而相应智能体的执行则交由编排引擎来编排。
@@ -97,7 +97,7 @@ Skills: A list of specific tasks or functions the agent can perform (AgentSkill 
 
 我们先来定义用户 / 应用经由 AI 网关到智能体交互的安全模式。基于 AI 网关的端到端安全架构如图 3 所示。
 
-![](./images/agentic-ai-security-patterns/03.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/03.webp)
 *图 3：基于 AI 网关的智能体安全架构（作者绘图）*
 
 该安全模式由以下组件构成：
@@ -110,7 +110,7 @@ Skills: A list of specific tasks or functions the agent can perform (AgentSkill 
 -   记忆：维持用户会话上下文与对话状态（用于多轮对话）。
 -   （Open）telemetry：用于监控、合规与分析的集中化日志记录。
 
-![](./images/agentic-ai-security-patterns/04.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/04.webp)
 *图 4：用户（经由应用 / UI）到智能体的安全模式（作者绘图）*
 
 用户（经由应用 / UI）到智能体的详细安全流程如图 4 所示，关键步骤如下：
@@ -154,7 +154,7 @@ TE 流程供 MCP 客户端使用：它代表用户，用一个来自上游系统
 
 有了上述背景，我们来梳理图 5 所示的一次参考性的「AI 智能体（MCP 客户端）到 MCP 服务器」交互的步骤：
 
-![](./images/agentic-ai-security-patterns/05.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/05.webp)
 *图 5：聚焦智能体生命周期中「AI 智能体（MCP 客户端）→ MCP 服务器 → MCP 工具 API」交互部分的安全模式（作者绘图）*
 
 1.  智能体由用户 / 应用使用一个访问令牌调用（参见小节 3.1）。
@@ -173,7 +173,7 @@ TE 流程供 MCP 客户端使用：它代表用户，用一个来自上游系统
 
 正如你到这里一定已经发现的，令牌生成、校验与交换的安全模式始终不变；只要一次交互（这里是 MCP 工具与存储平台之间）跨越了安全域，就需要做一次令牌交换。端到端的安全模式如图 6 所示。
 
-![](./images/agentic-ai-security-patterns/06.webp)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/06.webp)
 *图 6：覆盖 用户 → 应用 / UI → AI 智能体 → MCP 服务器 / 工具 → 数据平台 的端到端安全模式（作者绘图）*
 
 ## 4. 结论

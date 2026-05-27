@@ -270,4 +270,4 @@ class TitanicDataset(Dataset):
 
 这是你自己动手实现的第一个对真实数据进行训练和预测的模型，如果它开始工作了，扫码请作者喝一杯咖啡来分享你的喜悦。
 
-![zsm](../imgs/zsm.png)
+![zsm](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/zsm.png)

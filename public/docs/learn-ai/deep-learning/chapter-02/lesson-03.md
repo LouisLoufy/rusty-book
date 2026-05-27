@@ -48,7 +48,7 @@ $$
 
 **原点不变**：线性变换后原点仍然在原点位置。
 
-![0208.png](../imgs/0208.png)
+![0208.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0208.png)
 
 通过线性变换，可以把一个向量进行拉伸，旋转，翻转等。那如何用数字准确表述这种线性变化呢？比如上图中向量**a,b**经过线性变换为**a',b'**,线性变换的规则是对于二维空间的向量，x坐标取负值，y坐标不变，也就是沿y轴镜像。我们需要一个数学的方式来描述这个线性变换。
 
@@ -98,7 +98,7 @@ $$
 \mathbf{i'} =\begin{bmatrix}0 \\1 \end{bmatrix}\mathbf{j'} =\begin{bmatrix}-1 \\0\end{bmatrix}
 $$
 
-![0209.png](../imgs/0209.png)
+![0209.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0209.png)
 
 接下来我们用**i'**和**j'**构成矩阵$A$：
 
@@ -116,7 +116,7 @@ $$
 \mathbf{b'} =Ab=\begin{bmatrix} 0&-1 \\ 1&0 \end{bmatrix}\begin{bmatrix}2 \\1 \end{bmatrix}=2\begin{bmatrix}0 \\1 \end{bmatrix} + 1\begin{bmatrix}-1 \\0 \end{bmatrix} = \begin{bmatrix}-1 \\2 \end{bmatrix}
 $$
 
-![0210.png](../imgs/0210.png)
+![0210.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0210.png)
 
 可以看到矩阵$A$确实可以对向量$b$进行逆时针旋转90°的线性变换。**单位矩阵**标准基向量构成的矩阵就是一个单位矩阵，单位矩阵对向量进行线性变换后还是向量本身。单位矩阵里的行数和列数相等，只有对角线上元素为1，其他位置元素为0。比如3维单位矩阵为：
 

@@ -3,7 +3,7 @@
 这一节我们来具体定义翻译模型的架构。具体代码在[translator.py](https://github.com/RethinkFun/DeepLearning/blob/master/chapter14/translator.py)里。
 网络结构示意图如下：
 
-![1342.png](../imgs/1342.png)
+![1342.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1342.png)
 
 编码器阶段我们用3层的双向LSTM来提取英文句子的信息。我们之前讲过，因为解码器负责生成中文翻译，在生成第一个中文token时，还不知道后边的token，不能用双向的LSTM。因此这里采用了一个单向的3层LSTM网络。
 

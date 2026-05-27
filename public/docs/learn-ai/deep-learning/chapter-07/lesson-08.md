@@ -12,7 +12,7 @@
 
 打开其中的train.csv文件，我们对数据进行查看：
 
-![图片1](../imgs/0718.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0718.png)
 
 其中列的含义如下：
 
@@ -47,11 +47,11 @@
 
 独热编码的原理比较简单，原始离散特征有几个离散取值，就生成几个列。每个样本在这几个列的取值，只能是0或者1。比如原始Sex列，就转化为Sex_male和Sex_female两列，如果某个乘客是男性，则Sex_male列的值就是1，Sex_female列的值就是0。
 
-![0724](../imgs/0724.png)
+![0724](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0724.png)
 
 同样对于Embarked列，就新生成Embarked_C，Embarked_Q，Embarked_S列。如果一个乘客是从Cherbourg登船的，则Embarked_C列值为1，Embarked_Q，Embarked_S列取值为0。
 
-![0725](../imgs/0725.png)
+![0725](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0725.png)
 
 可以发现对于独热编码而言，每个离散列，假如有N个可能的取值，就新生成N列。而且对于每个样本，在这N个列里，只有一列取值为1，其他列取值都为0，这也是为什么它被叫做独热编码的原因。
 
@@ -84,4 +84,4 @@ print(df.head(10))
 
 处理后的示例数据如下：
 
-![图片4](../imgs/0719.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0719.png)

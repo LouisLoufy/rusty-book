@@ -4,7 +4,7 @@
 
 ### 10.2.1 卷积运算过程
 
-![1003.png](../imgs/1003.png)
+![1003.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1003.png)
 
 首先我们来定义输入和参数。
 
@@ -14,15 +14,15 @@
 
 在进行卷积运算时，卷积核从图像的左上角开始，从上到下，从左到右，进行扫描。每次对3x3的像素进行卷积运算。卷积运算对每个位置的像素值和卷积核对应位置的权重相乘，然后累加，最后再加上偏置b，得到z值，然后z值经过激活函数后，得到a值。a值为新的“图片”上的一个“像素”。新的“图片”，我们称为特征图，特征图上的每个“像素”都是从原始图片上提取的一个特征。比如在检测猫的任务中，一个a值可能代表是否在这个卷积区域发现了猫的眼睛。
 
-![1004.png](../imgs/1004.png)
+![1004.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1004.png)
 
 当提取了原始图片的第一个3x3区域的特征后，卷积操作就向右滑动一个像素，然后用同样的卷积参数对下一个区域进行特征提取。
 
-![1005.png](../imgs/1005.png)
+![1005.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1005.png)
 
 最后当完成对图片的扫描后，我们就得到一个新的完整的特征图：
 
-![1006.png](../imgs/1006.png)
+![1006.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1006.png)
 
 ### 10.2.2 卷积操作的优点
 
@@ -44,7 +44,7 @@
 
 ### 10.2.3 卷积操作与全连接操作
 
-![1007.png](../imgs/1007.png)
+![1007.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1007.png)
 
 卷积操作和全连接操作并没有本质的不同。对于一个3x3的卷积操作，你可以看成是一个连接9个输入的神经元，它有9个weight参数，一个bias参数。这个神经元会用同样的参数对输入特征图上的任意3x3区域进行计算，形成输出的特征图。
 
@@ -54,7 +54,7 @@
 
 上边我们讲的是单通道的黑白照片作为输入，那么对于3通道RGB彩色图片作为输入，卷积操作会有什么不同呢？
 
-![1008.png](../imgs/1008.png)
+![1008.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1008.png)
 
 如果输入特征图是3通道的，那么卷积核也必须是3通道的，卷积核的shape为3x3x3，偏置还是只有一个参数b，一共28个参数。在进行卷积操作时，第一个通道的输入和第一个通道的卷积核参数进行卷积操作，第二个通道的输入和第二个通道的卷积核参数进行卷积操作，第三个通道也是类似，然后将三个通道得到的卷积值相加，再加上偏置值b，最终一个三通道卷积操作还是得到一个值。最终输出的通道数还是1个。换句话说，就是对应通道，对应高，对应宽位置上的输入和权重相乘，最后累加所有的值，再加上b值，经过激活函数，得到3x3x3输入区域的特征值a。
 
@@ -62,7 +62,7 @@
 
 上边我们讲过如果输入特征图是多通道的，如果通道数为C，那么卷积核的通道数也必须为C，但是输出的特征图还只是一个通道。一个卷积操作可能是检测图片里某一种特征，比如在检测猫的例子里，是检测猫的眼睛，我们还需要检测其他特征，比如猫的耳朵，猫的嘴巴等器官。那么我们在一个卷积层里可以定义多个Filter（卷积操作），当我们定义了几个Filter，输出的通道数就为几。
 
-![1009.png](../imgs/1009.png)
+![1009.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1009.png)
 
 比如上图中，我们对一个输入通道为3的特征图进行卷积，定义了两个Filter，每个Filter的卷积核都是3x3x3。因为定义了2个Filter，最终得到的输出特征图的通道数为2。
 
@@ -78,29 +78,29 @@
 
 假设有以下的3x3的黑白图片，其中0表示全黑，255表示全白。
 
-![1010.png](../imgs/1010.png)
+![1010.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1010.png)
 
 可以看到上边图片中有一个明暗分隔的竖线。它的像素灰度值为：
 
-![1011.png](../imgs/1011.png)
+![1011.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1011.png)
 
 这时我们如果手动设置如下一个卷积核C1，它的权重为：
 
-![1012.png](../imgs/1012.png)
+![1012.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1012.png)
 
 那么这个C1对上边图片进行卷积操作的输出的值为150。
 
 如果我们用C1来检测一个纯色3x3方块呢？
 纯色3x3的方块对应的图像和灰度值为：
 
-![1013.png](../imgs/1013.png)
+![1013.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1013.png)
 
 经过计算你可以发现C1输出的值为0。
 
 如果我们用C1来检测一个有着横条纹的3x3方块呢？
 横条纹3x3方块对应的图像和灰度值为：
 
-![1014.png](../imgs/1014.png)
+![1014.png](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/1014.png)
 
 经过计算，可以发现C1输出的值仍然为0。
 

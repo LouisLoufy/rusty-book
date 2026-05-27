@@ -67,7 +67,7 @@ $$
 对于投掷骰子而言，随机变量X的可能取值为{1,2,3,4,5,6}。通过定义上边的概率质量函数，我们可以知道每种取值的概率。但有时候我们在意的是取值小于某个值的概率。比如骰子点数小于等于4的概率。它就是X取值为{1,2,3,4}的概率和。
 这就是累积概率分布。
 
-![图片1](../imgs/0403.png)
+![图片1](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0403.png)
 
 上图为投掷一个骰子的累积概率分布函数，通过它我们可以得到骰子点数大于2，小于等于4的概率。那就是用x=4的累积概率值减去x=2的累积概率值。
 
@@ -91,7 +91,7 @@ $$
 
 一种解决办法是对这1000个观测值按区间进行统计：
 
-![图片2](../imgs/0404.png)
+![图片2](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0404.png)
 
 对于身高在150-160区间的人数有170个。除以总数1000，得到随机采样落到这个区间的频率为0.17。
 
@@ -115,17 +115,17 @@ $$
 
 根据上边的做法，我们更进一步，按5厘米分一个块，这样我们对高中生身高的估算就更加准确了。
 
-![图片3](../imgs/0405.png)
+![图片3](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0405.png)
 
 上边的图，可以对一个高中生的身高按照5厘米一个分段来估算概率了。
 
-![图片4](../imgs/0406.png)
+![图片4](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0406.png)
 
 更加细分，可以按照2.5厘米一个间隔估算概率了。
 
 聪明的你肯定想到，如果随机试验的人无穷大，间隔分的无穷小，就可以得到一个分布如下：
 
-![图片5](../imgs/0407.png)
+![图片5](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0407.png)
 
 这样我们就得到了连续性变量的概率密度曲线。它形象的刻画了在不同取值区间的概率大小。并且它的面积为1。
 
@@ -165,6 +165,6 @@ $$
 f(x) = \frac{dF(x)}{dx}
 $$
 
-![图片6](../imgs/0408.png)
+![图片6](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/learn-ai/deep-learning/imgs/0408.png)
 
 上图左边为正态分布的概率密度函数，右图为正态分布的累积概率分布函数。因为概率密度函数的总概率为1，所以我们可以看到右图累积概率分布函数，最终函数值为1。
