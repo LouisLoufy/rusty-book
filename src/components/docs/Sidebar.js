@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { RepoCard } from '../common';
 import { buildArticlePrefetchModel, normalizeDocPath } from '../../domain/docs';
 import { preloadMarkdownFile } from '../../utils/markdownPrefetch';
 import { preloadRouteForPath } from '../../utils/routePrefetch';
@@ -174,30 +173,12 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
 
   if (!meta) return null;
 
-  // Extract repository info from meta if available
-  const repoInfo = meta.githubRepo ? {
-    url: meta.githubRepo,
-    owner: meta.githubRepo.split('/').slice(-2)[0] || '',
-    name: meta.githubRepo.split('/').slice(-1)[0] || '',
-    title: meta.repoTitle || ''
-  } : null;
-
   return (
     <>
       {/* Mobile Overlay */}
       {isOpen && <div className={`sidebar-overlay ${overlayClassName}`.trim()} onClick={onClose} />}
 
       <aside className={`docs-sidebar ${isOpen ? 'open' : ''} ${className}`.trim()} ref={navRef}>
-        {/* GitHub Repository Card - Show if repo info available */}
-        {repoInfo && (
-          <RepoCard
-            repoUrl={repoInfo.url}
-            repoOwner={repoInfo.owner}
-            repoName={repoInfo.name}
-            title={repoInfo.title}
-          />
-        )}
-
         <nav className="sidebar-nav">
           {meta.sections.map((section, idx) => (
             <div
