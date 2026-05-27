@@ -3,12 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme-mode="dark"] .app-header {
-  border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
 .app-header-content {
@@ -29,7 +24,7 @@
   gap: 10px;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   transition: transform 0.3s ease;
 }
 
