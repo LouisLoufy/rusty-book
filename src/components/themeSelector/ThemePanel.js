@@ -1,6 +1,5 @@
 import React from 'react';
-import { BACKGROUND_DEPTHS, FONTS, FONT_WEIGHTS } from './config';
-import BackgroundDepthControl from './BackgroundDepthControl';
+import { FONTS, FONT_WEIGHTS } from './config';
 import FontSizeControl from './FontSizeControl';
 import ThemeGridSection from './ThemeGridSection';
 import ThemeModeSection from './ThemeModeSection';
@@ -8,7 +7,6 @@ import ThemeOptionSection from './ThemeOptionSection';
 import { ensureFontStylesheet } from './themeSelectorUtils';
 
 export default function ThemePanel({
-  currentBackgroundDepth,
   currentFont,
   currentFontSize,
   currentFontWeight,
@@ -16,7 +14,6 @@ export default function ThemePanel({
   isDarkMode,
   panelPosition,
   themeMode,
-  onBackgroundDepthChange,
   onFontChange,
   onFontSizeChange,
   onFontWeightChange,
@@ -39,13 +36,6 @@ export default function ThemePanel({
         currentTheme={currentTheme}
         isDarkMode={isDarkMode}
         onThemeChange={onThemeChange}
-      />
-
-      <BackgroundDepthControl
-        currentValue={currentBackgroundDepth}
-        onChange={onBackgroundDepthChange}
-        options={BACKGROUND_DEPTHS}
-        title="网站背景暗度"
       />
 
       <ThemeOptionSection

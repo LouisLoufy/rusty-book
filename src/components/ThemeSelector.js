@@ -10,12 +10,10 @@ const ThemeSelector = () => {
   const [panelPosition, setPanelPosition] = useState({ top: 0, right: 0 });
   const buttonRef = useRef(null);
   const {
-    currentBackgroundDepth,
     currentFont,
     currentFontSize,
     currentFontWeight,
     currentTheme,
-    handleBackgroundDepthChange,
     handleFontChange,
     handleFontSizeChange,
     handleFontWeightChange,
@@ -51,7 +49,6 @@ const ThemeSelector = () => {
         {isOpen && ReactDOM.createPortal(
           <div className="theme-overlay" onClick={() => setIsOpen(false)}>
             <ThemePanel
-              currentBackgroundDepth={currentBackgroundDepth}
               currentFont={currentFont}
               currentFontSize={currentFontSize}
               currentFontWeight={currentFontWeight}
@@ -59,7 +56,6 @@ const ThemeSelector = () => {
               isDarkMode={isDarkMode}
               panelPosition={panelPosition}
               themeMode={theme}
-              onBackgroundDepthChange={handleBackgroundDepthChange}
               onFontChange={handleFontChange}
               onFontSizeChange={handleFontSizeChange}
               onFontWeightChange={handleFontWeightChange}

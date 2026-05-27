@@ -45,8 +45,7 @@ test('applies saved external font preference through the lazy font loader', () =
     themeId: 'kindle-paper',
     fontId: 'lxgw-wenkai',
     fontWeightId: 'normal',
-    fontSizeId: '18',
-    backgroundDepthId: 'soft'
+    fontSizeId: '18'
   });
 
   const stylesheet = document.head.querySelector('[data-font-loader="stylesheet"]');
