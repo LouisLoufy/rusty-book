@@ -27,9 +27,9 @@ temp-article
 /public/docs/materials/output/.obsidian/
 /public/docs/materials/.obsidian/
 
-# Book images live in beatai-assets repo and are served via jsDelivr at
-# runtime (see src/utils/contentAssetCdn.js). Drop new images into the
-# assets repo, not here.
+# All in-book images live in beatai-assets and are referenced from markdown
+# as full jsDelivr URLs. Drop new images straight into the assets repo
+# (scripts/lib/assets-repo.mjs publishToAssetsRepo), not under public/docs/.
 /public/docs/**/*.png
 /public/docs/**/*.jpg
 /public/docs/**/*.jpeg
