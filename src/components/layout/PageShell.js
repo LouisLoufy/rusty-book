@@ -1,13 +1,11 @@
 import React from 'react';
 import AppHeader from '../AppHeader/AppHeader';
-import Footer from '../Footer/Footer';
 import ReadingModeFloatingActions from '../docs/ReadingModeFloatingActions';
 
 function PageShell({
   rootClassName = '',
   sidebarOpen = false,
   onMenuToggle = null,
-  showFooter = true,
   hideHeader = false,
   showReadingModeToggle = false,
   children
@@ -29,8 +27,6 @@ function PageShell({
       {hideHeader && showReadingModeToggle && <ReadingModeFloatingActions />}
 
       {children}
-
-      {showFooter && <Footer />}
     </div>
   );
 }

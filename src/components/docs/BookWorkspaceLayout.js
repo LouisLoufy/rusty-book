@@ -14,7 +14,6 @@ function BookWorkspaceLayout({
   onSidebarClose = null,
   containerClassName = '',
   mainClassName = '',
-  showFooter = true,
   afterMain = null,
   children
 }) {
@@ -84,7 +83,6 @@ function BookWorkspaceLayout({
         rootClassName={cn(rootClassName, isReadingMode && 'reading-mode')}
         sidebarOpen={sidebarOpen}
         onMenuToggle={onMenuToggle}
-        showFooter={showFooter}
         hideHeader={isReadingMode}
         showReadingModeToggle
       >
