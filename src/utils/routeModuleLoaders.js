@@ -8,7 +8,5 @@ export const ROUTE_MODULE_LOADERS = Object.freeze({
   [PAGE_IDS.logoShowcase]: () => import('../pages/LogoShowcase'),
   [PAGE_IDS.bookPage]: () => import('../pages/BookPage'),
   [PAGE_IDS.collectionPage]: () => import('../pages/CollectionPage'),
-  [PAGE_IDS.aiContinentDemo]: () => import('../pages/AIContinentDemo'),
-  [PAGE_IDS.mapTextureShowcase]: () => import('../pages/MapTextureShowcase'),
   [PAGE_IDS.aiInsights]: () => import('../pages/AiInsightsArchive')
 });

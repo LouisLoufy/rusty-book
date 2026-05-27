@@ -53,14 +53,6 @@ export function getRouteIdForPath(target) {
     return PAGE_IDS.logoShowcase;
   }
 
-  if (pathname === PAGE_CONFIG[PAGE_IDS.aiContinentDemo].path) {
-    return PAGE_IDS.aiContinentDemo;
-  }
-
-  if (pathname === PAGE_CONFIG[PAGE_IDS.mapTextureShowcase].path) {
-    return PAGE_IDS.mapTextureShowcase;
-  }
-
   if (pathname.startsWith('/tags/')) {
     return PAGE_IDS.tag;
   }

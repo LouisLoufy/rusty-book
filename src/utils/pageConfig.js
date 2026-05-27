@@ -13,8 +13,6 @@ export const PAGE_IDS = Object.freeze({
   bookPage: 'bookPage',
   collectionPage: 'collectionPage',
   tag: 'tag',
-  aiContinentDemo: 'aiContinentDemo',
-  mapTextureShowcase: 'mapTextureShowcase',
   logoShowcase: 'logoShowcase',
   notFound: 'notFound'
 });
@@ -53,18 +51,6 @@ export const PAGE_CONFIG = Object.freeze({
     path: '/tags/:tagName',
     title: '# 标签',
     description: '浏览所有带有指定标签的文章。'
-  },
-  [PAGE_IDS.aiContinentDemo]: {
-    id: PAGE_IDS.aiContinentDemo,
-    path: '/ai-continent-demo',
-    title: 'AI 大陆测试场',
-    description: `${SITE_CONFIG.brandName} AI 大陆学习路径测试页：可视化展示地点、依赖关系与解锁流程。`
-  },
-  [PAGE_IDS.mapTextureShowcase]: {
-    id: PAGE_IDS.mapTextureShowcase,
-    path: '/map-texture-showcase',
-    title: '游戏世界贴图测试页',
-    description: `${SITE_CONFIG.brandName} 游戏世界贴图测试页，横向比较 10 张不同风格的世界地图素材。`
   },
   [PAGE_IDS.logoShowcase]: {
     id: PAGE_IDS.logoShowcase,

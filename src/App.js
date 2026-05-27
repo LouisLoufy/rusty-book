@@ -23,8 +23,6 @@ const Square = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.squa
 const LogoShowcase = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.logoShowcase]));
 const BookPage = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.bookPage]));
 const CollectionPage = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.collectionPage]));
-const AIContinentDemo = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiContinentDemo]));
-const MapTextureShowcase = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.mapTextureShowcase]));
 const AiInsightsArchive = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.aiInsights]));
 const NotFound = lazy(() => lazyWithMinLoadTime(ROUTE_MODULE_LOADERS[PAGE_IDS.notFound]));
 
@@ -59,8 +57,6 @@ function App() {
                     <Route path={APP_ROUTE_PATHS.root} element={<Navigate to={HOME_PATH} replace />} />
                     <Route path={PAGE_CONFIG[PAGE_IDS.genesisLab].path} element={<Home />} />
                     <Route path={PAGE_CONFIG[PAGE_IDS.square].path} element={<Square />} />
-                    <Route path={PAGE_CONFIG[PAGE_IDS.aiContinentDemo].path} element={<AIContinentDemo />} />
-                    <Route path={PAGE_CONFIG[PAGE_IDS.mapTextureShowcase].path} element={<MapTextureShowcase />} />
                     <Route path={PAGE_CONFIG[PAGE_IDS.logoShowcase].path} element={<LogoShowcase />} />
                     <Route path={APP_ROUTE_PATHS.legacyLearnClaudeCode} element={<LegacyLearnClaudeCodeRedirect />} />
                     {/* AI Insights archive: special feed page sits at /ai-insights exactly,
