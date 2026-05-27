@@ -1,18 +1,21 @@
 #!/usr/bin/env node
 
 // One-shot migration: rewrite every relative image reference in public/docs/**/*.md
-// to a full jsDelivr URL pointing at the configured beatai-assets commit.
+// AND every relative cover path in public/docs/ai-insights/_meta.json to a full
+// jsDelivr URL pointing at the configured beatai-assets commit.
 //
 // After this migration, the runtime rewriter (src/utils/contentAssetCdn.js) is
-// no longer needed — md files are self-contained.
+// no longer needed — md files are self-contained, and the archive card cover
+// in _meta.json points directly at jsDelivr.
 //
 // Handles:
 //   - Body markdown: ![alt](./relpath)  and  ![alt](../relpath)
 //   - Frontmatter:    cover: ./relpath
+//   - _meta.json:     items[].cover when it starts with ./ or ../
 //
 // Skips:
 //   - rust-course/** (already uses upstream jsDelivr URLs)
-//   - References starting with http(s):// (external URLs)
+//   - References starting with http(s):// (external URLs, incl. substackcdn covers)
 //   - .mdx files (separate concern)
 //
 // Usage:
@@ -115,9 +118,53 @@ for (const md of walkMd(PUBLIC_DOCS)) {
   }
 }
 
+// _meta.json items[].cover: same as frontmatter cover but inside a JSON array.
+// The covers stored here drive the archive cards (read by ArchiveCard.js); if
+// they remain relative they 404 since the images live in beatai-assets only.
+let metaEdits = 0;
+let metaTouched = false;
+const META_PATH = path.join(PUBLIC_DOCS, 'ai-insights', '_meta.json');
+if (fs.existsSync(META_PATH)) {
+  const meta = JSON.parse(fs.readFileSync(META_PATH, 'utf8'));
+  // Walk recursively for any object with both `cover` and `file` fields.
+  function walkMeta(node) {
+    if (Array.isArray(node)) {
+      node.forEach(walkMeta);
+      return;
+    }
+    if (node && typeof node === 'object') {
+      if (typeof node.cover === 'string' && typeof node.file === 'string') {
+        const cover = node.cover;
+        if (/^\.{1,2}\//.test(cover)) {
+          // node.file is like "/docs/ai-insights/<YM>/<DD>/<slug>.md"
+          // synthesise a virtual md absolute path under PUBLIC_DOCS to feed
+          // resolveCdnUrl, which expects an absolute md path.
+          const virtualMd = path.join(REPO_ROOT, 'public', node.file.replace(/^\//, ''));
+          const r = resolveCdnUrl(virtualMd, cover);
+          if (r.ok) {
+            node.cover = r.url;
+            metaEdits++;
+          } else {
+            allWarnings.push(`  _meta.json :: cover ${cover} (file=${node.file}) → ${r.reason}`);
+          }
+        }
+      }
+      for (const v of Object.values(node)) walkMeta(v);
+    }
+  }
+  walkMeta(meta);
+  if (metaEdits > 0) {
+    metaTouched = true;
+    if (APPLY) {
+      fs.writeFileSync(META_PATH, JSON.stringify(meta, null, 2) + '\n');
+    }
+  }
+}
+
 console.log(`SHA:           ${SHA}`);
 console.log(`Scanned:       ${totalFiles} .md files`);
-console.log(`Would change:  ${touchedFiles} files, ${totalEdits} edits`);
+console.log(`Would change:  ${touchedFiles} md files, ${totalEdits} md edits`);
+console.log(`_meta.json:    ${metaTouched ? `${metaEdits} cover refs rewritten` : 'no changes'}`);
 if (allWarnings.length) {
   console.log(`Warnings (${allWarnings.length}):`);
   for (const w of allWarnings) console.log(w);
