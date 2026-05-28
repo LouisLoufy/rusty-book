@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HiSparkles } from 'react-icons/hi';
 import HiddenTipsModal from './HiddenTipsModal';
 import ReadingModeToggleButton from './ReadingModeToggleButton';
+import ThemeSelector from '../ThemeSelector';
 import { useReadingMode } from '../../contexts/ReadingModeContext';
 
 function ReadingModeFloatingActions() {
@@ -11,6 +12,7 @@ function ReadingModeFloatingActions() {
   return (
     <>
       <div className="reading-mode-floating-actions">
+        <ThemeSelector />
         <button
           type="button"
           className="reading-mode-toggle-btn reading-mode-tips-btn"

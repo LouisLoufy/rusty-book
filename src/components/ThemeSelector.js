@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import ThemePanel from './themeSelector/ThemePanel';
@@ -9,14 +9,23 @@ const ThemeSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [panelPosition, setPanelPosition] = useState({ top: 0, right: 0 });
   const buttonRef = useRef(null);
+
+  // 面板打开时拦截 Escape，避免冒泡到阅读模式的退出键监听
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.stopPropagation();
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
   const {
-    currentFont,
     currentFontSize,
-    currentFontWeight,
     currentTheme,
-    handleFontChange,
     handleFontSizeChange,
-    handleFontWeightChange,
     handleThemeChange,
     isDarkMode,
     isTransitioning
@@ -49,16 +58,12 @@ const ThemeSelector = () => {
         {isOpen && ReactDOM.createPortal(
           <div className="theme-overlay" onClick={() => setIsOpen(false)}>
             <ThemePanel
-              currentFont={currentFont}
               currentFontSize={currentFontSize}
-              currentFontWeight={currentFontWeight}
               currentTheme={currentTheme}
               isDarkMode={isDarkMode}
               panelPosition={panelPosition}
               themeMode={theme}
-              onFontChange={handleFontChange}
               onFontSizeChange={handleFontSizeChange}
-              onFontWeightChange={handleFontWeightChange}
               onThemeChange={handleThemeChange}
               onThemeModeToggle={toggleTheme}
             />

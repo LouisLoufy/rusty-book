@@ -37,20 +37,6 @@ export default function FontSizeControl({
             aria-label={title}
           />
         </div>
-
-        <div className="font-size-ticks" aria-hidden="true">
-          {Array.from({ length: 9 }, (_, index) => {
-            const size = 14 + index;
-            const isActive = size <= currentSize;
-
-            return (
-              <span
-                key={size}
-                className={`font-size-tick${isActive ? ' active' : ''}`}
-              />
-            );
-          })}
-        </div>
       </div>
     </div>
   );

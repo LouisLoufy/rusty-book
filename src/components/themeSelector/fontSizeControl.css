@@ -113,23 +113,6 @@
   box-shadow: 0 4px 14px color-mix(in srgb, var(--accent-start) 38%, transparent);
 }
 
-.font-size-ticks {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  align-items: center;
-  gap: 6px;
-}
-
-.font-size-tick {
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.28);
-}
-
-.font-size-tick.active {
-  background: var(--accent-start);
-}
-
 @media (max-width: 480px) {
   .font-size-control-header {
     align-items: flex-start;

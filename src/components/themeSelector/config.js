@@ -1,8 +1,6 @@
 export const DEFAULT_THEME_MODE = 'light';
 export const THEME_MODE_STORAGE_KEY = 'theme-mode';
 export const DEFAULT_THEME_ID = 'kindle-paper';
-export const DEFAULT_FONT_ID = 'pingfang';
-export const DEFAULT_FONT_WEIGHT_ID = 'normal';
 export const DEFAULT_FONT_SIZE_ID = '18';
 
 export const THEMES = [
@@ -52,121 +50,6 @@ export const THEMES = [
     backgroundImage: '/images/themes/sailor-moon-bg.svg',
     isImageTheme: true
   }
-];
-
-export const FONTS = [
-  {
-    id: 'system',
-    name: '系统默认',
-    family: '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif'
-  },
-  {
-    id: 'pingfang',
-    name: '苹方',
-    family: '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif'
-  },
-  {
-    id: 'microsoft-yahei',
-    name: '微软雅黑',
-    family: '"Microsoft YaHei", "Microsoft YaHei UI", "PingFang SC", sans-serif'
-  },
-  {
-    id: 'noto-sans',
-    name: '思源黑体',
-    family: '"Noto Sans SC", sans-serif',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'noto-serif',
-    name: '思源宋体',
-    family: '"Noto Serif SC", serif',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'lxgw-wenkai',
-    name: '霞鹜文楷',
-    family: '"LXGW WenKai", "KaiTi", serif',
-    stylesheet: 'https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css',
-    preconnects: [
-      { href: 'https://cdn.jsdelivr.net', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'ma-shan-zheng',
-    name: '马善政楷书',
-    family: '"Ma Shan Zheng", cursive',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'liu-jian-mao-cao',
-    name: '刘兼毛草',
-    family: '"Liu Jian Mao Cao", cursive',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'zcool-qingke',
-    name: '站酷高端黑',
-    family: '"ZCOOL QingKe HuangYou", sans-serif',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'zhi-mang-xing',
-    name: '志忙星手写',
-    family: '"Zhi Mang Xing", cursive',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'zcool-kuaile',
-    name: '站酷快乐体',
-    family: '"ZCOOL KuaiLe", sans-serif',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  },
-  {
-    id: 'zcool-xiaowei',
-    name: '站酷小薇',
-    family: '"ZCOOL XiaoWei", serif',
-    stylesheet: 'https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap',
-    preconnects: [
-      { href: 'https://fonts.googleapis.com' },
-      { href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ]
-  }
-];
-
-export const FONT_WEIGHTS = [
-  { id: 'light', name: '细体', value: '300' },
-  { id: 'normal', name: '常规', value: '400' },
-  { id: 'medium', name: '中等', value: '500' },
-  { id: 'semibold', name: '半粗', value: '600' },
-  { id: 'bold', name: '粗体', value: '700' }
 ];
 
 export const FONT_SIZES = Array.from({ length: 9 }, (_, index) => {

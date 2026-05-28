@@ -1,20 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  DEFAULT_FONT_ID,
   DEFAULT_FONT_SIZE_ID,
-  DEFAULT_FONT_WEIGHT_ID,
   DEFAULT_THEME_ID
 } from './config';
 import {
-  applyFont,
   applyFontSize,
-  applyFontWeight,
   applySavedThemeSelectorState,
   getIsDarkMode,
   getSavedThemeSelectorState,
-  persistFont,
   persistFontSize,
-  persistFontWeight,
   persistTheme,
   setThemeAttribute
 } from './themeSelectorUtils';
@@ -24,8 +18,6 @@ const THEME_TRANSITION_DURATION = 500;
 
 export function useThemeSelectorState() {
   const [currentTheme, setCurrentTheme] = useState(DEFAULT_THEME_ID);
-  const [currentFont, setCurrentFont] = useState(DEFAULT_FONT_ID);
-  const [currentFontWeight, setCurrentFontWeight] = useState(DEFAULT_FONT_WEIGHT_ID);
   const [currentFontSize, setCurrentFontSize] = useState(DEFAULT_FONT_SIZE_ID);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => getIsDarkMode());
@@ -36,8 +28,6 @@ export function useThemeSelectorState() {
     const savedState = getSavedThemeSelectorState();
 
     setCurrentTheme(savedState.themeId);
-    setCurrentFont(savedState.fontId);
-    setCurrentFontWeight(savedState.fontWeightId);
     setCurrentFontSize(savedState.fontSizeId);
     applySavedThemeSelectorState(savedState);
     setIsDarkMode(getIsDarkMode());
@@ -82,18 +72,6 @@ export function useThemeSelectorState() {
     }, THEME_TRANSITION_DURATION);
   };
 
-  const handleFontChange = (fontId) => {
-    setCurrentFont(fontId);
-    applyFont(fontId);
-    persistFont(fontId);
-  };
-
-  const handleFontWeightChange = (weightId) => {
-    setCurrentFontWeight(weightId);
-    applyFontWeight(weightId);
-    persistFontWeight(weightId);
-  };
-
   const handleFontSizeChange = (sizeId) => {
     setCurrentFontSize(sizeId);
     applyFontSize(sizeId);
@@ -101,13 +79,9 @@ export function useThemeSelectorState() {
   };
 
   return {
-    currentFont,
     currentFontSize,
-    currentFontWeight,
     currentTheme,
-    handleFontChange,
     handleFontSizeChange,
-    handleFontWeightChange,
     handleThemeChange,
     isDarkMode,
     isTransitioning
