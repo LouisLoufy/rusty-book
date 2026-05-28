@@ -1,15 +1,13 @@
+/* Width is constrained by .doc-wrapper's padding-right (which consumes
+ * --doc-rail-offset). Pagination naturally fills the article column — no
+ * per-component offset math needed. */
 .pagination-nav {
-  --doc-content-rail-offset: 256px;
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  width: calc(100% - var(--doc-content-rail-offset));
-  max-width: calc(100% - var(--doc-content-rail-offset));
+  width: 100%;
   margin-top: 32px;
-  margin-right: auto;
   box-sizing: border-box;
-  /* padding-top: 48px; */
-  /* border-top: 2px solid transparent; */
   border-image: var(--accent-gradient) 1;
 }
 
@@ -101,10 +99,7 @@
   .pagination-nav {
     flex-direction: column;
     gap: 16px;
-    width: 100%;
-    max-width: 100%;
     margin-top: 48px;
-    margin-right: 0;
     padding-top: 32px;
   }
 
@@ -118,13 +113,5 @@
 
   .pagination-icon {
     font-size: 20px;
-  }
-}
-
-@media (max-width: 968px) {
-  .pagination-nav {
-    width: 100%;
-    max-width: 100%;
-    margin-right: 0;
   }
 }

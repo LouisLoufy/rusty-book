@@ -1,6 +1,7 @@
+/* Width is constrained by .doc-wrapper's padding-right (which consumes
+ * --doc-rail-offset). Comments naturally fill the article column. */
 .doc-comments {
   margin-top: 32px;
-  margin-right: 256px;
   padding: 24px;
   box-sizing: border-box;
   border: 1px solid color-mix(in srgb, var(--accent-start) 18%, var(--border-primary));
@@ -79,8 +80,3 @@
   }
 }
 
-@media (max-width: 968px) {
-  .doc-comments {
-    margin-right: 0;
-  }
-}

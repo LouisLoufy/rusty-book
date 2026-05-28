@@ -1,7 +1,19 @@
-/* Wrapper for doc content and TOC */
+/* Wrapper for doc content and TOC.
+ * `--doc-rail-offset` reserves the right gutter where the fixed TOC sits
+ * (TOC width 215px + 32px gap = 247px). The padding-right on .doc-wrapper is
+ * the SINGLE point that constrains everything inside — article, pagination,
+ * comments — so children don't each compute their own right-margin math.
+ * Reading mode hides the TOC, so the offset collapses to 0 via :has(). */
 .doc-wrapper {
+  --doc-rail-offset: 247px;
   display: block;
   width: 100%;
+  padding-right: var(--doc-rail-offset);
+  box-sizing: border-box;
+}
+
+.doc-wrapper:has(.reading-mode) {
+  --doc-rail-offset: 0px;
 }
 
 .doc-content {
@@ -16,7 +28,7 @@
   width: 100%;
   line-height: 1.8;
   position: relative;
-  padding: 24px 247px 30px 22px;
+  padding: 24px 24px 30px 22px;
 }
 
 .doc-content.reading-mode {
@@ -25,11 +37,13 @@
   padding-right: 22px;
 }
 
-/* Article reading panel. Surface is token-driven (no per-theme branches). */
+/* Article reading panel — fills .doc-content exactly. The 24px gap between
+ * text and panel-right comes from .doc-content's own right-padding, not from
+ * an inset hack on this pseudo-element. */
 .doc-content::before {
   content: '';
   position: absolute;
-  inset: 0 223px 0 0;
+  inset: 0;
   border: 0px solid var(--border-primary);
   border-radius: 8px;
   background: var(--bg-secondary);
@@ -38,23 +52,9 @@
   z-index: 0;
 }
 
-.doc-content.reading-mode::before {
-  inset: 0;
-}
-
 .doc-article-after.reading-mode {
   max-width: 750px;
   margin: 0 auto;
-}
-
-.doc-article-after.reading-mode .pagination-nav {
-  width: 100%;
-  max-width: 100%;
-  margin-right: 0;
-}
-
-.doc-article-after.reading-mode .doc-comments {
-  margin-right: 0;
 }
 
 .doc-content>* {
@@ -68,13 +68,13 @@
 }
 
 @media (max-width: 968px) {
+  .doc-wrapper {
+    --doc-rail-offset: 0px;
+  }
+
   .doc-content {
     padding: 20px 16px 26px;
     max-width: 100%;
-  }
-
-  .doc-content::before {
-    inset: 0;
   }
 
   .doc-content.reading-mode {

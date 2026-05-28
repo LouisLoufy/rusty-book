@@ -135,7 +135,6 @@ const DocContent = ({ book = null }) => {
         headings={headings}
         afterArticle={(
           <>
-            <ArticleTags tags={articleTags} />
             <PaginationNav prev={adjacentChapters.prev} next={adjacentChapters.next} />
             {!isAiInsightsArticle && (
               <GiscusComments pageTitle={pageTitle} containerRef={commentsRef} />
@@ -205,6 +204,7 @@ const DocContent = ({ book = null }) => {
         {isTranslatedArticle && (
           <ArticleSourceCard url={frontmatter.url} />
         )}
+        <ArticleTags tags={articleTags} />
       </DocArticleLayout>
       {lightboxOpen ? (
         <React.Suspense fallback={null}>
