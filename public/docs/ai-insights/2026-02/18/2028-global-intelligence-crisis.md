@@ -1,5 +1,5 @@
 ---
-summary: 如果我们对 AI 的乐观判断继续成立，但这种“继续成立”本身反而对市场偏空，会怎么样？
+excerpt: 如果我们对 AI 的乐观判断继续成立，但这种“继续成立”本身反而对市场偏空，会怎么样？
 cover: https://substackcdn.com/image/fetch/%24s_%21rCTy%21%2Cw_1456%2Cc_limit%2Cf_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ede0b37-f3be-4787-90ff-10cb24719fdc_710x1119.jpeg
 ---
 

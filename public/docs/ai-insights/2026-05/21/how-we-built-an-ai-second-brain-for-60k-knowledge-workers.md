@@ -6,7 +6,7 @@ translated: 2026-05-21
 tags:
   - Artificial Intelligence
   - Machine Learning
-summary: Meta 的知识工作者每天都在跟工作流的碎片化作斗争：会议记录、任务、关键决策、代码上下文这些重要信息，散落在彼此割裂的平台上。每开启一段新的 AI 对话，都得从零冷启动——重复同样的解释、贴同样的链接、花同样的十分钟铺垫上下文，真正的工作才能开始。
+excerpt: Meta 的知识工作者每天都在跟工作流的碎片化作斗争：会议记录、任务、关键决策、代码上下文这些重要信息，散落在彼此割裂的平台上。每开启一段新的 AI 对话，都得从零冷启动——重复同样的解释、贴同样的链接、花同样的十分钟铺垫上下文，真正的工作才能开始。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/how-we-built-an-ai-second-brain-for-60k-knowledge-workers/01.jpg
 ---
 

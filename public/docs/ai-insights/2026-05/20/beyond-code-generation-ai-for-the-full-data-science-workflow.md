@@ -5,7 +5,7 @@ url: https://medium.com/data-science-collective/beyond-code-generation-ai-for-th
 translated: 2026-05-20
 tags:
   - Artificial Intelligence
-summary: 最近我一直被一种挥之不去的 AI FOMO 笼罩。每天都能看到有人分享 AI 技巧、晒出自己造的新智能体和技能，还有各种凭感觉写出来的应用。我越来越意识到，对今天的数据科学家来说，快速适应 AI 已经成了保持竞争力的硬性要求。
+excerpt: 最近我一直被一种挥之不去的 AI FOMO 笼罩。每天都能看到有人分享 AI 技巧、晒出自己造的新智能体和技能，还有各种凭感觉写出来的应用。我越来越意识到，对今天的数据科学家来说，快速适应 AI 已经成了保持竞争力的硬性要求。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp
 ---
 

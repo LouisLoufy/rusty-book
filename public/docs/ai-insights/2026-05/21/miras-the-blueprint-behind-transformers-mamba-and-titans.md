@@ -6,7 +6,7 @@ translated: 2026-05-21
 tags:
   - Machine Learning
   - LLM
-summary: 我们用来让语言模型记得更好的那些精巧机制——门控函数、权重衰减、自适应遗忘——结果都只是同一个底层原理的不同实例，这个原理就是保留门（retention gate）。
+excerpt: 我们用来让语言模型记得更好的那些精巧机制——门控函数、权重衰减、自适应遗忘——结果都只是同一个底层原理的不同实例，这个原理就是保留门（retention gate）。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/miras-the-blueprint-behind-transformers-mamba-and-titans/01.webp
 ---
 

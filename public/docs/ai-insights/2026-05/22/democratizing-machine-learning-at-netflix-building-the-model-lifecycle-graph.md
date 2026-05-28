@@ -5,7 +5,7 @@ url: https://netflixtechblog.com/democratizing-machine-learning-at-netflix-build
 translated: 2026-05-22
 tags:
   - Machine Learning
-summary: 随着 Netflix 不断成长，机器学习持续支撑着 Netflix 向会员交付价值、在多个业务领域追求卓越。十多年前 Netflix 刚开始投入机器学习时，主要聚焦单一领域：个性化推荐。当时 Scala 是行业标准，ML 团队规模相对较小，优化会员参与度是主要用例。快进到今天，机器学习已成为 Netflix 业务转型的支柱。如今 ML 已应用到各个业务领域，包括：
+excerpt: 随着 Netflix 不断成长，机器学习持续支撑着 Netflix 向会员交付价值、在多个业务领域追求卓越。十多年前 Netflix 刚开始投入机器学习时，主要聚焦单一领域：个性化推荐。当时 Scala 是行业标准，ML 团队规模相对较小，优化会员参与度是主要用例。快进到今天，机器学习已成为 Netflix 业务转型的支柱。如今 ML 已应用到各个业务领域，包括：
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp
 ---
 

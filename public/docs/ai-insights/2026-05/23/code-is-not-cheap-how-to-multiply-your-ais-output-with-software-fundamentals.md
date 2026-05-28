@@ -7,8 +7,8 @@ tags:
   - Technology
   - Programming
   - Artificial Intelligence
-summary: 2025 年 2 月，Andrej Karpathy 造了个词："vibe coding"——说出你想要什么，让 AI 写代码，然后把代码忘掉。这个说法迅速火了。所有人都愿意相信，写代码已经像说话一样轻松。
-cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/code-is-not-cheap-how-to-multiply-your-ais-output-with-software-fundamentals/01.thumb.webp
+excerpt: 2025 年 2 月，Andrej Karpathy 造了个词："vibe coding"——说出你想要什么，让 AI 写代码，然后把代码忘掉。这个说法迅速火了。所有人都愿意相信，写代码已经像说话一样轻松。
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/code-is-not-cheap-how-to-multiply-your-ais-output-with-software-fundamentals/01.jpg
 ---
 
 # 代码并不便宜：用软件基本功放大 AI 的产出

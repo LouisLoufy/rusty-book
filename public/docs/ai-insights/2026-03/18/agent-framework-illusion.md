@@ -1,5 +1,5 @@
 ---
-summary: 七个框架试完，答案不在框架里。
+excerpt: 七个框架试完，答案不在框架里。
 ---
 
 # 从 Google ADK 到 OpenFang，我试了七个 Agent 框架，最后被一个教程点醒了

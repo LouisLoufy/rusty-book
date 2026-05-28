@@ -1,6 +1,6 @@
 ---
 title: AI时代设计该何去何从
-summary: 设计实践正在再次改写。流程在持续压缩，过去常由初级设计师承担的大量任务，正在被自动化替代。速度比以往任何时候都更重要，产品上线周期也随着 AI 技术演进不断缩短。
+excerpt: 设计实践正在再次改写。流程在持续压缩，过去常由初级设计师承担的大量任务，正在被自动化替代。速度比以往任何时候都更重要，产品上线周期也随着 AI 技术演进不断缩短。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/27/images/what-ai-exposes-about-design/01.webp
 ---
 

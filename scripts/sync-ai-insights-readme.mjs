@@ -28,18 +28,18 @@ function extractMeta(mdPath) {
   const raw = readFileSync(mdPath, 'utf-8');
   const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   let title = '';
-  let summary = '';
+  let excerpt = '';
   if (fm) {
     const t = fm[1].match(/^title:\s*(.+)$/m);
     if (t) title = unquote(t[1]);
-    const s = fm[1].match(/^summary:\s*(.+)$/m);
-    if (s) summary = unquote(s[1]);
+    const s = fm[1].match(/^excerpt:\s*(.+)$/m);
+    if (s) excerpt = unquote(s[1]);
   }
   if (!title) {
     const h1 = raw.match(/^#\s+(.+)$/m);
     title = h1 ? h1[1].trim() : basename(mdPath, '.md');
   }
-  return { title, summary };
+  return { title, excerpt };
 }
 
 function collectArticles(today) {
@@ -61,11 +61,11 @@ function collectArticles(today) {
         .filter((f) => f.endsWith('.md'))
         .map((f) => {
           const slug = f.replace(/\.md$/, '');
-          const { title, summary } = extractMeta(join(dirPath, f));
+          const { title, excerpt } = extractMeta(join(dirPath, f));
           return {
             slug,
             title,
-            summary,
+            excerpt,
             url: `${BASE_URL}/ai-insights/${slug}?mode=read`,
           };
         })
@@ -90,9 +90,9 @@ function render(byDate) {
   for (const date of dates) {
     lines.push(`### ${date}`, '');
     for (const a of byDate.get(date)) {
-      if (a.summary) {
+      if (a.excerpt) {
         lines.push(`- [${a.title}](${a.url})  `);
-        lines.push(`  ${a.summary}`);
+        lines.push(`  ${a.excerpt}`);
       } else {
         lines.push(`- [${a.title}](${a.url})`);
       }

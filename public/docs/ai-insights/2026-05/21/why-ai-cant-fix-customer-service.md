@@ -6,7 +6,7 @@ translated: 2026-05-21
 tags:
   - Artificial Intelligence
   - Technology
-summary: 客户服务是企业版的道歉，可企业看不到这一点。它在大多数时候还高度情绪化，这一点企业多少能看到，却很难做得有效。正是这两件事，构成了 AI 工具——无论是 LLM 还是生成式 AI——至今没能真正取代客户服务、也许永远做不到的根源。
+excerpt: 客户服务是企业版的道歉，可企业看不到这一点。它在大多数时候还高度情绪化，这一点企业多少能看到，却很难做得有效。正是这两件事，构成了 AI 工具——无论是 LLM 还是生成式 AI——至今没能真正取代客户服务、也许永远做不到的根源。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/why-ai-cant-fix-customer-service/01.webp
 ---
 

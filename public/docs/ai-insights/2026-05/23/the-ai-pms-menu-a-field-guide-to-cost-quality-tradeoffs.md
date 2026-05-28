@@ -6,8 +6,8 @@ translated: 2026-05-23
 tags:
   - AI Agent
   - LLM
-summary: 我在创业。NomNow 是一款多模态 AI 营养师，现已上架 App Store。一路做下来，要说最想塞给年轻一点的自己读的那条经验，就是：对一家基于 LLM 的初创公司而言，成本纪律不是优化，是生存。
-cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/the-ai-pms-menu-a-field-guide-to-cost-quality-tradeoffs/01.thumb.webp
+excerpt: 我在创业。NomNow 是一款多模态 AI 营养师，现已上架 App Store。一路做下来，要说最想塞给年轻一点的自己读的那条经验，就是：对一家基于 LLM 的初创公司而言，成本纪律不是优化，是生存。
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/the-ai-pms-menu-a-field-guide-to-cost-quality-tradeoffs/01.webp
 ---
 
 # AI PM 的菜单：成本与质量权衡的实战指南

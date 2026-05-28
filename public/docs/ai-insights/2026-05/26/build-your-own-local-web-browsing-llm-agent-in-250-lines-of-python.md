@@ -3,8 +3,8 @@ title: "用 250 行 Python 造一个本地的浏览网页 LLM agent"
 author: Jes Fink-Jensen
 url: https://generativeai.pub/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python-1437f21e781d
 translated: 2026-05-26
-summary: 这篇文章里，我会演示如何给本地的 LLM agent 装上一个真正的网页浏览器。读完之后，agent 就能拿到一个问题、上网搜一篇相关页面、在隐身浏览器里打开它、读它的内容，并基于它真正看到的东西作答。
-cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.thumb.webp
+excerpt: 这篇文章里，我会演示如何给本地的 LLM agent 装上一个真正的网页浏览器。读完之后，agent 就能拿到一个问题、上网搜一篇相关页面、在隐身浏览器里打开它、读它的内容，并基于它真正看到的东西作答。
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.webp
 ---
 
 # 用 250 行 Python 造一个本地的浏览网页 LLM agent

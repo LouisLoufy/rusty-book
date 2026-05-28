@@ -1,5 +1,5 @@
 ---
-summary: 工程界常说 “Cache Rules Everything Around Me”，这条规则放到 Agent 产品上一样成立。Claude Code 这类长时运行、不断往返调用模型的产品之所以在成本和延迟上可行，关键不是“模型更便宜了”，而是 prompt caching 让前几轮已经算过的前缀可以被重复利用。
+excerpt: 工程界常说 “Cache Rules Everything Around Me”，这条规则放到 Agent 产品上一样成立。Claude Code 这类长时运行、不断往返调用模型的产品之所以在成本和延迟上可行，关键不是“模型更便宜了”，而是 prompt caching 让前几轮已经算过的前缀可以被重复利用。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/24/images/prompt-caching-is-everything/cover.jpg
 ---
 

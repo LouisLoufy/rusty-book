@@ -3,7 +3,7 @@ title: 提升广告相关性：把实时上下文融入序列推荐模型
 author: Pinterest Engineering
 url: https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e
 translated: 2026-05-21
-summary: 在此前的一篇文章 Ads Candidate Generation using Behavioral Sequence Modeling（原文）中，我们介绍过一个候选生成器（CG）。它用一个基于 Transformer 的双塔模型，借助用户的站外转化历史——这是一个很强的信号——来预测用户未来会与哪些广告主、哪些具体商品发生交互。…
+excerpt: 在此前的一篇文章 Ads Candidate Generation using Behavioral Sequence Modeling（原文）中，我们介绍过一个候选生成器（CG）。它用一个基于 Transformer 的双塔模型，借助用户的站外转化历史——这是一个很强的信号——来预测用户未来会与哪些广告主、哪些具体商品发生交互。…
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp
 ---
 

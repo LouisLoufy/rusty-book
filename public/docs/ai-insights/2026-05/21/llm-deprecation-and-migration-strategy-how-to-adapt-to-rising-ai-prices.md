@@ -5,7 +5,7 @@ url: https://ai.gopubby.com/llm-deprecation-and-migration-strategy-how-to-adapt-
 translated: 2026-05-21
 tags:
   - LLM
-summary: 模型退役是 AI 市场的一种结构性现实，不是罕见的运维事件。OpenAI（GPT）、Anthropic（Claude）、Google（Gemini）以及其他 LLM 供应商，会频繁弃用某些特定的 API 版本，转而推出更新的模型。
+excerpt: 模型退役是 AI 市场的一种结构性现实，不是罕见的运维事件。OpenAI（GPT）、Anthropic（Claude）、Google（Gemini）以及其他 LLM 供应商，会频繁弃用某些特定的 API 版本，转而推出更新的模型。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp
 ---
 

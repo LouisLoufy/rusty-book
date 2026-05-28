@@ -14,7 +14,7 @@
           "file": "/docs/ai-insights/2026-02/27/why-claude-code-is-so-good.md",
           "publishedAt": "2026-02-27",
           "tags": [],
-          "summary": "真相可能让很多“全都上最强模型”的团队不太舒服：Claude Code 好用，不是因为它处处蛮力，而是因为它知道哪里该省。"
+          "excerpt": "真相可能让很多“全都上最强模型”的团队不太舒服：Claude Code 好用，不是因为它处处蛮力，而是因为它知道哪里该省。"
         },
         {
           "title": "从写代码到验代码：AI 搭档写走 3 年，我踩出来的协作路线图",
@@ -22,7 +22,7 @@
           "file": "/docs/ai-insights/2026-02/17/from-writing-code-to-validating-code.md",
           "publishedAt": "2026-02-17",
           "tags": [],
-          "summary": "这篇文章最值钱的地方，不是教你怎么让 AI 多写，而是逼你承认一件事：以后最贵的工种，不是码农，是验货员。"
+          "excerpt": "这篇文章最值钱的地方，不是教你怎么让 AI 多写，而是逼你承认一件事：以后最贵的工种，不是码农，是验货员。"
         },
         {
           "title": "2028全球智能危机",
@@ -31,7 +31,7 @@
           "publishedAt": "2026-02-18",
           "tags": [],
           "cover": "https://substackcdn.com/image/fetch/%24s_%21rCTy%21%2Cw_1456%2Cc_limit%2Cf_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ede0b37-f3be-4787-90ff-10cb24719fdc_710x1119.jpeg",
-          "summary": "如果我们对 AI 的乐观判断继续成立，但这种“继续成立”本身反而对市场偏空，会怎么样？"
+          "excerpt": "如果我们对 AI 的乐观判断继续成立，但这种“继续成立”本身反而对市场偏空，会怎么样？"
         },
         {
           "title": "微软中国 CTO 韦青：警惕朋友圈 AI 神话，重视苦活、脏活、累活",
@@ -39,7 +39,7 @@
           "file": "/docs/ai-insights/2026-03/17/weiching-ai-reform.md",
           "publishedAt": "2026-03-17",
           "tags": [],
-          "summary": "所有人都只想吃第五个馒头——AI 智能，却不想先吃文化、人才、流程、数据这些前四个。"
+          "excerpt": "所有人都只想吃第五个馒头——AI 智能，却不想先吃文化、人才、流程、数据这些前四个。"
         },
         {
           "title": "用 AI 反向工程 1986 年的游戏",
@@ -48,7 +48,7 @@
           "publishedAt": "2026-02-18",
           "tags": [],
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-02/18/images/ai-reverse-engineered-bubble-bobble/roms.webp",
-          "summary": "我们让 AI 去读 1986 年的原始二进制文件。"
+          "excerpt": "我们让 AI 去读 1986 年的原始二进制文件。"
         }
       ]
     },
@@ -62,8 +62,8 @@
           "file": "/docs/ai-insights/2026-03/27/what-ai-exposes-about-design.md",
           "publishedAt": "2026-03-27",
           "tags": [],
-          "summary": "设计实践正在再次改写。流程在持续压缩，过去常由初级设计师承担的大量任务，正在被自动化替代。速度比以往任何时候都更重要，产品上线周期也随着 AI 技术演进不断缩短。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/27/images/what-ai-exposes-about-design/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/27/images/what-ai-exposes-about-design/01.webp",
+          "excerpt": "设计实践正在再次改写。流程在持续压缩，过去常由初级设计师承担的大量任务，正在被自动化替代。速度比以往任何时候都更重要，产品上线周期也随着 AI 技术演进不断缩短。"
         },
         {
           "title": "Agent/Skills/Teams 架构演进过程及技术选型之道",
@@ -79,7 +79,7 @@
           ],
           "tags": [],
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/26/images/agent-skills-teams-architecture-evolution/01.jpg",
-          "summary": "上来先争论“要不要多智能体”，却不先画清问题边界，这和先选喷漆配色再写控制程序一样不靠谱。"
+          "excerpt": "上来先争论“要不要多智能体”，却不先画清问题边界，这和先选喷漆配色再写控制程序一样不靠谱。"
         },
         {
           "title": "你的 Claude 配置会随着时间变质：用这条自检提示词，60 秒排毒",
@@ -93,8 +93,8 @@
             }
           ],
           "tags": [],
-          "summary": "我上周把自己的 Claude 配置砍掉了一半，结果每一次输出都变得更好了。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/claude-self-audit-prompt/cover.jpg"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/claude-self-audit-prompt/cover.jpg",
+          "excerpt": "我上周把自己的 Claude 配置砍掉了一半，结果每一次输出都变得更好了。"
         },
         {
           "title": "如何把 Claude Skills 的效果提升 10 倍：用 Karpathy 的 autoresearch 方法自动打磨",
@@ -108,8 +108,8 @@
             }
           ],
           "tags": [],
-          "summary": "Claude Skills 很可能有 30% 的时候在失效，而且这种失效甚至不会被注意到。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/how-to-10x-your-claude-skills/cover.jpg"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/25/images/how-to-10x-your-claude-skills/cover.jpg",
+          "excerpt": "Claude Skills 很可能有 30% 的时候在失效，而且这种失效甚至不会被注意到。"
         },
         {
           "title": "开源项目--1300 年前的唐朝制度，吊打了我用过的所有 AI 框架",
@@ -124,7 +124,7 @@
             }
           ],
           "tags": [],
-          "summary": "终于有人把一个本该写进所有多 Agent 框架首页的常识说出来了：没有审议链路的协作系统，不叫“自治”，那叫多人同时犯错。"
+          "excerpt": "终于有人把一个本该写进所有多 Agent 框架首页的常识说出来了：没有审议链路的协作系统，不叫“自治”，那叫多人同时犯错。"
         },
         {
           "title": "模型不是关键，Harness 才是",
@@ -139,7 +139,7 @@
             }
           ],
           "tags": [],
-          "summary": "这篇文章真正值得表扬的地方，在于它终于把一个显而易见、却长期被大量人故意忽略的事实说清楚了。是的，我在看着你们，那些一出问题就怪模型不够大的团队。"
+          "excerpt": "这篇文章真正值得表扬的地方，在于它终于把一个显而易见、却长期被大量人故意忽略的事实说清楚了。是的，我在看着你们，那些一出问题就怪模型不够大的团队。"
         },
         {
           "title": "构建 Claude Code 的经验：Prompt Caching 才是一切",
@@ -148,7 +148,7 @@
           "publishedAt": "2026-03-24",
           "tags": [],
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/24/images/prompt-caching-is-everything/cover.jpg",
-          "summary": "工程界常说 “Cache Rules Everything Around Me”，这条规则放到 Agent 产品上一样成立。Claude Code 这类长时运行、不断往返调用模型的产品之所以在成本和延迟上可行，关键不是“模型更便宜了”，而是 prompt caching 让前几轮已经算过的前缀可以被重复利用。"
+          "excerpt": "工程界常说 “Cache Rules Everything Around Me”，这条规则放到 Agent 产品上一样成立。Claude Code 这类长时运行、不断往返调用模型的产品之所以在成本和延迟上可行，关键不是“模型更便宜了”，而是 prompt caching 让前几轮已经算过的前缀可以被重复利用。"
         },
         {
           "title": "Harness Engineering:2026年最被低估的工程革命",
@@ -163,7 +163,7 @@
             }
           ],
           "tags": [],
-          "summary": "严格地说，被这场变化淘汰的并不是程序员，而是那种把“亲手写下每一行代码”误认为工程价值本体的浪漫主义幻觉。两者并不等价。"
+          "excerpt": "严格地说，被这场变化淘汰的并不是程序员，而是那种把“亲手写下每一行代码”误认为工程价值本体的浪漫主义幻觉。两者并不等价。"
         },
         {
           "title": "CC之父曝内部团队使用Claude Code的10条技巧！网友：工作流很管用，但钱包有点痛",
@@ -178,7 +178,7 @@
             }
           ],
           "tags": [],
-          "summary": "如果你还把 Claude Code 当成一个“更聪明一点的聊天框”，那不是模型限制，那是你的使用方式停留在石器时代。请坐，这个判断并不激进，只是准确。"
+          "excerpt": "如果你还把 Claude Code 当成一个“更聪明一点的聊天框”，那不是模型限制，那是你的使用方式停留在石器时代。请坐，这个判断并不激进，只是准确。"
         },
         {
           "title": "钉钉已经彻底 CLI 化了。",
@@ -193,7 +193,7 @@
             }
           ],
           "tags": [],
-          "summary": "严格地说，一个要求 Agent 去截图、识别、点击弹窗的软件，并不能算“AI 友好”。它只是把低效包装成了图形界面。请坐，这并不复杂。"
+          "excerpt": "严格地说，一个要求 Agent 去截图、识别、点击弹窗的软件，并不能算“AI 友好”。它只是把低效包装成了图形界面。请坐，这并不复杂。"
         },
         {
           "title": "Vibe Coding，是怎么「玩废」程序员的？",
@@ -201,7 +201,7 @@
           "file": "/docs/ai-insights/2026-03/17/vibe-coding.md",
           "publishedAt": "2026-03-17",
           "tags": [],
-          "summary": "Anthropic 自己打脸：AI 组得分低 17%，时间没省，技能还退化。"
+          "excerpt": "Anthropic 自己打脸：AI 组得分低 17%，时间没省，技能还退化。"
         },
         {
           "title": "百万级代码背后的零人工奇迹",
@@ -209,7 +209,7 @@
           "file": "/docs/ai-insights/2026-03/17/harness-engineering.md",
           "publishedAt": "2026-03-17",
           "tags": [],
-          "summary": "这篇文章最狠的地方，不是“一百万行代码”，而是它把工程师的饭碗从“敲代码”硬生生改成了“造环境”。"
+          "excerpt": "这篇文章最狠的地方，不是“一百万行代码”，而是它把工程师的饭碗从“敲代码”硬生生改成了“造环境”。"
         },
         {
           "title": "从 Google ADK 到 OpenFang，我试了七个 Agent 框架，最后被一个教程点醒了",
@@ -219,7 +219,7 @@
           "tags": [
             "LLM"
           ],
-          "summary": "七个框架试完，答案不在框架里。"
+          "excerpt": "七个框架试完，答案不在框架里。"
         },
         {
           "title": "为什么大模型越用越上头？",
@@ -227,7 +227,7 @@
           "file": "/docs/ai-insights/2026-03/19/why-llms-are-so-addictive.md",
           "publishedAt": "2026-03-19",
           "tags": [],
-          "summary": "大模型最狠的地方，不是帮你把事做了，而是顺手让你觉得“牛的人是我”。"
+          "excerpt": "大模型最狠的地方，不是帮你把事做了，而是顺手让你觉得“牛的人是我”。"
         },
         {
           "title": "Claude code团队内部skill构建踩坑经验大全",
@@ -235,7 +235,7 @@
           "file": "/docs/ai-insights/2026-03/19/claude-code-skills-pitfalls.md",
           "publishedAt": "2026-03-19",
           "tags": [],
-          "summary": "真正烂的 Skill，不是没写长，而是什么都想管，最后什么都管不好。"
+          "excerpt": "真正烂的 Skill，不是没写长，而是什么都想管，最后什么都管不好。"
         }
       ]
     },
@@ -255,8 +255,8 @@
             }
           ],
           "tags": [],
-          "summary": "这个月，我为自己 newsletter 写作 pipeline 的每一个环节都构建了一个 skill。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/18/images/what-the-docs-dont-tell-you-about-claude-code-skills/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/18/images/what-the-docs-dont-tell-you-about-claude-code-skills/01.webp",
+          "excerpt": "这个月，我为自己 newsletter 写作 pipeline 的每一个环节都构建了一个 skill。"
         },
         {
           "title": "云端蚁群",
@@ -270,8 +270,8 @@
               "name": "Jordan Carson"
             }
           ],
-          "summary": "科学、数学和工程中最美的东西，很多都不是被发明出来的。它们是被发现的——早已在自然界中运行着、早已最优、早已优雅，只等着我们去注意到它们、把它们写下来。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/18/images/cloud-ant-colonies/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/18/images/cloud-ant-colonies/01.webp",
+          "excerpt": "科学、数学和工程中最美的东西，很多都不是被发明出来的。它们是被发现的——早已在自然界中运行着、早已最优、早已优雅，只等着我们去注意到它们、把它们写下来。"
         },
         {
           "title": "我们已经走到 legacy code 的尽头了吗？",
@@ -285,8 +285,8 @@
               "name": "David Rodenas PhD"
             }
           ],
-          "summary": "让软件演化并不简单。每一次改动都意味着把新代码与既有代码集成在一起，而那并不总是容易的。既有代码通常没有预见到未来的改动，即便预见到了，也从来不会正好就是必须做出的那些改动。所以你必须沿途不断地更新和清理。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/18/images/have-we-reached-the-end-of-legacy-code/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/18/images/have-we-reached-the-end-of-legacy-code/01.webp",
+          "excerpt": "让软件演化并不简单。每一次改动都意味着把新代码与既有代码集成在一起，而那并不总是容易的。既有代码通常没有预见到未来的改动，即便预见到了，也从来不会正好就是必须做出的那些改动。所以你必须沿途不断地更新和清理。"
         },
         {
           "title": "不用更好的模型，也能造出更好的 AI",
@@ -302,8 +302,8 @@
               "name": "Sau Sheong"
             }
           ],
-          "summary": "我第一次玩 LLM（大语言模型）时，让我印象最深的一个主要瓶颈是：它们本质上是静态函数，接收输入、吐出回应。能力已经被权重锁死。能微调或后训练，是的，但实时学习、对新输入做出适应，完全不行。一些批评者拿这一点当作\"它其实不是真智能\"的证据，因为不像人类智能那样能实时学习与成长，LLM 基本上是冻结在时间中的。我当时没怎么深想，就接受了它们的样子。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/better-ai-without-a-better-model/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/better-ai-without-a-better-model/01.webp",
+          "excerpt": "我第一次玩 LLM（大语言模型）时，让我印象最深的一个主要瓶颈是：它们本质上是静态函数，接收输入、吐出回应。能力已经被权重锁死。能微调或后训练，是的，但实时学习、对新输入做出适应，完全不行。一些批评者拿这一点当作\"它其实不是真智能\"的证据，因为不像人类智能那样能实时学习与成长，LLM 基本上是冻结在时间中的。我当时没怎么深想，就接受了它们的样子。"
         },
         {
           "title": "Harness：企业被打造来迎接的时代",
@@ -319,8 +319,8 @@
               "name": "Fabio Yáñez Romero"
             }
           ],
-          "summary": "这是一个关于\"终端用户如何把语言模型当作黑盒（我们只能控制输入什么、以及对输出做什么）来提升其性能\"的故事。从最简单的做法，一路到提升模型性能的复杂变通方案。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/harness-the-era-enterprises-were-built-for/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/harness-the-era-enterprises-were-built-for/01.webp",
+          "excerpt": "这是一个关于\"终端用户如何把语言模型当作黑盒（我们只能控制输入什么、以及对输出做什么）来提升其性能\"的故事。从最简单的做法，一路到提升模型性能的复杂变通方案。"
         },
         {
           "title": "Anthropic 的工程师说 \"干掉 Markdown\"，他真正想表达的是什么。",
@@ -338,8 +338,8 @@
               "name": "Yanli Liu"
             }
           ],
-          "summary": "上周，Claude Code 的工程负责人告诉开发者们：别再输出 Markdown 了。整个互联网炸了。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant/01.jpg"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant/01.jpg",
+          "excerpt": "上周，Claude Code 的工程负责人告诉开发者们：别再输出 Markdown 了。整个互联网炸了。"
         },
         {
           "title": "为一团中等规模的混乱编写架构文档",
@@ -355,8 +355,8 @@
               "name": "Ondřej Popelka"
             }
           ],
-          "summary": "写软件架构文档很可怕。尤其是在一家没有架构师角色或部门的中型公司。光是想一想公司信息系统的架构，看起来就如此\"多余\"和\"拖我们后腿\"。然而中型公司一次又一次最终陷入重复的系统、重复的数据，以及一团混乱。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/documenting-architecture-of-a-mid-size-chaos/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/documenting-architecture-of-a-mid-size-chaos/01.webp",
+          "excerpt": "写软件架构文档很可怕。尤其是在一家没有架构师角色或部门的中型公司。光是想一想公司信息系统的架构，看起来就如此\"多余\"和\"拖我们后腿\"。然而中型公司一次又一次最终陷入重复的系统、重复的数据，以及一团混乱。"
         },
         {
           "title": "为墨尔本一家紧急护理诊所预测每日就诊量",
@@ -372,8 +372,8 @@
               "name": "Herman Wandabwa"
             }
           ],
-          "summary": "经营一家走入式紧急护理诊所有一个反复出现的运营头痛：要决定某一天该排多少临床医生。如果排得太少，候诊室就可能堵塞，患者会流向最近的急诊科 (ED)。反过来，你又得为不需要的医生工时买单，反之亦然。大多数诊所基于去年的数字、直觉和一点猜测来估算就诊人数，特别是在流感季前后。…",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/predicting-daily-patient-volume-for-a-melbourne-urgent-care-clinic/01.webp",
+          "excerpt": "经营一家走入式紧急护理诊所有一个反复出现的运营头痛：要决定某一天该排多少临床医生。如果排得太少，候诊室就可能堵塞，患者会流向最近的急诊科 (ED)。反过来，你又得为不需要的医生工时买单，反之亦然。大多数诊所基于去年的数字、直觉和一点猜测来估算就诊人数，特别是在流感季前后。…"
         },
         {
           "title": "两支团队，一次转向：AI 如何重塑我们的产品设计流程",
@@ -389,8 +389,8 @@
               "name": "DoorDash Design Team"
             }
           ],
-          "summary": "随着 AI 在\"造一切\"上越来越强，设计师工作里哪一部分变得更重要，哪一部分变得不那么重要？过去一年，DoorDash 的两支团队一直在探索这一概念。在本文中，Qixing 将把两个案例研究串起来，讲讲产品开发流程是如何转变的、观察到了哪些新模式、做了哪些实验、又有哪些问题尚未解决。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process/01.webp",
+          "excerpt": "随着 AI 在\"造一切\"上越来越强，设计师工作里哪一部分变得更重要，哪一部分变得不那么重要？过去一年，DoorDash 的两支团队一直在探索这一概念。在本文中，Qixing 将把两个案例研究串起来，讲讲产品开发流程是如何转变的、观察到了哪些新模式、做了哪些实验、又有哪些问题尚未解决。"
         },
         {
           "title": "智能体 AI 安全模式",
@@ -404,8 +404,8 @@
               "name": "Debmalya Biswas"
             }
           ],
-          "summary": "智能体 AI 系统的关键特征是自主性和推理能力。凭借这两点，它们能把复杂任务拆解成更小的可执行任务，再编排这些任务的执行，并在需要时监控、反思、适配乃至自我纠错。正因如此，",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/01.webp",
+          "excerpt": "智能体 AI 系统的关键特征是自主性和推理能力。凭借这两点，它们能把复杂任务拆解成更小的可执行任务，再编排这些任务的执行，并在需要时监控、反思、适配乃至自我纠错。正因如此，"
         },
         {
           "title": "超越代码生成：让 AI 覆盖完整的数据科学工作流",
@@ -421,8 +421,8 @@
               "name": "Yu Dong"
             }
           ],
-          "summary": "最近我一直被一种挥之不去的 AI FOMO 笼罩。每天都能看到有人分享 AI 技巧、晒出自己造的新智能体和技能，还有各种凭感觉写出来的应用。我越来越意识到，对今天的数据科学家来说，快速适应 AI 已经成了保持竞争力的硬性要求。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/beyond-code-generation-ai-for-the-full-data-science-workflow/01.webp",
+          "excerpt": "最近我一直被一种挥之不去的 AI FOMO 笼罩。每天都能看到有人分享 AI 技巧、晒出自己造的新智能体和技能，还有各种凭感觉写出来的应用。我越来越意识到，对今天的数据科学家来说，快速适应 AI 已经成了保持竞争力的硬性要求。"
         },
         {
           "title": "仅解码器 Transformer：生成式 LLM 的主力架构",
@@ -438,8 +438,8 @@
               "name": "Cameron R. Wolfe, Ph.D."
             }
           ],
-          "summary": "当下 AI 研究的步伐令人瞠目。跟上最新的论文很难，连领域内的专家都会觉得自己没能掌握这个不断演化的前沿里那些更细微的细节。LLM 领域尤其如此，有影响力的研究层出不穷：新的基础模型（如 Gemma \\[15\\] 和 OLMo \\[12\\]）、更好的对齐技术（DPO \\[32\\]、PPO \\[33\\]、REINFORCE \\[34\\] 之争），还有 模型合并 这类相对冷门的话题。…",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/decoder-only-transformers-the-workhorse-of-generative-llms/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/decoder-only-transformers-the-workhorse-of-generative-llms/01.webp",
+          "excerpt": "当下 AI 研究的步伐令人瞠目。跟上最新的论文很难，连领域内的专家都会觉得自己没能掌握这个不断演化的前沿里那些更细微的细节。LLM 领域尤其如此，有影响力的研究层出不穷：新的基础模型（如 Gemma \\[15\\] 和 OLMo \\[12\\]）、更好的对齐技术（DPO \\[32\\]、PPO \\[33\\]、REINFORCE \\[34\\] 之争），还有 模型合并 这类相对冷门的话题。…"
         },
         {
           "title": "读懂 DeepSeek-V4 之前，先把基础打牢",
@@ -455,8 +455,8 @@
               "name": "James Koh, PhD"
             }
           ],
-          "summary": "2025 年 1 月，DeepSeek-R1 发布，同时开源了蒸馏版的「32B 与 70B 模型，性能与 OpenAI-o1-mini 相当」。接下来那一周，几家 AI 巨头的股价应声暴跌。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/deepseek-v4-and-before-getting-the-foundations-right/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/deepseek-v4-and-before-getting-the-foundations-right/01.webp",
+          "excerpt": "2025 年 1 月，DeepSeek-R1 发布，同时开源了蒸馏版的「32B 与 70B 模型，性能与 OpenAI-o1-mini 相当」。接下来那一周，几家 AI 巨头的股价应声暴跌。"
         },
         {
           "title": "从原型到预测：用随机森林实时归类 NBA 球员",
@@ -470,8 +470,8 @@
               "name": "Adron Allen"
             }
           ],
-          "summary": "读过我上一篇文章的人都知道，我用 K-Means 聚类论证过一个观点：传统的 NBA 位置基本已经过时。数据找出了五种自然的球员原型，它们和一个人被登记成后卫还是前锋毫无关系。这个发现很有意思，但它也留下了一个明摆着的后续问题：好，那现在怎么办？如果一位球队管理层的分析师想知道某个球员属于哪种原型，难道每次都得把整套聚类流程重跑一遍？那不现实",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/from-archetypes-to-predictions-using-random-forest-to-classify-nba-players-in-real-time/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/from-archetypes-to-predictions-using-random-forest-to-classify-nba-players-in-real-time/01.webp",
+          "excerpt": "读过我上一篇文章的人都知道，我用 K-Means 聚类论证过一个观点：传统的 NBA 位置基本已经过时。数据找出了五种自然的球员原型，它们和一个人被登记成后卫还是前锋毫无关系。这个发现很有意思，但它也留下了一个明摆着的后续问题：好，那现在怎么办？如果一位球队管理层的分析师想知道某个球员属于哪种原型，难道每次都得把整套聚类流程重跑一遍？那不现实"
         },
         {
           "title": "AI 如何记忆，又为何遗忘：第 1 部分，上下文问题",
@@ -487,8 +487,8 @@
               "name": "Nadia Makarevich"
             }
           ],
-          "summary": "AI 编程。我姑且假设你到现在至少试过了。你大概用过 Claude 或 Cursor 这类工具，试过不同的模型，说不定还用 Anthropic 或 OpenAI API 自己搭过东西。被迫为超额的 token 付费时，你可能哭过一小会儿，而“agents”这个词到现在大概一听就让你头疼。如果你完全不知道我在说什么，那请把你星球的坐标发给我——那里一定特别宁静。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-ai-remembers-and-why-it-forgets-part-1-the-context-problem/01.webp",
+          "excerpt": "AI 编程。我姑且假设你到现在至少试过了。你大概用过 Claude 或 Cursor 这类工具，试过不同的模型，说不定还用 Anthropic 或 OpenAI API 自己搭过东西。被迫为超额的 token 付费时，你可能哭过一小会儿，而“agents”这个词到现在大概一听就让你头疼。如果你完全不知道我在说什么，那请把你星球的坐标发给我——那里一定特别宁静。"
         },
         {
           "title": "怎样才能更好地给葡萄酒品质分类？",
@@ -502,8 +502,8 @@
               "name": "Tanika Jangam"
             }
           ],
-          "summary": "评定葡萄酒品质的度量标准，在资深评审之间常常对不上号。同一款酒，不同专家给出的分数可能相差悬殊；而酒一旦装瓶待售，就再也无法因评价结果而改变。这种事浪费时间和资源，在行业里几乎每天都在上演。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-do-we-classify-wine-quality/01.jpg"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-do-we-classify-wine-quality/01.jpg",
+          "excerpt": "评定葡萄酒品质的度量标准，在资深评审之间常常对不上号。同一款酒，不同专家给出的分数可能相差悬殊；而酒一旦装瓶待售，就再也无法因评价结果而改变。这种事浪费时间和资源，在行业里几乎每天都在上演。"
         },
         {
           "title": "我建了一座\"证据工厂\"，因为\"相信我，agent 没问题\"算不上治理策略",
@@ -519,8 +519,8 @@
               "name": "Marco van Hurne"
             }
           ],
-          "summary": "关于企业 agent 化，我写下的东西已经足够填满一本小书——一本会让翻开它的 AI 架构师怀疑自己职业选择的、令人不太舒服的书。流程选择、35% 的自动化天花板、agentic 架构模式、治理哲学、大规模运行一座 AI 工厂的经济学，我都用一种好为人师的口吻讲了个遍，也亲眼看着足够多的项目失败，因而挣得了发表观点的资格。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/ive-built-an-evidence-factory-because-trust-me-the-agent-is-fine-is-not-a-governance-strategy/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/ive-built-an-evidence-factory-because-trust-me-the-agent-is-fine-is-not-a-governance-strategy/01.webp",
+          "excerpt": "关于企业 agent 化，我写下的东西已经足够填满一本小书——一本会让翻开它的 AI 架构师怀疑自己职业选择的、令人不太舒服的书。流程选择、35% 的自动化天花板、agentic 架构模式、治理哲学、大规模运行一座 AI 工厂的经济学，我都用一种好为人师的口吻讲了个遍，也亲眼看着足够多的项目失败，因而挣得了发表观点的资格。"
         },
         {
           "title": "Anthropic 新推出的金融 Agent 究竟有何不同",
@@ -538,8 +538,8 @@
               "name": "Yanli Liu"
             }
           ],
-          "summary": "5 月 5 日，Anthropic 为金融服务业开源了 10 个 agent 模板。媒体报道的焦点是那笔与 Blackstone 和 Goldman Sachs 合作、价值 15 亿美元的华尔街合资项目。Jamie Dimon 对记者说，Claude 在 20 分钟内为他做出了\"一个巨大的仪表盘，配齐了所有支撑材料和所有研究\"。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/01.jpg"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/what-makes-anthropics-new-finance-agent-different/01.jpg",
+          "excerpt": "5 月 5 日，Anthropic 为金融服务业开源了 10 个 agent 模板。媒体报道的焦点是那笔与 Blackstone 和 Goldman Sachs 合作、价值 15 亿美元的华尔街合资项目。Jamie Dimon 对记者说，Claude 在 20 分钟内为他做出了\"一个巨大的仪表盘，配齐了所有支撑材料和所有研究\"。"
         },
         {
           "title": "当你的 AI 治理模型试图监管一个智能体蜂群",
@@ -556,8 +556,8 @@
               "name": "Marco van Hurne"
             }
           ],
-          "summary": "我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp",
+          "excerpt": "我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。"
         },
         {
           "title": "代码变便宜了，判断力没有。",
@@ -573,8 +573,8 @@
               "name": "Matt Whetton"
             }
           ],
-          "summary": "关于 AI 与工程，主流的说法是它降低了门槛。如今一个初级工程师配上趁手的工具，就能做过去中级工程师才能做的事。一个中级工程师能做过去资深工程师才能做的事。金字塔被压扁，组织架构变得更扁平，顶端那些经验丰富的工程师变得不那么不可或缺了——因为他们过去提供的杠杆，现在已经被烤进了工具里。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/code-got-cheap-judgement-did-not/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/code-got-cheap-judgement-did-not/01.webp",
+          "excerpt": "关于 AI 与工程，主流的说法是它降低了门槛。如今一个初级工程师配上趁手的工具，就能做过去中级工程师才能做的事。一个中级工程师能做过去资深工程师才能做的事。金字塔被压扁，组织架构变得更扁平，顶端那些经验丰富的工程师变得不那么不可或缺了——因为他们过去提供的杠杆，现在已经被烤进了工具里。"
         },
         {
           "title": "提升广告相关性：把实时上下文融入序列推荐模型",
@@ -588,8 +588,8 @@
               "name": "Pinterest Engineering"
             }
           ],
-          "summary": "在此前的一篇文章 Ads Candidate Generation using Behavioral Sequence Modeling（原文）中，我们介绍过一个候选生成器（CG）。它用一个基于 Transformer 的双塔模型，借助用户的站外转化历史——这是一个很强的信号——来预测用户未来会与哪些广告主、哪些具体商品发生交互。…",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models/01.webp",
+          "excerpt": "在此前的一篇文章 Ads Candidate Generation using Behavioral Sequence Modeling（原文）中，我们介绍过一个候选生成器（CG）。它用一个基于 Transformer 的双塔模型，借助用户的站外转化历史——这是一个很强的信号——来预测用户未来会与哪些广告主、哪些具体商品发生交互。…"
         },
         {
           "title": "我们如何为 6 万名知识工作者打造 AI 第二大脑",
@@ -606,8 +606,8 @@
               "name": "Analytics at Meta"
             }
           ],
-          "summary": "Meta 的知识工作者每天都在跟工作流的碎片化作斗争：会议记录、任务、关键决策、代码上下文这些重要信息，散落在彼此割裂的平台上。每开启一段新的 AI 对话，都得从零冷启动——重复同样的解释、贴同样的链接、花同样的十分钟铺垫上下文，真正的工作才能开始。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/how-we-built-an-ai-second-brain-for-60k-knowledge-workers/01.jpg"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/how-we-built-an-ai-second-brain-for-60k-knowledge-workers/01.jpg",
+          "excerpt": "Meta 的知识工作者每天都在跟工作流的碎片化作斗争：会议记录、任务、关键决策、代码上下文这些重要信息，散落在彼此割裂的平台上。每开启一段新的 AI 对话，都得从零冷启动——重复同样的解释、贴同样的链接、花同样的十分钟铺垫上下文，真正的工作才能开始。"
         },
         {
           "title": "LLM 弃用与迁移策略：如何应对不断上涨的 AI 价格",
@@ -623,8 +623,8 @@
               "name": "Ruben Melkonian"
             }
           ],
-          "summary": "模型退役是 AI 市场的一种结构性现实，不是罕见的运维事件。OpenAI（GPT）、Anthropic（Claude）、Google（Gemini）以及其他 LLM 供应商，会频繁弃用某些特定的 API 版本，转而推出更新的模型。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/llm-deprecation-and-migration-strategy-how-to-adapt-to-rising-ai-prices/01.webp",
+          "excerpt": "模型退役是 AI 市场的一种结构性现实，不是罕见的运维事件。OpenAI（GPT）、Anthropic（Claude）、Google（Gemini）以及其他 LLM 供应商，会频繁弃用某些特定的 API 版本，转而推出更新的模型。"
         },
         {
           "title": "MIRAS：Transformers、Mamba 与 Titans 背后的设计蓝图",
@@ -641,8 +641,8 @@
               "name": "Fabio Yáñez Romero"
             }
           ],
-          "summary": "我们用来让语言模型记得更好的那些精巧机制——门控函数、权重衰减、自适应遗忘——结果都只是同一个底层原理的不同实例，这个原理就是保留门（retention gate）。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/miras-the-blueprint-behind-transformers-mamba-and-titans/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/miras-the-blueprint-behind-transformers-mamba-and-titans/01.webp",
+          "excerpt": "我们用来让语言模型记得更好的那些精巧机制——门控函数、权重衰减、自适应遗忘——结果都只是同一个底层原理的不同实例，这个原理就是保留门（retention gate）。"
         },
         {
           "title": "拥有你自己的 Harness",
@@ -658,8 +658,8 @@
               "name": "Sau Sheong"
             }
           ],
-          "summary": "过去几个月里，我写了几篇关于 agent harness 的文章，也写了为什么所有人似乎都聚焦于它。一句话总结就是：它是新的前沿。没错，大家仍在模型这条战线上厮杀（比如 DeepSeek 刚发布了 v4，OpenAI 发布了 GPT-5.5，Anthropic 拿 Mythos 把所有人吓得不轻），但真正的战斗将发生在 harness 上。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/own-your-harness/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/own-your-harness/01.webp",
+          "excerpt": "过去几个月里，我写了几篇关于 agent harness 的文章，也写了为什么所有人似乎都聚焦于它。一句话总结就是：它是新的前沿。没错，大家仍在模型这条战线上厮杀（比如 DeepSeek 刚发布了 v4，OpenAI 发布了 GPT-5.5，Anthropic 拿 Mythos 把所有人吓得不轻），但真正的战斗将发生在 harness 上。"
         },
         {
           "title": "Snake Coding",
@@ -673,8 +673,8 @@
               "name": "ArtXploder"
             }
           ],
-          "summary": "用提示词写代码是有诱惑力的。这种诱惑并不只是新工具的副产品，它恰恰塑造着未来。每一波技术生产力的浪潮都伴随着某种形式的诱惑。五十年前也不例外：当时，用汇编写代码逐渐被 FORTRAN 和 COBOL 取代，至少是被它们覆盖。那时，一个新的表述层级取代了直接面向机器的方式。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/snake-coding/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/snake-coding/01.webp",
+          "excerpt": "用提示词写代码是有诱惑力的。这种诱惑并不只是新工具的副产品，它恰恰塑造着未来。每一波技术生产力的浪潮都伴随着某种形式的诱惑。五十年前也不例外：当时，用汇编写代码逐渐被 FORTRAN 和 COBOL 取代，至少是被它们覆盖。那时，一个新的表述层级取代了直接面向机器的方式。"
         },
         {
           "title": "为什么 AI 修不好客户服务",
@@ -691,8 +691,8 @@
               "name": "Giles Crouch | Digital Anthropologist"
             }
           ],
-          "summary": "客户服务是企业版的道歉，可企业看不到这一点。它在大多数时候还高度情绪化，这一点企业多少能看到，却很难做得有效。正是这两件事，构成了 AI 工具——无论是 LLM 还是生成式 AI——至今没能真正取代客户服务、也许永远做不到的根源。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/why-ai-cant-fix-customer-service/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/why-ai-cant-fix-customer-service/01.webp",
+          "excerpt": "客户服务是企业版的道歉，可企业看不到这一点。它在大多数时候还高度情绪化，这一点企业多少能看到，却很难做得有效。正是这两件事，构成了 AI 工具——无论是 LLM 还是生成式 AI——至今没能真正取代客户服务、也许永远做不到的根源。"
         },
         {
           "title": "构建一套 agent harness",
@@ -706,8 +706,8 @@
               "name": "Heeki Park"
             }
           ],
-          "summary": "Prompt engineering、context engineering，现在轮到 harness engineering。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-an-agent-harness/01.webp",
+          "excerpt": "Prompt engineering、context engineering，现在轮到 harness engineering。"
         },
         {
           "title": "从零构建 Claude：Anthropic 思考引擎背后的 62 个组件",
@@ -724,8 +724,8 @@
               "name": "Fareed Khan"
             }
           ],
-          "summary": "实践中构建 agentic 系统时，AI 模型本身早已不再是瓶颈，真正的瓶颈是它们外面那层 harness。Anthropic 花了两年时间为 Claude 打造那层 harness——也就是那套编排代码：挑选合适的工具，并在宣告成功之前为自己的工作打分。…",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-claude-from-scratch-62-components-behind-anthropics-thinking-engine/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-claude-from-scratch-62-components-behind-anthropics-thinking-engine/01.webp",
+          "excerpt": "实践中构建 agentic 系统时，AI 模型本身早已不再是瓶颈，真正的瓶颈是它们外面那层 harness。Anthropic 花了两年时间为 Claude 打造那层 harness——也就是那套编排代码：挑选合适的工具，并在宣告成功之前为自己的工作打分。…"
         },
         {
           "title": "深度学习需要矩阵，原因和 Instagram 需要滤镜一样",
@@ -742,8 +742,8 @@
               "name": "Tina Sharma"
             }
           ],
-          "summary": "上学的时候，矩阵是我最喜欢的主题。我学得很快，也许你也一样。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp",
+          "excerpt": "上学的时候，矩阵是我最喜欢的主题。我学得很快，也许你也一样。"
         },
         {
           "title": "在 Netflix 让机器学习人人可用：构建模型生命周期图谱",
@@ -759,8 +759,8 @@
               "name": "Netflix Technology Blog"
             }
           ],
-          "summary": "随着 Netflix 不断成长，机器学习持续支撑着 Netflix 向会员交付价值、在多个业务领域追求卓越。十多年前 Netflix 刚开始投入机器学习时，主要聚焦单一领域：个性化推荐。当时 Scala 是行业标准，ML 团队规模相对较小，优化会员参与度是主要用例。快进到今天，机器学习已成为 Netflix 业务转型的支柱。如今 ML 已应用到各个业务领域，包括：",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph/01.webp",
+          "excerpt": "随着 Netflix 不断成长，机器学习持续支撑着 Netflix 向会员交付价值、在多个业务领域追求卓越。十多年前 Netflix 刚开始投入机器学习时，主要聚焦单一领域：个性化推荐。当时 Scala 是行业标准，ML 团队规模相对较小，优化会员参与度是主要用例。快进到今天，机器学习已成为 Netflix 业务转型的支柱。如今 ML 已应用到各个业务领域，包括："
         },
         {
           "title": "简明讲清 Diffusion LLM",
@@ -779,8 +779,8 @@
               "name": "Dr. Ashish Bamania"
             }
           ],
-          "summary": "基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/01.webp",
+          "excerpt": "基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。"
         },
         {
           "title": "Anthropic 高速增长的阴暗面",
@@ -798,8 +798,8 @@
               "name": "Ignacio de Gregorio"
             }
           ],
-          "summary": "在很多人眼里,Anthropic 是硅谷有史以来最动人的故事。这家公司五年前才成立,如今却有望在今年年底把年化收入做到 1000 亿美元。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/the-dark-side-of-anthropics-growth/01.webp",
+          "excerpt": "在很多人眼里,Anthropic 是硅谷有史以来最动人的故事。这家公司五年前才成立,如今却有望在今年年底把年化收入做到 1000 亿美元。"
         },
         {
           "title": "用计算机科学概念解读 Claude Code 泄露的 source map",
@@ -816,8 +816,8 @@
               "name": "Kaitai Dong"
             }
           ],
-          "summary": "这个故事现在大家都知道了。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/using-computer-science-concepts-to-analyze-claude-codes-leaked-source-map/01.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/using-computer-science-concepts-to-analyze-claude-codes-leaked-source-map/01.webp",
+          "excerpt": "这个故事现在大家都知道了。"
         },
         {
           "title": "代码并不便宜：用软件基本功放大 AI 的产出",
@@ -835,8 +835,8 @@
               "name": "Yanli Liu"
             }
           ],
-          "summary": "2025 年 2 月，Andrej Karpathy 造了个词：\"vibe coding\"——说出你想要什么，让 AI 写代码，然后把代码忘掉。这个说法迅速火了。所有人都愿意相信，写代码已经像说话一样轻松。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/code-is-not-cheap-how-to-multiply-your-ais-output-with-software-fundamentals/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/code-is-not-cheap-how-to-multiply-your-ais-output-with-software-fundamentals/01.jpg",
+          "excerpt": "2025 年 2 月，Andrej Karpathy 造了个词：\"vibe coding\"——说出你想要什么，让 AI 写代码，然后把代码忘掉。这个说法迅速火了。所有人都愿意相信，写代码已经像说话一样轻松。"
         },
         {
           "title": "从鸢尾花到反向图搜：K-Nearest Neighbors 是怎么撑起现代 AI 的",
@@ -854,8 +854,8 @@
               "name": "Kamrun Nahar"
             }
           ],
-          "summary": "For You 页面、Spotify Discover Weekly、你做过的每一次反向图片搜索、ChatGPT 内部的检索——它们背后的算法，比彩色电视还要老。1951 年由 Evelyn Fix 和 Joseph Hodges 在一份美国空军技术报告里提出，从未被真正取代过。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/knn-distance-metrics-choosing-k-modern-ai-explained/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/knn-distance-metrics-choosing-k-modern-ai-explained/01.webp",
+          "excerpt": "For You 页面、Spotify Discover Weekly、你做过的每一次反向图片搜索、ChatGPT 内部的检索——它们背后的算法，比彩色电视还要老。1951 年由 Evelyn Fix 和 Joseph Hodges 在一份美国空军技术报告里提出，从未被真正取代过。"
         },
         {
           "title": "AI PM 的菜单：成本-质量权衡实战手册",
@@ -872,8 +872,8 @@
               "name": "Scarlett Zhao"
             }
           ],
-          "summary": "我经营一家创业公司。打造 NomNow——一款已经上线 App Store 的多模态 AI 营养师——教会了我很多事，但如果只能挑一条让年轻版的自己读到，我会挑这条：对一家基于 LLM 的创业公司来说，成本纪律不是优化，是生死。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/the-ai-pms-menu-a-field-guide-to-cost-quality-tradeoffs/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/the-ai-pms-menu-a-field-guide-to-cost-quality-tradeoffs/01.webp",
+          "excerpt": "我在创业。NomNow 是一款多模态 AI 营养师，现已上架 App Store。一路做下来，要说最想塞给年轻一点的自己读的那条经验，就是：对一家基于 LLM 的初创公司而言，成本纪律不是优化，是生存。"
         },
         {
           "title": "你的 AI agent 能读懂代码库，却不懂你的产品",
@@ -889,8 +889,8 @@
               "name": "Gregory Muryn-Mukha"
             }
           ],
-          "summary": "我让 AI agent 给我们的产品头脑风暴一些新功能。不到一分钟它就甩回一份整齐的清单：通知中心、动态流、带分析 widget 的 dashboard、新手引导向导。功能本身都挺合理，但没有一个对得上我们的产品。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/your-ai-agent-can-read-your-codebase-it-doesnt-know-your-product/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/your-ai-agent-can-read-your-codebase-it-doesnt-know-your-product/01.webp",
+          "excerpt": "我让 AI agent 给我们的产品头脑风暴一些新功能。不到一分钟它就甩回一份整齐的清单：通知中心、动态流、带分析 widget 的 dashboard、新手引导向导。功能本身都挺合理，但没有一个对得上我们的产品。"
         },
         {
           "title": "用 250 行 Python 造一个本地的浏览网页 LLM agent",
@@ -904,8 +904,8 @@
               "name": "Jes Fink-Jensen"
             }
           ],
-          "summary": "这篇文章里，我会演示如何给本地的 LLM agent 装上一个真正的网页浏览器。读完之后，agent 就能拿到一个问题、上网搜一篇相关页面、在隐身浏览器里打开它、读它的内容，并基于它真正看到的东西作答。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/build-your-own-local-web-browsing-llm-agent-in-250-lines-of-python/01.webp",
+          "excerpt": "这篇文章里，我会演示如何给本地的 LLM agent 装上一个真正的网页浏览器。读完之后，agent 就能拿到一个问题、上网搜一篇相关页面、在隐身浏览器里打开它、读它的内容，并基于它真正看到的东西作答。"
         },
         {
           "title": "DS-STAR：Google 是怎么造出一个真正能用的数据科学 agent 的",
@@ -924,8 +924,8 @@
               "name": "Jose Parreño"
             }
           ],
-          "summary": "agentic coding 工具我已经用了大约两年（Claude Code 已经认真且持续地用了一年）。在通用工程任务上确实让人眼前一亮。但每当我把它推向真正的数据科学场景时，就总能撞上同一个摩擦点：Claude 的分析基本停留在算几个平均值——这些数字本身有用，但缺少一个数据科学家应有的纵深（分布对比、p 值、置信区间、数据质量等等）。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/ds-star-how-google-built-a-data-science-agent-that-actually-works/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/ds-star-how-google-built-a-data-science-agent-that-actually-works/01.webp",
+          "excerpt": "agentic coding 工具我已经用了大约两年（Claude Code 已经认真且持续地用了一年）。在通用工程任务上确实让人眼前一亮。但每当我把它推向真正的数据科学场景时，就总能撞上同一个摩擦点：Claude 的分析基本停留在算几个平均值——这些数字本身有用，但缺少一个数据科学家应有的纵深（分布对比、p 值、置信区间、数据质量等等）。"
         },
         {
           "title": "假如 2026 年从头学机器学习，我会怎么做",
@@ -941,8 +941,8 @@
               "name": "Marina Wyss"
             }
           ],
-          "summary": "我现在是 Twitch 的资深 Applied Scientist，已经做了七年的生产级 ML 系统部署。如果让我在 2026 年的今天从零重来一次，我几乎不会按当初的任何方式去走。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/how-id-learn-machine-learning-in-2026/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/how-id-learn-machine-learning-in-2026/01.jpg",
+          "excerpt": "我现在是 Twitch 的资深 Applied Scientist，已经做了七年的生产级 ML 系统部署。如果让我在 2026 年的今天从零重来一次，我几乎不会按当初的任何方式去走。"
         },
         {
           "title": "Prompt Engineering 的现代进展",
@@ -959,8 +959,8 @@
               "name": "Cameron R. Wolfe, Ph.D."
             }
           ],
-          "summary": "由于使用门槛极低，LLM 迎来了爆炸式的流行。哪怕完全不懂深度学习的人，只要写一段文本 prompt，就能调动起庞大的神经网络去快速解决各种复杂问题。随着指令跟随能力的改进和对齐技术的进步，这些模型变得越来越好用。然而，给 LLM 写出有效的 prompt，既是一门艺术，也是一门科学——仅仅是对 prompt 的实现方式或策略做一些细微调整，就能带来显著的性能提升。…",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/modern-advances-in-prompt-engineering/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/26/images/modern-advances-in-prompt-engineering/01.webp",
+          "excerpt": "由于使用门槛极低，LLM 迎来了爆炸式的流行。哪怕完全不懂深度学习的人，只要写一段文本 prompt，就能调动起庞大的神经网络去快速解决各种复杂问题。随着指令跟随能力的改进和对齐技术的进步，这些模型变得越来越好用。然而，给 LLM 写出有效的 prompt，既是一门艺术，也是一门科学——仅仅是对 prompt 的实现方式或策略做一些细微调整，就能带来显著的性能提升。…"
         },
         {
           "title": "Agent Harness 剖析",
@@ -974,8 +974,62 @@
               "name": "Avi Chawla"
             }
           ],
-          "summary": "一个 ReAct loop、几个工具、一段写得不错的 system prompt——demo 阶段往往能撑得出奇地远。",
-          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@e558c3134ee7187d876ad177289c91da6685ae56/ai-insights/2026-05/27/images/the-anatomy-of-an-agent-harness/01.thumb.webp"
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@e558c3134ee7187d876ad177289c91da6685ae56/ai-insights/2026-05/27/images/the-anatomy-of-an-agent-harness/01.webp",
+          "excerpt": "一个 ReAct loop、几个工具、一段写得不错的 system prompt——demo 阶段往往能撑得出奇地远。"
+        },
+        {
+          "title": "AI 原生工程团队的协作方式，第一部分：当交接链条崩塌时",
+          "path": "/ai-insights/ways-of-working-for-ai-native-engineering-teams-part-1-when-the-handoff-chain-collapses",
+          "file": "/docs/ai-insights/2026-05/28/ways-of-working-for-ai-native-engineering-teams-part-1-when-the-handoff-chain-collapses.md",
+          "publishedAt": "2026-05-28",
+          "tags": [
+            "AI Agent"
+          ],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Timothy Akampa"
+            }
+          ],
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@08c9bc10c21235b0d4f8928be33385f272b85f3b/ai-insights/2026-05/28/images/ways-of-working-for-ai-native-engineering-teams-part-1-when-the-handoff-chain-collapses/01.webp",
+          "excerpt": "AI 原生工程团队的协作方式，第一部分：当交接链条崩塌时。在我作为工程负责人和顾问的大部分职业生涯中，一直围绕一条交接链条来组织工程团队……"
+        },
+        {
+          "title": "Demo 跑得通 ≠ 生产跑得通：构建 AI agent 时如何驾驭 LLM 的不确定性",
+          "path": "/ai-insights/demo-works-production-works-how-to-harness-llm-uncertainty-when-building-ai-agents",
+          "file": "/docs/ai-insights/2026-05/28/demo-works-production-works-how-to-harness-llm-uncertainty-when-building-ai-agents.md",
+          "publishedAt": "2026-05-28",
+          "tags": [
+            "LLM",
+            "AI Agent"
+          ],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Scarlett Zhao"
+            }
+          ],
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@863964222fa7d6f35940e8cea728a48d5222be47/ai-insights/2026-05/28/images/demo-works-production-works-how-to-harness-llm-uncertainty-when-building-ai-agents/01.webp",
+          "excerpt": "距离我的 AI 产品 NomNow 上线还有几周——这是一款支持多模态记录的对话式 AI 卡路里追踪器——我给一位朋友做了一次快速演示。他说了一句话：\"I had a chicken sandwich for lunch\"（午餐吃了个鸡肉三明治），看着 app 完成转录、识别食物、估算卡路里、记入日志，整个过程不到三秒。他抬起头说：\"this is magic.\""
+        },
+        {
+          "title": "用百万分之一的成本训练 AI",
+          "path": "/ai-insights/training-ais-for-a-millionth-of-the-cost",
+          "file": "/docs/ai-insights/2026-05/28/training-ais-for-a-millionth-of-the-cost.md",
+          "publishedAt": "2026-05-28",
+          "tags": [
+            "Artificial Intelligence",
+            "Technology",
+            "Machine Learning"
+          ],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Ignacio de Gregorio"
+            }
+          ],
+          "excerpt": "低成本训练 AI 的新路子？",
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@8bf0e99ec6bb07f7da4c3ee3831d0a2803f2754b/ai-insights/2026-05/28/images/training-ais-for-a-millionth-of-the-cost/01.webp"
         }
       ]
     }

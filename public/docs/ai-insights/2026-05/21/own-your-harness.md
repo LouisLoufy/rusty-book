@@ -5,7 +5,7 @@ url: https://sausheong.com/own-your-harness-2f5299a855a7
 translated: 2026-05-21
 tags:
   - AI Agent
-summary: 过去几个月里，我写了几篇关于 agent harness 的文章，也写了为什么所有人似乎都聚焦于它。一句话总结就是：它是新的前沿。没错，大家仍在模型这条战线上厮杀（比如 DeepSeek 刚发布了 v4，OpenAI 发布了 GPT-5.5，Anthropic 拿 Mythos 把所有人吓得不轻），但真正的战斗将发生在 harness 上。
+excerpt: 过去几个月里，我写了几篇关于 agent harness 的文章，也写了为什么所有人似乎都聚焦于它。一句话总结就是：它是新的前沿。没错，大家仍在模型这条战线上厮杀（比如 DeepSeek 刚发布了 v4，OpenAI 发布了 GPT-5.5，Anthropic 拿 Mythos 把所有人吓得不轻），但真正的战斗将发生在 harness 上。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/own-your-harness/01.webp
 ---
 

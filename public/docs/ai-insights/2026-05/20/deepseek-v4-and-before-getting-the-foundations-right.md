@@ -5,7 +5,7 @@ url: https://medium.com/mitb-for-all/deepseek-v4-and-before-getting-the-foundati
 translated: 2026-05-20
 tags:
   - LLM
-summary: 2025 年 1 月，DeepSeek-R1 发布，同时开源了蒸馏版的「32B 与 70B 模型，性能与 OpenAI-o1-mini 相当」。接下来那一周，几家 AI 巨头的股价应声暴跌。
+excerpt: 2025 年 1 月，DeepSeek-R1 发布，同时开源了蒸馏版的「32B 与 70B 模型，性能与 OpenAI-o1-mini 相当」。接下来那一周，几家 AI 巨头的股价应声暴跌。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/deepseek-v4-and-before-getting-the-foundations-right/01.webp
 ---
 

@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# nested node_modules in per-skill scripts/ (each skill carries its own
+# package.json + lock; node_modules is installed locally, never committed)
+.claude/skills/**/node_modules/
+
 # testing
 /coverage
 

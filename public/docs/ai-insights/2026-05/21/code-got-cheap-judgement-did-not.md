@@ -5,7 +5,7 @@ url: https://medium.com/@mattwhetton/code-got-cheap-judgement-did-not-91dad13c9d
 translated: 2026-05-21
 tags:
   - Technology
-summary: 关于 AI 与工程，主流的说法是它降低了门槛。如今一个初级工程师配上趁手的工具，就能做过去中级工程师才能做的事。一个中级工程师能做过去资深工程师才能做的事。金字塔被压扁，组织架构变得更扁平，顶端那些经验丰富的工程师变得不那么不可或缺了——因为他们过去提供的杠杆，现在已经被烤进了工具里。
+excerpt: 关于 AI 与工程，主流的说法是它降低了门槛。如今一个初级工程师配上趁手的工具，就能做过去中级工程师才能做的事。一个中级工程师能做过去资深工程师才能做的事。金字塔被压扁，组织架构变得更扁平，顶端那些经验丰富的工程师变得不那么不可或缺了——因为他们过去提供的杠杆，现在已经被烤进了工具里。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/21/images/code-got-cheap-judgement-did-not/01.webp
 ---
 

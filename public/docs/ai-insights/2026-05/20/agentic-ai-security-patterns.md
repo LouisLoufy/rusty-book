@@ -3,7 +3,7 @@ title: 智能体 AI 安全模式
 author: Debmalya Biswas
 url: https://ai.gopubby.com/agentic-ai-security-patterns-ad4ff80b9351
 translated: 2026-05-20
-summary: 智能体 AI 系统的关键特征是自主性和推理能力。凭借这两点，它们能把复杂任务拆解成更小的可执行任务，再编排这些任务的执行，并在需要时监控、反思、适配乃至自我纠错。正因如此，
+excerpt: 智能体 AI 系统的关键特征是自主性和推理能力。凭借这两点，它们能把复杂任务拆解成更小的可执行任务，再编排这些任务的执行，并在需要时监控、反思、适配乃至自我纠错。正因如此，
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/agentic-ai-security-patterns/01.webp
 ---
 

@@ -8,7 +8,7 @@ tags:
   - Artificial Intelligence
   - Programming
   - Machine Learning
-summary: 基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。
+excerpt: 基于 LLM 的聊天机器人在我们身边随处可见。它们回复时，是按顺序逐步生成内容的。也就是说，它们的输出是一个 token 接一个 token、一次一个地生成出来的。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/diffusion-llms-explained-simply/01.webp
 ---
 

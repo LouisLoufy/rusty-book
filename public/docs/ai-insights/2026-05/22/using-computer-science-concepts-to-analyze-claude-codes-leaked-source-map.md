@@ -6,7 +6,7 @@ translated: 2026-05-22
 tags:
   - Artificial Intelligence
   - LLM
-summary: 这个故事现在大家都知道了。
+excerpt: 这个故事现在大家都知道了。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/using-computer-science-concepts-to-analyze-claude-codes-leaked-source-map/01.webp
 ---
 

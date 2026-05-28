@@ -6,7 +6,7 @@ translated: 2026-05-22
 tags:
   - Machine Learning
   - Technology
-summary: 上学的时候，矩阵是我最喜欢的主题。我学得很快，也许你也一样。
+excerpt: 上学的时候，矩阵是我最喜欢的主题。我学得很快，也许你也一样。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/deep-learning-needs-matrices-for-the-same-reason-instagram-needs-filters/01.webp
 ---
 

@@ -7,7 +7,7 @@ tags:
   - Technology
   - Programming
   - Artificial Intelligence
-summary: 上周，Claude Code 的工程负责人告诉开发者们：别再输出 Markdown 了。整个互联网炸了。
+excerpt: 上周，Claude Code 的工程负责人告诉开发者们：别再输出 Markdown 了。整个互联网炸了。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/anthropics-engineer-said-kill-markdown-here-s-what-he-actually-meant/01.jpg
 ---
 

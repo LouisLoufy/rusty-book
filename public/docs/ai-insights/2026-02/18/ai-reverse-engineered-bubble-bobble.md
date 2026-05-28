@@ -1,5 +1,5 @@
 ---
-summary: 我们让 AI 去读 1986 年的原始二进制文件。
+excerpt: 我们让 AI 去读 1986 年的原始二进制文件。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-02/18/images/ai-reverse-engineered-bubble-bobble/roms.webp
 ---
 

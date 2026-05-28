@@ -1,5 +1,5 @@
 ---
-summary: 上来先争论“要不要多智能体”，却不先画清问题边界，这和先选喷漆配色再写控制程序一样不靠谱。
+excerpt: 上来先争论“要不要多智能体”，却不先画清问题边界，这和先选喷漆配色再写控制程序一样不靠谱。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-03/26/images/agent-skills-teams-architecture-evolution/01.jpg
 ---
 

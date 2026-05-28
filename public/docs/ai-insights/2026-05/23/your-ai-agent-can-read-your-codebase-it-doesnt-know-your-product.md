@@ -5,8 +5,8 @@ url: https://uxdesign.cc/your-ai-agent-can-read-your-codebase-it-doesnt-know-you
 translated: 2026-05-23
 tags:
   - Artificial Intelligence
-summary: 我让 AI agent 给我们的产品头脑风暴一些新功能。不到一分钟它就甩回一份整齐的清单：通知中心、动态流、带分析 widget 的 dashboard、新手引导向导。功能本身都挺合理，但没有一个对得上我们的产品。
-cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/your-ai-agent-can-read-your-codebase-it-doesnt-know-your-product/01.thumb.webp
+excerpt: 我让 AI agent 给我们的产品头脑风暴一些新功能。不到一分钟它就甩回一份整齐的清单：通知中心、动态流、带分析 widget 的 dashboard、新手引导向导。功能本身都挺合理，但没有一个对得上我们的产品。
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/your-ai-agent-can-read-your-codebase-it-doesnt-know-your-product/01.webp
 ---
 
 # 你的 AI agent 能读懂代码库，却不懂你的产品

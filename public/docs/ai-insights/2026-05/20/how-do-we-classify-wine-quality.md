@@ -3,7 +3,7 @@ title: 怎样才能更好地给葡萄酒品质分类？
 author: Tanika Jangam
 url: https://medium.com/@tanikaj/how-do-we-classify-wine-quality-ed3c8820bbde
 translated: 2026-05-20
-summary: 评定葡萄酒品质的度量标准，在资深评审之间常常对不上号。同一款酒，不同专家给出的分数可能相差悬殊；而酒一旦装瓶待售，就再也无法因评价结果而改变。这种事浪费时间和资源，在行业里几乎每天都在上演。
+excerpt: 评定葡萄酒品质的度量标准，在资深评审之间常常对不上号。同一款酒，不同专家给出的分数可能相差悬殊；而酒一旦装瓶待售，就再也无法因评价结果而改变。这种事浪费时间和资源，在行业里几乎每天都在上演。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/how-do-we-classify-wine-quality/01.jpg
 ---
 

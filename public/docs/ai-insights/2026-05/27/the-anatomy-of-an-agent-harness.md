@@ -3,8 +3,8 @@ title: Agent Harness 剖析
 author: Avi Chawla
 url: https://blog.dailydoseofds.com/p/the-anatomy-of-an-agent-harness
 translated: 2026-05-27
-summary: 一个 ReAct loop、几个工具、一段写得不错的 system prompt——demo 阶段往往能撑得出奇地远。
-cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@e558c3134ee7187d876ad177289c91da6685ae56/ai-insights/2026-05/27/images/the-anatomy-of-an-agent-harness/01.thumb.webp
+excerpt: 一个 ReAct loop、几个工具、一段写得不错的 system prompt——demo 阶段往往能撑得出奇地远。
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@e558c3134ee7187d876ad177289c91da6685ae56/ai-insights/2026-05/27/images/the-anatomy-of-an-agent-harness/01.webp
 ---
 
 # Agent Harness 剖析

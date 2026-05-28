@@ -5,7 +5,7 @@ url: https://cameronrwolfe.medium.com/decoder-only-transformers-the-workhorse-of
 translated: 2026-05-20
 tags:
   - Artificial Intelligence
-summary: 当下 AI 研究的步伐令人瞠目。跟上最新的论文很难，连领域内的专家都会觉得自己没能掌握这个不断演化的前沿里那些更细微的细节。LLM 领域尤其如此，有影响力的研究层出不穷：新的基础模型（如 Gemma \[15\] 和 OLMo \[12\]）、更好的对齐技术（DPO \[32\]、PPO \[33\]、REINFORCE \[34\] 之争），还有 模型合并 这类相对冷门的话题。…
+excerpt: 当下 AI 研究的步伐令人瞠目。跟上最新的论文很难，连领域内的专家都会觉得自己没能掌握这个不断演化的前沿里那些更细微的细节。LLM 领域尤其如此，有影响力的研究层出不穷：新的基础模型（如 Gemma \[15\] 和 OLMo \[12\]）、更好的对齐技术（DPO \[32\]、PPO \[33\]、REINFORCE \[34\] 之争），还有 模型合并 这类相对冷门的话题。…
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/decoder-only-transformers-the-workhorse-of-generative-llms/01.webp
 ---
 

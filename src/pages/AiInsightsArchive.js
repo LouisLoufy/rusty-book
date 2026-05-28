@@ -13,6 +13,7 @@ import {
   findDocCategory
 } from '../domain/docs';
 import { PAGE_IDS } from '../utils/pageConfig';
+import { preloadRouteModule } from '../utils/routePrefetch';
 import { AI_INSIGHTS_CATEGORY_ID, HOME_PATH } from '../utils/siteRoutes';
 import './AiInsightsArchive.css';
 
@@ -144,6 +145,10 @@ const ArchiveContent = ({ category }) => {
 
 const AiInsightsArchive = () => {
   const { meta, loading, error } = useDocsMeta();
+
+  useEffect(() => {
+    preloadRouteModule(PAGE_IDS.bookPage);
+  }, []);
 
   if (loading) {
     return <div className="ai-insights-archive-loading">Loading...</div>;

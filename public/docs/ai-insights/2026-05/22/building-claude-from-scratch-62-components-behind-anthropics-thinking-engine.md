@@ -6,7 +6,7 @@ translated: 2026-05-22
 tags:
   - Artificial Intelligence
   - Machine Learning
-summary: 实践中构建 agentic 系统时，AI 模型本身早已不再是瓶颈，真正的瓶颈是它们外面那层 harness。Anthropic 花了两年时间为 Claude 打造那层 harness——也就是那套编排代码：挑选合适的工具，并在宣告成功之前为自己的工作打分。…
+excerpt: 实践中构建 agentic 系统时，AI 模型本身早已不再是瓶颈，真正的瓶颈是它们外面那层 harness。Anthropic 花了两年时间为 Claude 打造那层 harness——也就是那套编排代码：挑选合适的工具，并在宣告成功之前为自己的工作打分。…
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/22/images/building-claude-from-scratch-62-components-behind-anthropics-thinking-engine/01.webp
 ---
 

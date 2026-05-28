@@ -6,7 +6,7 @@ translated: 2026-05-20
 tags:
   - Artificial Intelligence
   - AI Agent
-summary: 我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。
+excerpt: 我小时候对组合逻辑很感兴趣。是的，这件事很大程度上解释了我后来为什么变成这样，也解释了为什么我的小学老师看我的眼神，活像人们看一只学会了开冰箱的狗。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/20/images/when-your-ai-governance-model-tries-to-regulate-an-agentic-swarm/01.webp
 ---
 

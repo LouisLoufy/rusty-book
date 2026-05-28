@@ -5,7 +5,7 @@ url: https://medium.com/design-doordash/two-teams-one-shift-how-ai-is-rewiring-o
 translated: 2026-05-19
 tags:
   - Artificial Intelligence
-summary: 随着 AI 在"造一切"上越来越强，设计师工作里哪一部分变得更重要，哪一部分变得不那么重要？过去一年，DoorDash 的两支团队一直在探索这一概念。在本文中，Qixing 将把两个案例研究串起来，讲讲产品开发流程是如何转变的、观察到了哪些新模式、做了哪些实验、又有哪些问题尚未解决。
+excerpt: 随着 AI 在"造一切"上越来越强，设计师工作里哪一部分变得更重要，哪一部分变得不那么重要？过去一年，DoorDash 的两支团队一直在探索这一概念。在本文中，Qixing 将把两个案例研究串起来，讲讲产品开发流程是如何转变的、观察到了哪些新模式、做了哪些实验、又有哪些问题尚未解决。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/two-teams-one-shift-how-ai-is-rewiring-our-product-design-process/01.webp
 ---
 

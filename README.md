@@ -2,6 +2,15 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-05-28
+
+- [Demo 跑得通 ≠ 生产跑得通：构建 AI agent 时如何驾驭 LLM 的不确定性](https://beatai.org/ai-insights/demo-works-production-works-how-to-harness-llm-uncertainty-when-building-ai-agents?mode=read)  
+  距离我的 AI 产品 NomNow 上线还有几周——这是一款支持多模态记录的对话式 AI 卡路里追踪器——我给一位朋友做了一次快速演示。他说了一句话："I had a chicken sandwich for lunch"（午餐吃了个鸡肉三明治），看着 app 完成转录、识别食物、估算卡路里、记入日志，整个过程不到三秒。他抬起头说："this is magic.
+- [用百万分之一的成本训练 AI](https://beatai.org/ai-insights/training-ais-for-a-millionth-of-the-cost?mode=read)  
+  低成本训练 AI 的新路子？
+- [AI 原生工程团队的协作方式，第一部分：当交接链条崩塌时](https://beatai.org/ai-insights/ways-of-working-for-ai-native-engineering-teams-part-1-when-the-handoff-chain-collapses?mode=read)  
+  AI 原生工程团队的协作方式，第一部分：当交接链条崩塌时。在我作为工程负责人和顾问的大部分职业生涯中，一直围绕一条交接链条来组织工程团队……
+
 ### 2026-05-27
 
 - [Agent Harness 剖析](https://beatai.org/ai-insights/the-anatomy-of-an-agent-harness?mode=read)  

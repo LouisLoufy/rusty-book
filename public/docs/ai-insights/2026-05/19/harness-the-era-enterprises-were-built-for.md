@@ -5,7 +5,7 @@ url: https://pub.towardsai.net/harness-the-era-enterprises-were-built-for-87eff2
 translated: 2026-05-19
 tags:
   - Artificial Intelligence
-summary: 这是一个关于"终端用户如何把语言模型当作黑盒（我们只能控制输入什么、以及对输出做什么）来提升其性能"的故事。从最简单的做法，一路到提升模型性能的复杂变通方案。
+excerpt: 这是一个关于"终端用户如何把语言模型当作黑盒（我们只能控制输入什么、以及对输出做什么）来提升其性能"的故事。从最简单的做法，一路到提升模型性能的复杂变通方案。
 cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/19/images/harness-the-era-enterprises-were-built-for/01.webp
 ---
 

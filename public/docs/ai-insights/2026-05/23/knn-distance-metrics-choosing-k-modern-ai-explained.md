@@ -7,8 +7,8 @@ tags:
   - Machine Learning
   - Artificial Intelligence
   - Programming
-summary: For You 页面、Spotify Discover Weekly、你做过的每一次反向图片搜索、ChatGPT 内部的检索——它们背后的算法，比彩色电视还要老。1951 年由 Evelyn Fix 和 Joseph Hodges 在一份美国空军技术报告里提出，从未被真正取代过。
-cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/knn-distance-metrics-choosing-k-modern-ai-explained/01.thumb.webp
+excerpt: For You 页面、Spotify Discover Weekly、你做过的每一次反向图片搜索、ChatGPT 内部的检索——它们背后的算法，比彩色电视还要老。1951 年由 Evelyn Fix 和 Joseph Hodges 在一份美国空军技术报告里提出，从未被真正取代过。
+cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173d1977cf7a323f1319997/ai-insights/2026-05/23/images/knn-distance-metrics-choosing-k-modern-ai-explained/01.webp
 ---
 
 # 从鸢尾花到反向图搜：K-Nearest Neighbors 是怎么撑起现代 AI 的
