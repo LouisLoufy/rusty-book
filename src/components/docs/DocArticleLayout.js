@@ -25,7 +25,7 @@ function DocArticleLayout({
           </div>
         ) : null}
       </div>
-      {!isReadingMode && <TableOfContents headings={headings} />}
+      <TableOfContents headings={headings} />
     </>
   );
 }

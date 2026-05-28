@@ -1,19 +1,14 @@
 /* Wrapper for doc content and TOC.
  * `--doc-rail-offset` reserves the right gutter where the fixed TOC sits
- * (TOC width 215px + 32px gap = 247px). The padding-right on .doc-wrapper is
- * the SINGLE point that constrains everything inside — article, pagination,
- * comments — so children don't each compute their own right-margin math.
- * Reading mode hides the TOC, so the offset collapses to 0 via :has(). */
+ * (TOC width 230px). The padding-right on .doc-wrapper is the SINGLE point
+ * that constrains everything inside — article, pagination, comments — so
+ * children don't each compute their own right-margin math. */
 .doc-wrapper {
   --doc-rail-offset: 230px;
   display: block;
   width: 100%;
   padding-right: var(--doc-rail-offset);
   box-sizing: border-box;
-}
-
-.doc-wrapper:has(.reading-mode) {
-  --doc-rail-offset: 0px;
 }
 
 .doc-content {
@@ -33,7 +28,7 @@
 
 .doc-content.reading-mode {
   max-width: 750px;
-  margin: 0 auto;
+  margin: 0 -4px 0 auto;
   padding-right: 22px;
 }
 
@@ -54,7 +49,7 @@
 
 .doc-article-after.reading-mode {
   max-width: 750px;
-  margin: 0 auto;
+  margin: 0 -4px 0 auto;
 }
 
 .doc-content>* {
