@@ -159,9 +159,33 @@ export function buildSidebarMeta(category) {
     return null;
   }
 
+  if (category.id === AI_INSIGHTS_CATEGORY_ID) {
+    return buildChronologicalSidebarMeta(category);
+  }
+
   return {
     title: category.title,
     sections: category.sections,
+    githubRepo: category.githubRepo,
+    repoTitle: category.repoTitle,
+    bookPath: category.bookPath || null
+  };
+}
+
+function buildChronologicalSidebarMeta(category) {
+  const sorted = [...getCategoryArticles(category)].sort((a, b) => {
+    if (a.publishedAt !== b.publishedAt) {
+      return a.publishedAt < b.publishedAt ? 1 : -1;
+    }
+    return (a.title || '').localeCompare(b.title || '', 'zh');
+  });
+
+  return {
+    title: category.title,
+    sections: [{
+      title: '最新文章',
+      items: sorted.map(({ title, path, file }) => ({ title, path, file }))
+    }],
     githubRepo: category.githubRepo,
     repoTitle: category.repoTitle,
     bookPath: category.bookPath || null

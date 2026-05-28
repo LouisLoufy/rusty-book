@@ -9,7 +9,8 @@ import {
   buildDocsWorkspaceModel,
   buildBookCategoryMeta,
   buildBookRouteValidationModel,
-  buildNormalizedArticleMarkdown
+  buildNormalizedArticleMarkdown,
+  buildSidebarMeta
 } from './docsDomain';
 
 const QUIET = { warn: false };
@@ -205,4 +206,53 @@ test('builds shared navigation, prefetch, and book category models', () => {
     isValidPath: true,
     normalizedPathname: '/ai-insights/first'
   });
+});
+
+test('buildSidebarMeta returns a flat reverse-chronological list for ai-insights', () => {
+  const meta = normalizeDocsMeta({
+    categories: [{
+      id: 'ai-insights',
+      title: 'AI 前沿学习',
+      entryPath: 'ai-insights',
+      sections: [
+        {
+          title: '2026 年 5 月',
+          items: [
+            { title: 'B', path: 'ai-insights/b', file: 'docs/ai-insights/b.md', publishedAt: '2026-05-22', tags: ['t'] },
+            { title: 'A', path: 'ai-insights/a', file: 'docs/ai-insights/a.md', publishedAt: '2026-05-22', tags: [] }
+          ]
+        },
+        {
+          title: '2026 年 4 月',
+          items: [
+            { title: 'C', path: 'ai-insights/c', file: 'docs/ai-insights/c.md', publishedAt: '2026-04-10', tags: [] },
+            { title: 'D', path: 'ai-insights/d', file: 'docs/ai-insights/d.md', publishedAt: '2026-06-01', tags: [] }
+          ]
+        }
+      ]
+    }]
+  }, QUIET);
+
+  const sidebar = buildSidebarMeta(meta.categories[0]);
+
+  expect(sidebar.title).toBe('AI 前沿学习');
+  expect(sidebar.sections).toHaveLength(1);
+  expect(sidebar.sections[0].title).toBe('最新文章');
+  expect(sidebar.sections[0].items.map((item) => item.title)).toEqual(['D', 'A', 'B', 'C']);
+  expect(sidebar.sections[0].items[0]).toEqual({
+    title: 'D',
+    path: '/ai-insights/d',
+    file: '/docs/ai-insights/d.md'
+  });
+  expect(sidebar.sections[0].items[0]).not.toHaveProperty('publishedAt');
+  expect(sidebar.sections[0].items[0]).not.toHaveProperty('tags');
+});
+
+test('buildSidebarMeta preserves the raw section tree for non ai-insights categories', () => {
+  const meta = createMeta();
+  const rust = meta.categories.find((c) => c.id === 'rust-course');
+  const sidebar = buildSidebarMeta(rust);
+
+  expect(sidebar.title).toBe('Rust Course');
+  expect(sidebar.sections).toBe(rust.sections);
 });
