@@ -1,10 +1,10 @@
 .docs-sidebar {
   position: sticky;
-  top: 80px;
-  height: calc(100vh - 90px);
+  top: 0;
+  height: 100vh;
   overflow-y: auto;
   overflow-x: visible;
-  padding: 0px 0;
+  padding: 12px 0 24px;
 }
 
 /* Custom scrollbar for sidebar */
@@ -295,7 +295,7 @@
     height: 100vh;
     background: var(--bg-primary);
     border-right: 1px solid var(--border-primary);
-    padding: 70px 20px 20px;
+    padding: 56px 20px 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 90;

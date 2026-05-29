@@ -1,6 +1,5 @@
 import React from 'react';
 import AppHeader from '../AppHeader/AppHeader';
-import ReadingModeFloatingActions from '../docs/ReadingModeFloatingActions';
 
 function PageShell({
   rootClassName = '',
@@ -8,7 +7,6 @@ function PageShell({
   onMenuToggle = null,
   hideHeader = false,
   showReadingModeToggle = false,
-  onReadingModeDirectoryOpen = null,
   children
 }) {
   const classes = [rootClassName, 'dynamic-background'].filter(Boolean).join(' ');
@@ -23,10 +21,6 @@ function PageShell({
           onMenuToggle={onMenuToggle}
           showReadingModeToggle={showReadingModeToggle}
         />
-      )}
-
-      {hideHeader && showReadingModeToggle && (
-        <ReadingModeFloatingActions onDirectoryOpen={onReadingModeDirectoryOpen} />
       )}
 
       {children}

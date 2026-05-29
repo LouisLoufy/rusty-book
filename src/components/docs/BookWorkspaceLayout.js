@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Sidebar from './Sidebar';
 import PageShell from '../layout/PageShell';
+import BookFloatingActions from './BookFloatingActions';
+import ReadingModeFloatingActions from './ReadingModeFloatingActions';
 import { cn } from '../../utils/classNames';
 import { ReadingModeProvider } from '../../contexts/ReadingModeContext';
 import { useReadingModeSearchParam } from '../../hooks/useReadingModeSearchParam';
@@ -76,20 +78,26 @@ function BookWorkspaceLayout({
     toggleReadingMode
   }), [isReadingMode, isReadonlyMode, modeSearch, setIsReadingMode, toggleReadingMode]);
 
+  const readingModeDirectoryHandler =
+    isReadingMode && sidebarMeta && !isReadonlyMode
+      ? () => setIsReadingModeDirectoryOpen(true)
+      : null;
+
   return (
     <ReadingModeProvider value={readingModeValue}>
       <PageShell
         rootClassName={cn(rootClassName, isReadingMode && 'reading-mode')}
-        sidebarOpen={sidebarOpen}
-        onMenuToggle={onMenuToggle}
-        hideHeader={isReadingMode}
-        showReadingModeToggle
-        onReadingModeDirectoryOpen={
-          isReadingMode && sidebarMeta && !isReadonlyMode
-            ? () => setIsReadingModeDirectoryOpen(true)
-            : null
-        }
+        hideHeader
       >
+        {isReadingMode ? (
+          <ReadingModeFloatingActions onDirectoryOpen={readingModeDirectoryHandler} />
+        ) : (
+          <BookFloatingActions
+            sidebarOpen={sidebarOpen}
+            onMenuToggle={onMenuToggle}
+          />
+        )}
+
         {isReadingMode && sidebarMeta && !isReadonlyMode ? (
           <Sidebar
             meta={sidebarMeta}

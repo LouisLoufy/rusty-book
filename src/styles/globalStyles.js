@@ -19,6 +19,7 @@ import '../components/common/SceneSequencePlayer.css';
 import '../components/docs/DocsLayout.css';
 import '../components/docs/Sidebar.css';
 import '../components/docs/ReadingModeToggleButton.css';
+import '../components/docs/BookFloatingActions.css';
 import '../components/docs/DocContent.css';
 import '../components/docs/PaginationNav.css';
 import '../components/docs/ArticleTags.css';

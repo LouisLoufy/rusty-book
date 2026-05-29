@@ -1,0 +1,152 @@
+/* Floating actions for book chapter pages (regular reading mode).
+ * Replaces the global AppHeader on /<book>/<chapter> routes. */
+.book-floating-actions {
+  position: fixed;
+  top: 8px;
+  right: max(16px, calc((100vw - 1400px) / 2 + 16px));
+  z-index: 140;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Shared icon-button look (40x40), aligned with .reading-mode-toggle-btn. */
+.book-fa-menu-toggle,
+.book-category-compact-toggle {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--border-primary) 78%, transparent);
+  background: color-mix(in srgb, var(--card-bg) 76%, transparent);
+  color: color-mix(in srgb, var(--text-secondary) 88%, var(--text-tertiary));
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  opacity: 0.82;
+}
+
+.book-fa-menu-toggle:hover,
+.book-category-compact-toggle:hover {
+  background: color-mix(in srgb, var(--card-bg-hover) 82%, transparent);
+  border-color: color-mix(in srgb, var(--accent-start) 28%, var(--border-primary));
+  color: var(--text-secondary);
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.book-fa-menu-toggle:active,
+.book-category-compact-toggle:active {
+  transform: translateY(0);
+}
+
+.book-fa-menu-toggle svg,
+.book-category-compact-toggle svg {
+  font-size: 18px;
+}
+
+.book-fa-menu-toggle {
+  display: none;
+}
+
+/* Book picker — compact icon-button variant. */
+.book-category-compact {
+  position: relative;
+  display: inline-flex;
+}
+
+.book-category-compact-toggle[aria-expanded="true"] {
+  background: color-mix(in srgb, var(--card-bg-hover) 82%, transparent);
+  border-color: color-mix(in srgb, var(--accent-start) 32%, var(--border-primary));
+  color: var(--text-secondary);
+  opacity: 1;
+}
+
+/* Menu pops directly under the icon button, aligned to its right edge so
+ * it stays inside the viewport on small screens. */
+.book-category-compact .mobile-category-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  min-width: 220px;
+  max-width: min(280px, calc(100vw - 24px));
+}
+
+/* AuthStatus renders its own pill/avatar; force it into 40x40 to match
+ * neighboring icon buttons so gaps look uniform. */
+.book-fa-auth {
+  display: inline-flex;
+  align-items: center;
+}
+
+.book-floating-actions .book-fa-auth .auth-status,
+.book-floating-actions .book-fa-auth .auth-status-avatar-btn {
+  width: 40px;
+  height: 40px;
+}
+
+.book-floating-actions .book-fa-auth .auth-status-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.book-fa-github {
+  text-decoration: none;
+}
+
+.book-fa-github svg {
+  font-size: 18px;
+}
+
+/* Mobile: show hamburger, hide AuthStatus + GitHub to save horizontal room.
+ * The compact book picker stays so users can switch books. */
+@media (max-width: 968px) {
+  .book-floating-actions {
+    top: 6px;
+    right: 8px;
+    gap: 4px;
+  }
+
+  .book-fa-menu-toggle,
+  .book-category-compact-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .book-fa-menu-toggle {
+    display: inline-flex;
+  }
+
+  .book-fa-menu-toggle svg,
+  .book-category-compact-toggle svg {
+    font-size: 16px;
+  }
+
+  .book-fa-auth,
+  .book-fa-github {
+    display: none;
+  }
+
+  .book-floating-actions .book-fa-auth .auth-status,
+  .book-floating-actions .book-fa-auth .auth-status-avatar-btn,
+  .book-floating-actions .book-fa-auth .auth-status-avatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .book-floating-actions {
+    gap: 3px;
+  }
+
+  .book-fa-menu-toggle,
+  .book-category-compact-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}

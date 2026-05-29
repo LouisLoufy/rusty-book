@@ -2,10 +2,10 @@
 
 .toc {
   position: fixed !important;
-  top: 72px !important;
+  top: 56px !important;
   right: 0 !important;
   width: 230px !important;
-  max-height: calc(100vh - 100px) !important;
+  max-height: calc(100vh - 80px) !important;
   padding: 12px 16px;
   z-index: 90;
   background: transparent;
