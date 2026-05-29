@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useSearchParams } from 'react-router-dom';
 import PageShell from '../components/layout/PageShell';
 import PageSeo from '../components/seo/PageSeo';
+import PageTransitionLoader from '../components/PageTransitionLoader';
 import ArchiveCard from '../components/aiInsights/ArchiveCard';
 import ArchiveList from '../components/aiInsights/ArchiveList';
 import TagChipBar from '../components/aiInsights/TagChipBar';
@@ -10,6 +11,7 @@ import { useAiInsightsScrollRestoration } from '../hooks/useAiInsightsScrollRest
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import {
   buildDocsArchiveModel,
+  buildSidebarMeta,
   findDocCategory
 } from '../domain/docs';
 import { PAGE_IDS } from '../utils/pageConfig';
@@ -151,7 +153,7 @@ const AiInsightsArchive = () => {
   }, []);
 
   if (loading) {
-    return <div className="ai-insights-archive-loading">Loading...</div>;
+    return <PageTransitionLoader />;
   }
 
   if (error || !meta) {
@@ -166,6 +168,16 @@ const AiInsightsArchive = () => {
         <Link to={HOME_PATH}>返回首页</Link>
       </div>
     );
+  }
+
+  // Land on whatever sits first in the sidebar — must match the same
+  // ordering rules the docs sidebar uses (chronological for ai-insights,
+  // not the archive's date-grouped ordering, which can diverge for
+  // same-day articles).
+  const sidebarMeta = buildSidebarMeta(category);
+  const firstArticlePath = sidebarMeta?.sections?.[0]?.items?.[0]?.path;
+  if (firstArticlePath) {
+    return <Navigate to={firstArticlePath} replace />;
   }
 
   return <ArchiveContent category={category} />;

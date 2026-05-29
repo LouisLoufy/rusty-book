@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { TagProvider, useTag } from '../contexts/TagContext';
 import PageShell from '../components/layout/PageShell';
 import PageSeo from '../components/seo/PageSeo';
+import PageTransitionLoader from '../components/PageTransitionLoader';
 import { useDocsMeta } from '../hooks/useDocsMeta';
 import { buildArticlePrefetchModel } from '../domain/docs';
 import { preloadMarkdownFile } from '../utils/markdownPrefetch';
@@ -92,7 +93,7 @@ const TagPage = () => {
   const { meta, loading, error } = useDocsMeta();
 
   if (loading) {
-    return <div className="tag-page-loading">Loading...</div>;
+    return <PageTransitionLoader />;
   }
 
   if (error || !meta) {
