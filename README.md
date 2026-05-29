@@ -14,6 +14,8 @@
   公司想在你离职前把你"萃取"下来。看看他们真正能拿到什么。
 - [怎样写出 coding agent 真正能落地的功能规格](https://beatai.org/ai-insights/how-to-write-feature-specs-that-coding-agents-can-actually-implement?mode=read)  
   为什么 agentic coding 靠的是确定性契约，而不是模糊需求加 prompt 撞大运
+- [Claude Code Dynamic Workflows：把编排逻辑搬进代码的新原语](https://beatai.org/ai-insights/riba2534-2060102236676792711?mode=read)  
+  5 月 28 日，Anthropic 发布了 Claude Opus 4.8，随之而来还带来了一个新功能——Dynamic Workflows（动态工作流）。
 
 ### 2026-05-28
 

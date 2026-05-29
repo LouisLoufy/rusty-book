@@ -1117,6 +1117,21 @@
           ],
           "excerpt": "模型本身只是温和升级，但 effort control、动态工作流、Messages API 可在运行中改指令，加上一个肯承认\"我没把握\"的 Claude——这次发布真正的份量在外围。",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@8b96623ef655f55358a6e3ce156806654757ca4c/ai-insights/2026-05/29/images/claude-opus-4-8-4-features-that-change-our-daily-work-with-claude/01.thumb.webp"
+        },
+        {
+          "title": "Claude Code Dynamic Workflows：把编排逻辑搬进代码的新原语",
+          "path": "/ai-insights/riba2534-2060102236676792711",
+          "file": "/docs/ai-insights/2026-05/29/riba2534-2060102236676792711.md",
+          "publishedAt": "2026-05-29",
+          "tags": [],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "riba2534 (@riba2534)"
+            }
+          ],
+          "excerpt": "5 月 28 日，Anthropic 发布了 Claude Opus 4.8，随之而来还带来了一个新功能——Dynamic Workflows（动态工作流）。",
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@2b0287f3025c3c62def5404efcf80455c4bd6621/ai-insights/2026-05/29/images/riba2534-2060102236676792711/01.thumb.webp"
         }
       ]
     }
