@@ -68,10 +68,6 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow:
-    0 8px 32px var(--glow-color),
-    0 0 80px var(--glow-color),
-    inset 0 0 60px rgba(255, 255, 255, 0.05);
   animation: logoFloat 3s ease-in-out infinite, logoRotate 8s linear infinite;
 }
 
@@ -90,29 +86,6 @@
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-/* Logo辉光效果 */
-.loader-logo-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: -10px;
-  border-radius: 50%;
-  background: var(--accent-gradient);
-  opacity: 0.4;
-  filter: blur(20px);
-  animation: glowPulse 2s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.2);
   }
 }
 
@@ -278,9 +251,6 @@
 [data-theme-mode="light"] .loader-logo-wrapper {
   background: rgba(0, 0, 0, 0.03);
   border: 2px solid rgba(0, 0, 0, 0.08);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 0 60px rgba(0, 0, 0, 0.02);
 }
 
 [data-theme-mode="light"] .loader-progress-bar {
