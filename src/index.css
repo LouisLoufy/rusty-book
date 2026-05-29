@@ -7,6 +7,46 @@
  * sideways as users navigate between chapters of different lengths. */
 html {
   scrollbar-gutter: stable;
+  /* Match .docs-sidebar's tokens so the document's main scrollbar
+   * follows the same idiom across platforms: macOS WebKit still gets
+   * overlay-hide behaviour for free, Windows/Linux render a 6px
+   * half-transparent thumb that blends with the background instead of
+   * the default 17px gray slab. */
+  scrollbar-width: thin;
+  /* Default (light backgrounds): dark thumb so it stays visible. */
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+
+html[data-theme-mode="dark"] {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+html[data-theme-mode="dark"]::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme-mode="dark"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
 }
 
 body {
