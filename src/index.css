@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reserve space for the vertical scrollbar even when the page is short
+ * enough not to need one — prevents the sidebar/grid from jittering
+ * sideways as users navigate between chapters of different lengths. */
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

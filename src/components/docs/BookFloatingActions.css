@@ -53,6 +53,8 @@
   font-size: 18px;
 }
 
+/* Menu toggle is only rendered here on mobile; desktop uses the
+ * dedicated SidebarToggleButton that rides with the sidebar. */
 .book-fa-menu-toggle {
   display: none;
 }

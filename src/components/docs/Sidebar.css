@@ -1,10 +1,30 @@
-.docs-sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: visible;
-  padding: 12px 0 24px;
+/* Desktop sidebar (>= 969px): in-flow sticky column. Collapse is a pure
+ * opacity/visibility CSS toggle — no transform, no drawer, no popout.
+ * The grid column (205px) is preserved both states, so .docs-main width
+ * and position never change when toggling. */
+@media (min-width: 969px) {
+  .docs-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    /* reserve scrollbar slot — no width jitter */
+    overflow-x: visible;
+    padding: 12px 0 24px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.22s ease,
+      visibility 0s linear 0s;
+  }
+
+  .docs-container.desktop-sidebar-collapsed .docs-sidebar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease,
+      visibility 0s linear 0.22s;
+  }
 }
 
 /* Custom scrollbar for sidebar */
@@ -259,6 +279,9 @@
   background: color-mix(in srgb, var(--card-bg) 94%, var(--bg-tertiary));
 }
 
+/* Mobile sidebar (<= 968px): fixed drawer sliding in from the left,
+ * opened by the .mobile-open class. Completely separate from the
+ * desktop ruleset above — the two never compose. */
 @media (max-width: 968px) {
   .docs-sidebar {
     position: fixed;
@@ -272,9 +295,10 @@
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 90;
+    overflow-y: auto;
   }
 
-  .docs-sidebar.open {
+  .docs-sidebar.mobile-open {
     transform: translateX(0);
   }
 
@@ -287,5 +311,51 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 80;
+  }
+}
+
+.sidebar-toggle-btn {
+  position: fixed;
+  top: 44vh;
+  left: 230px;
+  /* flush with sidebar's right edge (24 + 205 - 24) */
+  transform: translateY(-50%);
+  width: 18px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--border-primary) 60%, transparent);
+  background: color-mix(in srgb, var(--card-bg) 70%, transparent);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  opacity: 0.75;
+  z-index: 145;
+}
+
+.sidebar-toggle-btn.collapsed {
+  left: 0px;
+}
+
+.sidebar-toggle-btn:hover {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--card-bg-hover) 86%, transparent);
+  border-color: color-mix(in srgb, var(--accent-start) 28%, var(--border-primary));
+  opacity: 1;
+}
+
+.sidebar-toggle-btn svg {
+  font-size: 16px;
+}
+
+@media (max-width: 968px) {
+  .sidebar-toggle-btn {
+    display: none;
   }
 }

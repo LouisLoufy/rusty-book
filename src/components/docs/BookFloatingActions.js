@@ -9,8 +9,8 @@ import { getBookByPathname } from '../../content';
 import { HOME_PATH } from '../../utils/siteRoutes';
 
 function BookFloatingActions({
-  sidebarOpen = false,
-  onMenuToggle = null
+  mobileDrawerOpen = false,
+  onToggleMobileDrawer = null
 }) {
   const location = useLocation();
   const { isAuthenticated } = useAuthContext();
@@ -19,14 +19,14 @@ function BookFloatingActions({
 
   return (
     <div className="book-floating-actions">
-      {onMenuToggle && (
+      {onToggleMobileDrawer && (
         <button
           type="button"
           className="book-fa-menu-toggle"
-          onClick={onMenuToggle}
-          aria-label="Toggle sidebar"
+          onClick={onToggleMobileDrawer}
+          aria-label={mobileDrawerOpen ? '关闭目录' : '打开目录'}
         >
-          {sidebarOpen ? <HiX /> : <HiMenu />}
+          {mobileDrawerOpen ? <HiX /> : <HiMenu />}
         </button>
       )}
 

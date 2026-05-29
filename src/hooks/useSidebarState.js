@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-export function useSidebarState(options = {}) {
-  const { closeOnChange = null } = options;
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    if (closeOnChange === null || closeOnChange === undefined) {
-      return;
-    }
-
-    setSidebarOpen(false);
-  }, [closeOnChange]);
+// Sidebar state is intentionally split into two flags so mobile and
+// desktop interactions don't bleed into each other:
+//  - mobileDrawerOpen: drives the fixed/transform drawer below 968px
+//  - desktopCollapsed: drives the in-flow CSS collapse above 968px
+// Neither flag's actions touch the other one.
+export function useSidebarState() {
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [desktopCollapsed, setDesktopCollapsed] = useState(false);
 
   return {
-    sidebarOpen,
-    closeSidebar() {
-      setSidebarOpen(false);
+    mobileDrawerOpen,
+    desktopCollapsed,
+    closeMobileDrawer() {
+      setMobileDrawerOpen(false);
     },
-    toggleSidebar() {
-      setSidebarOpen((prev) => !prev);
+    toggleMobileDrawer() {
+      setMobileDrawerOpen((prev) => !prev);
+    },
+    toggleDesktopCollapsed() {
+      setDesktopCollapsed((prev) => !prev);
     }
   };
 }

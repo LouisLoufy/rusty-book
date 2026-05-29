@@ -1,4 +1,5 @@
 import React from 'react';
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import Sidebar from './Sidebar';
 import PageShell from '../layout/PageShell';
 import BookFloatingActions from './BookFloatingActions';
@@ -7,9 +8,11 @@ import { cn } from '../../utils/classNames';
 function BookWorkspaceLayout({
   rootClassName = '',
   sidebarMeta = null,
-  sidebarOpen = false,
-  onMenuToggle = null,
-  onSidebarClose = null,
+  mobileDrawerOpen = false,
+  desktopCollapsed = false,
+  onToggleMobileDrawer = null,
+  onCloseMobileDrawer = null,
+  onToggleDesktopCollapsed = null,
   containerClassName = '',
   mainClassName = '',
   afterMain = null,
@@ -18,16 +21,34 @@ function BookWorkspaceLayout({
   return (
     <PageShell rootClassName={rootClassName} hideHeader>
       <BookFloatingActions
-        sidebarOpen={sidebarOpen}
-        onMenuToggle={onMenuToggle}
+        mobileDrawerOpen={mobileDrawerOpen}
+        onToggleMobileDrawer={onToggleMobileDrawer}
       />
 
-      <div className={cn('docs-container', containerClassName)}>
+      {sidebarMeta && onToggleDesktopCollapsed && (
+        <button
+          type="button"
+          className={cn('sidebar-toggle-btn', desktopCollapsed && 'collapsed')}
+          onClick={onToggleDesktopCollapsed}
+          aria-label={desktopCollapsed ? '展开目录' : '收起目录'}
+          aria-expanded={!desktopCollapsed}
+        >
+          {desktopCollapsed ? <HiChevronRight /> : <HiChevronLeft />}
+        </button>
+      )}
+
+      <div
+        className={cn(
+          'docs-container',
+          desktopCollapsed && 'desktop-sidebar-collapsed',
+          containerClassName
+        )}
+      >
         {sidebarMeta && (
           <Sidebar
             meta={sidebarMeta}
-            isOpen={sidebarOpen}
-            onClose={onSidebarClose}
+            mobileDrawerOpen={mobileDrawerOpen}
+            onMobileLinkClick={onCloseMobileDrawer}
           />
         )}
 

@@ -6,10 +6,15 @@ import { MetaProvider } from '../../contexts/MetaContext';
 import { useSidebarState } from '../../hooks/useSidebarState';
 import { buildDocsWorkspaceModel } from '../../domain/docs';
 
-// Inner component that uses the context
 const DocsLayoutInner = ({ meta, children }) => {
   const location = useLocation();
-  const { sidebarOpen, closeSidebar, toggleSidebar } = useSidebarState();
+  const {
+    mobileDrawerOpen,
+    desktopCollapsed,
+    closeMobileDrawer,
+    toggleMobileDrawer,
+    toggleDesktopCollapsed
+  } = useSidebarState();
   const { sidebarMeta } = useMemo(() => {
     return buildDocsWorkspaceModel({ meta, pathname: location.pathname });
   }, [location.pathname, meta]);
@@ -18,16 +23,17 @@ const DocsLayoutInner = ({ meta, children }) => {
     <BookWorkspaceLayout
       rootClassName="docs-layout"
       sidebarMeta={sidebarMeta}
-      sidebarOpen={sidebarOpen}
-      onMenuToggle={toggleSidebar}
-      onSidebarClose={closeSidebar}
+      mobileDrawerOpen={mobileDrawerOpen}
+      desktopCollapsed={desktopCollapsed}
+      onToggleMobileDrawer={toggleMobileDrawer}
+      onCloseMobileDrawer={closeMobileDrawer}
+      onToggleDesktopCollapsed={toggleDesktopCollapsed}
     >
       {children}
     </BookWorkspaceLayout>
   );
 };
 
-// Main component with providers
 const DocsLayout = ({ meta, children }) => {
   return (
     <PageTitleProvider meta={meta}>

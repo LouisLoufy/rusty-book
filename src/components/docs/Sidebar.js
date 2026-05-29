@@ -12,7 +12,7 @@ function SidebarTitle({ title }) {
   );
 }
 
-const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '', linkSearch = '' }) => {
+const Sidebar = ({ meta, mobileDrawerOpen, onMobileLinkClick }) => {
   const navRef = useRef(null);
   const [expandedItems, setExpandedItems] = useState({});
   const location = useLocation();
@@ -27,9 +27,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
       for (const item of items) {
         const newParents = [...parents, item.path];
 
-        // Check if current item matches the current path
         if (normalizeDocPath(item.path) === currentPath) {
-          // Expand all parent paths
           const expandState = {};
           parents.forEach(parentPath => {
             expandState[parentPath] = true;
@@ -41,7 +39,6 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
           return true;
         }
 
-        // Recursively search in children
         if (item.children && item.children.length > 0) {
           if (findAndExpandParents(item.children, currentPath, newParents)) {
             return true;
@@ -51,7 +48,6 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
       return false;
     };
 
-    // Search through all sections
     for (const section of meta.sections) {
       if (section.items) {
         findAndExpandParents(section.items, normalizedCurrentPath);
@@ -59,11 +55,9 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
     }
   }, [location.pathname, meta]);
 
-  // Auto-scroll to active navigation item
   useEffect(() => {
     if (!navRef.current) return;
 
-    // Delay to ensure DOM updates after menu expansion
     const timer = setTimeout(() => {
       const activeLink = navRef.current.querySelector('.sidebar-link.active');
       if (activeLink) {
@@ -76,9 +70,8 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [location.pathname]); // Only trigger on route change, not on manual expand/collapse
+  }, [location.pathname]);
 
-  // Toggle expand/collapse for items with children
   const toggleExpand = (path) => {
     setExpandedItems(prev => ({
       ...prev,
@@ -86,22 +79,13 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
     }));
   };
 
-  const expandAndNavigate = () => {
-    if (onClose) {
-      onClose();
-    }
-  };
-
   const handleParentItemClick = (path) => {
     setExpandedItems(prev => ({
       ...prev,
       [path]: true
     }));
-    expandAndNavigate();
+    onMobileLinkClick?.();
   };
-
-  const buildLinkTo = (path) =>
-    linkSearch ? { pathname: path, search: linkSearch } : path;
 
   const preloadMenuItemAssets = (item) => {
     const { file, path } = buildArticlePrefetchModel(item);
@@ -109,7 +93,6 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
     preloadRouteForPath(path);
   };
 
-  // Recursive component to render nested menu items
   const renderMenuItem = (item, level = 1) => {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedItems[item.path];
@@ -124,7 +107,7 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
           {hasChildren ? (
             <>
               <NavLink
-                to={buildLinkTo(item.path)}
+                to={item.path}
                 className={() =>
                   `sidebar-link sidebar-link-with-children ${isActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`
                 }
@@ -153,14 +136,14 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
             </>
           ) : (
             <NavLink
-              to={buildLinkTo(item.path)}
+              to={item.path}
               className={() =>
                 `sidebar-link ${isActive ? 'active' : ''}`
               }
               onMouseEnter={() => preloadMenuItemAssets(item)}
               onFocus={() => preloadMenuItemAssets(item)}
               onTouchStart={() => preloadMenuItemAssets(item)}
-              onClick={onClose}
+              onClick={onMobileLinkClick}
             >
               <SidebarTitle title={item.title} />
               <span className="sidebar-link-indicator"></span>
@@ -175,16 +158,17 @@ const Sidebar = ({ meta, isOpen, onClose, className = '', overlayClassName = '',
 
   return (
     <>
-      {/* Mobile Overlay */}
-      {isOpen && <div className={`sidebar-overlay ${overlayClassName}`.trim()} onClick={onClose} />}
+      {mobileDrawerOpen && (
+        <div className="sidebar-overlay" onClick={onMobileLinkClick} />
+      )}
 
-      <aside className={`docs-sidebar ${isOpen ? 'open' : ''} ${className}`.trim()} ref={navRef}>
+      <aside
+        className={`docs-sidebar ${mobileDrawerOpen ? 'mobile-open' : ''}`.trim()}
+        ref={navRef}
+      >
         <nav className="sidebar-nav">
           {meta.sections.map((section, idx) => (
-            <div
-              key={idx}
-              className="sidebar-section"
-            >
+            <div key={idx} className="sidebar-section">
               <div className="sidebar-section-header">
                 <h3 className="sidebar-section-title">
                   <SidebarTitle title={section.title} />
