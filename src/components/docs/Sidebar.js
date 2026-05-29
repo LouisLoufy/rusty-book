@@ -99,11 +99,15 @@ const Sidebar = ({ meta, mobileDrawerOpen, onMobileLinkClick }) => {
     const isActive = item.highlightable === false
       ? false
       : normalizeDocPath(location.pathname) === normalizeDocPath(item.path);
-    const indent = level > 1 ? `${(level - 1) * 16}px` : '0px';
+    // Indent on the NavLink itself (not the wrapper) so it doesn't compound
+    // with parent wrappers — every level computes an absolute padding from
+    // the shared 14px base (.sidebar-link's left padding).
+    const indent = (level - 1) * 16;
+    const linkStyle = indent > 0 ? { paddingLeft: `${14 + indent}px` } : undefined;
 
     return (
       <li key={item.path} className="sidebar-item">
-        <div className="sidebar-item-wrapper" style={{ paddingLeft: indent }}>
+        <div className="sidebar-item-wrapper">
           {hasChildren ? (
             <>
               <NavLink
@@ -115,6 +119,7 @@ const Sidebar = ({ meta, mobileDrawerOpen, onMobileLinkClick }) => {
                 onFocus={() => preloadMenuItemAssets(item)}
                 onTouchStart={() => preloadMenuItemAssets(item)}
                 onClick={() => handleParentItemClick(item.path)}
+                style={linkStyle}
               >
                 <SidebarTitle title={item.title} />
                 <span
@@ -144,6 +149,7 @@ const Sidebar = ({ meta, mobileDrawerOpen, onMobileLinkClick }) => {
               onFocus={() => preloadMenuItemAssets(item)}
               onTouchStart={() => preloadMenuItemAssets(item)}
               onClick={onMobileLinkClick}
+              style={linkStyle}
             >
               <SidebarTitle title={item.title} />
               <span className="sidebar-link-indicator"></span>
