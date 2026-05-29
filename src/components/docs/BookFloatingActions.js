@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { HiMenu, HiX, HiHome } from 'react-icons/hi';
+import { useLocation } from 'react-router-dom';
+import { HiMenu, HiX } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from '../ThemeSelector';
 import AuthStatus from './AuthStatus';
+import BookCategoryDropdown from '../AppHeader/BookCategoryDropdown';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { getBookByPathname } from '../../content';
-import { HOME_PATH } from '../../utils/siteRoutes';
 
 function BookFloatingActions({
   mobileDrawerOpen = false,
@@ -30,14 +30,11 @@ function BookFloatingActions({
         </button>
       )}
 
-      <Link
-        to={HOME_PATH}
-        className="book-fa-home"
-        aria-label="返回首页"
-        title="返回首页"
-      >
-        <HiHome />
-      </Link>
+      <BookCategoryDropdown
+        compact
+        className="book-fa-category"
+        showInlineGithub={false}
+      />
 
       {isAuthenticated && (
         <div className="book-fa-auth">
