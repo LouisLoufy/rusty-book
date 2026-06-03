@@ -6,6 +6,8 @@
 
 - [AI token 稀缺与街机经济学](https://beatai.org/ai-insights/ai-token-scarcity-and-arcade-economics?mode=read)  
   算力成本节节攀升，逼着设计师重新掂量自己的预期。
+- [搭建生产级 Agent Harness：把 Claude Code 改造成多 Agent 工程流水线](https://beatai.org/ai-insights/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline?mode=read)  
+  单独一个编码 agent 就是一颗泡在罐子里的大脑。能思考、能生成代码、能调用函数——但回不了你凌晨三点发来的 Slack 私信，重试不了一个失败的 CI 任务，修不了它自己那个刚开的 MR 上冒出来的合并冲突，也记不住昨天某位评审提的问题至今还没人答。
 - [用强化学习控制机械臂为人体按摩](https://beatai.org/ai-insights/controlling-a-robotic-arm-for-massaging-human-body-with-rl?mode=read)  
   用交互式强化学习实现最优行为
 - [游戏 AI 的关键不在于智能](https://beatai.org/ai-insights/game-ai-is-not-about-intelligence?mode=read)  

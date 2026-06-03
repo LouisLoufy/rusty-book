@@ -1321,6 +1321,24 @@
           ],
           "excerpt": "我叫 Deepak Kumar，是个软件工程师，老是在技术的各个角落里反复爱上又厌倦。我之所以写东西，是因为只有把一件事讲给陌生人听，才能真正搞清楚自己到底有没有弄懂。所以别把这篇当成讲座，就当是你坐到我对面，问了一句\"等等，现在 AI 圈到底在吵什么？\"，我们随便聊聊。",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@5c58ae79cd94bcca8c6b9858f61f9652fa606578/ai-insights/2026-06/03/images/your-cat-understands-the-world-better-than-chatgpt-and-one-of-ais-godfathers-just-quit-meta-over/01.thumb.webp"
+        },
+        {
+          "title": "搭建生产级 Agent Harness：把 Claude Code 改造成多 Agent 工程流水线",
+          "path": "/ai-insights/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline",
+          "file": "/docs/ai-insights/2026-06/03/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline.md",
+          "publishedAt": "2026-06-03",
+          "tags": [
+            "LLM",
+            "AI Agent"
+          ],
+          "contributors": [
+            {
+              "role": "author",
+              "name": "Messi Li"
+            }
+          ],
+          "excerpt": "单独一个编码 agent 就是一颗泡在罐子里的大脑。能思考、能生成代码、能调用函数——但回不了你凌晨三点发来的 Slack 私信，重试不了一个失败的 CI 任务，修不了它自己那个刚开的 MR 上冒出来的合并冲突，也记不住昨天某位评审提的问题至今还没人答。",
+          "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@6ba0de93d8387ba8a2088e5789fd96b27cc104e3/ai-insights/2026-06/03/images/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline/01.thumb.webp"
         }
       ]
     }
