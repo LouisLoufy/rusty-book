@@ -1323,7 +1323,7 @@
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@5c58ae79cd94bcca8c6b9858f61f9652fa606578/ai-insights/2026-06/03/images/your-cat-understands-the-world-better-than-chatgpt-and-one-of-ais-godfathers-just-quit-meta-over/01.thumb.webp"
         },
         {
-          "title": "搭建生产级 Agent Harness：把 Claude Code 改造成多 Agent 工程流水线",
+          "title": "把 Claude Code 改造成多 agent 工程流水线：一套跑了几个月的生产级 agent harness 实录",
           "path": "/ai-insights/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline",
           "file": "/docs/ai-insights/2026-06/03/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline.md",
           "publishedAt": "2026-06-03",
@@ -1337,7 +1337,7 @@
               "name": "Messi Li"
             }
           ],
-          "excerpt": "单独一个编码 agent 就是一颗泡在罐子里的大脑。能思考、能生成代码、能调用函数——但回不了你凌晨三点发来的 Slack 私信，重试不了一个失败的 CI 任务，修不了它自己那个刚开的 MR 上冒出来的合并冲突，也记不住昨天某位评审提的问题至今还没人答。",
+          "excerpt": "一个孤立的编码 agent，本质上是泡在罐子里的大脑。它会思考、会生成代码、会调函数——但它没法在凌晨三点回你的 Slack 私信，没法重跑一个挂掉的 CI，没法处理刚冒出来的 merge 冲突，也记不住昨天某位 reviewer 提的问题至今还没人答。",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@6ba0de93d8387ba8a2088e5789fd96b27cc104e3/ai-insights/2026-06/03/images/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline/01.thumb.webp"
         }
       ]
