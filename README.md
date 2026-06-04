@@ -2,6 +2,17 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-04
+
+- [Agentic AI 落地工业物联网：破解数据碎片化与 LLM 推理难题](https://beatai.org/ai-insights/agentic-ai-for-industrial-iot-use-cases?mode=read)  
+  给工业物联网系统配上 AI Agent
+- [别做应激反应，要做主动回应：我们为"专注"重造了整套研发流程](https://beatai.org/ai-insights/dont-react-respond-why-we-rebuilt-our-sdlc-for-focus?mode=read)  
+  创业公司文化建立在多任务之上，可人脑并不是这么造的。这是我们如何把 Ewake 的研发流程重新设计成一台死命守护专注力的机器。
+- [Netflix 如何用 LLM-as-a-Judge 给剧集简介打分：和创意作者 85% 一致](https://beatai.org/ai-insights/evaluating-netflix-show-synopses-with-llm-as-a-judge?mode=read)  
+  打开 Netflix，最难的一步往往是决定看什么。难点不在片子少——片库里有上万个标题——而在于挑出最对胃口的那一个，这件事既复杂又因人而异。为了帮上忙，Netflix 会推送个性化的宣传素材，其中最关键的就是剧集简介（show synopsis）：一段简短描述，点出核心剧情，再带上类型、主创等信息线索。
+- [AI 平台战争已经打响：四巨头争夺企业 AI 全栈](https://beatai.org/ai-insights/the-ai-platform-wars-have-started?mode=read)  
+  Anthropic 推出 Claude Managed Agents，标志着 AI 市场从「模型战」迈入「平台战」。真正的较量在企业 AI 全栈的控制权——而能下场的只有 OpenAI、Anthropic、Google、Microsoft 四家。
+
 ### 2026-06-03
 
 - [AI token 稀缺与街机经济学](https://beatai.org/ai-insights/ai-token-scarcity-and-arcade-economics?mode=read)  
