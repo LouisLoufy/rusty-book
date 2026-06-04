@@ -1,4 +1,4 @@
-<img src="https://pic1.zhimg.com/80/v2-e9cfbd08d2ebca51b588d1beaed3c0dd_1440w.jpg" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/a19803a6ff559841.jpg" />
 <div align="center">正在努力学 Rust 的 Ferris</div>
 
 <br />

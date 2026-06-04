@@ -123,7 +123,7 @@ In a computer, when the CPU needs to read or write a value, it checks if it is p
 CPU cache is relatively small compared to RAM but much faster, and that's why a program should be designed to use as much as possible data lying in cache, based on a locality principle, to avoid expensive access to RAM.
 
 If we represent our current situation it looks like this :
- ![figure](https://github.com/TC5027/blog/blob/master/pngs/false_sharing.png)
+ ![figure](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/c1e53f5800ac6e7e.png)
 
 The red square corresponds to the first counter and the green one to the second. They can potentially lie in the same cache line !
 

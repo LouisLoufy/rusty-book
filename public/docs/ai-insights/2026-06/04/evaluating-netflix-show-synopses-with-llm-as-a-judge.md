@@ -78,7 +78,7 @@ Netflix 用两个指标来衡量会员对一条简介的隐式反馈：
 
 **Prompt 优化。** LLM 对措辞敏感，于是我们在约 300 条样本的开发集上跑[自动 prompt 优化（APO）](https://arxiv.org/abs/2305.03495)，并把评分指南作为额外上下文喂给优化器。APO 之后，再借 LLM 之力人工精修候选 prompt，得到的初版 prompt 准确率见下图。这些 prompt 在某些标准上（如精准度 precision）表现不错，在另一些上（如清晰度 clarity）则较差，凸显了不同标准各有门道。
 
-![](https://miro.medium.com/v2/resize:fit:1400/1*voqhaot2_6G67DSzH0rFzQ.png)
+![](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/ai-insights/_external/492c9114aff5aba4.png)
 
 **强化推理。** 初版系统的不少失误，源于在高度主观的样本上推理不够准。为了提升推理准确度，我们用了两种推理期扩展（inference-time scaling）的手法：
 

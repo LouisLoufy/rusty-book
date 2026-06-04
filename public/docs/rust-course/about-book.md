@@ -1,4 +1,4 @@
-<img src="https://github.com/sunface/rust-course/blob/main/assets/banner.jpg?raw=true" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/599a752151dd9e52.jpg" />
 
 Rust 语言真的好：连续八年成为全世界最受欢迎的语言、没有 GC 也无需手动内存管理、性能比肩 C++/C 还能直接调用它们的代码、安全性极高 - 总有公司说使用 Rust 后以前的大部分 bug 都将自动消失、全世界最好的包管理工具 Cargo 等等。但...
 
@@ -45,14 +45,14 @@ Rust 语言真的好：连续八年成为全世界最受欢迎的语言、没有
     <tr>
         <td align="center">
             <a href="https://github.com/EluvK">
-                <img src="https://avatars.githubusercontent.com/u/36977935?v=4" width="160px" alt=""/>
+                <img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/2159aa6dc2d32b5a.jpg" width="160px" alt=""/>
                 <br />
                 <sub><b>EluvK</b></sub>
             </a>
         </td>
         <td align="center">
             <a href="https://github.com/AllanDowney">
-                <img src="https://avatars.githubusercontent.com/u/82752697?v=4?s=100"  width="160px" alt=""/>
+                <img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/29b9097e1d2bd47d.png"  width="160px" alt=""/>
                 <br />
                 <sub><b>AllanDowney</b></sub>
             </a>
@@ -70,28 +70,28 @@ Rust 语言真的好：连续八年成为全世界最受欢迎的语言、没有
     <tr>
         <td align="center">
             <a href="https://github.com/JesseAtSZ">
-                <img src="https://avatars.githubusercontent.com/u/35264598?v=4?s=100" width="100px" alt=""/>
+                <img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/ab8029ee02be6e85.jpg" width="100px" alt=""/>
                 <br />
                 <sub><b>JesseAtSZ</b></sub>
             </a>
         </td>
         <td align="center">
             <a href="https://github.com/Rustln">
-                <img src="https://avatars.githubusercontent.com/u/100085326?v=4?s=100" width="100px" alt=""/>
+                <img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/de0ff845efeb03a1.jpg" width="100px" alt=""/>
                 <br />
                 <sub><b>Rustln</b></sub>
             </a>
         </td>
         <td align="center">
             <a href="https://github.com/1132719438">
-                <img src="https://avatars.githubusercontent.com/u/10138791?v=4?s=100" width="100px" alt=""/>
+                <img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/e994b455fbc66520.jpg" width="100px" alt=""/>
                 <br />
                 <sub><b>1132719438</b></sub>
             </a>
         </td>
         <td align="center">
             <a href="https://github.com/zongzi531">
-                <img src="https://avatars.githubusercontent.com/u/22429236?v=4?s=100" width="100px" alt=""/>
+                <img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/b58a2c928198fcd7.jpg" width="100px" alt=""/>
                 <br />
                 <sub><b>zongzi531</b></sub>
             </a>

@@ -43,7 +43,7 @@ cover: https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d636560ddb58a0d75173
 
 你调整亮度、对比度或暖色调。图像里的物体没有变，但每个像素背后的*数字*变了。
 
-![一张演唱会照片被拆解成 RGB 像素值，展示原始向量 [180, 120, 90] 如何被变换成一组新的值，旁边还有一张小图说明这种变化。](https://miro.medium.com/v2/resize:fit:1400/1*YowMPp1L6jd9cHFvUvfMzw.png)
+![一张演唱会照片被拆解成 RGB 像素值，展示原始向量 [180, 120, 90] 如何被变换成一组新的值，旁边还有一张小图说明这种变化。](https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@c3a92973d07f5d0b2764715590681de700584df7/ai-insights/_external/30ff090a517b961e.png)
 *像素值经过 Instagram 风格的调整发生变化，展示被修改的是数字——而不是物体。*
 
 一张照片看上去是物体和颜色，但归根结底它只是数字。每个像素都是一组数值，比如 \[180, 120, 90\]。

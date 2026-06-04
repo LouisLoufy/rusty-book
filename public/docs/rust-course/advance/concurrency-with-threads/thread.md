@@ -267,7 +267,7 @@ for handle in handles {
 
 下图是该代码在 `48` 核机器上的运行结果：
 
-<img alt="" src="https://pic3.zhimg.com/80/v2-af225672de09c0e377023f5f39dd87eb_1440w.png" class="center"  />
+<img alt="" src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/59b571d7106070bb.png" class="center"  />
 
 从图上可以明显的看出：吞吐并不是线性增长，尤其从 `16` 核开始，甚至开始肉眼可见的下降，这是为什么呢？
 

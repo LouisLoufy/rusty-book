@@ -37,8 +37,8 @@ error[E0277]: the size for values of type `str` cannot be known at compilation t
 
 **未完待续**    
 
-https://pic1.zhimg.com/80/v2-177bce575bfaf289ae12d677689a26f4_1440w.png
-https://pic2.zhimg.com/80/v2-697ad53cb502ccec4b2e98c40975344f_1440w.png
+https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@c3a92973d07f5d0b2764715590681de700584df7/rust-course/_external/88a6f9f8a4fc3e12.png
+https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@c3a92973d07f5d0b2764715590681de700584df7/rust-course/_external/7c13ebc91bd50a65.png
 
 
 https://medium.com/@alisomay/strings-in-rust-28c08a2d3130

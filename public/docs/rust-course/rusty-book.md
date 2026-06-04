@@ -1,7 +1,7 @@
 <h1 align="center">Rusty Book( 锈书 )</h1>
 
 <div align="center">
-    <img width="100%" src="https://github.com/studyrs/rusty-book/blob/main/assets/banner.gif?raw=true" />
+    <img width="100%" src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/599a752151dd9e52.jpg" />
 </div>
    
 <div align="center">

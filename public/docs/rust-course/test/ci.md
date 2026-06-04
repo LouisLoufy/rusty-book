@@ -45,7 +45,7 @@ actions/setup-node@f099707 # 指向一个 commit
 
 首先，为了演示，我们需要创建一个公开的 GitHub 仓库 `rust-action`，然后在仓库主页的导航栏中点击 `Actions` ，你会看到如下页面 :
 
-<img src="https://pic1.zhimg.com/80/v2-4bb58f042c7a285219910bfd3c259464_1440w.jpg" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/ee746331c3c245f8.jpg" />
 
 接着点击 `set up a workflow yourself ->` ，你将看到系统为你自动创建的一个工作流 workflow ，在 `rust-action/.github/workflows/main.yml` 文件中包含以下内容:
 
@@ -93,17 +93,17 @@ jobs:
 
 通过内容的注释，大家应该能大概理解这个工作流是怎么回事了，在具体讲解前，我们先完成 `Actions` 的创建，点击右上角的 `Start Commit` 绿色按钮提交，然后再回到 `Actions` 标签页，你可以看到如下界面:
 
-<img src="https://pic2.zhimg.com/80/v2-301a8feac57633f34f9cd638ac139c22_1440w.jpg" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/79b1e3e4f5a04708.jpg" />
 
 这里包含了我们刚创建的工作流及当前的状态，从右下角可以看出，该工作流的运行时间是 `now` 也就是现在，`queued` 代表它已经被安排到了运行队列中，等待运行。
 
 等过几秒(也可能几十秒后)，刷新当前页面，就能看到成功运行的工作流：
 
-<img src="https://pic3.zhimg.com/80/v2-99fb593bc3140f71c316ce0ba6249911_1440w.png"/>
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/d08ad64f674830ea.png"/>
 
 还记得之前配置中的 `workflow_dispatch` 嘛？它允许工作流被手动执行：点击左边的 `All workflows -> CI` ，可以看到如下页面。
 
-<img src="https://pic3.zhimg.com/80/v2-cc1d9418f6befb5a089cde659666e65e_1440w.png" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/1622c961a53dfe1c.png" />
 
 页面中通过蓝色的醒目高亮提示我们 `this workflow has a workflow_dispatch event trigger`，因此可以点击右边的 `Run workflow` 手动再次执行该工作流。
 
@@ -111,7 +111,7 @@ jobs:
 
 点击 `Create main.yml` 可以查看该工作流的详细信息：
 
-<img src="https://pic1.zhimg.com/80/v2-94b46f23b5d63de35eae7f0425bb99b7_1440w.jpg" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/49337878bddd60b6.jpg" />
 
 至此，我们已经初步掌握 `GitHub Actions` 的用法，现在来看看一些基本的概念。
 
@@ -163,7 +163,7 @@ jobs:
 
 而对于前者，GitHub 提供了以下的运行环境：
 
-<img src="https://pic2.zhimg.com/80/v2-614999565cc513715aaf156c2e478991_1440w.jpg" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/4218d058d8aa59d3.jpg" />
 
 其中比较常用的就是 `runs-on:ubuntu-latest`。
 

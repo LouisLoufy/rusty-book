@@ -111,7 +111,7 @@ impl List {
 `clone` 用起来简单，且可解万愁，但是。。。既然是链表，性能那自然是很重要的，特别是要封装成库给其他代码使用时，那性能更是重中之重。
 
 没办法了，我们只能向大名鼎鼎的 Rust 黑客 Indiana Jones求助了:
-<img src="https://rust-unofficial.github.io/too-many-lists/img/indy.gif" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/147102d0cfd3e7de.gif" />
 
 经过一番诚心祈愿，Indy 建议我们使用 `mem::replace` 秘技。这个非常有用的函数允许我们从一个借用中偷出一个值的同时再放入一个新值。
 ```rust

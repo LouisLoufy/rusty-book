@@ -6,5 +6,5 @@ Rust 语言的名气之所以这么大，保守估计 `Cargo` 的贡献就占了
 
 > 本章内容是基于 [Cargo Book](https://doc.rust-lang.org/stable/cargo/index.html) 翻译，并做了一些内容优化和目录组织上的调整
 
-<img src="https://doc.rust-lang.org/stable/cargo/images/Cargo-Logo-Small.png" />
+<img src="https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@decbb8f3ff16656f020b347e971f69d3706e5c6b/rust-course/_external/48a493c3e2dada84.png" />
 
