@@ -1,4 +1,13 @@
 import React from 'react';
+import { ASSET_CDN_ORIGIN, ASSET_PROXY_ORIGIN } from '../config/assets';
+
+// 把存储的 jsDelivr 绝对 URL 在渲染时改写到自有反代镜像（host 替换，路径不变）。
+// 只命中 ASSET_CDN_ORIGIN 开头的字符串，其它（相对路径、同源、其它外链）原样放行。
+function proxyAssetHost(url) {
+  return typeof url === 'string' && url.startsWith(ASSET_CDN_ORIGIN)
+    ? ASSET_PROXY_ORIGIN + url.slice(ASSET_CDN_ORIGIN.length)
+    : url;
+}
 
 export function slugifyHeading(text) {
   return encodeURIComponent(
@@ -57,14 +66,14 @@ export function resolveMarkdownAssetUrl(assetPath, markdownUrl) {
 
 export function resolveContentAssetUrl(assetPath, baseUrl) {
   if (!assetPath || !isRelativeContentPath(assetPath) || !baseUrl) {
-    return assetPath;
+    return proxyAssetHost(assetPath);
   }
 
   const baseOrigin = typeof window !== 'undefined' ? window.location.origin : 'https://example.com';
 
   try {
-    return new URL(assetPath, new URL(baseUrl, baseOrigin)).toString();
+    return proxyAssetHost(new URL(assetPath, new URL(baseUrl, baseOrigin)).toString());
   } catch (error) {
-    return assetPath;
+    return proxyAssetHost(assetPath);
   }
 }
