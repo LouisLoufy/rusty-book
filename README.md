@@ -4,14 +4,14 @@
 
 ### 2026-06-04
 
-- [Agentic AI 落地工业物联网：破解数据碎片化与 LLM 推理难题](https://beatai.org/ai-insights/agentic-ai-for-industrial-iot-use-cases?mode=read)  
-  给工业物联网系统配上 AI Agent
-- [别做应激反应，要做主动回应：我们为"专注"重造了整套研发流程](https://beatai.org/ai-insights/dont-react-respond-why-we-rebuilt-our-sdlc-for-focus?mode=read)  
-  创业公司文化建立在多任务之上，可人脑并不是这么造的。这是我们如何把 Ewake 的研发流程重新设计成一台死命守护专注力的机器。
-- [Netflix 如何用 LLM-as-a-Judge 给剧集简介打分：和创意作者 85% 一致](https://beatai.org/ai-insights/evaluating-netflix-show-synopses-with-llm-as-a-judge?mode=read)  
-  打开 Netflix，最难的一步往往是决定看什么。难点不在片子少——片库里有上万个标题——而在于挑出最对胃口的那一个，这件事既复杂又因人而异。为了帮上忙，Netflix 会推送个性化的宣传素材，其中最关键的就是剧集简介（show synopsis）：一段简短描述，点出核心剧情，再带上类型、主创等信息线索。
-- [AI 平台战争已经打响：四巨头争夺企业 AI 全栈](https://beatai.org/ai-insights/the-ai-platform-wars-have-started?mode=read)  
-  Anthropic 推出 Claude Managed Agents，标志着 AI 市场从「模型战」迈入「平台战」。真正的较量在企业 AI 全栈的控制权——而能下场的只有 OpenAI、Anthropic、Google、Microsoft 四家。
+- [Agentic AI：数据碎片化与 LLM 推理的双重挑战](https://beatai.org/ai-insights/agentic-ai-for-industrial-iot-use-cases?mode=read)  
+  面向工业物联网系统的 AI agent
+- [不要被动反应，要主动回应：我们为何重构了 SDLC 来守住专注](https://beatai.org/ai-insights/dont-react-respond-why-we-rebuilt-our-sdlc-for-focus?mode=read)  
+  创业文化建立在多任务并行之上，可人脑不是这么造的。本文讲讲我们怎样重新设计 Ewake 的 SDLC，不惜代价守住团队的专注力。
+- [用 LLM-as-a-Judge 评估 Netflix 剧集简介](https://beatai.org/ai-insights/evaluating-netflix-show-synopses-with-llm-as-a-judge?mode=read)  
+  会员登录 Netflix 后，最难的选择之一就是看什么。难点不在于选择太少——片库里有成千上万部作品——而在于，要从中找到最吸引人的那一部，既复杂又高度因人而异。为此，我们会向会员推送个性化推广素材，其中尤其重要的是剧集简介——一段简短的描述，点出关键剧情，并给出类型、主创等线索。
+- [AI 平台之争已经打响](https://beatai.org/ai-insights/the-ai-platform-wars-have-started?mode=read)  
+  Anthropic 本周发布 Claude Managed Agents，是迄今为止表明 AI 市场进入新阶段的最明确信号。这不只是又一次模型发布，而是 Anthropic 从卖智能转向卖执行基础设施：安全沙箱、长时运行会话、编排和治理，并把这些和 Claude Code 等现有产品串到一起。
 
 ### 2026-06-03
 

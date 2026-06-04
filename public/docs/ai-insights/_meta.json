@@ -1341,7 +1341,7 @@
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@6ba0de93d8387ba8a2088e5789fd96b27cc104e3/ai-insights/2026-06/03/images/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline/01.thumb.webp"
         },
         {
-          "title": "Agentic AI 落地工业物联网：破解数据碎片化与 LLM 推理难题",
+          "title": "Agentic AI：数据碎片化与 LLM 推理的双重挑战",
           "path": "/ai-insights/agentic-ai-for-industrial-iot-use-cases",
           "file": "/docs/ai-insights/2026-06/04/agentic-ai-for-industrial-iot-use-cases.md",
           "publishedAt": "2026-06-04",
@@ -1352,11 +1352,11 @@
               "name": "Debmalya Biswas"
             }
           ],
-          "excerpt": "给工业物联网系统配上 AI Agent",
+          "excerpt": "面向工业物联网系统的 AI agent",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d862590ea9216ae63f9cd9b4163d944ec90098a3/ai-insights/2026-06/04/images/agentic-ai-for-industrial-iot-use-cases/01.thumb.webp"
         },
         {
-          "title": "别做应激反应，要做主动回应：我们为\"专注\"重造了整套研发流程",
+          "title": "不要被动反应，要主动回应：我们为何重构了 SDLC 来守住专注",
           "path": "/ai-insights/dont-react-respond-why-we-rebuilt-our-sdlc-for-focus",
           "file": "/docs/ai-insights/2026-06/04/dont-react-respond-why-we-rebuilt-our-sdlc-for-focus.md",
           "publishedAt": "2026-06-04",
@@ -1369,11 +1369,11 @@
               "name": "Cian Duffy"
             }
           ],
-          "excerpt": "创业公司文化建立在多任务之上，可人脑并不是这么造的。这是我们如何把 Ewake 的研发流程重新设计成一台死命守护专注力的机器。",
+          "excerpt": "创业文化建立在多任务并行之上，可人脑不是这么造的。本文讲讲我们怎样重新设计 Ewake 的 SDLC，不惜代价守住团队的专注力。",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d862590ea9216ae63f9cd9b4163d944ec90098a3/ai-insights/2026-06/04/images/dont-react-respond-why-we-rebuilt-our-sdlc-for-focus/01.thumb.webp"
         },
         {
-          "title": "Netflix 如何用 LLM-as-a-Judge 给剧集简介打分：和创意作者 85% 一致",
+          "title": "用 LLM-as-a-Judge 评估 Netflix 剧集简介",
           "path": "/ai-insights/evaluating-netflix-show-synopses-with-llm-as-a-judge",
           "file": "/docs/ai-insights/2026-06/04/evaluating-netflix-show-synopses-with-llm-as-a-judge.md",
           "publishedAt": "2026-06-04",
@@ -1384,11 +1384,11 @@
               "name": "Netflix Technology Blog"
             }
           ],
-          "excerpt": "打开 Netflix，最难的一步往往是决定看什么。难点不在片子少——片库里有上万个标题——而在于挑出最对胃口的那一个，这件事既复杂又因人而异。为了帮上忙，Netflix 会推送个性化的宣传素材，其中最关键的就是剧集简介（show synopsis）：一段简短描述，点出核心剧情，再带上类型、主创等信息线索。",
+          "excerpt": "会员登录 Netflix 后，最难的选择之一就是看什么。难点不在于选择太少——片库里有成千上万部作品——而在于，要从中找到最吸引人的那一部，既复杂又高度因人而异。为此，我们会向会员推送个性化推广素材，其中尤其重要的是剧集简介——一段简短的描述，点出关键剧情，并给出类型、主创等线索。",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d862590ea9216ae63f9cd9b4163d944ec90098a3/ai-insights/2026-06/04/images/evaluating-netflix-show-synopses-with-llm-as-a-judge/01.thumb.webp"
         },
         {
-          "title": "AI 平台战争已经打响：四巨头争夺企业 AI 全栈",
+          "title": "AI 平台之争已经打响",
           "path": "/ai-insights/the-ai-platform-wars-have-started",
           "file": "/docs/ai-insights/2026-06/04/the-ai-platform-wars-have-started.md",
           "publishedAt": "2026-06-04",
@@ -1399,7 +1399,7 @@
               "name": "Andreas Goeldi"
             }
           ],
-          "excerpt": "Anthropic 推出 Claude Managed Agents，标志着 AI 市场从「模型战」迈入「平台战」。真正的较量在企业 AI 全栈的控制权——而能下场的只有 OpenAI、Anthropic、Google、Microsoft 四家。",
+          "excerpt": "Anthropic 本周发布 Claude Managed Agents，是迄今为止表明 AI 市场进入新阶段的最明确信号。这不只是又一次模型发布，而是 Anthropic 从卖智能转向卖执行基础设施：安全沙箱、长时运行会话、编排和治理，并把这些和 Claude Code 等现有产品串到一起。",
           "cover": "https://cdn.jsdelivr.net/gh/beatai-org/beatai-assets@d862590ea9216ae63f9cd9b4163d944ec90098a3/ai-insights/2026-06/04/images/the-ai-platform-wars-have-started/01.thumb.webp"
         }
       ]
