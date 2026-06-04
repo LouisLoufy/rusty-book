@@ -223,14 +223,14 @@
   <section class="col" id="col-old">
     <div class="col-head">
       <span class="tag tag-old">旧译</span>
-      <span>by Codex · 2026-05-23</span>
+      <span id="byline-old">by Codex · 2026-05-23</span>
     </div>
     <article class="article" id="art-old"><div class="loading">加载中…</div></article>
   </section>
   <section class="col" id="col-new">
     <div class="col-head">
       <span class="tag tag-new">新译</span>
-      <span>by Claude · 2026-05-23</span>
+      <span id="byline-new">by Claude · 2026-05-23</span>
     </div>
     <article class="article" id="art-new"><div class="loading">加载中…</div></article>
   </section>
@@ -339,6 +339,26 @@
       origin: 'https://cyb3rops.medium.com/why-i-built-my-own-llm-benchmark-for-thor-finding-triage-c8492e3997dc',
       coldStart: true,
     },
+    {
+      id: 'building-agent-harness',
+      label: 'Building a Production Agent Harness（translate × rewrite 模式对比）',
+      old: './building-agent-harness-old.md',
+      new: './building-agent-harness-new.md',
+      origin: 'https://licaomeng.medium.com/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline-1db4e242d08a',
+      coldStart: false,
+      oldBy: '原文翻译模式 · translate',
+      newBy: '原文重写模式 · rewrite',
+    },
+    {
+      id: 'building-agent-harness-spicy',
+      label: 'Building a Production Agent Harness（原文重写 × 高保真辣评 对比）',
+      old: './building-agent-harness-new.md',
+      new: './building-agent-harness-spicy.md',
+      origin: 'https://licaomeng.medium.com/building-a-production-agent-harness-turning-claude-code-into-a-multi-agent-engineering-pipeline-1db4e242d08a',
+      coldStart: false,
+      oldBy: '原文重写模式 · rewrite',
+      newBy: '高保真辣评 · hi-fi spicy（辣评度高 / 趣味度中）',
+    },
   ];
 
   const selectEl = document.getElementById('article-select');
@@ -361,6 +381,8 @@
     selectEl.value = a.id;
     linkEl.href = a.origin;
     coldEl.textContent = a.coldStart ? '冷启动公平对比' : '';
+    document.getElementById('byline-old').textContent = a.oldBy || 'by Codex · 2026-05-23';
+    document.getElementById('byline-new').textContent = a.newBy || 'by Claude · 2026-05-23';
     document.getElementById('art-old').innerHTML = '<div class="loading">加载中…</div>';
     document.getElementById('art-new').innerHTML = '<div class="loading">加载中…</div>';
     try {
