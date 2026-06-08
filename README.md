@@ -2,6 +2,19 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-08
+
+- [如何构建持续运行一周的智能体系统](https://beatai.org/ai-insights/building-a-week-long-running-agentic-system?mode=read)  
+  持久性是一种工程特性，而非模型性能。
+- [开源模型已经够好了，别再为用不上的智能付溢价](https://beatai.org/ai-insights/open-source-models-are-good-enough-stop-overpaying-for-intelligence-you-dont-need?mode=read)  
+  而且，要做好准备，以防智能成本高到无法承受。
+- [SkillOpt 详解：从提示工程到技能训练](https://beatai.org/ai-insights/skillopt-explained-from-prompt-engineering-to-skill-training?mode=read)  
+  深入剖析 SkillOpt 的框架、实验结果和开源实现
+- [AI 原生产品的 5 个指标层级](https://beatai.org/ai-insights/the-metric-playbook-for-ai-pms-five-layers-four-practices-one-checklist?mode=read)  
+  “改进”AI产品意味着什么？
+- [这款中国新 AI 会让你思考](https://beatai.org/ai-insights/this-new-chinese-ai-will-make-you-think?mode=read)  
+  这就是中国与美国竞争的方式。
+
 ### 2026-06-04
 
 - [Agentic AI：数据碎片化与 LLM 推理的双重挑战](https://beatai.org/ai-insights/agentic-ai-for-industrial-iot-use-cases?mode=read)  
