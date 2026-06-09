@@ -2,6 +2,11 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-09
+
+- [token 陷阱：AI 依赖的隐性成本](https://beatai.org/ai-insights/the-token-trap?mode=read)  
+  AI 依赖的隐性成本
+
 ### 2026-06-08
 
 - [如何构建持续运行一周的智能体系统](https://beatai.org/ai-insights/building-a-week-long-running-agentic-system?mode=read)  
