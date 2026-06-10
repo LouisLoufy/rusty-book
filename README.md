@@ -2,6 +2,13 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-10
+
+- [Claude Code hooks 详解：提示与生产之间缺失的一层](https://beatai.org/ai-insights/claude-code-hooks-explained-the-missing-layer-between-prompts-and-production?mode=read)  
+  为什么记忆和规则还不够，以及钩子如何在正确的时间强制执行行为。
+- [人工智能定价的秘密](https://beatai.org/ai-insights/the-secret-behind-ai-pricing-most-people-ignore?mode=read)  
+  几周前，我写了一篇文章，解释了价格上涨的原因。
+
 ### 2026-06-09
 
 - [token 陷阱：AI 依赖的隐性成本](https://beatai.org/ai-insights/the-token-trap?mode=read)  
