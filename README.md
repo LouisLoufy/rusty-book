@@ -2,6 +2,15 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-11
+
+- [我们是否在构建正确的人工智能？](https://beatai.org/ai-insights/are-we-building-the-right-ai?mode=read)  
+  瓶颈不在于能力，而在于清晰度。
+- [如何使用人工智能准确提取文档中的所有信息](https://beatai.org/ai-insights/how-to-accurately-extract-everything-from-documents-using-ai?mode=read)  
+  要求人工智能模型以特定格式输出会改变一切
+- [“为什么传统用户界面永远不会消亡：GenUI 就是用非常昂贵的流水线生产的传统用户界面。”](https://beatai.org/ai-insights/traditional-ui-is-dead-long-live-traditional-ui?mode=read)  
+  最近一位有权势的人斩钉截铁地告诉我，传统用户界面（UI）正在消亡，用户体验（UX）也将随之被扫进历史的垃圾堆。人工智能（AI）将取代传统的用户体验和用户界面，最终形成所谓的“基因用户界面”（GenUI）。还没等其他人有机会提出有力的反驳，大家就都开始为传统用户界面摇旗呐喊了。老伙计，真舍不得你离开。认识你真好，我们一起度过了美好的时光。
+
 ### 2026-06-10
 
 - [Claude Code hooks 详解：提示与生产之间缺失的一层](https://beatai.org/ai-insights/claude-code-hooks-explained-the-missing-layer-between-prompts-and-production?mode=read)  
