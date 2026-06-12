@@ -2,6 +2,15 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-12
+
+- [Claude 动态工作流：通过编排扩展复杂工作](https://beatai.org/ai-insights/claude-dynamic-workflows-scaling-complex-work-through-orchestration?mode=read)  
+  深入探究 Claude 的多智能体编排框架
+- [AI 让市场推广团队更快，却也更困惑、更烧钱](https://beatai.org/ai-insights/observations-on-how-ai-makes-gtm-teams-faster-but-also-confused-and-expensive?mode=read)  
+  人工智能时代对市场推广团队而言是成败攸关的时刻——成败很大程度上取决于如何重新设计人工智能的采用、工具、预算、团队动态和运营模式。
+- [代码没错，但我们看不懂。](https://beatai.org/ai-insights/the-code-was-right-we-couldnt-read-it?mode=read)  
+  如今在工程团队——包括我自己的团队——里，常听到这样一句话。
+
 ### 2026-06-11
 
 - [我们是否在构建正确的人工智能？](https://beatai.org/ai-insights/are-we-building-the-right-ai?mode=read)  
