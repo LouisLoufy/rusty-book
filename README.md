@@ -2,6 +2,15 @@
 
 > 最近 30 天发布 · 完整列表见 <https://beatai.org/ai-insights>
 
+### 2026-06-16
+
+- [自动提示优化](https://beatai.org/ai-insights/automatic-prompt-optimization?mode=read)  
+  无需人工投入即可提升提示质量的实用技巧……
+- [Claude Code 插件完全指南](https://beatai.org/ai-insights/the-complete-guide-to-claude-code-plugins?mode=read)  
+  深入剖析 Claude Code 的插件系统，包括插件概念、安装和使用、市场、局限性以及与其他 Coding Agent 插件系统的比较。
+- [当数据出现异常时：营销人员异常检测指南](https://beatai.org/ai-insights/when-the-numbers-look-wrong-a-marketers-guide-to-anomaly-detection?mode=read)  
+  上周我发布了《营销人员机器学习实战指南》，涵盖了许多营销领域最常用的机器学习（ML）算法。一位读者指出，我只简单提及了异常检测，并强调它是营销分析中最有用（也最容易被忽视）的工具之一。我同意这一点，所以今天就来补上。
+
 ### 2026-06-12
 
 - [Claude 动态工作流：通过编排扩展复杂工作](https://beatai.org/ai-insights/claude-dynamic-workflows-scaling-complex-work-through-orchestration?mode=read)  
